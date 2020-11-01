@@ -1,0 +1,17 @@
+bookdown::gitbook:
+  css: "style/style.css"
+  config:
+    download: ["pdf", "epub"]
+    toc:
+      collapse: none
+    sharing:
+      github: yes
+      facebook: no
+      twitter: no
+bookdown::pdf_book:
+  documentclass: book
+  template: "style/template.tex"
+  latex_engine: xelatex
+  keep_tex: yes
+bookdown::epub_book: default
+
