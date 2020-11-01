@@ -39,12 +39,12 @@ intro
 outline
 human-genetics-primer
 discovery-of-dna-and-the-central-dogma
-types-of-genetic-variation
+genetic-variation-in-humans
 dna-sequencing
 first-generation-sequencing
 second-generation-sequencing
 processing-short-read-sequencing-data
-medical-genetics-primer
+introduction-to-medical-genetics
 a-novel-copy-number-variant-algorithm
 introduction
 methods

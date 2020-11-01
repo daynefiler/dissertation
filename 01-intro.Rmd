@@ -26,14 +26,31 @@ The mRNA, after post-transcriptional modifications including possible splicing (
 Amino acid polymers, also known as polypeptides or peptide chains, form the primary structure of proteins.
 Therefore, modifications to DNA have profound impacts on cellular and organismal function. 
 
-Sequencing an individual reveals millions of variants compared to the current reference genome [@auton:2015aa], often requiring filtering to identify meaning results.
-In identifying pathogenic (disease-causing) variants, 
-
-### Types of genetic variation
+### Genetic variation in humans
 
 Humans are diploid organisms, meaning we have two copies of each chromosome.
 Under normal circumstances, we receive one set of chromosomes each from our biological mother and father.
-Humans have 46 chromosomes (23 from each parent), including 21 autosomes (chromosomes 1-22) and two sex chromosomes (X and Y).
+Humans have 46 chromosomes (23 from each parent), including 21 autosomes (chromosomes 1-22) and two sex chromosomes (X and Y) [@tjio:1956aa].
+The haploid (single copy) genome spans roughly 3.1 billion basepairs, of which roughly 1.5% is predicted to code for protein [@lander:2001aa].
+Broadly, four classes of variants occur within DNA: (1) single nucleotide substitutions (single nucleotide variants, SNVs), (2) insertions and deletions (indels), (3) copy number variants, and (4) translocations and inversions.
+
+SNVs occur when one base replaces another in a specific sequence. 
+DNA codes for amino acids (the building blocks for protein) using three consecutive bases (a codon).
+The codon code includes redundancy in the third position (e.g. the sequences GAA and GAG both code for the amino acid glutamic acid).
+Consequently, synonymous and non-synonymous mutations exist. 
+Synonymous mutations occur in the third position of the codon and do not change the resulting amino acid.
+Non-synonymous mutations change the resulting protein structure, either by an amino acid substitution (missense mutations), causing a premature stop codon (nonsense mutation), eliminating a start codon (nonstart mutation), or eliminating the stop codon (nonstop mutation).
+SNVs can occur through polymerase errors during DNA replication and mutagenic substances (e.g. specifc wavelengths of light, chemical exposure).
+
+The remaining three types of mutations fall into the large category of structural variation (SV), with muddy lines between what constitutes an insertion/deletion (indel) versus copy number variant (CNV).
+Indels represent small insertions of deletions of genetic material; any indel with length not divisible by three can cause a frameshift mutation, where the genetic reading frame gets shifted and all subsequent amino acids translate incorrectly.
+Copy number variants represent larger insertions or deletions and can range from a single exon up to whole chromosomes (aneuploidy).
+Aneuploidy occurs due to mitotic segregation errors during cellular replication.
+Smaller copy number variation likely occurs through non-allelic homologous recombination (NAHR), non-homologous end-joining (NHEJ), fork stalling and template switching (FoSTeS), and retrotransposition [@gu:2008aa].
+
+We call segmental rearrangements a translocation when the segment moves from one locus to another, and an inversion when the segment gets flipped and reinserted.
+Rearrangements can cause detrimental effects when they disrupt gene sequence.
+The same processes creating CNVs discussed above can create rearrangments, and rearrangments often go hand-in-hand with copy number variation. 
 
 ## DNA Sequencing
 
@@ -155,9 +172,13 @@ Paired-end mapping methods identify sets of reads with insert sizes outside a sp
 The Lumpy algorithm [@layer:2014aa] utilizes both the read depth and paired end mapping approaches for greater detection sensitivity.
 The ERDS algorithm [@zhu:2012aa] combines read depth information with allele ratios when possible.
 
+Sequencing an individual reveals millions of variants compared to the current reference genome [@auton:2015aa], often requiring filtering to identify meaning results.
+Multiple public databases now exist cataloging known variants: dbSNP with SNVs and indels [@sherry:1999aa], dbGaP [@mailman:2007aa] with variants linked to phenotypes, ClinVar [@landrum:2014aa] with clinical variant interpretations, ensembl [@hubbard:2002aa; @yates:2020aa] which aggregates data from many sources and provides additonal analysis tools (e.g. the Variant Effect Predictor [@mclaren:2016aa]), and gnomAD [@karczewski:2019aa] with variants from >100,000 human exome sequences and >15,000 human genome sequences across diverse populations. 
+Most commonly we begin by searching the predicted variants for known pathogenic variants which explain the clinical picture.
+If the search for known pathogenic variants fails, we can proceed by throwing out common variants and predicting protein-altering variants which correlate clinically.
+Many tools exist for predicting variant outcome, e.g. the Ensembl Variant Effect Predictor [@mclaren:2016aa], PolyPhen [@adzhubei:2013aa], and JannoVar [@jager:2014aa].
 
-
-## Medical genetics primer
+## Introduction to medical genetics
 
 1902 – Mendel's theories were finally associated with a human disease by Sir Archibald Edward Garrod, who published the first findings from a study on recessive inheritance in human beings in 1902. Garrod opened the door for our understanding of genetic disorders resulting from errors in chemical pathways in the body.
 

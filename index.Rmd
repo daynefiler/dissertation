@@ -55,6 +55,10 @@ abbreviations:
   - {abv: "UMI", def: "unique molecular identifer"}
   - {abv: "SNV", def: "single nucleotide variant"}
   - {abv: "LOH", def: "loss of heterozygosity"}
+  - {abv: "SV", def: "structural variation"}
+  - {abv: "NAHR", def: "non-allelic homologous recombination"}
+  - {abv: "NHEJ", def: "non-homologous end-joining"}
+  - {abv: "FoSTeS", def: "fork stalling and template switching"}
 ---
 
 ```{r knitr-options, include = FALSE}

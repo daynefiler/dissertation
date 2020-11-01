@@ -80,14 +80,14 @@
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#outline"><i class="fa fa-check"></i><b>1.1</b> Outline</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#human-genetics-primer"><i class="fa fa-check"></i><b>1.2</b> Human genetics primer</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#discovery-of-dna-and-the-central-dogma"><i class="fa fa-check"></i><b>1.2.1</b> Discovery of DNA and the central dogma</a></li>
-<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#types-of-genetic-variation"><i class="fa fa-check"></i><b>1.2.2</b> Types of genetic variation</a></li>
+<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#genetic-variation-in-humans"><i class="fa fa-check"></i><b>1.2.2</b> Genetic variation in humans</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#dna-sequencing"><i class="fa fa-check"></i><b>1.3</b> DNA Sequencing</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#first-generation-sequencing"><i class="fa fa-check"></i><b>1.3.1</b> First-generation sequencing</a></li>
 <li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#second-generation-sequencing"><i class="fa fa-check"></i><b>1.3.2</b> Second-generation sequencing</a></li>
 <li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#processing-short-read-sequencing-data"><i class="fa fa-check"></i><b>1.3.3</b> Processing short-read sequencing data</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#medical-genetics-primer"><i class="fa fa-check"></i><b>1.4</b> Medical genetics primer</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#introduction-to-medical-genetics"><i class="fa fa-check"></i><b>1.4</b> Introduction to medical genetics</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="a-novel-copy-number-variant-algorithm.html"><a href="a-novel-copy-number-variant-algorithm.html"><i class="fa fa-check"></i><b>2</b> A novel copy number variant algorithm</a><ul>
 <li class="chapter" data-level="2.1" data-path="a-novel-copy-number-variant-algorithm.html"><a href="a-novel-copy-number-variant-algorithm.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
@@ -161,18 +161,35 @@ The mRNA, after post-transcriptional modifications including possible splicing (
 Amino acid polymers, also known as polypeptides or peptide chains, form the primary structure of proteins.
 Therefore, modifications to DNA have profound impacts on cellular and organismal function.</p>
 </div>
-<div id="types-of-genetic-variation" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Types of genetic variation</h3>
+<div id="genetic-variation-in-humans" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Genetic variation in humans</h3>
 <p>Humans are diploid organisms, meaning we have two copies of each chromosome.
 Under normal circumstances, we receive one set of chromosomes each from our biological mother and father.
-Humans have 46 chromosomes (23 from each parent), including 21 autosomes (chromosomes 1-22) and two sex chromosomes (X and Y).</p>
+Humans have 46 chromosomes (23 from each parent), including 21 autosomes (chromosomes 1-22) and two sex chromosomes (X and Y).<span class="citation"><sup><a href="references.html#ref-tjio:1956aa" role="doc-biblioref">16</a></sup></span>
+The haploid (single copy) genome spans roughly 3.1 billion basepairs, of which roughly 1.5% is predicted to code for protein.<span class="citation"><sup><a href="references.html#ref-lander:2001aa" role="doc-biblioref">17</a></sup></span>
+Broadly, four classes of variants occur within DNA: (1) single nucleotide substitutions (single nucleotide variants, SNVs), (2) insertions and deletions (indels), (3) copy number variants, and (4) translocations and inversions.</p>
+<p>SNVs occur when one base replaces another in a specific sequence.
+DNA codes for amino acids (the building blocks for protein) using three consecutive bases (a codon).
+The codon code includes redundancy in the third position (e.g. the sequences GAA and GAG both code for the amino acid glutamic acid).
+Consequently, synonymous and non-synonymous mutations exist.
+Synonymous mutations occur in the third position of the codon and do not change the resulting amino acid.
+Non-synonymous mutations change the resulting protein structure, either by an amino acid substitution (missense mutations), causing a premature stop codon (nonsense mutation), eliminating a start codon (nonstart mutation), or eliminating the stop codon (nonstop mutation).
+SNVs can occur through polymerase errors during DNA replication and mutagenic substances (e.g. specifc wavelengths of light, chemical exposure).</p>
+<p>The remaining three types of mutations fall into the large category of structural variation (SV), with muddy lines between what constitutes an insertion/deletion (indel) versus copy number variant (CNV).
+Indels represent small insertions of deletions of genetic material; any indel with length not divisible by three can cause a frameshift mutation, where the genetic reading frame gets shifted and all subsequent amino acids translate incorrectly.
+Copy number variants represent larger insertions or deletions and can range from a single exon up to whole chromosomes (aneuploidy).
+Aneuploidy occurs due to mitotic segregation errors during cellular replication.
+Smaller copy number variation likely occurs through non-allelic homologous recombination (NAHR), non-homologous end-joining (NHEJ), fork stalling and template switching (FoSTeS), and retrotransposition.<span class="citation"><sup><a href="references.html#ref-gu:2008aa" role="doc-biblioref">18</a></sup></span></p>
+<p>We call segmental rearrangements a translocation when the segment moves from one locus to another, and an inversion when the segment gets flipped and reinserted.
+Rearrangements can cause detrimental effects when they disrupt gene sequence.
+The same processes creating CNVs discussed above can create rearrangments, and rearrangments often go hand-in-hand with copy number variation.</p>
 </div>
 </div>
 <div id="dna-sequencing" class="section level2">
 <h2><span class="header-section-number">1.3</span> DNA Sequencing</h2>
 <div id="first-generation-sequencing" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> First-generation sequencing</h3>
-<p>Using lessons learned from previous RNA sequencing efforts, the first DNA sequencing techniques arose in the 1970s with Sanger’s original plus-minus approach,<span class="citation"><sup><a href="references.html#ref-sanger:1975aa" role="doc-biblioref">16</a></sup></span> the Maxam-Gilbert chemical cleavage approach,<span class="citation"><sup><a href="references.html#ref-maxam:1977aa" role="doc-biblioref">17</a></sup></span> and Sanger’s chain termination approach.<span class="citation"><sup><a href="references.html#ref-sanger:1977aa" role="doc-biblioref">18</a></sup></span></p>
+<p>Using lessons learned from previous RNA sequencing efforts, the first DNA sequencing techniques arose in the 1970s with Sanger’s original plus-minus approach,<span class="citation"><sup><a href="references.html#ref-sanger:1975aa" role="doc-biblioref">19</a></sup></span> the Maxam-Gilbert chemical cleavage approach,<span class="citation"><sup><a href="references.html#ref-maxam:1977aa" role="doc-biblioref">20</a></sup></span> and Sanger’s chain termination approach.<span class="citation"><sup><a href="references.html#ref-sanger:1977aa" role="doc-biblioref">21</a></sup></span></p>
 <p>Maxam-Gilbert sequencing works by cleaving DNA sequences at specific base pairs using specific chemical reactions.
 Before cleaving, radioactive phosphorus is incorporated into the 5 prime terminus of the DNA fragment to be sequenced.
 The fragment is then cleaved randomly in four separate reactions: at either G, G and A, C, or C and T.
@@ -185,14 +202,14 @@ Again, the four reactions are size-separated and visualized on a polyacrylamide 
 </div>
 <div id="second-generation-sequencing" class="section level3">
 <h3><span class="header-section-number">1.3.2</span> Second-generation sequencing</h3>
-<p>In the following decade Nyrèn and Lundin discovered an enzymatic method for detecting the incorporation of a new base during sequencing.<span class="citation"><sup><a href="references.html#ref-nyren:1985aa" role="doc-biblioref">19</a></sup></span>
+<p>In the following decade Nyrèn and Lundin discovered an enzymatic method for detecting the incorporation of a new base during sequencing.<span class="citation"><sup><a href="references.html#ref-nyren:1985aa" role="doc-biblioref">22</a></sup></span>
 Pyrophosphate is released when dNTPs are incorporated into a DNA polymer; Nyrèn added two enzymes to the synethesis reaction: (1) ATP sulfurylase, which converts pyrophosphate into ATP; (2) luciferase, which converts ATP molecules into light.
 After fixing the DNA template to a solid phase, sequencing is performed by watching for light reactions after adding a single base at a time.
-Pyrosequencing struggles with sequencing over homopolymers (contiguous runs of the same base), with poor performance after 4-5 identical bases.<span class="citation"><sup><a href="references.html#ref-ronaghi:1998aa" role="doc-biblioref">20</a></sup></span></p>
-<p>The next significant breakthrough came in the early 2000s when Li <em>et al.</em> developed the first photocleavable fluorescent nucleotide.<span class="citation"><sup><a href="references.html#ref-li:2003aa" role="doc-biblioref">21</a></sup></span>
+Pyrosequencing struggles with sequencing over homopolymers (contiguous runs of the same base), with poor performance after 4-5 identical bases.<span class="citation"><sup><a href="references.html#ref-ronaghi:1998aa" role="doc-biblioref">23</a></sup></span></p>
+<p>The next significant breakthrough came in the early 2000s when Li <em>et al.</em> developed the first photocleavable fluorescent nucleotide.<span class="citation"><sup><a href="references.html#ref-li:2003aa" role="doc-biblioref">24</a></sup></span>
 The novel nucleotides use a fluorescent tag to block the 3 prime hydroxyl group, which can be cleaved using a specific wavelength of light.
 This allows for SBS with a “reversible termination” of synthesis after each base incorporation.
-The reversible terminators, in conjunction with the development of glass-bound colony expansion,<span class="citation"><sup><a href="references.html#ref-fedurco:2006aa" role="doc-biblioref">22</a></sup></span> laid the groundwork for the Solexa system (acquired by Illumina) which currently dominates the sequencing field.<span class="citation"><sup><a href="references.html#ref-turcatti:2008aa" role="doc-biblioref">23</a></sup></span></p>
+The reversible terminators, in conjunction with the development of glass-bound colony expansion,<span class="citation"><sup><a href="references.html#ref-fedurco:2006aa" role="doc-biblioref">25</a></sup></span> laid the groundwork for the Solexa system (acquired by Illumina) which currently dominates the sequencing field.<span class="citation"><sup><a href="references.html#ref-turcatti:2008aa" role="doc-biblioref">26</a></sup></span></p>
 <p>Illumina sequencing works by creating clusters of identical DNA fragments bound to a glass plate (“flow cell”), then performing SBS using fluorescent reversible terminators.
 To perform Illumina sequencing, specific sequencing adapters are ligated onto short DNA fragments to: (1) bind DNA fragments to the flow cell; (2) initiate amplification; (3) optionally identify the fragment source.
 The flow cell contains a “lawn” of two short oligos bound to the glass surface; the fragments have homology to either the forward or reverse adapter.
@@ -213,8 +230,8 @@ Therefore, the nature of short-read shotgun sequencing requires robust computati
 <p>Here, I will give an overview of processing sequencing data for a species with an established reference genome.
 Processing short-read sequencing data follows the following general steps:</p>
 <ol style="list-style-type: decimal">
-<li><p>pre-processing to remove artificially added sequence (sequencing adapters, sample barcodes, etc.) and create FASTA/FASTQ<span class="citation"><sup><a href="references.html#ref-pearson:1988aa" role="doc-biblioref">24</a>,<a href="references.html#ref-cock:2010aa" role="doc-biblioref">25</a></sup></span> output;</p></li>
-<li><p>map individual reads to their original location in the reference genome and create Sequence Alignment Map (SAM/BAM)<span class="citation"><sup><a href="references.html#ref-li:2009aa" role="doc-biblioref">26</a></sup></span> output;</p></li>
+<li><p>pre-processing to remove artificially added sequence (sequencing adapters, sample barcodes, etc.) and create FASTA/FASTQ<span class="citation"><sup><a href="references.html#ref-pearson:1988aa" role="doc-biblioref">27</a>,<a href="references.html#ref-cock:2010aa" role="doc-biblioref">28</a></sup></span> output;</p></li>
+<li><p>map individual reads to their original location in the reference genome and create Sequence Alignment Map (SAM/BAM)<span class="citation"><sup><a href="references.html#ref-li:2009aa" role="doc-biblioref">29</a></sup></span> output;</p></li>
 <li><p>optional post-mapping quality control;</p></li>
 <li><p>variant identification;</p></li>
 <li><p>variant filtering and interpretation.</p></li>
@@ -227,16 +244,16 @@ By convention, reads from each sample are separated into individual FASTQ files.
 Separating reads by sample must occur prior to discarding the adapater sequence information.
 Illumina currently provides the <code>bcl2fastq</code> command line tool for performing all of the requisite tasks to produce sample-specific FASTQ files with molecular index information when applicable.</p>
 <p>The process of mapping individual reads (query sequences) to a reference sequence requires (1) finding the correct starting point in the reference sequence, and (2) accounting for substitutions, insertions, and deletions in the query sequence.
-Smith and Waterman published the first algorithm meeting both requirements, using dynamic programming on a substitution matrix<span class="citation"><sup><a href="references.html#ref-smith:1981aa" role="doc-biblioref">27</a></sup></span> based on the inital work of Needleman and Wunsch.<span class="citation"><sup><a href="references.html#ref-needleman:1970aa" role="doc-biblioref">28</a></sup></span>
+Smith and Waterman published the first algorithm meeting both requirements, using dynamic programming on a substitution matrix<span class="citation"><sup><a href="references.html#ref-smith:1981aa" role="doc-biblioref">30</a></sup></span> based on the inital work of Needleman and Wunsch.<span class="citation"><sup><a href="references.html#ref-needleman:1970aa" role="doc-biblioref">31</a></sup></span>
 The Smith-Waterman algorithm requires user-defined scores for matches, mismatches, and gaps (insertions/deletions); the algorithm will find the best possible match with the given scoring system, but requires <span class="math inline">\(O(mn)\)</span> compute time where <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> represent the length of the reference and query sequences.</p>
-<p>To reduce the complexity of the problem, Altschul <em>et al.</em> developed the basic local alignment search tool (BLAST).<span class="citation"><sup><a href="references.html#ref-altschul:1990aa" role="doc-biblioref">29</a></sup></span>
+<p>To reduce the complexity of the problem, Altschul <em>et al.</em> developed the basic local alignment search tool (BLAST).<span class="citation"><sup><a href="references.html#ref-altschul:1990aa" role="doc-biblioref">32</a></sup></span>
 BLAST works by breaking the query sequences into a hash table of all possible <span class="math inline">\(k\)</span>-mer sub-sequences and searching the reference sequence for non-gap matches above some threshold.
 For pairs of matches, BLAST extends the sequence to refine the candidate pool, and then finalizes the best candidates using the Smith-Waterman algorithm.
-Many other tools take similar hash table approaches, including hashing the reference sequence rather than the query sequence.<span class="citation"><sup><a href="references.html#ref-li:2010aa" role="doc-biblioref">30</a></sup></span></p>
-<p>Modern alignment algorithms have futher improved efficiency by exploiting the Burrows-Wheeler Transform (BWT).<span class="citation"><sup><a href="references.html#ref-li:2010aa" role="doc-biblioref">30</a>,<a href="references.html#ref-burrows:1994aa" role="doc-biblioref">31</a></sup></span>
-The BWT creates a quickly search-able compressed representation of the reference sequence (roughly 1 gigabyte for the complete human genome), which search algorithms can hold in memory for even greater search efficiency.<span class="citation"><sup><a href="references.html#ref-lam:2008aa" role="doc-biblioref">32</a></sup></span>
-The various BWT-based algorithms differ primarilly on how they handle mismatches<span class="citation"><sup><a href="references.html#ref-li:2010aa" role="doc-biblioref">30</a></sup></span>
-For DNA sequencing, the Burrows Wheeler alignment tool (BWA) developed and subsequently refined by Li and Durbin in 2009 remains the <em>de facto</em> industry standard.<span class="citation"><sup><a href="references.html#ref-li:2009aa" role="doc-biblioref">26</a>,<a href="references.html#ref-li:2010ab" role="doc-biblioref">33</a></sup></span></p>
+Many other tools take similar hash table approaches, including hashing the reference sequence rather than the query sequence.<span class="citation"><sup><a href="references.html#ref-li:2010aa" role="doc-biblioref">33</a></sup></span></p>
+<p>Modern alignment algorithms have futher improved efficiency by exploiting the Burrows-Wheeler Transform (BWT).<span class="citation"><sup><a href="references.html#ref-li:2010aa" role="doc-biblioref">33</a>,<a href="references.html#ref-burrows:1994aa" role="doc-biblioref">34</a></sup></span>
+The BWT creates a quickly search-able compressed representation of the reference sequence (roughly 1 gigabyte for the complete human genome), which search algorithms can hold in memory for even greater search efficiency.<span class="citation"><sup><a href="references.html#ref-lam:2008aa" role="doc-biblioref">35</a></sup></span>
+The various BWT-based algorithms differ primarilly on how they handle mismatches<span class="citation"><sup><a href="references.html#ref-li:2010aa" role="doc-biblioref">33</a></sup></span>
+For DNA sequencing, the Burrows Wheeler alignment tool (BWA) developed and subsequently refined by Li and Durbin in 2009 remains the <em>de facto</em> industry standard.<span class="citation"><sup><a href="references.html#ref-li:2009aa" role="doc-biblioref">29</a>,<a href="references.html#ref-li:2010ab" role="doc-biblioref">36</a></sup></span></p>
 <p>Post-alignment processing prepares the mapped reads for variant calling.
 Artificial duplicate reads can create bias in downstream variant calling, and deserve careful consideration.
 Tw types of artificial duplicates can occur with Illumina sequencing: (1) PCR duplicates, (2) technical (optical and cluster) duplicates.
@@ -248,30 +265,35 @@ With patterned flow cells, occasionally the same template can “jump” into an
 Without including unique molecular identifiers (UMIs) in the adapter sequence, we have no way of distinguishing true versus artificial duplicate reads.
 A UMI is a short (generally 6-12 basepairs) sequence of random bases; all PCR duplicates will contain the same UMI sequence.
 The exceedingly low probability of two true read duplicates having the same UMI allows properly controlling for artificial duplicates without removing true duplicates.</p>
-<p>In addition to removing duplicate reads, the GATK best practices pipeline suggests adjusting the base quality scores prior to variant calling.<span class="citation"><sup><a href="references.html#ref-mckenna:2010aa" role="doc-biblioref">34</a>,<a href="references.html#ref-depristo:2011aa" role="doc-biblioref">35</a></sup></span>
+<p>In addition to removing duplicate reads, the GATK best practices pipeline suggests adjusting the base quality scores prior to variant calling.<span class="citation"><sup><a href="references.html#ref-mckenna:2010aa" role="doc-biblioref">37</a>,<a href="references.html#ref-depristo:2011aa" role="doc-biblioref">38</a></sup></span>
 GATK provides the BaseQualityScoreRecalibration tool, which uses machine learning models to correct for known systematic errors in sequencing.</p>
 <p>With the final set of aligned reads, we move to identifying deviations (variants) from the reference sequence.
 Numerous tools exist to perform variant calling; I will discuss the general approaches to calling the different types of variants, highlighting commonly-used algorithms.</p>
 <p>Calling single base substitutions – single nucleotide variants (SNVs) – relies fundamentally on counting alleles at each locus.
-At minimum, the statistical models incorporate the quality of each base call and assumptions about sequencing error rates, e.g. the samtools mpileup/bcftools call programs.<span class="citation"><sup><a href="references.html#ref-li:2011aa" role="doc-biblioref">36</a></sup></span>
-GATK previously provided a similar tool, implementing a simple Bayesian genotype likelihood model,<span class="citation"><sup><a href="references.html#ref-mckenna:2010aa" role="doc-biblioref">34</a>,<a href="references.html#ref-depristo:2011aa" role="doc-biblioref">35</a>,<a href="references.html#ref-van-der-auwera:2013aa" role="doc-biblioref">37</a></sup></span> but has moved currently to a haplotype-based calling algorithm (HaplotypeCaller).<span class="citation"><sup><a href="references.html#ref-poplin:2018aa" role="doc-biblioref">38</a></sup></span>
+At minimum, the statistical models incorporate the quality of each base call and assumptions about sequencing error rates, e.g. the samtools mpileup/bcftools call programs.<span class="citation"><sup><a href="references.html#ref-li:2011aa" role="doc-biblioref">39</a></sup></span>
+GATK previously provided a similar tool, implementing a simple Bayesian genotype likelihood model,<span class="citation"><sup><a href="references.html#ref-mckenna:2010aa" role="doc-biblioref">37</a>,<a href="references.html#ref-depristo:2011aa" role="doc-biblioref">38</a>,<a href="references.html#ref-van-der-auwera:2013aa" role="doc-biblioref">40</a></sup></span> but has moved currently to a haplotype-based calling algorithm (HaplotypeCaller).<span class="citation"><sup><a href="references.html#ref-poplin:2018aa" role="doc-biblioref">41</a></sup></span>
 HaplotypeCaller works by (1) identifying “active” regions containing plausible variants, (2) building possible haplotypes in the active regions using de Bruijn-like graphs, (3) assigning haplotype likelihoods to reads, and (4) calculating genotype likelihoods incorporating the estimated haplotype information.
-The idea for using haplotype estimates in genotype calling originated with the freebayes algorithm.<span class="citation"><sup><a href="references.html#ref-garrison:2012aa" role="doc-biblioref">39</a></sup></span>
+The idea for using haplotype estimates in genotype calling originated with the freebayes algorithm.<span class="citation"><sup><a href="references.html#ref-garrison:2012aa" role="doc-biblioref">42</a></sup></span>
 The above tools all use very similar approaches to call small insertions and deletions (indels).
-Development continues actively in SNV/indel variant identification, and performance between algorithms predictably differs with condition.<span class="citation"><sup><a href="references.html#ref-chen:2019aa" role="doc-biblioref">40</a>,<a href="references.html#ref-xu:2018aa" role="doc-biblioref">41</a></sup></span></p>
+Development continues actively in SNV/indel variant identification, and performance between algorithms predictably differs with condition.<span class="citation"><sup><a href="references.html#ref-chen:2019aa" role="doc-biblioref">43</a>,<a href="references.html#ref-xu:2018aa" role="doc-biblioref">44</a></sup></span></p>
 <p>Calling larger structural variation from short-read sequencing poses greater difficulty.
 SNVs and indels exist within single reads; therefore, we can view and count them directly.
 We cannot directly view variation which spans lengths greater than our read (or read pair) length.
 To identify larger variation, calling algorithms attempt to identify some combination of the following tw signals: (1) relative changes in sequencing depth (read depth); (2) paired read insert size and orientation (paired end mapping).</p>
-<p>Read-depth methods, e.g. CNVnator,<span class="citation"><sup><a href="references.html#ref-abyzov:2011aa" role="doc-biblioref">42</a></sup></span> work by building statistical models utilizing the relative sequencing depth across the genome.
-The depth bias introduced by the capture step in targeted sequencing necessitates comparing to a set of control samples, e.g. ExomeDepth,<span class="citation"><sup><a href="references.html#ref-plagnol:2012aa" role="doc-biblioref">43</a></sup></span> rather than calculating the relative depth across the genome.
-Paired-end mapping methods identify sets of reads with insert sizes outside a specified range, indicating insertions or deletions, and reads with the incorrect orientation suggesting genomic rearrangements.<span class="citation"><sup><a href="references.html#ref-korbel:2007aa" role="doc-biblioref">44</a></sup></span>
-The Lumpy algorithm<span class="citation"><sup><a href="references.html#ref-layer:2014aa" role="doc-biblioref">45</a></sup></span> utilizes both the read depth and paired end mapping approaches for greater detection sensitivity.
-The ERDS algorithm<span class="citation"><sup><a href="references.html#ref-zhu:2012aa" role="doc-biblioref">46</a></sup></span> combines read depth information with allele ratios when possible.</p>
+<p>Read-depth methods, e.g. CNVnator,<span class="citation"><sup><a href="references.html#ref-abyzov:2011aa" role="doc-biblioref">45</a></sup></span> work by building statistical models utilizing the relative sequencing depth across the genome.
+The depth bias introduced by the capture step in targeted sequencing necessitates comparing to a set of control samples, e.g. ExomeDepth,<span class="citation"><sup><a href="references.html#ref-plagnol:2012aa" role="doc-biblioref">46</a></sup></span> rather than calculating the relative depth across the genome.
+Paired-end mapping methods identify sets of reads with insert sizes outside a specified range, indicating insertions or deletions, and reads with the incorrect orientation suggesting genomic rearrangements.<span class="citation"><sup><a href="references.html#ref-korbel:2007aa" role="doc-biblioref">47</a></sup></span>
+The Lumpy algorithm<span class="citation"><sup><a href="references.html#ref-layer:2014aa" role="doc-biblioref">48</a></sup></span> utilizes both the read depth and paired end mapping approaches for greater detection sensitivity.
+The ERDS algorithm<span class="citation"><sup><a href="references.html#ref-zhu:2012aa" role="doc-biblioref">49</a></sup></span> combines read depth information with allele ratios when possible.</p>
+<p>Sequencing an individual reveals millions of variants compared to the current reference genome,<span class="citation"><sup><a href="references.html#ref-auton:2015aa" role="doc-biblioref">50</a></sup></span> often requiring filtering to identify meaning results.
+Multiple public databases now exist cataloging known variants: dbSNP with SNVs and indels,<span class="citation"><sup><a href="references.html#ref-sherry:1999aa" role="doc-biblioref">51</a></sup></span> dbGaP<span class="citation"><sup><a href="references.html#ref-mailman:2007aa" role="doc-biblioref">52</a></sup></span> with variants linked to phenotypes, ClinVar<span class="citation"><sup><a href="references.html#ref-landrum:2014aa" role="doc-biblioref">53</a></sup></span> with clinical variant interpretations, ensembl<span class="citation"><sup><a href="references.html#ref-hubbard:2002aa" role="doc-biblioref">54</a>,<a href="references.html#ref-yates:2020aa" role="doc-biblioref">55</a></sup></span> which aggregates data from many sources and provides additonal analysis tools (e.g. the Variant Effect Predictor<span class="citation"><sup><a href="references.html#ref-mclaren:2016aa" role="doc-biblioref">56</a></sup></span>), and gnomAD<span class="citation"><sup><a href="references.html#ref-karczewski:2019aa" role="doc-biblioref">57</a></sup></span> with variants from &gt;100,000 human exome sequences and &gt;15,000 human genome sequences across diverse populations.
+Most commonly we begin by searching the predicted variants for known pathogenic variants which explain the clinical picture.
+If the search for known pathogenic variants fails, we can proceed by throwing out common variants and predicting protein-altering variants which correlate clinically.
+Many tools exist for predicting variant outcome, e.g. the Ensembl Variant Effect Predictor,<span class="citation"><sup><a href="references.html#ref-mclaren:2016aa" role="doc-biblioref">56</a></sup></span> PolyPhen,<span class="citation"><sup><a href="references.html#ref-adzhubei:2013aa" role="doc-biblioref">58</a></sup></span> and JannoVar.<span class="citation"><sup><a href="references.html#ref-jager:2014aa" role="doc-biblioref">59</a></sup></span></p>
 </div>
 </div>
-<div id="medical-genetics-primer" class="section level2">
-<h2><span class="header-section-number">1.4</span> Medical genetics primer</h2>
+<div id="introduction-to-medical-genetics" class="section level2">
+<h2><span class="header-section-number">1.4</span> Introduction to medical genetics</h2>
 <p>1902 – Mendel’s theories were finally associated with a human disease by Sir Archibald Edward Garrod, who published the first findings from a study on recessive inheritance in human beings in 1902. Garrod opened the door for our understanding of genetic disorders resulting from errors in chemical pathways in the body.</p>
 <p>Late 1940s – Barbara McClintock discovered the mobility of genes, ultimately challenging virtually everything that was once thought to be. Her discovery of the “jumping gene,” or the idea that genes can move on a chromosome, earned her the Nobel Prize in Physiology.</p>
 
