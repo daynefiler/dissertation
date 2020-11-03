@@ -1,0 +1,46 @@
+# Future Directions
+
+Here, I discuss ongoing work and a proposal to expand the work presented.
+
+## Fetal genotyping project
+
+I am currently working on a proof-of-concept project to perform noninvasive fetal genoptying with Neeta Vora.
+As demonstrated in Chapter (#cfES), determining maternal and fetal genoyptes requires two estimation problems: (1) we must estimate the proportion of fetal DNA in maternal circulation (fetal fraction), then (2) use the fetal fraction estimate and the observed proportion of minor allele reads (PMAR) to estimate genotypes.
+We are currently building a cohort of 100 pregnant women with singleton pregnancies (UNC IRB 18-2618).
+For each mother-newborn duo we collect two samples: (1) 35 mililiters of maternal blood between 24-28 weeks gestational age; (2) either newborn cord blood or cheek swab at the time of delivery.
+We will then perform targeted to sequencing to estimate maternal and fetal genotypes from cell-free DNA, evaluating our genotype estimates using the direct maternal and newborn samples.
+For sequencing efficiency, we will subdivide the two estimation problems (fetal fraction and genotyping) into two separate bait panels.
+
+IDT provides a panel of 9,113 baits with approximate 0.34 MB spacing throughout the genome.
+Using allele frequencies across diverse populations in the Genome Aggregation Database (gnomAD), containing sequence data from over 130,000 individuals, we expect to observe approximately 2,000 informative sites per mother-fetus duo.
+Each informative site provides an independent estimate of the fetal fraction; by the weak law of large numbers, averaging over many estimates will converge to the true value.
+Therefore, the high density of informative sites should give robust fetal fraction estimates without the depth of sequencing required for accurate genotyping.
+
+With an estimation of fetal fraction, we can estimate maternal and fetal genotypes by counting the number of minor allele reads (same as counting colored balls in the urn).
+In a small cohort of 100 patients, interrogating rare disease variants would give little (if any) indication of genotyping accuracy at heterozygous sites.
+Rather, to test genotyping accuracy, we will build sequencing libraries using the IDT Human ID panel.
+The ID panel contains 229 probes covering 76 polymorphic sites with minor allele frequencies close to 0.5 across diverse populations.
+Interrogating variants with minor allele population frequencies near one half will allow us to adequately assess genotyping accuracy without needing to observe rare disease variants.
+
+We will consider the pilot successful if we observe greater than 95% accuracy at sites with maternal heterozygosity.
+Ultimately, the ability to perform fetal genotyping will improve neonatal outcomes by empowering neonatologists and creating the onus to develop novel *in utero* therapies.
+
+## CNV validation proposal
+
+Fundamentally, we cannot evaluate CNV detection algorithms because we lack validated genome-wide information around small exon-level copy number variation.
+Based on the numerous CNVs detected across algorithms, we most likely have greater issues with specificity than sensitivity.
+Unfortunately, array-based approaches lack the precision to identify exon-level variation.
+The next step in evaluating the mcCNV algorithm would be to test predicted calls using digital PCR.
+Digital PCR uses nanofluidics to partition a sample into 20,000 individual PCR reactions, enabling highly-precise copy-number estimation
+Probes cost roughly \$120 each, with the reaction for each sample costing rougly \$20.
+
+Having familial information would allow us to exploit inheritance patterns to better understand and evaluate estimated calls.
+I would collect a cohort of mother-father-child trios, and perform deep exome sequencing.
+Using a single lane of an S4 flow cell on an Illumina NovaSeq sequencer, we could sequence 32 mother-father-child trios to >300x coverage.
+To maximize independence within the mcCNV algorithm, I would capture mothers, fathers, and children in separate multiplexed reactions.
+Cost constraints prohibit doing exome-wide digital PCR.
+I would select roughly 100 predicted variants, shared across multiple samples, and perform digital PCR on samples with and without the predicted variant.
+
+
+
+

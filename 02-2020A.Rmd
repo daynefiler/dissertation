@@ -1,4 +1,4 @@
-# A novel copy number variant algorithm
+# A novel copy number variant algorithm {#mcCNV}
 
 ## Introduction
 

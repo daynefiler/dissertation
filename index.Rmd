@@ -104,6 +104,7 @@ library(parallel)
 library(grid)
 library(kableExtra)
 library(MASS)
+library(tufte)
 ```
 
 ```{r defOutWid}
