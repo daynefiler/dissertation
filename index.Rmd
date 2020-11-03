@@ -4,6 +4,8 @@ author: "Dayne Lewis Filer"
 date: "`r format(Sys.Date(), '%Y')`"
 site: bookdown::bookdown_site
 documentclass: book
+url: 'https\://daynefiler.com/dissertation/_book/'
+github-repo: "daynefiler/dissertation"
 bibliography: [myBib.bib]
 csl: "style/american-medical-association-no-url.csl"
 link-citations: yes
@@ -59,6 +61,7 @@ abbreviations:
   - {abv: "NAHR", def: "non-allelic homologous recombination"}
   - {abv: "NHEJ", def: "non-homologous end-joining"}
   - {abv: "FoSTeS", def: "fork stalling and template switching"}
+  - {abv: "PKU", def: "phenylketonuria"}
 ---
 
 ```{r knitr-options, include = FALSE}

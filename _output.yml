@@ -3,15 +3,16 @@ bookdown::gitbook:
   config:
     download: ["pdf", "epub"]
     toc:
-      collapse: none
+      collapse: section
     sharing:
       github: yes
-      facebook: no
-      twitter: no
+      twitter: yes
+      linkedin: yes
 bookdown::pdf_book:
   documentclass: book
   template: "style/template.tex"
   latex_engine: xelatex
   keep_tex: yes
 bookdown::epub_book: default
-
+bookdown::word_document2:
+    toc: true

@@ -371,7 +371,7 @@ c3Calls <- c3[!is.na(mat) & !is.na(fet) & !is.na(cff), ][order(mat, fet, cff)]
 ```
 
 Returning to Case 3, we interrogated the fetal genotyping accuracy at all sites with cell-free genotype estimates and reliable calls from the direct fetal sample.
-Overall, we found a `\Sexpr{`r round(c3[!is.na(fet) & !is.na(cff), sum(N[fet == cff])/sum(N)*100], 2)`% accuracy (Table \@ref(tab:c3FetByCf)).
+Overall, we found a `r round(c3[!is.na(fet) & !is.na(cff), sum(N[fet == cff])/sum(N)*100], 2)`% accuracy (Table \@ref(tab:c3FetByCf)).
 Table \@ref(tab:c3Calls) provides the full set of maternal, fetal, and cell-free calls.
 
 (ref:c3FetByCfCap) Case 3 fetal versus cell-free genotype calls. 

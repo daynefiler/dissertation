@@ -64,6 +64,46 @@
 %  code highlighting macros.
 %-------------------------------------------------------------------------------
 
+  \usepackage{color}
+  \usepackage{fancyvrb}
+  \newcommand{\VerbBar}{|}
+  \newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+  % Add ',fontsize=\small' for more characters per line
+  \usepackage{framed}
+  \definecolor{shadecolor}{RGB}{248,248,248}
+  \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+  \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+  \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+  \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+  \newcommand{\BuiltInTok}[1]{#1}
+  \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+  \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+  \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+  \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+  \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+  \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+  \newcommand{\ExtensionTok}[1]{#1}
+  \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+  \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+  \newcommand{\ImportTok}[1]{#1}
+  \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+  \newcommand{\NormalTok}[1]{#1}
+  \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+  \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+  \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+  \newcommand{\RegionMarkerTok}[1]{#1}
+  \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+  \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+  \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 
 %-----Document formatting-------------------------------------------------------
 %  Setup title page, margins, header styling, etc.
@@ -280,6 +320,11 @@
   \item[UMI] unique molecular identifer
   \item[SNV] single nucleotide variant
   \item[LOH] loss of heterozygosity
+  \item[SV] structural variation
+  \item[NAHR] non-allelic homologous recombination
+  \item[NHEJ] non-homologous end-joining
+  \item[FoSTeS] fork stalling and template switching
+  \item[PKU] phenylketonuria
 \end{description}
 
 \mainmatter
@@ -290,15 +335,25 @@
 \hypertarget{outline}{%
 \section{Outline}\label{outline}}
 
-\hypertarget{human-genetics-primer}{%
-\section{Human genetics primer}\label{human-genetics-primer}}
+This chapter outlines both the historical context for human and medical genetics, with a basic overview of the topics necessary to understand the original work presented in this dissertation.
 
-\hypertarget{discovery-of-dna-and-the-central-dogma}{%
-\subsection{Discovery of DNA and the central dogma}\label{discovery-of-dna-and-the-central-dogma}}
+\protect\hyperlink{humGenPrime}{Human Genetics Primer} summarizes the discovery of DNA as the hereditary material in eukaryotic life (\ref{dnaDiscover}) and describes the types of variation observed in DNA (\ref{genVar}).
+
+\protect\hyperlink{sequencing}{DNA Sequencing} describes the development of DNA sequencing, with an overview of first generation sequencing (\ref{firstGen}), the discoveries that led to second generation sequencing (\ref{secGen}), and a more detailed discussion of the Solexa/Illumina sequencing platform (\ref{illumina}). The section concludes with a longer discussion of the considerations and challenges with analyzing second-generation sequencing data (\ref{seqData}).
+
+\protect\hyperlink{medGen}{Development of Medical Genetics} highlights some of the most important landmarks in the origination of medical genetics as both a research topic and clinical profession.
+
+Finally, \protect\hyperlink{prob}{Rationale} briefly describes the motivation for my dissertation work.
+
+\hypertarget{humGenPrime}{%
+\section{Human Genetics Primer}\label{humGenPrime}}
+
+\hypertarget{dnaDiscover}{%
+\subsection{Discovery of DNA and the central dogma}\label{dnaDiscover}}
 
 The discovery of deoxyribonucleic acid (DNA) took roughly 100 years of work, and has fundamentally changed how we view ourselves, society, and life.
 The study of genetics begins with the study of peas and the discovery of inheritance by Gregor Mendel in the middle of the 19th century.\textsuperscript{\protect\hyperlink{ref-mendel:1866aa}{1}}
-Shortly after Mendel's work, Friedrich Miescher isolated ``nuclein'' from lymphocytes noting the uniquenely high proportion of phosphorus in the form of phosphoric acid.\textsuperscript{\protect\hyperlink{ref-miescher:1871aa}{2}--\protect\hyperlink{ref-miescher:1874ab}{4}}
+Shortly after Mendel's work, Friedrich Miescher isolated ``nuclein'' from lymphocytes noting the uniquely high proportion of phosphorus in the form of phosphoric acid.\textsuperscript{\protect\hyperlink{ref-miescher:1871aa}{2}--\protect\hyperlink{ref-miescher:1874ab}{4}}
 Albrecht Kossel and Albert Neumann furthered Miescher's work by identifying the four bases and renaming ``nuclein'' deoxyribonucleic acid.\textsuperscript{\protect\hyperlink{ref-kossel:1893aa}{5}}
 Walther Flemming first described mitosis (the division of cells) showing the doubling and separation of chromosomes.\textsuperscript{\protect\hyperlink{ref-flemming:1878aa}{6}}
 Theodor Boveri and Walter Sutton independently discovered meiosis, establishing chromosomes as the vehicle for inheritance (i.e.~the ``chromosome theory of inheritance'').\textsuperscript{\protect\hyperlink{ref-boveri:1902aa}{7}--\protect\hyperlink{ref-sutton:1903aa}{9}}
@@ -316,20 +371,40 @@ The mRNA, after post-transcriptional modifications including possible splicing (
 Amino acid polymers, also known as polypeptides or peptide chains, form the primary structure of proteins.
 Therefore, modifications to DNA have profound impacts on cellular and organismal function.
 
-\hypertarget{types-of-genetic-variation}{%
-\subsection{Types of genetic variation}\label{types-of-genetic-variation}}
+\hypertarget{genVar}{%
+\subsection{Genetic variation in humans}\label{genVar}}
 
 Humans are diploid organisms, meaning we have two copies of each chromosome.
 Under normal circumstances, we receive one set of chromosomes each from our biological mother and father.
-Humans have 46 chromosomes (23 from each parent), including 21 autosomes (chromosomes 1-22) and two sex chromosomes (X and Y).
+Humans have 46 chromosomes (23 from each parent), including 21 autosomes (chromosomes 1-22) and two sex chromosomes (X and Y).\textsuperscript{\protect\hyperlink{ref-tjio:1956aa}{16}}
+The haploid (single copy) genome spans roughly 3.1 billion basepairs, of which roughly 1.5\% is predicted to code for protein.\textsuperscript{\protect\hyperlink{ref-lander:2001aa}{17}}
+Broadly, four classes of variants occur within DNA: (1) single nucleotide substitutions (single nucleotide variants, SNVs), (2) insertions and deletions (indels), (3) copy number variants, and (4) translocations and inversions.
 
-\hypertarget{dna-sequencing}{%
-\section{DNA Sequencing}\label{dna-sequencing}}
+SNVs occur when one base replaces another in a specific sequence.
+DNA codes for amino acids (the building blocks for protein) using three consecutive bases (a codon).
+The codon code includes redundancy in the third position (e.g.~the sequences GAA and GAG both code for the amino acid glutamic acid).
+Consequently, synonymous and non-synonymous mutations exist.
+Synonymous mutations occur in the third position of the codon and do not change the resulting amino acid.
+Non-synonymous mutations change the resulting protein structure, either by an amino acid substitution (missense mutations), causing a premature stop codon (nonsense mutation), eliminating a start codon (nonstart mutation), or eliminating the stop codon (nonstop mutation).
+SNVs can occur through polymerase errors during DNA replication and mutagenic substances (e.g.~specifc wavelengths of light, chemical exposure).
 
-\hypertarget{first-generation-sequencing}{%
-\subsection{First-generation sequencing}\label{first-generation-sequencing}}
+The remaining three types of mutations fall into the large category of structural variation (SV), with muddy lines between what constitutes an insertion/deletion (indel) versus copy number variant (CNV).
+Indels represent small insertions of deletions of genetic material; any indel with length not divisible by three can cause a frameshift mutation, where the genetic reading frame gets shifted and all subsequent amino acids translate incorrectly.
+Copy number variants represent larger insertions or deletions and can range from a single exon up to whole chromosomes (aneuploidy).
+Aneuploidy occurs due to mitotic segregation errors during cellular replication.
+Smaller copy number variation likely occurs through non-allelic homologous recombination (NAHR), non-homologous end-joining (NHEJ), fork stalling and template switching (FoSTeS), and retrotransposition.\textsuperscript{\protect\hyperlink{ref-gu:2008aa}{18}}
 
-Using lessons learned from previous RNA sequencing efforts, the first DNA sequencing techniques arose in the 1970s with Sanger's original plus-minus approach,\textsuperscript{\protect\hyperlink{ref-sanger:1975aa}{16}} the Maxam-Gilbert chemical cleavage approach,\textsuperscript{\protect\hyperlink{ref-maxam:1977aa}{17}} and Sanger's chain termination approach.\textsuperscript{\protect\hyperlink{ref-sanger:1977aa}{18}}
+We call segmental rearrangements a translocation when the segment moves from one locus to another, and an inversion when the segment gets flipped and reinserted.
+Rearrangements can cause detrimental effects when they disrupt gene sequence.
+The same processes creating CNVs discussed above can create rearrangments, and rearrangments often go hand-in-hand with copy number variation.
+
+\hypertarget{sequencing}{%
+\section{DNA Sequencing}\label{sequencing}}
+
+\hypertarget{firstGen}{%
+\subsection{First-generation sequencing}\label{firstGen}}
+
+Using lessons learned from previous RNA sequencing efforts, the first DNA sequencing techniques arose in the 1970s with Sanger's original plus-minus approach,\textsuperscript{\protect\hyperlink{ref-sanger:1975aa}{19}} the Maxam-Gilbert chemical cleavage approach,\textsuperscript{\protect\hyperlink{ref-maxam:1977aa}{20}} and Sanger's chain termination approach.\textsuperscript{\protect\hyperlink{ref-sanger:1977aa}{21}}
 
 Maxam-Gilbert sequencing works by cleaving DNA sequences at specific base pairs using specific chemical reactions.
 Before cleaving, radioactive phosphorus is incorporated into the 5 prime terminus of the DNA fragment to be sequenced.
@@ -342,18 +417,21 @@ Each condition contains an equimolar mix of the four deoxynucleotide triphosphat
 The PCR reaction cannot proceed after the incorporation of a ddNTP, so each of the four reactions will contain synthesized fragments that stop at the same base.
 Again, the four reactions are size-separated and visualized on a polyacrylamide gel.
 
-\hypertarget{second-generation-sequencing}{%
-\subsection{Second-generation sequencing}\label{second-generation-sequencing}}
+\hypertarget{secGen}{%
+\subsection{Second-generation sequencing}\label{secGen}}
 
-In the following decade Nyrèn and Lundin discovered an enzymatic method for detecting the incorporation of a new base during sequencing.\textsuperscript{\protect\hyperlink{ref-nyren:1985aa}{19}}
+In the following decade Nyrèn and Lundin discovered an enzymatic method for detecting the incorporation of a new base during sequencing.\textsuperscript{\protect\hyperlink{ref-nyren:1985aa}{22}}
 Pyrophosphate is released when dNTPs are incorporated into a DNA polymer; Nyrèn added two enzymes to the synethesis reaction: (1) ATP sulfurylase, which converts pyrophosphate into ATP; (2) luciferase, which converts ATP molecules into light.
 After fixing the DNA template to a solid phase, sequencing is performed by watching for light reactions after adding a single base at a time.
-Pyrosequencing struggles with sequencing over homopolymers (contiguous runs of the same base), with poor performance after 4-5 identical bases.\textsuperscript{\protect\hyperlink{ref-ronaghi:1998aa}{20}}
+Pyrosequencing struggles with sequencing over homopolymers (contiguous runs of the same base), with poor performance after 4-5 identical bases.\textsuperscript{\protect\hyperlink{ref-ronaghi:1998aa}{23}}
 
-The next significant breakthrough came in the early 2000s when Li \emph{et al.} developed the first photocleavable fluorescent nucleotide.\textsuperscript{\protect\hyperlink{ref-li:2003aa}{21}}
+The next significant breakthrough came in the early 2000s when Li \emph{et al.} developed the first photocleavable fluorescent nucleotide.\textsuperscript{\protect\hyperlink{ref-li:2003aa}{24}}
 The novel nucleotides use a fluorescent tag to block the 3 prime hydroxyl group, which can be cleaved using a specific wavelength of light.
 This allows for SBS with a ``reversible termination'' of synthesis after each base incorporation.
-The reversible terminators, in conjunction with the development of glass-bound colony expansion,\textsuperscript{\protect\hyperlink{ref-fedurco:2006aa}{22}} laid the groundwork for the Solexa system (acquired by Illumina) which currently dominates the sequencing field.\textsuperscript{\protect\hyperlink{ref-turcatti:2008aa}{23}}
+The reversible terminators, in conjunction with the development of glass-bound colony expansion,\textsuperscript{\protect\hyperlink{ref-fedurco:2006aa}{25}} laid the groundwork for the Solexa system (acquired by Illumina) which currently dominates the sequencing field.\textsuperscript{\protect\hyperlink{ref-turcatti:2008aa}{26}}
+
+\hypertarget{illumina}{%
+\subsection{Illumina sequencing}\label{illumina}}
 
 Illumina sequencing works by creating clusters of identical DNA fragments bound to a glass plate (``flow cell''), then performing SBS using fluorescent reversible terminators.
 To perform Illumina sequencing, specific sequencing adapters are ligated onto short DNA fragments to: (1) bind DNA fragments to the flow cell; (2) initiate amplification; (3) optionally identify the fragment source.
@@ -367,8 +445,8 @@ Bridge amplification is repeated until each cluster contains hundreds of the sam
 The reverse fragments are then cleaved from the flow cell, and the clusters are sequenced by detecting the incorporation of fluorescent reversible terminators.
 Each cluster is tracked as basepairs are incorporated, giving the final DNA sequence.
 
-\hypertarget{processing-short-read-sequencing-data}{%
-\subsection{Processing short-read sequencing data}\label{processing-short-read-sequencing-data}}
+\hypertarget{seqData}{%
+\subsection{Processing short-read sequencing data}\label{seqData}}
 
 With the advancements in sequencing chemistry, we now have the ability to sequence great amounts of DNA cheaply.
 However, the massively parallel sequencing modalities only sequence small fragments of DNA (typically 50 to 500 basepairs in length) often using a ``shotgun'' approach -- ``shotgun'' referring to sequencing a randomly fragmented sample rather than a known locus.
@@ -380,9 +458,9 @@ Processing short-read sequencing data follows the following general steps:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  pre-processing to remove artificially added sequence (sequencing adapters, sample barcodes, etc.) and create FASTA/FASTQ\textsuperscript{\protect\hyperlink{ref-pearson:1988aa}{24},\protect\hyperlink{ref-cock:2010aa}{25}} output;
+  pre-processing to remove artificially added sequence (sequencing adapters, sample barcodes, etc.) and create FASTA/FASTQ\textsuperscript{\protect\hyperlink{ref-pearson:1988aa}{27},\protect\hyperlink{ref-cock:2010aa}{28}} output;
 \item
-  map individual reads to their original location in the reference genome and create Sequence Alignment Map (SAM/BAM)\textsuperscript{\protect\hyperlink{ref-li:2009aa}{26}} output;
+  map individual reads to their original location in the reference genome and create Sequence Alignment Map (SAM/BAM)\textsuperscript{\protect\hyperlink{ref-li:2009aa}{29}} output;
 \item
   optional post-mapping quality control;
 \item
@@ -400,18 +478,18 @@ Separating reads by sample must occur prior to discarding the adapater sequence 
 Illumina currently provides the \texttt{bcl2fastq} command line tool for performing all of the requisite tasks to produce sample-specific FASTQ files with molecular index information when applicable.
 
 The process of mapping individual reads (query sequences) to a reference sequence requires (1) finding the correct starting point in the reference sequence, and (2) accounting for substitutions, insertions, and deletions in the query sequence.
-Smith and Waterman published the first algorithm meeting both requirements, using dynamic programming on a substitution matrix\textsuperscript{\protect\hyperlink{ref-smith:1981aa}{27}} based on the inital work of Needleman and Wunsch.\textsuperscript{\protect\hyperlink{ref-needleman:1970aa}{28}}
+Smith and Waterman published the first algorithm meeting both requirements, using dynamic programming on a substitution matrix\textsuperscript{\protect\hyperlink{ref-smith:1981aa}{30}} based on the inital work of Needleman and Wunsch.\textsuperscript{\protect\hyperlink{ref-needleman:1970aa}{31}}
 The Smith-Waterman algorithm requires user-defined scores for matches, mismatches, and gaps (insertions/deletions); the algorithm will find the best possible match with the given scoring system, but requires \(O(mn)\) compute time where \(m\) and \(n\) represent the length of the reference and query sequences.
 
-To reduce the complexity of the problem, Altschul \emph{et al.} developed the basic local alignment search tool (BLAST).\textsuperscript{\protect\hyperlink{ref-altschul:1990aa}{29}}
+To reduce the complexity of the problem, Altschul \emph{et al.} developed the basic local alignment search tool (BLAST).\textsuperscript{\protect\hyperlink{ref-altschul:1990aa}{32}}
 BLAST works by breaking the query sequences into a hash table of all possible \(k\)-mer sub-sequences and searching the reference sequence for non-gap matches above some threshold.
 For pairs of matches, BLAST extends the sequence to refine the candidate pool, and then finalizes the best candidates using the Smith-Waterman algorithm.
-Many other tools take similar hash table approaches, including hashing the reference sequence rather than the query sequence.\textsuperscript{\protect\hyperlink{ref-li:2010aa}{30}}
+Many other tools take similar hash table approaches, including hashing the reference sequence rather than the query sequence.\textsuperscript{\protect\hyperlink{ref-li:2010aa}{33}}
 
-Modern alignment algorithms have futher improved efficiency by exploiting the Burrows-Wheeler Transform (BWT).\textsuperscript{\protect\hyperlink{ref-li:2010aa}{30},\protect\hyperlink{ref-burrows:1994aa}{31}}
-The BWT creates a quickly search-able compressed representation of the reference sequence (roughly 1 gigabyte for the complete human genome), which search algorithms can hold in memory for even greater search efficiency.\textsuperscript{\protect\hyperlink{ref-lam:2008aa}{32}}
-The various BWT-based algorithms differ primarilly on how they handle mismatches\textsuperscript{\protect\hyperlink{ref-li:2010aa}{30}}
-For DNA sequencing, the Burrows Wheeler alignment tool (BWA) developed and subsequently refined by Li and Durbin in 2009 remains the \emph{de facto} industry standard.\textsuperscript{\protect\hyperlink{ref-li:2009aa}{26},\protect\hyperlink{ref-li:2010ab}{33}}
+Modern alignment algorithms have futher improved efficiency by exploiting the Burrows-Wheeler Transform (BWT).\textsuperscript{\protect\hyperlink{ref-li:2010aa}{33},\protect\hyperlink{ref-burrows:1994aa}{34}}
+The BWT creates a quickly search-able compressed representation of the reference sequence (roughly 1 gigabyte for the complete human genome), which search algorithms can hold in memory for even greater search efficiency.\textsuperscript{\protect\hyperlink{ref-lam:2008aa}{35}}
+The various BWT-based algorithms differ primarilly on how they handle mismatches\textsuperscript{\protect\hyperlink{ref-li:2010aa}{33}}
+For DNA sequencing, the Burrows Wheeler alignment tool (BWA) developed and subsequently refined by Li and Durbin in 2009 remains the \emph{de facto} industry standard.\textsuperscript{\protect\hyperlink{ref-li:2009aa}{29},\protect\hyperlink{ref-li:2010ab}{36}}
 
 Post-alignment processing prepares the mapped reads for variant calling.
 Artificial duplicate reads can create bias in downstream variant calling, and deserve careful consideration.
@@ -426,37 +504,90 @@ Without including unique molecular identifiers (UMIs) in the adapter sequence, w
 A UMI is a short (generally 6-12 basepairs) sequence of random bases; all PCR duplicates will contain the same UMI sequence.
 The exceedingly low probability of two true read duplicates having the same UMI allows properly controlling for artificial duplicates without removing true duplicates.
 
-In addition to removing duplicate reads, the GATK best practices pipeline suggests adjusting the base quality scores prior to variant calling.\textsuperscript{\protect\hyperlink{ref-mckenna:2010aa}{34},\protect\hyperlink{ref-depristo:2011aa}{35}}
+In addition to removing duplicate reads, the GATK best practices pipeline suggests adjusting the base quality scores prior to variant calling.\textsuperscript{\protect\hyperlink{ref-mckenna:2010aa}{37},\protect\hyperlink{ref-depristo:2011aa}{38}}
 GATK provides the BaseQualityScoreRecalibration tool, which uses machine learning models to correct for known systematic errors in sequencing.
 
 With the final set of aligned reads, we move to identifying deviations (variants) from the reference sequence.
 Numerous tools exist to perform variant calling; I will discuss the general approaches to calling the different types of variants, highlighting commonly-used algorithms.
 
 Calling single base substitutions -- single nucleotide variants (SNVs) -- relies fundamentally on counting alleles at each locus.
-At minimum, the statistical models incorporate the quality of each base call and assumptions about sequencing error rates, e.g.~the samtools mpileup/bcftools call programs.\textsuperscript{\protect\hyperlink{ref-li:2011aa}{36}}
-GATK previously provided a similar tool, implementing a simple Bayesian genotype likelihood model,\textsuperscript{\protect\hyperlink{ref-mckenna:2010aa}{34},\protect\hyperlink{ref-depristo:2011aa}{35},\protect\hyperlink{ref-van-der-auwera:2013aa}{37}} but has moved currently to a haplotype-based calling algorithm (HaplotypeCaller).\textsuperscript{\protect\hyperlink{ref-poplin:2018aa}{38}}
+At minimum, the statistical models incorporate the quality of each base call and assumptions about sequencing error rates, e.g.~the samtools mpileup/bcftools call programs.\textsuperscript{\protect\hyperlink{ref-li:2011aa}{39}}
+GATK previously provided a similar tool, implementing a simple Bayesian genotype likelihood model,\textsuperscript{\protect\hyperlink{ref-mckenna:2010aa}{37},\protect\hyperlink{ref-depristo:2011aa}{38},\protect\hyperlink{ref-van-der-auwera:2013aa}{40}} but has moved currently to a haplotype-based calling algorithm (HaplotypeCaller).\textsuperscript{\protect\hyperlink{ref-poplin:2018aa}{41}}
 HaplotypeCaller works by (1) identifying ``active'' regions containing plausible variants, (2) building possible haplotypes in the active regions using de Bruijn-like graphs, (3) assigning haplotype likelihoods to reads, and (4) calculating genotype likelihoods incorporating the estimated haplotype information.
-The idea for using haplotype estimates in genotype calling originated with the freebayes algorithm.\textsuperscript{\protect\hyperlink{ref-garrison:2012aa}{39}}
+The idea for using haplotype estimates in genotype calling originated with the freebayes algorithm.\textsuperscript{\protect\hyperlink{ref-garrison:2012aa}{42}}
 The above tools all use very similar approaches to call small insertions and deletions (indels).
-Development continues actively in SNV/indel variant identification, and performance between algorithms predictably differs with condition.\textsuperscript{\protect\hyperlink{ref-chen:2019aa}{40},\protect\hyperlink{ref-xu:2018aa}{41}}
+Development continues actively in SNV/indel variant identification, and performance between algorithms predictably differs with condition.\textsuperscript{\protect\hyperlink{ref-chen:2019aa}{43},\protect\hyperlink{ref-xu:2018aa}{44}}
 
 Calling larger structural variation from short-read sequencing poses greater difficulty.
 SNVs and indels exist within single reads; therefore, we can view and count them directly.
 We cannot directly view variation which spans lengths greater than our read (or read pair) length.
 To identify larger variation, calling algorithms attempt to identify some combination of the following tw signals: (1) relative changes in sequencing depth (read depth); (2) paired read insert size and orientation (paired end mapping).
 
-Read-depth methods, e.g.~CNVnator,\textsuperscript{\protect\hyperlink{ref-abyzov:2011aa}{42}} work by building statistical models utilizing the relative sequencing depth across the genome.
-The depth bias introduced by the capture step in targeted sequencing necessitates comparing to a set of control samples, e.g.~ExomeDepth,\textsuperscript{\protect\hyperlink{ref-plagnol:2012aa}{43}} rather than calculating the relative depth across the genome.
-Paired-end mapping methods identify sets of reads with insert sizes outside a specified range, indicating insertions or deletions, and reads with the incorrect orientation suggesting genomic rearrangements.\textsuperscript{\protect\hyperlink{ref-korbel:2007aa}{44}}
-The Lumpy algorithm\textsuperscript{\protect\hyperlink{ref-layer:2014aa}{45}} utilizes both the read depth and paired end mapping approaches for greater detection sensitivity.
-The ERDS algorithm\textsuperscript{\protect\hyperlink{ref-zhu:2012aa}{46}} combines read depth information with allele ratios when possible.
+Read-depth methods, e.g.~CNVnator,\textsuperscript{\protect\hyperlink{ref-abyzov:2011aa}{45}} work by building statistical models utilizing the relative sequencing depth across the genome.
+The depth bias introduced by the capture step in targeted sequencing necessitates comparing to a set of control samples, e.g.~ExomeDepth,\textsuperscript{\protect\hyperlink{ref-plagnol:2012aa}{46}} rather than calculating the relative depth across the genome.
+Paired-end mapping methods identify sets of reads with insert sizes outside a specified range, indicating insertions or deletions, and reads with the incorrect orientation suggesting genomic rearrangements.\textsuperscript{\protect\hyperlink{ref-korbel:2007aa}{47}}
+The Lumpy algorithm\textsuperscript{\protect\hyperlink{ref-layer:2014aa}{48}} utilizes both the read depth and paired end mapping approaches for greater detection sensitivity.
+The ERDS algorithm\textsuperscript{\protect\hyperlink{ref-zhu:2012aa}{49}} combines read depth information with allele ratios when possible.
 
-\hypertarget{medical-genetics-primer}{%
-\section{Medical genetics primer}\label{medical-genetics-primer}}
+Sequencing an individual reveals millions of variants compared to the current reference genome,\textsuperscript{\protect\hyperlink{ref-auton:2015aa}{50}} often requiring filtering to identify meaning results.
+Multiple public databases now exist cataloging known variants: dbSNP with SNVs and indels,\textsuperscript{\protect\hyperlink{ref-sherry:1999aa}{51}} dbGaP\textsuperscript{\protect\hyperlink{ref-mailman:2007aa}{52}} with variants linked to phenotypes, ClinVar\textsuperscript{\protect\hyperlink{ref-landrum:2014aa}{53}} with clinical variant interpretations, ensembl\textsuperscript{\protect\hyperlink{ref-hubbard:2002aa}{54},\protect\hyperlink{ref-yates:2020aa}{55}} which aggregates data from many sources and provides additonal analysis tools (e.g.~the Variant Effect Predictor\textsuperscript{\protect\hyperlink{ref-mclaren:2016aa}{56}}), and gnomAD\textsuperscript{\protect\hyperlink{ref-karczewski:2019aa}{57}} with variants from \textgreater100,000 human exome sequences and \textgreater15,000 human genome sequences across diverse populations.
+Most commonly we begin by searching the predicted variants for known pathogenic variants which explain the clinical picture.
+If the search for known pathogenic variants fails, we can proceed by throwing out common variants and predicting protein-altering variants which correlate clinically.
+Many tools exist for predicting variant outcome, e.g.~the Ensembl Variant Effect Predictor,\textsuperscript{\protect\hyperlink{ref-mclaren:2016aa}{56}} PolyPhen,\textsuperscript{\protect\hyperlink{ref-adzhubei:2013aa}{58}} and JannoVar.\textsuperscript{\protect\hyperlink{ref-jager:2014aa}{59}}
 
-1902 -- Mendel's theories were finally associated with a human disease by Sir Archibald Edward Garrod, who published the first findings from a study on recessive inheritance in human beings in 1902. Garrod opened the door for our understanding of genetic disorders resulting from errors in chemical pathways in the body.
+\hypertarget{medGen}{%
+\section{Development of Medical Genetics}\label{medGen}}
 
-Late 1940s -- Barbara McClintock discovered the mobility of genes, ultimately challenging virtually everything that was once thought to be. Her discovery of the ``jumping gene,'' or the idea that genes can move on a chromosome, earned her the Nobel Prize in Physiology.
+The field of medical genetics arguably began in the first years of the 20th century with Archibald Garrod.
+In a collaborative effort with William Bateson, the person most responsible for the resurgence of Mendel's work,\textsuperscript{\protect\hyperlink{ref-harper:2008aa}{60}} Garrod first identified a disease (alkaptonuria) following a Mendelian inheritance pattern.\textsuperscript{\protect\hyperlink{ref-garrod:1902aa}{61}}
+Garrod, one of the initial pioneers in the biochemistry, went on to characterize the ``inborn errors of metabolism'' as enzymatic deficiencies in a book bearing the same name\textsuperscript{\protect\hyperlink{ref-garrod:1923aa}{62}} and correctly hypothesized our ``individual chemistries'' derived from ``chromosomes from which we sprang'' in 1931.\textsuperscript{\protect\hyperlink{ref-garrod:1931aa}{63}}
+
+The first half of the 20th century consisted of largely of identifying and describing genetic diseases in humans, with nearly all of the molecular and basic science taking place in fruit flies, mice, and corn.\textsuperscript{\protect\hyperlink{ref-harper:2008aa}{60},\protect\hyperlink{ref-rimoin:2004aa}{64}}
+During this time, Bateson hotly debated Francis Galton (the originator of eugenics) and Karl Pearson on ``Mendelism'' versus ``biometrics.''\textsuperscript{\protect\hyperlink{ref-harper:2008aa}{60}}
+In 1918, R.A. Fisher proved Mendelian inheritance could produce the spectrum of variation described by the biometrics proponents in the landmark paper ``The Correlation between Relatives on the Supposition of Mendelian Inheritance.''\textsuperscript{\protect\hyperlink{ref-fisher:1919aa}{65}}
+Rightly overshadowed by the horrific legacy of eugenics, the \emph{Treasury of Human Inheritance} published in multiple volumes between 1923 and 1958 by Pearson and the Galton Laboratory for National Eugenics described dozens of genetic disorders.
+Of note, the physician-mathematician Julia Bell contributed more monographs to the volumes than any other individual.
+
+Progress in medical genetics accelerated quickly in the second half of the century, with the development of cytogenetics and molecular biology/genetics.
+Flemming first visualized chromomes in 1878,\textsuperscript{\protect\hyperlink{ref-flemming:1878aa}{6}} but we did not know the correct chromosome number in humans until 1956.\textsuperscript{\protect\hyperlink{ref-tjio:1956aa}{16}}
+Advances in cell culture and the use of colchicine,\textsuperscript{\protect\hyperlink{ref-levan:1938aa}{66}} allowed the first accurate pictures of human chromosomes, leading to the identification of numerous aneuploidy syndomes.
+Then, in 1970 Caspersson \emph{et al.} developed a fluorescent technique for banding chromosomes,\textsuperscript{\protect\hyperlink{ref-caspersson:1970aa}{67}} with the invention of G-banding for chromosomes developed shortly after by Marina Seabright.\textsuperscript{\protect\hyperlink{ref-seabright:1971aa}{68}}
+The ease of G-banding brought it into clinical use and greatly expanded the utility of cytogenetics both in gene mapping and diagnostics.
+In 1990, Fan \emph{et al.} further expanded the utility of cytogenetics with the invention of fluorescent in situ hybridization (FISH).\textsuperscript{\protect\hyperlink{ref-fan:1990aa}{69}}
+
+In parallel to advancements in cytogenetics, the evolution of molecular biology led to the identification of specific genes and proteins.
+Major advancements included the isolation of restriction enzymes,\textsuperscript{\protect\hyperlink{ref-danna:1971aa}{70}} DNA hybridization and the Southern blot,\textsuperscript{\protect\hyperlink{ref-southern:1975aa}{71}} first human gene cloned,\textsuperscript{\protect\hyperlink{ref-shine:1977aa}{72}} and the development of using restriction fragment length polymorphisms to map genes,\textsuperscript{\protect\hyperlink{ref-botstein:1980aa}{73}} and the invention of the polymerase chain reaction (PCR) for amplifying DNA without using complicated bacterial cultures.\textsuperscript{\protect\hyperlink{ref-mullis:1986aa}{74}}
+The molecular genetics field culminated with the completion of the human genome project in 2001, using combinations of first and second generation DNA sequencing (discussed in \ref{sequencing}).
+
+Medical genetics, clinically, has most impacted pediatrics with the implementation of screening for metabolic conditions and obstetrics with prenatal genetic testing.
+
+Metabolic screening programs started in 1963 with phenylketonuria (PKU).\textsuperscript{\protect\hyperlink{ref-guthrie:1963aa}{75}}
+Fölling discovered PKU in 1934 and later confirmed its autosomal recessive inheritance in 1945.\textsuperscript{\protect\hyperlink{ref-harper:2008aa}{60}}
+In 1953 Jervis identified the specific enzymatic deficiency,\textsuperscript{\protect\hyperlink{ref-jervis:1953aa}{76}} and later that year Bickel \emph{et al.} demonstrated the effectiveness of a phenylalanine-restricted diet in treating PKU.\textsuperscript{\protect\hyperlink{ref-bickel:1953aa}{77}}
+The model in PKU was extended to other inborn errors of metabolism and now all children in the US get screened for a panel of treatable metabolic conditions at birth.
+
+Prenatal genetics took began in 1956 when Fuchs demonstrated fetal sex identification from amniocentesis.\textsuperscript{\protect\hyperlink{ref-fuchs:1956aa}{78}}
+A decade later Steele \emph{et al.} began culturing amniocytes dervied from amniocentesis, opening up the door for wide ranging prenatal genetic testing \textbackslash cite{[}steele:1966aa{]}.
+We now have the ability, either by amniocentesis or chorionic villus sampling (possible earlier in pregnancy) to perform the full gamut of available genetic testing early in pregnancy.
+In addition to direct fetal sampling, researchers have identified circulating fetal lymphocytes,\textsuperscript{\protect\hyperlink{ref-walknowska:1969aa}{79}} trophoblasts,\textsuperscript{\protect\hyperlink{ref-mueller:1990aa}{80}} and fetal nucleated red blood cells\textsuperscript{\protect\hyperlink{ref-bianchi:1990aa}{81}} in the circulation of pregnant mothers.
+In 1997 Dennis Lo \emph{et al.} identified cell-free DNA (cfDNA) in maternal circulation,\textsuperscript{\protect\hyperlink{ref-lo:1997aa}{82}} which to-date has proven more diagnostically exploitable.
+We now have the ability to detect many genetic disorders from cell-free fetal DNA.\textsuperscript{\protect\hyperlink{ref-scotchman:2020aa}{83}}
+
+\hypertarget{prob}{%
+\section{Rationale}\label{prob}}
+
+The work presented here addresses two issues at the forefront of medical genetics: (1) we still have very limited information on the prevalence and clinical significance of small exon-level copy number variants; (2) no one has adequately performed fetal genotyping solely from maternal cell-free DNA.
+
+Due to both cost and the overbearing number of variants with unknown significance obtained with genome sequencing, most clinical sequencing efforts focus on targeted sequencing (either whole-exome or specific gene panels).
+Targeted sequencing introduces large exon-to-exon read depth variability, making CNV detection from targeted sequencing difficult.
+The majority of read-depth variability comes from the differential efficiency of the oligonucleotide baits used to capture specific genes or regions.
+I show multiplexing the capture step in targeted sequencing greatly reduces sample-to-sample read depth variance, increasing power to detect copy number variation.
+Additionally, I present a novel statistical framework and R package for estimating copy number from multiplexed capture data.
+
+Despite great advances in non-invasive prenatal testing, noninvasive fetal genotyping without additional parental sequencing remains elusive.
+Others have suggested the possibility of noninvasive exome sequencing.
+I describe the statistical limitations around noninvasive fetal genotyping and demonstrate why noninvasive exome sequencing does not make sense clinically.
+I also present a novel algorithm implementing an empirical Bayesian approach to estimating the fetal fraction and maternal-fetal genotypes.
 
 \hypertarget{a-novel-copy-number-variant-algorithm}{%
 \chapter{A novel copy number variant algorithm}\label{a-novel-copy-number-variant-algorithm}}
@@ -470,23 +601,23 @@ Technologies, e.g.~microarray, exist for reliably detecting large (greater than 
 Over the last decade, the availability short-read DNA sequencing compelled numerous efforts to identify and characterize smaller variants.
 Sequencing cost, data burden, and the problem of classifying intronic and non-coding variants have led to exome sequencing (ES) as the preferred clinical sequencing modality.
 ES analysis most often focuses on identifying pathogenic single-nucleotide variants and insertion/deletions.
-CNV analysis has demonstrated limited improvement in diagnostic yield,\textsuperscript{\protect\hyperlink{ref-marchuk:2018aa}{47}} but existing data/analysis lacks power to detect exon-level variation.\textsuperscript{\protect\hyperlink{ref-retterer:2015aa}{48},\protect\hyperlink{ref-yao:2017aa}{49}}
+CNV analysis has demonstrated limited improvement in diagnostic yield,\textsuperscript{\protect\hyperlink{ref-marchuk:2018aa}{84}} but existing data/analysis lacks power to detect exon-level variation.\textsuperscript{\protect\hyperlink{ref-retterer:2015aa}{85},\protect\hyperlink{ref-yao:2017aa}{86}}
 
-Current analytic methodologies adequately detect large CNVs, but require large amounts of data and lack resolution for intragenic exon-level variation.\textsuperscript{\protect\hyperlink{ref-plagnol:2012aa}{43},\protect\hyperlink{ref-fromer:2012aa}{50}--\protect\hyperlink{ref-krumm:2012aa}{52}}
+Current analytic methodologies adequately detect large CNVs, but require large amounts of data and lack resolution for intragenic exon-level variation.\textsuperscript{\protect\hyperlink{ref-plagnol:2012aa}{46},\protect\hyperlink{ref-fromer:2012aa}{87}--\protect\hyperlink{ref-krumm:2012aa}{89}}
 The prevalence and clinical importance of exon-level CNVs remains largely unknown due to inadequate power in ES studies and limited access to clinical genome sequencing data.
-Recent work on a subset of 1507 genes suggests intragenic CNVs account for 1.9\% of total variants, but 9.8\% of pathogenic variants.\textsuperscript{\protect\hyperlink{ref-truty:2019aa}{53}}
-Additionally, the authors demonstrated 627/2844 (22\%) of identified CNVs spanned a single (598) or partial (29) exon.\textsuperscript{\protect\hyperlink{ref-truty:2019aa}{53}}
+Recent work on a subset of 1507 genes suggests intragenic CNVs account for 1.9\% of total variants, but 9.8\% of pathogenic variants.\textsuperscript{\protect\hyperlink{ref-truty:2019aa}{90}}
+Additionally, the authors demonstrated 627/2844 (22\%) of identified CNVs spanned a single (598) or partial (29) exon.\textsuperscript{\protect\hyperlink{ref-truty:2019aa}{90}}
 
 Targeted sequencing requires capturing the desired loci (e.g.~exons) using sequence-specific oligonucleotide baits.
 The differential efficiency of baits, even when carefully designed and balanced, leads to variable read-depth across the exome.
-The GC content and length of targeted fragments both contribute to the observed variable read-depth;\textsuperscript{\protect\hyperlink{ref-benjamini:2012aa}{54}} most ES analysis platforms incorporate correction for GC content and exon length.\textsuperscript{\protect\hyperlink{ref-kadalayil:2015aa}{55}}
-The variable read-depth in ES precludes the single-sample window-smoothing approaches successfully applied in GS data,\textsuperscript{\protect\hyperlink{ref-chiang:2009aa}{56}} therefore we must rely on comparative analysis for interrogating copy number.
+The GC content and length of targeted fragments both contribute to the observed variable read-depth;\textsuperscript{\protect\hyperlink{ref-benjamini:2012aa}{91}} most ES analysis platforms incorporate correction for GC content and exon length.\textsuperscript{\protect\hyperlink{ref-kadalayil:2015aa}{92}}
+The variable read-depth in ES precludes the single-sample window-smoothing approaches successfully applied in GS data,\textsuperscript{\protect\hyperlink{ref-chiang:2009aa}{93}} therefore we must rely on comparative analysis for interrogating copy number.
 
 Comparing multiple samples, each captured independently, compounds the variable read-depth problem.
-The capture probability for each exon correlates between samples but with high variability.\textsuperscript{\protect\hyperlink{ref-plagnol:2012aa}{43}}
+The capture probability for each exon correlates between samples but with high variability.\textsuperscript{\protect\hyperlink{ref-plagnol:2012aa}{46}}
 In other words, we can gain information from similarly captured samples, but independent captures introduce significant noise.
-ExomeDepth attempts to circumvent the capture-to-capture variation by identifying a subset of samples from a large pool with low inter-sample variability.\textsuperscript{\protect\hyperlink{ref-plagnol:2012aa}{43}}
-Alternatively, CoNIFER,\textsuperscript{\protect\hyperlink{ref-krumm:2012aa}{52}} XHMM,\textsuperscript{\protect\hyperlink{ref-fromer:2012aa}{50}} and CODEX\textsuperscript{\protect\hyperlink{ref-jiang:2015aa}{51}} use a latent factor model with spectral value decomposition to remove systematic noise, presumably introduced by capture-to-capture variation.
+ExomeDepth attempts to circumvent the capture-to-capture variation by identifying a subset of samples from a large pool with low inter-sample variability.\textsuperscript{\protect\hyperlink{ref-plagnol:2012aa}{46}}
+Alternatively, CoNIFER,\textsuperscript{\protect\hyperlink{ref-krumm:2012aa}{89}} XHMM,\textsuperscript{\protect\hyperlink{ref-fromer:2012aa}{87}} and CODEX\textsuperscript{\protect\hyperlink{ref-jiang:2015aa}{88}} use a latent factor model with spectral value decomposition to remove systematic noise, presumably introduced by capture-to-capture variation.
 These methods generally require very large sample sizes, and often still lack power for exon-level resolution (e.g.~CODEX defines a ``short'' CNV as spanning 5 contiguous exons).
 
 Here, we explore how multiplexing the capture across samples reduces inter-sample variance, increasing the power to detect CNVs.
@@ -498,27 +629,27 @@ We also introduce our own algorithm, mcCNV (``multiplexed capture CNV''), specif
 \hypertarget{exome-sequencing}{%
 \subsection{Exome sequencing}\label{exome-sequencing}}
 
-We performed sequencing on human samples of purified DNA obtained from the Wilhelmsen laboratory collection, the NCGENES cohort,\textsuperscript{\protect\hyperlink{ref-foreman:2013aa}{57}} and the Coriell Institute in compliance with the UNC Institutional Review Board.
-We also utilized existing read-level data from the NCGENES\textsuperscript{\protect\hyperlink{ref-foreman:2013aa}{57}} project.
+We performed sequencing on human samples of purified DNA obtained from the Wilhelmsen laboratory collection, the NCGENES cohort,\textsuperscript{\protect\hyperlink{ref-foreman:2013aa}{94}} and the Coriell Institute in compliance with the UNC Institutional Review Board.
+We also utilized existing read-level data from the NCGENES\textsuperscript{\protect\hyperlink{ref-foreman:2013aa}{94}} project.
 We compared the performance of two capture platforms: (1) Agilent SureSelect XT2 (multiplexed capture)/Agilent SureSelect XT (independent capture); (2) Integrated DNA Technologies (IDT) xGen Lockdown Probes.
 We utilized Human All Exome v4 baits (Agilent) and Exome Research Panel v1 baits (IDT).
 All captures performed according to manufacturer protocol, with the following exceptions: (1) we multiplexed 16 samples versus the recommended 8 for the XT2 protocol for some pools; (2) for Pool2, we performed the fragmentation step 5 times, to test whether a more uniform fragment length distribution would improve capture.
 
 All sequencing performed with Illumina paired-end chemistry.
-We aligned paired reads to hg19v0 (GATK resource bundle) using BWA-MEM\textsuperscript{\protect\hyperlink{ref-li:2013ab}{58}} and removed duplicate reads using Picard tools.
+We aligned paired reads to hg19v0 (GATK resource bundle) using BWA-MEM\textsuperscript{\protect\hyperlink{ref-li:2013ab}{95}} and removed duplicate reads using Picard tools.
 We then used our novel R package, mcCNV, to count the number of overlapping molecules (read-pairs) per exon.
 For inclusion, we required properly-paired molecules with unambiguous mapping for one read and mapping quality greater than or equal to 20 for both reads.
-Full Snakemake\textsuperscript{\protect\hyperlink{ref-koster:2012aa}{59}} pipeline provided in supplemental materials.
+Full Snakemake\textsuperscript{\protect\hyperlink{ref-koster:2012aa}{96}} pipeline provided in supplemental materials.
 Table \ref{tab:poolSummary} provides an overview of the exome sequencing included.
 
 \hypertarget{genome-sequencing}{%
 \subsection{Genome sequencing}\label{genome-sequencing}}
 
 For the 16 samples in the ``WGS'' pool, we performed genome sequencing to an average 50x coverage.
-We followed Trost et al.~recommendations for making read-depth based CNV calls.\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{60}}
+We followed Trost et al.~recommendations for making read-depth based CNV calls.\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}}
 Briefly, we mapped paired-reads identical to our targeted sequencing data.
-We then interrogated the read depth interquartile range using samtools depth,\textsuperscript{\protect\hyperlink{ref-li:2009aa}{26}} recalibrated base-quality scores and called sequence variants using GATK,\textsuperscript{\protect\hyperlink{ref-van-der-auwera:2013aa}{37}} and called copy number variants using the ERDS\textsuperscript{\protect\hyperlink{ref-zhu:2012aa}{46}} and cnvpytor (updated implementation of CNVnator)\textsuperscript{\protect\hyperlink{ref-abyzov:2011aa}{42}} algorithms.
-Full Snakemake\textsuperscript{\protect\hyperlink{ref-koster:2012aa}{59}} pipeline provided in supplemental materials.
+We then interrogated the read depth interquartile range using samtools depth,\textsuperscript{\protect\hyperlink{ref-li:2009aa}{29}} recalibrated base-quality scores and called sequence variants using GATK,\textsuperscript{\protect\hyperlink{ref-van-der-auwera:2013aa}{40}} and called copy number variants using the ERDS\textsuperscript{\protect\hyperlink{ref-zhu:2012aa}{49}} and cnvpytor (updated implementation of CNVnator)\textsuperscript{\protect\hyperlink{ref-abyzov:2011aa}{45}} algorithms.
+Full Snakemake\textsuperscript{\protect\hyperlink{ref-koster:2012aa}{96}} pipeline provided in supplemental materials.
 
 \hypertarget{simulating-targeted-sequencing}{%
 \subsection{Simulating targeted sequencing}\label{simulating-targeted-sequencing}}
@@ -542,7 +673,7 @@ We provide functionality within the mcCNV R package for producing reproducible s
 \hypertarget{mccnv-algorithm}{%
 \subsection{mcCNV algorithm}\label{mccnv-algorithm}}
 
-The mcCNV algorithm was adapted from the sSEQ method for quantifying differential expression in RNA-seq experiments with small sample sizes.\textsuperscript{\protect\hyperlink{ref-yu:2013aa}{61}}
+The mcCNV algorithm was adapted from the sSEQ method for quantifying differential expression in RNA-seq experiments with small sample sizes.\textsuperscript{\protect\hyperlink{ref-yu:2013aa}{98}}
 Yu et al.~provide detailed theoretical background of the negative binomial model and using shrinkage to improve dispersion estimates.
 The mcCNV algorithm adjusts the sSEQ probability model by adding a multiplier for the copy state:
 \[
@@ -602,7 +733,7 @@ Initialize by setting \(\hat{s}_{ij} = 1\) for all \(i,j\). Then,
 \item
   After convergence, calculate p-values for the diploid state, \(\pi_{ij} = \text{Pr}(s_{ij} = 1)\).
 \item
-  Adjust p-values using the Benjamini--Hochberg procedure\textsuperscript{\protect\hyperlink{ref-benjamini:1995aa}{62}} and filter to a final call-set such that adjusted p-values fall below some threshold, \(\alpha\).
+  Adjust p-values using the Benjamini--Hochberg procedure\textsuperscript{\protect\hyperlink{ref-benjamini:1995aa}{99}} and filter to a final call-set such that adjusted p-values fall below some threshold, \(\alpha\).
 \end{enumerate}
 
 \hypertarget{results}{%
@@ -651,7 +782,7 @@ WGS & Agilent & 16 & 196 & 46,406,224 & 36,496,097 & 65,200,410 & 16.4\\
 Using multiplexed capture, we sequenced 3 16-sample pools and 2 8-sample pools with Agilent baits and 2 16-sample pools with IDT baits (Table \ref{tab:poolSummary}).
 To compare to individually-captured Agilent data, we randomly-selected 5 16-sample pools from the NCGENES cohort.
 For numeric stability, we subset to exons with at least 5 and no greater than 2000 counts across all samples within a pool.
-We then used a Newton-Raphson algorithm\textsuperscript{\protect\hyperlink{ref-minka:2000aa}{63}} to fit the dirichlet distribution to each pool; all pools converged to stable estimates.
+We then used a Newton-Raphson algorithm\textsuperscript{\protect\hyperlink{ref-minka:2000aa}{100}} to fit the dirichlet distribution to each pool; all pools converged to stable estimates.
 We found, with one exception, multiplexed capture pools had greater \(\alpha_0\) of their independently-captured counterparts (Figure \ref{fig:alpha0}).
 
 
@@ -791,7 +922,7 @@ For the first iteration of ExomeDepth, we used the default values for transition
 For the second iteration, we used the true simulated variant prior for the transition probability (\(1/1,000\)) and an expected variant length of 1 kb.
 As expected, the sensitivity increased and false discovery rate decreased as the sequencing depth increased (Figures \ref{fig:simRes}).
 In both comparisons, mcCNV demonstrated a superior false-discovery rate.
-When interrogating Matthew's correlation coefficient\textsuperscript{\protect\hyperlink{ref-matthews:1975aa}{64}} and the sensitivity, we found mcCNV had marginal performance over ExomeDepth with default parameters and marginal performance under ExomeDepth with simulation-matched parameters. Table \ref{tab:simResTbl} provides the actual values.
+When interrogating Matthew's correlation coefficient\textsuperscript{\protect\hyperlink{ref-matthews:1975aa}{101}} and the sensitivity, we found mcCNV had marginal performance over ExomeDepth with default parameters and marginal performance under ExomeDepth with simulation-matched parameters. Table \ref{tab:simResTbl} provides the actual values.
 
 
 
@@ -849,7 +980,7 @@ dep & mcCNV & ED-def & ED-sim & mcCNV & ED-def & ED-sim & mcCNV & ED-def & ED-si
 \subsection{mcCNV \& ExomeDepth perform comparably on WGS pool}\label{mccnv-exomedepth-perform-comparably-on-wgs-pool}}
 
 To establish a truth set on real data, we performed matched genome sequencing on the subjects included in the WGS pool.
-Following the best practices suggested by Trost et al.~\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{60}}, we performed read-depth based CNV calling using the genome data.
+Following the best practices suggested by Trost et al.~\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}}, we performed read-depth based CNV calling using the genome data.
 In line with recommendations by Trost et al., we excluded from comparative analysis any exons overlapping repetitive or low-complexity regions (34,856 out of 179,250).
 We then compared the exome calls using mcCNV and ExomeDepth to the genome calls using the overlap of ERDS and cnvpytor.
 Table \ref{tab:wgsCallSbj} lists the total calls by subject.
@@ -860,7 +991,7 @@ ExomeDepth also predicted a disproportionate number of deletions for NCG\_00790 
 
 \begin{table}
 
-\caption[Number of CNV calls by subject and algorithm for the 'WGS' pool.]{\label{tab:wgsCallSbj}Number of CNV calls by subject and algorithm for the `WGS' pool. `MC' indicates the mcCNV algorithm; `ED' indicates the ExomeDepth algorithm; `WG' indicates the overlap of ERDS/cnvpytor calls from matched whole-genome sequencing. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{60}} omitted from analysis.}
+\caption[Number of CNV calls by subject and algorithm for the 'WGS' pool.]{\label{tab:wgsCallSbj}Number of CNV calls by subject and algorithm for the `WGS' pool. `MC' indicates the mcCNV algorithm; `ED' indicates the ExomeDepth algorithm; `WG' indicates the overlap of ERDS/cnvpytor calls from matched whole-genome sequencing. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}} omitted from analysis.}
 \centering
 \begin{tabular}[t]{lrrrrrrrrr}
 \toprule
@@ -904,7 +1035,7 @@ Figures \ref{fig:wgsVennAll} and \ref{fig:wgsVennSub} show the call overlap betw
 
 \begin{table}
 
-\caption[mcCNV and ExomeDepth performance predicting calls from genome sequencing.]{\label{tab:predMet}mcCNV (MC)/ExomeDepth (ED) calls for `WGS' pool (used as prediction) versus the ERDS/cnvpytor calls from matched genome sequencing (used as truth). Calls are subdivided by duplications (DUP) and deletions (DEL). `Full' gives performance across the full pool; `Sub' gives the performance excluding the poorly correlated samples NCG\_00790 and NCG\_00851 (gray rows). `MCC' is Matthew's correlation coefficient, `TPR' is true positive rate/sensitivity, `FDR' is false discovery rate, `PPV' is positive predictive value, `BalAcc' is balanced accuracy. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{60}} omitted from analysis.}
+\caption[mcCNV and ExomeDepth performance predicting calls from genome sequencing.]{\label{tab:predMet}mcCNV (MC)/ExomeDepth (ED) calls for `WGS' pool (used as prediction) versus the ERDS/cnvpytor calls from matched genome sequencing (used as truth). Calls are subdivided by duplications (DUP) and deletions (DEL). `Full' gives performance across the full pool; `Sub' gives the performance excluding the poorly correlated samples NCG\_00790 and NCG\_00851 (gray rows). `MCC' is Matthew's correlation coefficient, `TPR' is true positive rate/sensitivity, `FDR' is false discovery rate, `PPV' is positive predictive value, `BalAcc' is balanced accuracy. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}} omitted from analysis.}
 \centering
 \begin{tabular}[t]{lllrrrr}
 \toprule
@@ -965,7 +1096,7 @@ Figures \ref{fig:wgsVennAll} and \ref{fig:wgsVennSub} show the call overlap betw
 \section{Discussion}\label{discussion}}
 
 The medical genetics community still lacks robust exome-wide information about small (exon-level) variant prevalence.
-Others have established the reliability and cost-efficiency of pre-capture multiplexing,\textsuperscript{\protect\hyperlink{ref-neiman:2012aa}{65}--\protect\hyperlink{ref-shearer:2012aa}{69}} and most commercial exome capture platforms have protocols for pre-capture multiplexing.
+Others have established the reliability and cost-efficiency of pre-capture multiplexing,\textsuperscript{\protect\hyperlink{ref-neiman:2012aa}{102}--\protect\hyperlink{ref-shearer:2012aa}{106}} and most commercial exome capture platforms have protocols for pre-capture multiplexing.
 Here, we demonstrate the reduction in inter-sample variance when pre-capture multiplexing, leading to increased power to detect exon-level copy number variation.
 Despite the benefits, many clinical laboratories do not employ a multiplexed capture protocol because multiplexing requires waiting to fill a pool and may delay results.
 While we understand the increased complexity, multiplexed capture may uncover otherwise missed copy number variation and increase the diagnostic yield for patients.
@@ -985,7 +1116,7 @@ Defining the capture pool as the set of controls both limits the need for regula
 
 At the depth of the WGS pool, our simplistic simulation study would suggest both mcCNV and ExomeDepth have the power to detect single-exon variants with \textgreater85\% sensitivity while maintaining a low false-discovery rate (Figure \ref{fig:simRes}, Table \ref{tab:simResTbl}).
 However, comparing the exome calls to the genome calls for the WGS pool revealed lackluster concordance.
-As Trost et al.~point out, the genome CNV callers still struggle with variants less than 1 kb.\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{60}}
+As Trost et al.~point out, the genome CNV callers still struggle with variants less than 1 kb.\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}}
 We do not dismiss the possibility of exome calls providing greater reliability than the genome calls, given multiplexed capture and adequate sequencing depth.
 However, given the distribution of calls throughout the exome, we doubt the thousands of excess deletions called for NCG\_00790 and NCG\_00851.
 Confirmation of the individual calls is beyond the scope of this work.
@@ -1022,20 +1153,20 @@ Confirmation testing for the tens to thousands of predicted variants from the ex
 The beneficial health outcomes from newborn screening programs (NBS) are indisputable.
 We envision future NBS will begin with prenatal genetic testing to enable care in the immediate newborn period, and open up new possibilities for \emph{in utero} and genetic therapies.
 During pregnancy, placental DNA is released into maternal circulation, enabling noninvasive interrogation of fetal genetics (noninvasive prenatal testing, NIPT).
-NIPT has a well-established clinical utility in screening for common chromosomal abnormalities such as Down syndrome with high sensitivity and specificity.\textsuperscript{\protect\hyperlink{ref-mackie:2017aa}{70}}
-More recently, efforts have demonstrated sequencing-based testing for \emph{de novo} pathogenic variants in a list of 30 genes associated with dominant Mendelian disorders\textsuperscript{\protect\hyperlink{ref-zhang:2019aa}{71}} and PCR-based testing for a small number of recessive Mendelian disorders.\textsuperscript{\protect\hyperlink{ref-tsao:2019ab}{72}}
-Using relative haplotype dosage analysis (RHDO),\textsuperscript{\protect\hyperlink{ref-lo:2010aa}{73}} multiple groups have successfully diagnosed single gene disorders\textsuperscript{\protect\hyperlink{ref-hui:2017aa}{74}--\protect\hyperlink{ref-vermeulen:2017aa}{76}} including a new offering of noninvasive prenatal diagnosis for cystic fibrosis in the UK Public Health Service.\textsuperscript{\protect\hyperlink{ref-chandler:2020aa}{77}}
-RHDO typically relies on collecting parental, and ideally proband, genetic information to resolve parental haplotypes; Jang et al.~demonstrated success in diagnosing Duchenne muscular dystrophy by estimating haplotypes solely from maternal long-read sequencing.\textsuperscript{\protect\hyperlink{ref-jang:2018aa}{75}}
-Scotchman et al.~provide an excellent review summarizing the history of noninvasive testing.\textsuperscript{\protect\hyperlink{ref-scotchman:2020aa}{78}}
+NIPT has a well-established clinical utility in screening for common chromosomal abnormalities such as Down syndrome with high sensitivity and specificity.\textsuperscript{\protect\hyperlink{ref-mackie:2017aa}{107}}
+More recently, efforts have demonstrated sequencing-based testing for \emph{de novo} pathogenic variants in a list of 30 genes associated with dominant Mendelian disorders\textsuperscript{\protect\hyperlink{ref-zhang:2019aa}{108}} and PCR-based testing for a small number of recessive Mendelian disorders.\textsuperscript{\protect\hyperlink{ref-tsao:2019ab}{109}}
+Using relative haplotype dosage analysis (RHDO),\textsuperscript{\protect\hyperlink{ref-lo:2010aa}{110}} multiple groups have successfully diagnosed single gene disorders\textsuperscript{\protect\hyperlink{ref-hui:2017aa}{111}--\protect\hyperlink{ref-vermeulen:2017aa}{113}} including a new offering of noninvasive prenatal diagnosis for cystic fibrosis in the UK Public Health Service.\textsuperscript{\protect\hyperlink{ref-chandler:2020aa}{114}}
+RHDO typically relies on collecting parental, and ideally proband, genetic information to resolve parental haplotypes; Jang et al.~demonstrated success in diagnosing Duchenne muscular dystrophy by estimating haplotypes solely from maternal long-read sequencing.\textsuperscript{\protect\hyperlink{ref-jang:2018aa}{112}}
+Scotchman et al.~provide an excellent review summarizing the history of noninvasive testing.\textsuperscript{\protect\hyperlink{ref-scotchman:2020aa}{83}}
 To date, no one has reported reliable fetal genotyping purely from maternal cell-free DNA using a sequencing-based approach.
 
 To begin NBS with prenatal genetic testing, we believe we first need a reliable noninvasive test only requiring a maternal sample.
-Others could reasonably argue the availability of carrier screening, and the immeasurably small risk of invasive testing,\textsuperscript{\protect\hyperlink{ref-salomon:2019aa}{79}} removes the need for noninvasive testing.
+Others could reasonably argue the availability of carrier screening, and the immeasurably small risk of invasive testing,\textsuperscript{\protect\hyperlink{ref-salomon:2019aa}{115}} removes the need for noninvasive testing.
 Such an argument, however, dismisses (1) the ethical and practical issues surrounding the necessity of involving the biological father, (2) the fact that many genetic disorders arise due to \emph{de novo} mutations, and (3) the understandable fear and apprehension around invasive testing (especially for rare conditions).
 Additionally, we believe the prenatal diagnosis community should focus work on sequencing-based (as opposed to PCR-based) approaches.
 Sequencing generalizes across disorders more easily than PCR techniques, allows multiplexing to a degree not feasible using PCR, and will only continue to decrease in cost.
 
-Snyder et al.~provide a review of previous attempts to perform noninvasive fetal genome sequencing, illustrating the cost-infeasibility and suggesting more targeted approaches such as exome sequencing (ES).\textsuperscript{\protect\hyperlink{ref-lo:2010aa}{73},\protect\hyperlink{ref-fan:2012aa}{80}--\protect\hyperlink{ref-snyder:2013aa}{82}}
+Snyder et al.~provide a review of previous attempts to perform noninvasive fetal genome sequencing, illustrating the cost-infeasibility and suggesting more targeted approaches such as exome sequencing (ES).\textsuperscript{\protect\hyperlink{ref-lo:2010aa}{110},\protect\hyperlink{ref-fan:2012aa}{116}--\protect\hyperlink{ref-snyder:2013aa}{118}}
 As an exploratory exercise, we performed ES on cell-free DNA (cfES) from three pregnant women with singleton fetuses.
 
 \hypertarget{methods-1}{%
@@ -1052,11 +1183,11 @@ All participants were consented and enrolled at UNC Hospitals by certified genet
 \subsection{Exome sequencing and analysis}\label{exome-sequencing-and-analysis}}
 
 We collected cell-free DNA from maternal plasma, prepared sequencing libraries for the Illumina platform, and performed exome capture using the IDT xGen Exome Research Panel v1.0 (Cases 1 \& 2) or Agilent SureSelect Human All Exon v7 (Case 3).
-We processed the data using a novel analytic pipeline developed in Snakemake\textsuperscript{\protect\hyperlink{ref-koster:2012aa}{59}} using Anaconda environments for reproducibility (provided in supplemental materials).
-Briefly, sequencing reads were aligned to hg38 (excluding alternate contigs) using BWA-MEM,\textsuperscript{\protect\hyperlink{ref-li:2013ab}{58}} then base quality scores were re-calibrated using GATK4.\textsuperscript{\protect\hyperlink{ref-mckenna:2010aa}{34},\protect\hyperlink{ref-van-der-auwera:2013aa}{37},\protect\hyperlink{ref-poplin:2018aa}{38}}
+We processed the data using a novel analytic pipeline developed in Snakemake\textsuperscript{\protect\hyperlink{ref-koster:2012aa}{96}} using Anaconda environments for reproducibility (provided in supplemental materials).
+Briefly, sequencing reads were aligned to hg38 (excluding alternate contigs) using BWA-MEM,\textsuperscript{\protect\hyperlink{ref-li:2013ab}{95}} then base quality scores were re-calibrated using GATK4.\textsuperscript{\protect\hyperlink{ref-mckenna:2010aa}{37},\protect\hyperlink{ref-van-der-auwera:2013aa}{40},\protect\hyperlink{ref-poplin:2018aa}{41}}
 We only retained non-duplicate, properly-paired reads with unambiguous mapping and mapping quality \textgreater30 for each read.
-We called variants using bcftools,\textsuperscript{\protect\hyperlink{ref-li:2011aa}{36}} requiring basepair quality scores \textgreater20.
-We suggest the review by Seaby et al.~for more information on the specifics of collecting and processing ES data for clinical use.\textsuperscript{\protect\hyperlink{ref-seaby:2016aa}{83}}
+We called variants using bcftools,\textsuperscript{\protect\hyperlink{ref-li:2011aa}{39}} requiring basepair quality scores \textgreater20.
+We suggest the review by Seaby et al.~for more information on the specifics of collecting and processing ES data for clinical use.\textsuperscript{\protect\hyperlink{ref-seaby:2016aa}{119}}
 Analyses were restricted to the regions overlapping between the IDT and Agilent capture platforms.
 For cell-free analyses, we required 5 alternate allele-supporting read-pairs, and at least 80 total read-pairs.
 Using the identified single-nucleotide variants, we applied a novel empirical Bayesian procedure to estimate the fetal fraction (FF; the proportion of placental/fetal to maternal sequencing reads).
@@ -1150,7 +1281,7 @@ We pick reasonable starting values for the fetal fraction, \(F = f\), and the av
 
 The data that support the findings of this study are available on request from the corresponding author.
 The raw sequencing data are not publicly available due to privacy or ethical restrictions.
-Allele depths, with the alleles masked and genomic location rounded to 10 kilobases are available in the self-contained R\textsuperscript{\protect\hyperlink{ref-r-core-team:2019aa}{84}} package reproducing the analysis herein (\url{https://github.com/daynefiler/filer2020B}).
+Allele depths, with the alleles masked and genomic location rounded to 10 kilobases are available in the self-contained R\textsuperscript{\protect\hyperlink{ref-r-core-team:2019aa}{120}} package reproducing the analysis herein (\url{https://github.com/daynefiler/filer2020B}).
 
 \hypertarget{results-1}{%
 \section{Results}\label{results-1}}
@@ -1216,7 +1347,7 @@ We did not identify any known pathogenic variants in the sequencing of Case 3, a
 \end{table}
 
 In Case 3, in addition to cfES, we performed exome sequencing (ES) on fetal, maternal, and paternal samples.
-Based on previous work demonstrating the differential length of maternal and fetal fragments,\textsuperscript{\protect\hyperlink{ref-chan:2004aa}{85}--\protect\hyperlink{ref-rabinowitz:2019aa}{88}} we interrogated the distribution of presumed maternal and fetal reads (Figure \ref{fig:matVsFetLen}).
+Based on previous work demonstrating the differential length of maternal and fetal fragments,\textsuperscript{\protect\hyperlink{ref-chan:2004aa}{121}--\protect\hyperlink{ref-rabinowitz:2019aa}{124}} we interrogated the distribution of presumed maternal and fetal reads (Figure \ref{fig:matVsFetLen}).
 We identified maternal and fetal reads by identifying sites with unique heterozygosity in the direct maternal and fetal ES results; at the informative sites, we extracted reads supporting the allele unique to the mother or fetus.
 In total, we identified 654,619 maternal reads and 279,508 fetal reads.
 We found, as others have, a higher proportion of fetal reads falling below 150 basepairs; however, we also observed a slightly higher proportion of longer reads, as well.
@@ -1234,7 +1365,7 @@ We found, as others have, a higher proportion of fetal reads falling below 150 b
 \caption[Distribution of maternal versus fetal fragment length in Case 3.]{Distribution of maternal versus fetal fragment length in Case 3. (A) shows the density; (B) shows the emperic cumulative distribution. The horiztonal axis shows the fragment length (insert size taken from aligned read-pairs). Blue lines show maternal reads, orange lines show fetal reads. We only included cfES reads supporting alleles unique to the mother or fetus, as identified from the direct maternal and fetal ES.}\label{fig:matVsFetLen}
 \end{figure}
 
-Rabinowitz et al.~proposed the Hoobari method which incorporates fragment lengths into fetal genotype estimates,\textsuperscript{\protect\hyperlink{ref-rabinowitz:2019aa}{88}} finding the difference in accuracy varied from -0.25\% to 1.89\% when using versus not using fragment length in their exome analyses.
+Rabinowitz et al.~proposed the Hoobari method which incorporates fragment lengths into fetal genotype estimates,\textsuperscript{\protect\hyperlink{ref-rabinowitz:2019aa}{124}} finding the difference in accuracy varied from -0.25\% to 1.89\% when using versus not using fragment length in their exome analyses.
 To explore the utility of correcting for fragment length in our analysis, we interrogated the PMAR as a function of the short read proportion (fraction of reads with insert sizes less than 140 basepairs; Figure \ref{fig:sratioByPmar}).
 We selected 140 as the cutoff based on the Hoobari algorithm.
 Overall, we found no meaningful relationship between the short read proportion and the observed PMAR and chose not to incorporate fragment length into our genotype estimates.
@@ -1253,7 +1384,7 @@ Overall, we found no meaningful relationship between the short read proportion a
 \end{figure}
 
 Returning to Case 3, we interrogated the fetal genotyping accuracy at all sites with cell-free genotype estimates and reliable calls from the direct fetal sample.
-Overall, we found a `\textbackslash Sexpr\{50.91\% accuracy (Table \ref{tab:c3FetByCf}).
+Overall, we found a 50.91\% accuracy (Table \ref{tab:c3FetByCf}).
 Table \ref{tab:c3Calls} provides the full set of maternal, fetal, and cell-free calls.
 
 
@@ -1360,7 +1491,7 @@ No amount of cleverness in the analysis can overcome the fundamental variance bo
 
 }
 
-\caption[95\% confidence intervals on the binomial proportions for possible maternal-fetal genotype pairs.]{95\% confidence intervals on the binomial proportions for possible maternal-fetal genotype pairs across increasing fetal fractions. Confidence intervals represent a sequencing depth of 500x. Average fetal fractions by gestational age (in weeks) given in light gray.\textsuperscript{\protect\hyperlink{ref-kinnings:2015aa}{89}}}\label{fig:binCI}
+\caption[95\% confidence intervals on the binomial proportions for possible maternal-fetal genotype pairs.]{95\% confidence intervals on the binomial proportions for possible maternal-fetal genotype pairs across increasing fetal fractions. Confidence intervals represent a sequencing depth of 500x. Average fetal fractions by gestational age (in weeks) given in light gray.\textsuperscript{\protect\hyperlink{ref-kinnings:2015aa}{125}}}\label{fig:binCI}
 \end{figure}
 
 
@@ -1384,7 +1515,7 @@ Additionally, we observed very poor accuracy in the Case 3 genotype estimates.
 
 Typical sequencing workflows start with randomly fragmenting DNA molecules to build sequencing libraries.
 Standard bioinformatic practices suggest we remove read-pairs with identical endpoints, because the duplicate read-pairs more likely represent PCR amplification of a single molecule than two molecules with the same fragmentation.
-Cell-free DNA molecules are shorter than nuclear DNA, not requiring manual fragmentation, and have a non-random distribution of endpoints.\textsuperscript{\protect\hyperlink{ref-chan:2016aa}{86}}
+Cell-free DNA molecules are shorter than nuclear DNA, not requiring manual fragmentation, and have a non-random distribution of endpoints.\textsuperscript{\protect\hyperlink{ref-chan:2016aa}{122}}
 Therefore, compared to standard sequencing libraries, the likelihood of observing true duplicates in cell-free libraries increases and we cannot necessarily assume duplicates represent PCR amplification.
 However, for this work we have no way of differentiating reads representing true duplicate molecules versus PCR duplicates and thus excluded duplicate reads from our analysis.
 
@@ -1395,7 +1526,7 @@ We reiterate, however, incorporating fragment length may give better estimates o
 To solve the above issues, we advocate a more targeted approach with much greater sequencing depth and unique molecular identifiers.
 Unique molecular identifiers allow identification of sequencing errors and differentiate true versus artifactual duplicate reads.
 Given the depth requirements for estimating fetal genotypes by the PMAR, and the challenge of variants of uncertain clinical significance, we advocate against broad sequencing modalities on noninvasive samples.
-Recognizing that all capture methods introduce bias in the relative sequencing efficiency of different targeted regions,\textsuperscript{\protect\hyperlink{ref-seaby:2016aa}{83}} the sequencing depths needed for noninvasive fetal genotyping necessitate a targeted approach.
+Recognizing that all capture methods introduce bias in the relative sequencing efficiency of different targeted regions,\textsuperscript{\protect\hyperlink{ref-seaby:2016aa}{119}} the sequencing depths needed for noninvasive fetal genotyping necessitate a targeted approach.
 Despite the challenges raised by this work, we believe assessing hundreds to thousands of basepairs, rather than the tens of millions targeted in ES, will prove economical and clinically reliable.
 Doing so, we hope, will foster population-level screening for Mendelian disorders during the prenatal period and, ultimately, unlock new avenues in the treatment of these disorders.
 
@@ -1453,227 +1584,797 @@ Doing so, we hope, will foster population-level screening for Mendelian disorder
 \leavevmode\hypertarget{ref-crick:1970aa}{}%
 15. Crick F. Central dogma of molecular biology. \emph{Nature}. 227(5258):561-563.
 
+\leavevmode\hypertarget{ref-tjio:1956aa}{}%
+16. TJIO JH, LEVAN A. THE chromosome number of man. \emph{Hereditas}. 1956;42(1‐2):1-6.
+
+\leavevmode\hypertarget{ref-lander:2001aa}{}%
+17. Lander ES, Linton LM, Birren B, et al. Initial sequencing and analysis of the human genome. \emph{Nature}. 409(6822):860-921.
+
+\leavevmode\hypertarget{ref-gu:2008aa}{}%
+18. Gu W, Zhang F, Lupski JR. Mechanisms for human genomic rearrangements. \emph{Pathogenetics}. 1(1):4.
+
 \leavevmode\hypertarget{ref-sanger:1975aa}{}%
-16. Sanger F, Coulson AR. A rapid method for determining sequences in dna by primed synthesis with dna polymerase. \emph{J Mol Biol}. 94(3):441-448.
+19. Sanger F, Coulson AR. A rapid method for determining sequences in dna by primed synthesis with dna polymerase. \emph{J Mol Biol}. 94(3):441-448.
 
 \leavevmode\hypertarget{ref-maxam:1977aa}{}%
-17. Maxam AM, Gilbert W. A new method for sequencing dna. \emph{Proc Natl Acad Sci U S A}. 74(2):560-564.
+20. Maxam AM, Gilbert W. A new method for sequencing dna. \emph{Proc Natl Acad Sci U S A}. 74(2):560-564.
 
 \leavevmode\hypertarget{ref-sanger:1977aa}{}%
-18. Sanger F, Nicklen S, Coulson AR. DNA sequencing with chain-terminating inhibitors. \emph{Proc Natl Acad Sci U S A}. 74(12):5463-5467.
+21. Sanger F, Nicklen S, Coulson AR. DNA sequencing with chain-terminating inhibitors. \emph{Proc Natl Acad Sci U S A}. 74(12):5463-5467.
 
 \leavevmode\hypertarget{ref-nyren:1985aa}{}%
-19. Nyrén P, Lundin A. Enzymatic method for continuous monitoring of inorganic pyrophosphate synthesis. \emph{Anal Biochem}. 151(2):504-509.
+22. Nyrén P, Lundin A. Enzymatic method for continuous monitoring of inorganic pyrophosphate synthesis. \emph{Anal Biochem}. 151(2):504-509.
 
 \leavevmode\hypertarget{ref-ronaghi:1998aa}{}%
-20. Ronaghi M, Uhlén M, Nyrén P. A sequencing method based on real-time pyrophosphate. \emph{Science}. 281(5375):363, 365.
+23. Ronaghi M, Uhlén M, Nyrén P. A sequencing method based on real-time pyrophosphate. \emph{Science}. 281(5375):363, 365.
 
 \leavevmode\hypertarget{ref-li:2003aa}{}%
-21. Li Z, Bai X, Ruparel H, Kim S, Turro NJ, Ju J. A photocleavable fluorescent nucleotide for dna sequencing and analysis. \emph{Proc Natl Acad Sci U S A}. 100(2):414-419.
+24. Li Z, Bai X, Ruparel H, Kim S, Turro NJ, Ju J. A photocleavable fluorescent nucleotide for dna sequencing and analysis. \emph{Proc Natl Acad Sci U S A}. 100(2):414-419.
 
 \leavevmode\hypertarget{ref-fedurco:2006aa}{}%
-22. Fedurco M, Romieu A, Williams S, Lawrence I, Turcatti G. BTA, a novel reagent for dna attachment on glass and efficient generation of solid-phase amplified dna colonies. \emph{Nucleic Acids Res}. 34(3):e22.
+25. Fedurco M, Romieu A, Williams S, Lawrence I, Turcatti G. BTA, a novel reagent for dna attachment on glass and efficient generation of solid-phase amplified dna colonies. \emph{Nucleic Acids Res}. 34(3):e22.
 
 \leavevmode\hypertarget{ref-turcatti:2008aa}{}%
-23. Turcatti G, Romieu A, Fedurco M, Tairi A-P. A new class of cleavable fluorescent nucleotides: Synthesis and optimization as reversible terminators for dna sequencing by synthesis. \emph{Nucleic Acids Res}. 36(4):e25.
+26. Turcatti G, Romieu A, Fedurco M, Tairi A-P. A new class of cleavable fluorescent nucleotides: Synthesis and optimization as reversible terminators for dna sequencing by synthesis. \emph{Nucleic Acids Res}. 36(4):e25.
 
 \leavevmode\hypertarget{ref-pearson:1988aa}{}%
-24. Pearson WR, Lipman DJ. Improved tools for biological sequence comparison. \emph{Proc Natl Acad Sci U S A}. 85(8):2444-2448.
+27. Pearson WR, Lipman DJ. Improved tools for biological sequence comparison. \emph{Proc Natl Acad Sci U S A}. 85(8):2444-2448.
 
 \leavevmode\hypertarget{ref-cock:2010aa}{}%
-25. Cock PJA, Fields CJ, Goto N, Heuer ML, Rice PM. The sanger fastq file format for sequences with quality scores, and the solexa/illumina fastq variants. \emph{Nucleic Acids Res}. 38(6):1767-1771.
+28. Cock PJA, Fields CJ, Goto N, Heuer ML, Rice PM. The sanger fastq file format for sequences with quality scores, and the solexa/illumina fastq variants. \emph{Nucleic Acids Res}. 38(6):1767-1771.
 
 \leavevmode\hypertarget{ref-li:2009aa}{}%
-26. Li H, Handsaker B, Wysoker A, et al. The sequence alignment/map format and samtools. \emph{Bioinformatics}. 25(16):2078-2079.
+29. Li H, Handsaker B, Wysoker A, et al. The sequence alignment/map format and samtools. \emph{Bioinformatics}. 25(16):2078-2079.
 
 \leavevmode\hypertarget{ref-smith:1981aa}{}%
-27. Smith TF, Waterman MS. Identification of common molecular subsequences. \emph{J Mol Biol}. 147(1):195-197.
+30. Smith TF, Waterman MS. Identification of common molecular subsequences. \emph{J Mol Biol}. 147(1):195-197.
 
 \leavevmode\hypertarget{ref-needleman:1970aa}{}%
-28. Needleman SB, Wunsch CD. A general method applicable to the search for similarities in the amino acid sequence of two proteins. \emph{J Mol Biol}. 48(3):443-453.
+31. Needleman SB, Wunsch CD. A general method applicable to the search for similarities in the amino acid sequence of two proteins. \emph{J Mol Biol}. 48(3):443-453.
 
 \leavevmode\hypertarget{ref-altschul:1990aa}{}%
-29. Altschul SF, Gish W, Miller W, Myers EW, Lipman DJ. Basic local alignment search tool. \emph{J Mol Biol}. 215(3):403-410.
+32. Altschul SF, Gish W, Miller W, Myers EW, Lipman DJ. Basic local alignment search tool. \emph{J Mol Biol}. 215(3):403-410.
 
 \leavevmode\hypertarget{ref-li:2010aa}{}%
-30. Li H, Homer N. A survey of sequence alignment algorithms for next-generation sequencing. \emph{Brief Bioinform}. 11(5):473-483.
+33. Li H, Homer N. A survey of sequence alignment algorithms for next-generation sequencing. \emph{Brief Bioinform}. 11(5):473-483.
 
 \leavevmode\hypertarget{ref-burrows:1994aa}{}%
-31. Burrows M, Wheeler DJ. \emph{A Block-Sorting Lossless Data Compression Algorithm}.; 1994.
+34. Burrows M, Wheeler DJ. \emph{A Block-Sorting Lossless Data Compression Algorithm}.; 1994.
 
 \leavevmode\hypertarget{ref-lam:2008aa}{}%
-32. Lam TW, Sung WK, Tam SL, Wong CK, Yiu SM. Compressed indexing and local alignment of dna. \emph{Bioinformatics}. 24(6):791-797.
+35. Lam TW, Sung WK, Tam SL, Wong CK, Yiu SM. Compressed indexing and local alignment of dna. \emph{Bioinformatics}. 24(6):791-797.
 
 \leavevmode\hypertarget{ref-li:2010ab}{}%
-33. Li H, Durbin R. Fast and accurate long-read alignment with burrows-wheeler transform. \emph{Bioinformatics}. 26(5):589-595.
+36. Li H, Durbin R. Fast and accurate long-read alignment with burrows-wheeler transform. \emph{Bioinformatics}. 26(5):589-595.
 
 \leavevmode\hypertarget{ref-mckenna:2010aa}{}%
-34. McKenna A, Hanna M, Banks E, et al. The genome analysis toolkit: A mapreduce framework for analyzing next-generation dna sequencing data. \emph{Genome Res}. 20(9):1297-1303.
+37. McKenna A, Hanna M, Banks E, et al. The genome analysis toolkit: A mapreduce framework for analyzing next-generation dna sequencing data. \emph{Genome Res}. 20(9):1297-1303.
 
 \leavevmode\hypertarget{ref-depristo:2011aa}{}%
-35. DePristo MA, Banks E, Poplin R, et al. A framework for variation discovery and genotyping using next-generation dna sequencing data. \emph{Nat Genet}. 43(5):491-498.
+38. DePristo MA, Banks E, Poplin R, et al. A framework for variation discovery and genotyping using next-generation dna sequencing data. \emph{Nat Genet}. 43(5):491-498.
 
 \leavevmode\hypertarget{ref-li:2011aa}{}%
-36. Li H. A statistical framework for snp calling, mutation discovery, association mapping and population genetical parameter estimation from sequencing data. \emph{Bioinformatics}. 27(21):2987-2993.
+39. Li H. A statistical framework for snp calling, mutation discovery, association mapping and population genetical parameter estimation from sequencing data. \emph{Bioinformatics}. 27(21):2987-2993.
 
 \leavevmode\hypertarget{ref-van-der-auwera:2013aa}{}%
-37. Van der Auwera GA, Carneiro MO, Hartl C, et al. From fastq data to high confidence variant calls: The genome analysis toolkit best practices pipeline. \emph{Curr Protoc Bioinformatics}. 2013;43(1110):11.10.1-11.10.33.
+40. Van der Auwera GA, Carneiro MO, Hartl C, et al. From fastq data to high confidence variant calls: The genome analysis toolkit best practices pipeline. \emph{Curr Protoc Bioinformatics}. 2013;43(1110):11.10.1-11.10.33.
 
 \leavevmode\hypertarget{ref-poplin:2018aa}{}%
-38. Poplin R, Ruano-Rubio V, DePristo MA, et al. Scaling accurate genetic variant discovery to tens of thousands of samples. \emph{bioRxiv}. Published online 2018.
+41. Poplin R, Ruano-Rubio V, DePristo MA, et al. Scaling accurate genetic variant discovery to tens of thousands of samples. \emph{bioRxiv}. Published online 2018.
 
 \leavevmode\hypertarget{ref-garrison:2012aa}{}%
-39. Garrison E, Marth G. Haplotype-based variant detection from short-read sequencing. Published online 2012.
+42. Garrison E, Marth G. Haplotype-based variant detection from short-read sequencing. Published online 2012.
 
 \leavevmode\hypertarget{ref-chen:2019aa}{}%
-40. Chen J, Li X, Zhong H, Meng Y, Du H. Systematic comparison of germline variant calling pipelines cross multiple next-generation sequencers. \emph{Sci Rep}. 9(1):9345.
+43. Chen J, Li X, Zhong H, Meng Y, Du H. Systematic comparison of germline variant calling pipelines cross multiple next-generation sequencers. \emph{Sci Rep}. 9(1):9345.
 
 \leavevmode\hypertarget{ref-xu:2018aa}{}%
-41. Xu C. A review of somatic single nucleotide variant calling algorithms for next-generation sequencing data. \emph{Comput Struct Biotechnol J}. 2018;16:15-24.
+44. Xu C. A review of somatic single nucleotide variant calling algorithms for next-generation sequencing data. \emph{Comput Struct Biotechnol J}. 2018;16:15-24.
 
 \leavevmode\hypertarget{ref-abyzov:2011aa}{}%
-42. Abyzov A, Urban AE, Snyder M, Gerstein M. CNVnator: An approach to discover, genotype, and characterize typical and atypical cnvs from family and population genome sequencing. \emph{Genome Res}. 21(6):974-984.
+45. Abyzov A, Urban AE, Snyder M, Gerstein M. CNVnator: An approach to discover, genotype, and characterize typical and atypical cnvs from family and population genome sequencing. \emph{Genome Res}. 21(6):974-984.
 
 \leavevmode\hypertarget{ref-plagnol:2012aa}{}%
-43. Plagnol V, Curtis J, Epstein M, et al. A robust model for read count data in exome sequencing experiments and implications for copy number variant calling. \emph{Bioinformatics}. 28(21):2747-2754.
+46. Plagnol V, Curtis J, Epstein M, et al. A robust model for read count data in exome sequencing experiments and implications for copy number variant calling. \emph{Bioinformatics}. 28(21):2747-2754.
 
 \leavevmode\hypertarget{ref-korbel:2007aa}{}%
-44. Korbel JO, Urban AE, Affourtit JP, et al. Paired-end mapping reveals extensive structural variation in the human genome. \emph{Science}. 318(5849):420-426.
+47. Korbel JO, Urban AE, Affourtit JP, et al. Paired-end mapping reveals extensive structural variation in the human genome. \emph{Science}. 318(5849):420-426.
 
 \leavevmode\hypertarget{ref-layer:2014aa}{}%
-45. Layer RM, Chiang C, Quinlan AR, Hall IM. LUMPY: A probabilistic framework for structural variant discovery. \emph{Genome Biol}. 15(6):R84.
+48. Layer RM, Chiang C, Quinlan AR, Hall IM. LUMPY: A probabilistic framework for structural variant discovery. \emph{Genome Biol}. 15(6):R84.
 
 \leavevmode\hypertarget{ref-zhu:2012aa}{}%
-46. Zhu M, Need AC, Han Y, et al. Using erds to infer copy-number variants in high-coverage genomes. \emph{Am J Hum Genet}. 91(3):408-421.
+49. Zhu M, Need AC, Han Y, et al. Using erds to infer copy-number variants in high-coverage genomes. \emph{Am J Hum Genet}. 91(3):408-421.
 
-\leavevmode\hypertarget{ref-marchuk:2018aa}{}%
-47. Marchuk DS, Crooks K, Strande N, et al. Increasing the diagnostic yield of exome sequencing by copy number variant analysis. \emph{PLoS One}. 2018;13(12):e0209185.
+\leavevmode\hypertarget{ref-auton:2015aa}{}%
+50. Auton A, Brooks LD, Durbin RM, et al. A global reference for human genetic variation. \emph{Nature}. 526(7571):68-74.
 
-\leavevmode\hypertarget{ref-retterer:2015aa}{}%
-48. Retterer K, Scuffins J, Schmidt D, et al. Assessing copy number from exome sequencing and exome array cgh based on cnv spectrum in a large clinical cohort. \emph{Genet Med}. 17(8):623-629.
+\leavevmode\hypertarget{ref-sherry:1999aa}{}%
+51. Sherry ST, Ward M, Sirotkin K. DbSNP-database for single nucleotide polymorphisms and other classes of minor genetic variation. \emph{Genome Res}. 9(8):677-679.
 
-\leavevmode\hypertarget{ref-yao:2017aa}{}%
-49. Yao R, Zhang C, Yu T, et al. Evaluation of three read-depth based cnv detection tools using whole-exome sequencing data. \emph{Mol Cytogenet}. 2017;10:30.
+\leavevmode\hypertarget{ref-mailman:2007aa}{}%
+52. Mailman MD, Feolo M, Jin Y, et al. The ncbi dbGaP database of genotypes and phenotypes. \emph{Nat Genet}. 39(10):1181-1186.
 
-\leavevmode\hypertarget{ref-fromer:2012aa}{}%
-50. Fromer M, Moran JL, Chambert K, et al. Discovery and statistical genotyping of copy-number variation from whole-exome sequencing depth. \emph{Am J Hum Genet}. 91(4):597-607.
+\leavevmode\hypertarget{ref-landrum:2014aa}{}%
+53. Landrum MJ, Lee JM, Riley GR, et al. ClinVar: Public archive of relationships among sequence variation and human phenotype. \emph{Nucleic Acids Res}. 42(Database issue):D980-5.
 
-\leavevmode\hypertarget{ref-jiang:2015aa}{}%
-51. Jiang Y, Oldridge DA, Diskin SJ, Zhang NR. CODEX: A normalization and copy number variation detection method for whole exome sequencing. \emph{Nucleic Acids Res}. 43(6):e39.
+\leavevmode\hypertarget{ref-hubbard:2002aa}{}%
+54. Hubbard T, Barker D, Birney E, et al. The ensembl genome database project. \emph{Nucleic Acids Res}. 30(1):38-41.
 
-\leavevmode\hypertarget{ref-krumm:2012aa}{}%
-52. Krumm N, Sudmant PH, Ko A, et al. Copy number variation detection and genotyping from exome sequence data. \emph{Genome Res}. 22(8):1525-1532.
+\leavevmode\hypertarget{ref-yates:2020aa}{}%
+55. Yates AD, Achuthan P, Akanni W, et al. Ensembl 2020. \emph{Nucleic Acids Res}. 48(D1):D682-D688.
 
-\leavevmode\hypertarget{ref-truty:2019aa}{}%
-53. Truty R, Paul J, Kennemer M, et al. Prevalence and properties of intragenic copy-number variation in mendelian disease genes. \emph{Genet Med}. 21(1):114-123.
+\leavevmode\hypertarget{ref-mclaren:2016aa}{}%
+56. McLaren W, Gil L, Hunt SE, et al. The ensembl variant effect predictor. \emph{Genome Biol}. 17(1):122.
 
-\leavevmode\hypertarget{ref-benjamini:2012aa}{}%
-54. Benjamini Y, Speed TP. Summarizing and correcting the gc content bias in high-throughput sequencing. \emph{Nucleic Acids Res}. 40(10):e72.
+\leavevmode\hypertarget{ref-karczewski:2019aa}{}%
+57. Karczewski KJ, Francioli LC, Tiao G, et al. Variation across 141,456 human exomes and genomes reveals the spectrum of loss-of-function intolerance across human protein-coding genes. \emph{bioRxiv}. Published online 2019.
 
-\leavevmode\hypertarget{ref-kadalayil:2015aa}{}%
-55. Kadalayil L, Rafiq S, Rose-Zerilli MJJ, et al. Exome sequence read depth methods for identifying copy number changes. \emph{Brief Bioinform}. 16(3):380-392.
+\leavevmode\hypertarget{ref-adzhubei:2013aa}{}%
+58. Adzhubei I, Jordan DM, Sunyaev SR. Predicting functional effect of human missense mutations using polyphen-2. \emph{Curr Protoc Hum Genet}. Chapter 7:Unit7.20.
 
-\leavevmode\hypertarget{ref-chiang:2009aa}{}%
-56. Chiang DY, Getz G, Jaffe DB, et al. High-resolution mapping of copy-number alterations with massively parallel sequencing. \emph{Nat Methods}. 6(1):99-103.
+\leavevmode\hypertarget{ref-jager:2014aa}{}%
+59. Jager M, Wang K, Bauer S, Smedley D, Krawitz P, Robinson PN. Jannovar: A java library for exome annotation. \emph{Hum Mutat}. 35(5):548-555.
 
-\leavevmode\hypertarget{ref-foreman:2013aa}{}%
-57. Foreman AKM, Lee K, Evans JP. The NCGENES project: Exploring the new world of genome sequencing. \emph{N C Med J}. 74(6):500-504.
+\leavevmode\hypertarget{ref-harper:2008aa}{}%
+60. Harper PS. \emph{A Short History of Medical Genetics}. Oxford University Press USA - OSO
 
-\leavevmode\hypertarget{ref-li:2013ab}{}%
-58. Li H. Aligning sequence reads, clone sequences and assembly contigs with bwa-mem. Published online 2013.
+\leavevmode\hypertarget{ref-garrod:1902aa}{}%
+61. Garrod AE. THE incidence of alkaptonuria : A study in chemical individuality. \emph{The Lancet}. 160(4137):1616-1620.
 
-\leavevmode\hypertarget{ref-koster:2012aa}{}%
-59. Koster J, Rahmann S. Snakemake--a scalable bioinformatics workflow engine. \emph{Bioinformatics}. 28(19):2520-2522.
+\leavevmode\hypertarget{ref-garrod:1923aa}{}%
+62. Garrod AE. \emph{Inborn Errors of Metabolism}. Oxford University Press; 1923.
 
-\leavevmode\hypertarget{ref-trost:2018aa}{}%
-60. Trost B, Walker S, Wang Z, et al. A comprehensive workflow for read depth-based identification of copy-number variation from whole-genome sequence data. \emph{Am J Hum Genet}. 102(1):142-155.
+\leavevmode\hypertarget{ref-garrod:1931aa}{}%
+63. Garrod AE. \emph{Inborn Factors of Disease: An Essay}. Clarendon Press; 1931.
 
-\leavevmode\hypertarget{ref-yu:2013aa}{}%
-61. Yu D, Huber W, Vitek O. Shrinkage estimation of dispersion in negative binomial models for rna-seq experiments with small sample size. \emph{Bioinformatics}. 29(10):1275-1282.
+\leavevmode\hypertarget{ref-rimoin:2004aa}{}%
+64. Rimoin DL, Hirschhorn K. A history of medical genetics in pediatrics. \emph{Pediatr Res}. 56(1):150-159.
 
-\leavevmode\hypertarget{ref-benjamini:1995aa}{}%
-62. Benjamini Y, Hochberg Y. Controlling the false discovery rate: A practical and powerful approach to multiple testing. \emph{Journal of the Royal Statistical Society: Series B (Methodological)}. 1995;57(1):289-300.
+\leavevmode\hypertarget{ref-fisher:1919aa}{}%
+65. Fisher RA. XV.---The correlation between relatives on the supposition of mendelian inheritance. \emph{Transactions of the Royal Society of Edinburgh}. 1919;52(2):399-433.
 
-\leavevmode\hypertarget{ref-minka:2000aa}{}%
-63. Minka TP. \emph{Estimating a Dirichlet Distribution}.; 2000.
+\leavevmode\hypertarget{ref-levan:1938aa}{}%
+66. LEVAN A. THE effect of colchicine on root mitoses in allium. \emph{Hereditas}. 1938;24(4):471-486.
 
-\leavevmode\hypertarget{ref-matthews:1975aa}{}%
-64. Matthews BW. Comparison of the predicted and observed secondary structure of t4 phage lysozyme. \emph{Biochim Biophys Acta}. 405(2):442-451.
+\leavevmode\hypertarget{ref-caspersson:1970aa}{}%
+67. Caspersson T, Zech L, Johansson C, Modest EJ. Identification of human chromosomes by dna-binding fluorescent agents. \emph{Chromosoma}. 1970;30(2):215-227.
 
-\leavevmode\hypertarget{ref-neiman:2012aa}{}%
-65. Neiman M, Sundling S, Grönberg H, et al. Library preparation and multiplex capture for massive parallel sequencing applications made efficient and easy. \emph{PLOS ONE}. 2012;7(11):1-6.
+\leavevmode\hypertarget{ref-seabright:1971aa}{}%
+68. Seabright M. A rapid banding technique for human chromosomes. \emph{Lancet}. 2(7731):971-972.
 
-\leavevmode\hypertarget{ref-ramos:2012aa}{}%
-66. Ramos E, Levinson BT, Chasnoff S, et al. Population-based rare variant detection via pooled exome or custom hybridization capture with or without individual indexing. \emph{BMC Genomics}. 13:683.
+\leavevmode\hypertarget{ref-fan:1990aa}{}%
+69. Fan YS, Davis LM, Shows TB. Mapping small dna sequences by fluorescence in situ hybridization directly on banded metaphase chromosomes. \emph{Proc Natl Acad Sci U S A}. 87(16):6223-6227.
 
-\leavevmode\hypertarget{ref-rohland:2012aa}{}%
-67. Rohland N, Reich D. Cost-effective, high-throughput dna sequencing libraries for multiplexed target capture. \emph{Genome Res}. 22(5):939-946.
+\leavevmode\hypertarget{ref-danna:1971aa}{}%
+70. Danna K, Nathans D. Specific cleavage of simian virus 40 dna by restriction endonuclease of hemophilus influenzae. \emph{Proc Natl Acad Sci U S A}. 68(12):2913-2917.
 
-\leavevmode\hypertarget{ref-wesolowska:2011aa}{}%
-68. Wesolowska A, Dalgaard MD, Borst L, et al. Cost-effective multiplexing before capture allows screening of 25 000 clinically relevant snps in childhood acute lymphoblastic leukemia. \emph{Leukemia}. 25(6):1001-1006.
+\leavevmode\hypertarget{ref-southern:1975aa}{}%
+71. Southern EM. Detection of specific sequences among dna fragments separated by gel electrophoresis. \emph{J Mol Biol}. 98(3):503-517.
 
-\leavevmode\hypertarget{ref-shearer:2012aa}{}%
-69. Shearer AE, Hildebrand MS, Ravi H, et al. Pre-capture multiplexing improves efficiency and cost-effectiveness of targeted genomic enrichment. \emph{BMC Genomics}. 13:618.
+\leavevmode\hypertarget{ref-shine:1977aa}{}%
+72. Shine J, Seeburg PH, Martial JA, Baxter JD, Goodman HM. Construction and analysis of recombinant dna for human chorionic somatomammotropin. \emph{Nature}. 270(5637):494-499.
 
-\leavevmode\hypertarget{ref-mackie:2017aa}{}%
-70. Mackie FL, Hemming K, Allen S, Morris RK, Kilby MD. The accuracy of cell-free fetal dna-based non-invasive prenatal testing in singleton pregnancies: A systematic review and bivariate meta-analysis. \emph{BJOG}. 124(1):32-46.
+\leavevmode\hypertarget{ref-botstein:1980aa}{}%
+73. Botstein D, White RL, Skolnick M, Davis RW. Construction of a genetic linkage map in man using restriction fragment length polymorphisms. \emph{Am J Hum Genet}. 32(3):314-331.
 
-\leavevmode\hypertarget{ref-zhang:2019aa}{}%
-71. Zhang J, Li J, Saucier JB, et al. Non-invasive prenatal sequencing for multiple mendelian monogenic disorders using circulating cell-free fetal dna. \emph{Nat Med}.
+\leavevmode\hypertarget{ref-mullis:1986aa}{}%
+74. Mullis K, Faloona F, Scharf S, Saiki R, Horn G, Erlich H. Specific enzymatic amplification of dna in vitro: The polymerase chain reaction. \emph{Cold Spring Harb Symp Quant Biol}. 1986;51 Pt 1:263-273.
 
-\leavevmode\hypertarget{ref-tsao:2019ab}{}%
-72. Tsao DS, Silas S, Landry BP, et al. A novel high-throughput molecular counting method with single base-pair resolution enables accurate single-gene nipt. \emph{Sci Rep}. 9(1):14382.
+\leavevmode\hypertarget{ref-guthrie:1963aa}{}%
+75. GUTHRIE R, SUSI A. A simple phenylalanine method for detecting phenylketonuria in large populations of newborn infants. \emph{Pediatrics}. 32:338-343.
 
-\leavevmode\hypertarget{ref-lo:2010aa}{}%
-73. Lo YMD, Chan KCA, Sun H, et al. Maternal plasma dna sequencing reveals the genome-wide genetic and mutational profile of the fetus. \emph{Sci Transl Med}. 2(61):61ra91.
+\leavevmode\hypertarget{ref-jervis:1953aa}{}%
+76. JERVIS GA. Phenylpyruvic oligophrenia deficiency of phenylalanine-oxidizing system. \emph{Proc Soc Exp Biol Med}. 82(3):514-515.
 
-\leavevmode\hypertarget{ref-hui:2017aa}{}%
-74. Hui WWI, Jiang P, Tong YK, et al. Universal haplotype-based noninvasive prenatal testing for single gene diseases. \emph{Clin Chem}. 63(2):513-524.
+\leavevmode\hypertarget{ref-bickel:1953aa}{}%
+77. BICKEL H, GERRARD J, HICKMANS EM. Influence of phenylalanine intake on phenylketonuria. \emph{Lancet}. 265(6790):812-813.
 
-\leavevmode\hypertarget{ref-jang:2018aa}{}%
-75. Jang SS, Lim BC, Yoo S-K, et al. Targeted linked-read sequencing for direct haplotype phasing of maternal dmd alleles: A practical and reliable method for noninvasive prenatal diagnosis. \emph{Sci Rep}. 8(1):8678.
+\leavevmode\hypertarget{ref-fuchs:1956aa}{}%
+78. FUCHS F, RIIS P. Antenatal sex determination. \emph{Nature}. 177(4503):330.
 
-\leavevmode\hypertarget{ref-vermeulen:2017aa}{}%
-76. Vermeulen C, Geeven G, Wit E de, et al. Sensitive monogenic noninvasive prenatal diagnosis by targeted haplotyping. \emph{Am J Hum Genet}. 101(3):326-339.
+\leavevmode\hypertarget{ref-walknowska:1969aa}{}%
+79. Walknowska J, Conte FA, Grumbach MM. Practical and theoretical implications of fetal-maternal lymphocyte transfer. \emph{Lancet}. 1(7606):1119-1122.
 
-\leavevmode\hypertarget{ref-chandler:2020aa}{}%
-77. Chandler NJ, Ahlfors H, Drury S, et al. Noninvasive prenatal diagnosis for cystic fibrosis: Implementation, uptake, outcome, and implications. \emph{Clin Chem}. 66(1):207-216.
+\leavevmode\hypertarget{ref-mueller:1990aa}{}%
+80. Mueller UW, Hawes CS, Wright AE, et al. Isolation of fetal trophoblast cells from peripheral blood of pregnant women. \emph{Lancet}. 336(8709):197-200.
+
+\leavevmode\hypertarget{ref-bianchi:1990aa}{}%
+81. Bianchi DW, Flint AF, Pizzimenti MF, Knoll JH, Latt SA. Isolation of fetal dna from nucleated erythrocytes in maternal blood. \emph{Proc Natl Acad Sci U S A}. 87(9):3279-3283.
+
+\leavevmode\hypertarget{ref-lo:1997aa}{}%
+82. Lo YM, Corbetta N, Chamberlain PF, et al. Presence of fetal dna in maternal plasma and serum. \emph{Lancet}. 350(9076):485-487.
 
 \leavevmode\hypertarget{ref-scotchman:2020aa}{}%
-78. Scotchman E, Chandler NJ, Mellis R, Chitty LS. Noninvasive prenatal diagnosis of single-gene diseases: The next frontier. \emph{Clin Chem}. 66(1):53-60.
+83. Scotchman E, Chandler NJ, Mellis R, Chitty LS. Noninvasive prenatal diagnosis of single-gene diseases: The next frontier. \emph{Clin Chem}. 66(1):53-60.
+
+\leavevmode\hypertarget{ref-marchuk:2018aa}{}%
+84. Marchuk DS, Crooks K, Strande N, et al. Increasing the diagnostic yield of exome sequencing by copy number variant analysis. \emph{PLoS One}. 2018;13(12):e0209185.
+
+\leavevmode\hypertarget{ref-retterer:2015aa}{}%
+85. Retterer K, Scuffins J, Schmidt D, et al. Assessing copy number from exome sequencing and exome array cgh based on cnv spectrum in a large clinical cohort. \emph{Genet Med}. 17(8):623-629.
+
+\leavevmode\hypertarget{ref-yao:2017aa}{}%
+86. Yao R, Zhang C, Yu T, et al. Evaluation of three read-depth based cnv detection tools using whole-exome sequencing data. \emph{Mol Cytogenet}. 2017;10:30.
+
+\leavevmode\hypertarget{ref-fromer:2012aa}{}%
+87. Fromer M, Moran JL, Chambert K, et al. Discovery and statistical genotyping of copy-number variation from whole-exome sequencing depth. \emph{Am J Hum Genet}. 91(4):597-607.
+
+\leavevmode\hypertarget{ref-jiang:2015aa}{}%
+88. Jiang Y, Oldridge DA, Diskin SJ, Zhang NR. CODEX: A normalization and copy number variation detection method for whole exome sequencing. \emph{Nucleic Acids Res}. 43(6):e39.
+
+\leavevmode\hypertarget{ref-krumm:2012aa}{}%
+89. Krumm N, Sudmant PH, Ko A, et al. Copy number variation detection and genotyping from exome sequence data. \emph{Genome Res}. 22(8):1525-1532.
+
+\leavevmode\hypertarget{ref-truty:2019aa}{}%
+90. Truty R, Paul J, Kennemer M, et al. Prevalence and properties of intragenic copy-number variation in mendelian disease genes. \emph{Genet Med}. 21(1):114-123.
+
+\leavevmode\hypertarget{ref-benjamini:2012aa}{}%
+91. Benjamini Y, Speed TP. Summarizing and correcting the gc content bias in high-throughput sequencing. \emph{Nucleic Acids Res}. 40(10):e72.
+
+\leavevmode\hypertarget{ref-kadalayil:2015aa}{}%
+92. Kadalayil L, Rafiq S, Rose-Zerilli MJJ, et al. Exome sequence read depth methods for identifying copy number changes. \emph{Brief Bioinform}. 16(3):380-392.
+
+\leavevmode\hypertarget{ref-chiang:2009aa}{}%
+93. Chiang DY, Getz G, Jaffe DB, et al. High-resolution mapping of copy-number alterations with massively parallel sequencing. \emph{Nat Methods}. 6(1):99-103.
+
+\leavevmode\hypertarget{ref-foreman:2013aa}{}%
+94. Foreman AKM, Lee K, Evans JP. The NCGENES project: Exploring the new world of genome sequencing. \emph{N C Med J}. 74(6):500-504.
+
+\leavevmode\hypertarget{ref-li:2013ab}{}%
+95. Li H. Aligning sequence reads, clone sequences and assembly contigs with bwa-mem. Published online 2013.
+
+\leavevmode\hypertarget{ref-koster:2012aa}{}%
+96. Koster J, Rahmann S. Snakemake--a scalable bioinformatics workflow engine. \emph{Bioinformatics}. 28(19):2520-2522.
+
+\leavevmode\hypertarget{ref-trost:2018aa}{}%
+97. Trost B, Walker S, Wang Z, et al. A comprehensive workflow for read depth-based identification of copy-number variation from whole-genome sequence data. \emph{Am J Hum Genet}. 102(1):142-155.
+
+\leavevmode\hypertarget{ref-yu:2013aa}{}%
+98. Yu D, Huber W, Vitek O. Shrinkage estimation of dispersion in negative binomial models for rna-seq experiments with small sample size. \emph{Bioinformatics}. 29(10):1275-1282.
+
+\leavevmode\hypertarget{ref-benjamini:1995aa}{}%
+99. Benjamini Y, Hochberg Y. Controlling the false discovery rate: A practical and powerful approach to multiple testing. \emph{Journal of the Royal Statistical Society: Series B (Methodological)}. 1995;57(1):289-300.
+
+\leavevmode\hypertarget{ref-minka:2000aa}{}%
+100. Minka TP. \emph{Estimating a Dirichlet Distribution}.; 2000.
+
+\leavevmode\hypertarget{ref-matthews:1975aa}{}%
+101. Matthews BW. Comparison of the predicted and observed secondary structure of t4 phage lysozyme. \emph{Biochim Biophys Acta}. 405(2):442-451.
+
+\leavevmode\hypertarget{ref-neiman:2012aa}{}%
+102. Neiman M, Sundling S, Grönberg H, et al. Library preparation and multiplex capture for massive parallel sequencing applications made efficient and easy. \emph{PLOS ONE}. 2012;7(11):1-6.
+
+\leavevmode\hypertarget{ref-ramos:2012aa}{}%
+103. Ramos E, Levinson BT, Chasnoff S, et al. Population-based rare variant detection via pooled exome or custom hybridization capture with or without individual indexing. \emph{BMC Genomics}. 13:683.
+
+\leavevmode\hypertarget{ref-rohland:2012aa}{}%
+104. Rohland N, Reich D. Cost-effective, high-throughput dna sequencing libraries for multiplexed target capture. \emph{Genome Res}. 22(5):939-946.
+
+\leavevmode\hypertarget{ref-wesolowska:2011aa}{}%
+105. Wesolowska A, Dalgaard MD, Borst L, et al. Cost-effective multiplexing before capture allows screening of 25 000 clinically relevant snps in childhood acute lymphoblastic leukemia. \emph{Leukemia}. 25(6):1001-1006.
+
+\leavevmode\hypertarget{ref-shearer:2012aa}{}%
+106. Shearer AE, Hildebrand MS, Ravi H, et al. Pre-capture multiplexing improves efficiency and cost-effectiveness of targeted genomic enrichment. \emph{BMC Genomics}. 13:618.
+
+\leavevmode\hypertarget{ref-mackie:2017aa}{}%
+107. Mackie FL, Hemming K, Allen S, Morris RK, Kilby MD. The accuracy of cell-free fetal dna-based non-invasive prenatal testing in singleton pregnancies: A systematic review and bivariate meta-analysis. \emph{BJOG}. 124(1):32-46.
+
+\leavevmode\hypertarget{ref-zhang:2019aa}{}%
+108. Zhang J, Li J, Saucier JB, et al. Non-invasive prenatal sequencing for multiple mendelian monogenic disorders using circulating cell-free fetal dna. \emph{Nat Med}.
+
+\leavevmode\hypertarget{ref-tsao:2019ab}{}%
+109. Tsao DS, Silas S, Landry BP, et al. A novel high-throughput molecular counting method with single base-pair resolution enables accurate single-gene nipt. \emph{Sci Rep}. 9(1):14382.
+
+\leavevmode\hypertarget{ref-lo:2010aa}{}%
+110. Lo YMD, Chan KCA, Sun H, et al. Maternal plasma dna sequencing reveals the genome-wide genetic and mutational profile of the fetus. \emph{Sci Transl Med}. 2(61):61ra91.
+
+\leavevmode\hypertarget{ref-hui:2017aa}{}%
+111. Hui WWI, Jiang P, Tong YK, et al. Universal haplotype-based noninvasive prenatal testing for single gene diseases. \emph{Clin Chem}. 63(2):513-524.
+
+\leavevmode\hypertarget{ref-jang:2018aa}{}%
+112. Jang SS, Lim BC, Yoo S-K, et al. Targeted linked-read sequencing for direct haplotype phasing of maternal dmd alleles: A practical and reliable method for noninvasive prenatal diagnosis. \emph{Sci Rep}. 8(1):8678.
+
+\leavevmode\hypertarget{ref-vermeulen:2017aa}{}%
+113. Vermeulen C, Geeven G, Wit E de, et al. Sensitive monogenic noninvasive prenatal diagnosis by targeted haplotyping. \emph{Am J Hum Genet}. 101(3):326-339.
+
+\leavevmode\hypertarget{ref-chandler:2020aa}{}%
+114. Chandler NJ, Ahlfors H, Drury S, et al. Noninvasive prenatal diagnosis for cystic fibrosis: Implementation, uptake, outcome, and implications. \emph{Clin Chem}. 66(1):207-216.
 
 \leavevmode\hypertarget{ref-salomon:2019aa}{}%
-79. Salomon LJ, Sotiriadis A, Wulff CB, Odibo A, Akolekar R. Risk of miscarriage following amniocentesis or chorionic villus sampling: Systematic review of literature and updated meta-analysis. \emph{Ultrasound Obstet Gynecol}. 54(4):442-451.
+115. Salomon LJ, Sotiriadis A, Wulff CB, Odibo A, Akolekar R. Risk of miscarriage following amniocentesis or chorionic villus sampling: Systematic review of literature and updated meta-analysis. \emph{Ultrasound Obstet Gynecol}. 54(4):442-451.
 
 \leavevmode\hypertarget{ref-fan:2012aa}{}%
-80. Fan HC, Gu W, Wang J, Blumenfeld YJ, El-Sayed YY, Quake SR. Non-invasive prenatal measurement of the fetal genome. \emph{Nature}. 487(7407):320-324.
+116. Fan HC, Gu W, Wang J, Blumenfeld YJ, El-Sayed YY, Quake SR. Non-invasive prenatal measurement of the fetal genome. \emph{Nature}. 487(7407):320-324.
 
 \leavevmode\hypertarget{ref-kitzman:2012aa}{}%
-81. Kitzman JO, Snyder MW, Ventura M, et al. Noninvasive whole-genome sequencing of a human fetus. \emph{Sci Transl Med}. 4(137):137ra76.
+117. Kitzman JO, Snyder MW, Ventura M, et al. Noninvasive whole-genome sequencing of a human fetus. \emph{Sci Transl Med}. 4(137):137ra76.
 
 \leavevmode\hypertarget{ref-snyder:2013aa}{}%
-82. Snyder MW, Simmons LE, Kitzman JO, et al. Noninvasive fetal genome sequencing: A primer. \emph{Prenat Diagn}. 33(6):547-554.
+118. Snyder MW, Simmons LE, Kitzman JO, et al. Noninvasive fetal genome sequencing: A primer. \emph{Prenat Diagn}. 33(6):547-554.
 
 \leavevmode\hypertarget{ref-seaby:2016aa}{}%
-83. Seaby EG, Pengelly RJ, Ennis S. Exome sequencing explained: A practical guide to its clinical application. \emph{Brief Funct Genomics}. 15(5):374-384.
+119. Seaby EG, Pengelly RJ, Ennis S. Exome sequencing explained: A practical guide to its clinical application. \emph{Brief Funct Genomics}. 15(5):374-384.
 
 \leavevmode\hypertarget{ref-r-core-team:2019aa}{}%
-84. R Core Team. \emph{R: A Language and Environment for Statistical Computing}. R Foundation for Statistical Computing; 2019.
+120. R Core Team. \emph{R: A Language and Environment for Statistical Computing}. R Foundation for Statistical Computing; 2019.
 
 \leavevmode\hypertarget{ref-chan:2004aa}{}%
-85. Chan KCA, Zhang J, Hui ABY, et al. Size distributions of maternal and fetal dna in maternal plasma. \emph{Clin Chem}. 50(1):88-92.
+121. Chan KCA, Zhang J, Hui ABY, et al. Size distributions of maternal and fetal dna in maternal plasma. \emph{Clin Chem}. 50(1):88-92.
 
 \leavevmode\hypertarget{ref-chan:2016aa}{}%
-86. Chan KCA, Jiang P, Sun K, et al. Second generation noninvasive fetal genome analysis reveals de novo mutations, single-base parental inheritance, and preferred dna ends. \emph{Proc Natl Acad Sci U S A}. 113(50):E8159-E8168.
+122. Chan KCA, Jiang P, Sun K, et al. Second generation noninvasive fetal genome analysis reveals de novo mutations, single-base parental inheritance, and preferred dna ends. \emph{Proc Natl Acad Sci U S A}. 113(50):E8159-E8168.
 
 \leavevmode\hypertarget{ref-jiang:2016ab}{}%
-87. Jiang P, Lo YMD. The long and short of circulating cell-free dna and the ins and outs of molecular diagnostics. \emph{Trends Genet}. 32(6):360-371.
+123. Jiang P, Lo YMD. The long and short of circulating cell-free dna and the ins and outs of molecular diagnostics. \emph{Trends Genet}. 32(6):360-371.
 
 \leavevmode\hypertarget{ref-rabinowitz:2019aa}{}%
-88. Rabinowitz T, Polsky A, Golan D, et al. Bayesian-based noninvasive prenatal diagnosis of single-gene disorders. \emph{Genome Res}. 29(3):428-438.
+124. Rabinowitz T, Polsky A, Golan D, et al. Bayesian-based noninvasive prenatal diagnosis of single-gene disorders. \emph{Genome Res}. 29(3):428-438.
 
 \leavevmode\hypertarget{ref-kinnings:2015aa}{}%
-89. Kinnings SL, Geis JA, Almasri E, et al. Factors affecting levels of circulating cell-free fetal dna in maternal plasma and their implications for noninvasive prenatal testing. \emph{Prenat Diagn}. 35(8):816-822.
+125. Kinnings SL, Geis JA, Almasri E, et al. Factors affecting levels of circulating cell-free fetal dna in maternal plasma and their implications for noninvasive prenatal testing. \emph{Prenat Diagn}. 35(8):816-822.
+
+\hypertarget{appendix-appendix}{%
+\appendix}
+
+
+\hypertarget{r-code}{%
+\chapter{R Code}\label{r-code}}
+
+This appendix contains all of the R code to reproduce the work presented.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{options}\NormalTok{(}\DataTypeTok{knitr.graphics.auto_pdf =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{knitr}\OperatorTok{::}\NormalTok{opts_chunk}\OperatorTok{$}\KeywordTok{set}\NormalTok{(}
+  \DataTypeTok{echo      =} \OtherTok{FALSE}\NormalTok{,}
+  \DataTypeTok{warning   =} \OtherTok{FALSE}\NormalTok{,}
+  \DataTypeTok{message   =} \OtherTok{FALSE}\NormalTok{,}
+  \DataTypeTok{error     =} \OtherTok{FALSE}\NormalTok{,}
+  \DataTypeTok{cache     =} \OtherTok{TRUE}\NormalTok{,}
+  \DataTypeTok{fig.align =} \StringTok{"center"}\NormalTok{,}
+  \DataTypeTok{fig.width =} \DecValTok{5}\NormalTok{,}
+  \DataTypeTok{fig.height =} \DecValTok{4}\NormalTok{,}
+  \DataTypeTok{dev.args =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{pdf =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{pointsize =} \DecValTok{10}\NormalTok{),}
+                  \DataTypeTok{png =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{pointsize =} \DecValTok{10}\NormalTok{)),}
+  \DataTypeTok{dpi =} \DecValTok{300}
+\NormalTok{)}
+\NormalTok{tex  <-}\StringTok{ }\OtherTok{TRUE}
+\NormalTok{docx <-}\StringTok{ }\OtherTok{FALSE}
+\NormalTok{html <-}\StringTok{ }\OtherTok{FALSE}
+\ControlFlowTok{if}\NormalTok{ (}\OperatorTok{!}\NormalTok{knitr}\OperatorTok{:::}\KeywordTok{is_latex_output}\NormalTok{()) \{}
+\NormalTok{    tex <-}\StringTok{ }\OtherTok{FALSE}
+    \ControlFlowTok{if}\NormalTok{ (knitr}\OperatorTok{:::}\KeywordTok{is_html_output}\NormalTok{()) \{}
+\NormalTok{        html <-}\StringTok{ }\OtherTok{TRUE}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{        docx <-}\StringTok{ }\OtherTok{TRUE}
+\NormalTok{    \}}
+\NormalTok{\}}
+\KeywordTok{library}\NormalTok{(filer2020A)}
+\KeywordTok{library}\NormalTok{(filer2020B)}
+\KeywordTok{library}\NormalTok{(mcCNV)}
+\KeywordTok{library}\NormalTok{(xtable)}
+\KeywordTok{library}\NormalTok{(eulerr)}
+\KeywordTok{library}\NormalTok{(dlfUtils)}
+\KeywordTok{library}\NormalTok{(parallel)}
+\KeywordTok{library}\NormalTok{(grid)}
+\KeywordTok{library}\NormalTok{(kableExtra)}
+\KeywordTok{library}\NormalTok{(MASS)}
+\NormalTok{defOutWid <-}\StringTok{ }\ControlFlowTok{if}\NormalTok{ (html) }\StringTok{'70%'} \ControlFlowTok{else} \OtherTok{NULL}
+\NormalTok{dblOutWid <-}\StringTok{ }\ControlFlowTok{if}\NormalTok{ (html) }\StringTok{'40%'} \ControlFlowTok{else} \StringTok{'49%'}
+\KeywordTok{data}\NormalTok{(subjectMeta)}
+\NormalTok{poolTbl <-}\StringTok{ }\NormalTok{subjectMeta[ ,}
+\NormalTok{                       .(}\DataTypeTok{N =}\NormalTok{ .N,}
+                         \DataTypeTok{medExon =} \KeywordTok{round}\NormalTok{(}\KeywordTok{median}\NormalTok{(medIntMolCount), }\DecValTok{0}\NormalTok{),}
+                         \DataTypeTok{medTotal =} \KeywordTok{round}\NormalTok{(}\KeywordTok{median}\NormalTok{(totalMolCount), }\DecValTok{0}\NormalTok{),}
+                         \DataTypeTok{minTotal =} \KeywordTok{min}\NormalTok{(totalMolCount),}
+                         \DataTypeTok{maxTotal =} \KeywordTok{max}\NormalTok{(totalMolCount),}
+                         \DataTypeTok{rsdTotal =} \KeywordTok{sd}\NormalTok{(totalMolCount)}\OperatorTok{/}\KeywordTok{mean}\NormalTok{(totalMolCount)}\OperatorTok{*}\DecValTok{100}\NormalTok{),}
+\NormalTok{                       by =}\StringTok{ }\NormalTok{.(pool, capture, multiplexCapture)]}
+\NormalTok{poolTbl[ , rsdTotal }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{round}\NormalTok{(rsdTotal, }\DecValTok{1}\NormalTok{)]}
+\NormalTok{poolTbl[(}\OperatorTok{!}\NormalTok{multiplexCapture), pool }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{paste0}\NormalTok{(pool, }\StringTok{"$^}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{dagger$"}\NormalTok{)]}
+\KeywordTok{kable}\NormalTok{(poolTbl[ , .(pool, capture, N, medExon, medTotal, minTotal, maxTotal, rsdTotal)], }
+      \DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }
+      \DataTypeTok{caption =} \StringTok{'Summary of whole-exome sequencing. ``pool'' indicates the name of the pool of samples; ``capture'' indicates the capture platform for the pool; ``N'' gives the number of samples in the pool; ``medExon'' gives the pool median of the subject median mapped molecule count per exon; ``medTotal'' gives the median by pool of total mapped molecule counts per subject; ``minTotal'' and ``maxTotal'' give the minimum and maximum total mapped molecules; ``rsdTotal'' gives the relative standard deviation (SD/mean*100) of total mapped molecules. \(^\dagger\) indicates captures were performed independently on each sample within the pool, otherwise captures were multiplexed across all samples within the pool.'}\NormalTok{,}
+      \DataTypeTok{label =} \StringTok{"poolSummary"}\NormalTok{,}
+      \DataTypeTok{format.args =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{big.mark =} \StringTok{","}\NormalTok{, }\DataTypeTok{scientific =} \OtherTok{FALSE}\NormalTok{),}
+      \DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{caption.short =} \StringTok{"Summary of whole-exome sequencing for CNV project."}\NormalTok{,}
+      \DataTypeTok{escape =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{kable_classic}\NormalTok{()}
+\CommentTok{## Create IC pools}
+\NormalTok{smplSubject <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(poolName, n) \{}
+  \KeywordTok{data}\NormalTok{(subjectMeta, }\DataTypeTok{envir =} \KeywordTok{environment}\NormalTok{())}
+\NormalTok{  subjectMeta[pool }\OperatorTok{==}\StringTok{ }\NormalTok{poolName, }\KeywordTok{sample}\NormalTok{(subject, n, }\DataTypeTok{replace =} \OtherTok{FALSE}\NormalTok{)]}
+\NormalTok{\}}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
+\NormalTok{pools <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{replicate}\NormalTok{(}\DecValTok{5}\NormalTok{, }\KeywordTok{smplSubject}\NormalTok{(}\StringTok{"NCGENES"}\NormalTok{, }\DecValTok{16}\NormalTok{), }\DataTypeTok{simplify =} \OtherTok{FALSE}\NormalTok{))}
+\KeywordTok{names}\NormalTok{(pools) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{sprintf}\NormalTok{(}\StringTok{"randNCG_%d"}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{))}
+\NormalTok{pools <-}\StringTok{ }\KeywordTok{c}\NormalTok{(pools,}
+           \KeywordTok{with}\NormalTok{(subjectMeta[pool }\OperatorTok{!=}\StringTok{ "NCGENES"}\NormalTok{], }\KeywordTok{split}\NormalTok{(subject, pool)))}
+\CommentTok{## Calculate mean-variance by pool}
+\NormalTok{mnvr <-}\StringTok{ }\KeywordTok{mclapply}\NormalTok{(pools, subsetCounts, }\DataTypeTok{mc.cores =} \KeywordTok{length}\NormalTok{(pools))}
+\NormalTok{mnvr <-}\StringTok{ }\KeywordTok{mclapply}\NormalTok{(mnvr, calcIntStats, }\DataTypeTok{mc.cores =} \KeywordTok{length}\NormalTok{(mnvr))}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \KeywordTok{seq_along}\NormalTok{(mnvr)) \{}
+\NormalTok{  mnvr[[i]][ , pool }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{names}\NormalTok{(mnvr)[i]]}
+\NormalTok{\}}
+\NormalTok{mnvr <-}\StringTok{ }\KeywordTok{rbindlist}\NormalTok{(mnvr)}
+\KeywordTok{setkey}\NormalTok{(mnvr, pool); }\KeywordTok{setcolorder}\NormalTok{(mnvr)}
+
+\CommentTok{## Estimate alpha0}
+\NormalTok{alpha0 <-}\StringTok{ }\KeywordTok{mclapply}\NormalTok{(pools, estAlpha0, }\DataTypeTok{mc.cores =} \KeywordTok{length}\NormalTok{(pools))}
+\NormalTok{a0tbl <-}\StringTok{ }\KeywordTok{data.table}\NormalTok{(}\DataTypeTok{pool =} \KeywordTok{names}\NormalTok{(alpha0),}
+                    \DataTypeTok{a0 =} \KeywordTok{sapply}\NormalTok{(alpha0, }\StringTok{"[["}\NormalTok{, }\StringTok{"a0"}\NormalTok{),}
+                    \DataTypeTok{N =} \KeywordTok{sapply}\NormalTok{(alpha0, }\StringTok{"[["}\NormalTok{, }\StringTok{"N"}\NormalTok{))}
+\NormalTok{a0tbl[ , aMn }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{a0}\OperatorTok{/}\NormalTok{N]}
+\NormalTok{calcRange <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
+\NormalTok{  subjectMeta[subject }\OperatorTok{%in%}\StringTok{ }\NormalTok{x,}
+\NormalTok{              .(}\DataTypeTok{mnCount =} \KeywordTok{min}\NormalTok{(totalMolCount),}
+                \DataTypeTok{mdCount =} \KeywordTok{median}\NormalTok{(totalMolCount),}
+                \DataTypeTok{mxCount =} \KeywordTok{max}\NormalTok{(totalMolCount),}
+                \DataTypeTok{rsCount =} \KeywordTok{sd}\NormalTok{(totalMolCount)}\OperatorTok{/}\KeywordTok{mean}\NormalTok{(totalMolCount)}\OperatorTok{*}\DecValTok{100}\NormalTok{)]}
+\NormalTok{\}}
+\NormalTok{poolCts <-}\StringTok{ }\KeywordTok{lapply}\NormalTok{(pools, calcRange)}
+\NormalTok{poolCts <-}\StringTok{ }\KeywordTok{lapply}\NormalTok{(}\KeywordTok{names}\NormalTok{(poolCts), }\ControlFlowTok{function}\NormalTok{(x) poolCts[[x]][ , }\DataTypeTok{pool :=}\NormalTok{ x])}
+\NormalTok{poolCts <-}\StringTok{ }\KeywordTok{rbindlist}\NormalTok{(poolCts)}
+\NormalTok{a0tbl <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(a0tbl, poolCts)}
+\NormalTok{a0tbl[ , mc }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"IDT-IC|rand"}\NormalTok{, pool)]}
+\NormalTok{a0tbl[ , idt }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{grepl}\NormalTok{(}\StringTok{"IDT"}\NormalTok{, pool)]}
+\KeywordTok{pltAlpha0}\NormalTok{(a0tbl)}
+\NormalTok{aglPools <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{sprintf}\NormalTok{(}\StringTok{"randNCG_%d"}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{), }\StringTok{"Pool1"}\NormalTok{, }\StringTok{"Pool2"}\NormalTok{, }\StringTok{"WGS"}\NormalTok{, }\StringTok{"SMA1"}\NormalTok{, }\StringTok{"SMA2"}\NormalTok{)}
+\KeywordTok{with}\NormalTok{(mnvr[pool }\OperatorTok{%in%}\StringTok{ }\NormalTok{aglPools], \{}
+  \KeywordTok{pltMnVrCont}\NormalTok{(}\DataTypeTok{dat =} \KeywordTok{as.data.table}\NormalTok{(}\KeywordTok{as.list}\NormalTok{(}\KeywordTok{environment}\NormalTok{())),}
+              \DataTypeTok{grpVec =} \KeywordTok{factor}\NormalTok{(pool, }\DataTypeTok{levels =}\NormalTok{ aglPools),}
+              \DataTypeTok{colVec =} \KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\StringTok{'darkblue'}\NormalTok{, }\DecValTok{5}\NormalTok{), }\KeywordTok{rep}\NormalTok{(}\StringTok{'darkorange'}\NormalTok{, }\DecValTok{5}\NormalTok{)),}
+              \DataTypeTok{lgnd =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{\})}
+\NormalTok{idtPools <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"IDT-MC"}\NormalTok{, }\StringTok{"IDT-IC"}\NormalTok{, }\StringTok{"IDT-RR"}\NormalTok{)}
+\KeywordTok{with}\NormalTok{(mnvr[pool }\OperatorTok{%in%}\StringTok{ }\NormalTok{idtPools], \{}
+  \KeywordTok{pltMnVrCont}\NormalTok{(}\DataTypeTok{dat =} \KeywordTok{as.data.table}\NormalTok{(}\KeywordTok{as.list}\NormalTok{(}\KeywordTok{environment}\NormalTok{())),}
+              \DataTypeTok{grpVec =} \KeywordTok{factor}\NormalTok{(pool, }\DataTypeTok{levels =}\NormalTok{ idtPools),}
+              \DataTypeTok{colVec =} \KeywordTok{c}\NormalTok{(}\StringTok{"darkorange"}\NormalTok{, }\StringTok{"darkblue"}\NormalTok{, }\StringTok{"darkorange"}\NormalTok{),}
+              \DataTypeTok{lgnd =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{\})}
+\KeywordTok{with}\NormalTok{(mnvr[pool }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"WGS"}\NormalTok{, }\StringTok{"IDT-RR"}\NormalTok{)], \{}
+  \KeywordTok{pltMnVrCont}\NormalTok{(}\DataTypeTok{dat =} \KeywordTok{as.data.table}\NormalTok{(}\KeywordTok{as.list}\NormalTok{(}\KeywordTok{environment}\NormalTok{())),}
+              \DataTypeTok{grpVec =} \KeywordTok{factor}\NormalTok{(pool, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{"WGS"}\NormalTok{, }\StringTok{"IDT-RR"}\NormalTok{)),}
+              \DataTypeTok{colVec =} \KeywordTok{c}\NormalTok{(}\StringTok{"darkblue"}\NormalTok{, }\StringTok{"darkorange"}\NormalTok{))}
+\NormalTok{\})}
+\KeywordTok{pltSubjectStatByPool}\NormalTok{(}\StringTok{"medIntMolCount"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Median count per exon"}\NormalTok{)}
+\KeywordTok{pltSubjectStatByPool}\NormalTok{(}\StringTok{"nSelected"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Number of controls selected"}\NormalTok{)}
+\KeywordTok{pltSubjectStatByPool}\NormalTok{(}\StringTok{"propSelected"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Proportion of controls selected"}\NormalTok{)}
+\KeywordTok{pltSubjectStatByPool}\NormalTok{(}\StringTok{"overallPhi"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Overdispersion (phi)"}\NormalTok{)}
+\KeywordTok{setkey}\NormalTok{(subjectMeta, subject)}
+\KeywordTok{data}\NormalTok{(subjectCorr)}
+\KeywordTok{setkey}\NormalTok{(subjectCorr, subject)}
+\NormalTok{subjectCorr <-}\StringTok{ }\NormalTok{subjectMeta[subjectCorr]}
+\KeywordTok{data}\NormalTok{(simRes)}
+\NormalTok{procSimRes <-}\StringTok{ }\KeywordTok{lapply}\NormalTok{(simRes, }\ControlFlowTok{function}\NormalTok{(x) }\KeywordTok{procRes}\NormalTok{(x}\OperatorTok{$}\NormalTok{clpRes))}
+
+\NormalTok{simResTbl <-}\StringTok{ }\KeywordTok{lapply}\NormalTok{(procSimRes,}
+                    \ControlFlowTok{function}\NormalTok{(x) x}\OperatorTok{$}\NormalTok{mnDat[ , .(mcc, tpr, fdr), }\DataTypeTok{keyby =}\NormalTok{ dep])}
+\NormalTok{simResTbl <-}\StringTok{ }\KeywordTok{Reduce}\NormalTok{(merge, simResTbl)}
+\KeywordTok{setnames}\NormalTok{(simResTbl,}
+         \KeywordTok{c}\NormalTok{(}\StringTok{"dep"}\NormalTok{,}
+           \StringTok{"mcMCC"}\NormalTok{, }\StringTok{"mcTPR"}\NormalTok{, }\StringTok{"mcFDR"}\NormalTok{,  }\CommentTok{## mcCNV}
+           \StringTok{"edMCC"}\NormalTok{, }\StringTok{"edTPR"}\NormalTok{, }\StringTok{"edFDR"}\NormalTok{,  }\CommentTok{## ExomeDepthDefault}
+           \StringTok{"ebMCC"}\NormalTok{, }\StringTok{"ebTPR"}\NormalTok{, }\StringTok{"ebFDR"}\NormalTok{)) }\CommentTok{## ExomeDepthBest}
+\KeywordTok{setcolorder}\NormalTok{(simResTbl,}
+            \KeywordTok{c}\NormalTok{(}\StringTok{"dep"}\NormalTok{, }\StringTok{"mcMCC"}\NormalTok{, }\StringTok{"edMCC"}\NormalTok{, }\StringTok{"ebMCC"}\NormalTok{, }\StringTok{"mcTPR"}\NormalTok{,}
+              \StringTok{"edTPR"}\NormalTok{, }\StringTok{"ebTPR"}\NormalTok{, }\StringTok{"mcFDR"}\NormalTok{, }\StringTok{"edFDR"}\NormalTok{, }\StringTok{"ebFDR"}\NormalTok{))}
+\NormalTok{simResTbl <-}\StringTok{ }\NormalTok{simResTbl[ , }\KeywordTok{lapply}\NormalTok{(.SD, signif, }\DecValTok{3}\NormalTok{), by =}\StringTok{ }\NormalTok{dep]}
+\KeywordTok{pltStatCompare}\NormalTok{(}\DataTypeTok{xRes =}\NormalTok{ procSimRes}\OperatorTok{$}\NormalTok{ExomeDepthDefault, }\DataTypeTok{yRes =}\NormalTok{ procSimRes}\OperatorTok{$}\NormalTok{mcCNV,}
+               \DataTypeTok{stat =} \StringTok{"mcc"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"ExomeDepth (default)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"mcCNV"}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"A"}\NormalTok{)}
+\KeywordTok{pltStatCompare}\NormalTok{(}\DataTypeTok{xRes =}\NormalTok{ procSimRes}\OperatorTok{$}\NormalTok{ExomeDepthDefault, }\DataTypeTok{yRes =}\NormalTok{ procSimRes}\OperatorTok{$}\NormalTok{mcCNV,}
+               \DataTypeTok{stat =} \StringTok{"tpr"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"ExomeDepth (default)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"mcCNV"}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"B"}\NormalTok{)}
+\KeywordTok{pltStatCompare}\NormalTok{(}\DataTypeTok{xRes =}\NormalTok{ procSimRes}\OperatorTok{$}\NormalTok{ExomeDepthDefault, }\DataTypeTok{yRes =}\NormalTok{ procSimRes}\OperatorTok{$}\NormalTok{mcCNV,}
+               \DataTypeTok{stat =} \StringTok{"fdr"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"ExomeDepth (default)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"mcCNV"}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"C"}\NormalTok{)}
+\KeywordTok{pltStatCompare}\NormalTok{(}\DataTypeTok{xRes =}\NormalTok{ procSimRes}\OperatorTok{$}\NormalTok{ExomeDepthBest, }\DataTypeTok{yRes =}\NormalTok{ procSimRes}\OperatorTok{$}\NormalTok{mcCNV,}
+               \DataTypeTok{stat =} \StringTok{"mcc"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"ExomeDepth (correct)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"mcCNV"}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"D"}\NormalTok{)}
+\KeywordTok{pltStatCompare}\NormalTok{(}\DataTypeTok{xRes =}\NormalTok{ procSimRes}\OperatorTok{$}\NormalTok{ExomeDepthBest, }\DataTypeTok{yRes =}\NormalTok{ procSimRes}\OperatorTok{$}\NormalTok{mcCNV,}
+               \DataTypeTok{stat =} \StringTok{"tpr"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"ExomeDepth (correct)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"mcCNV"}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"E"}\NormalTok{)}
+\KeywordTok{pltStatCompare}\NormalTok{(}\DataTypeTok{xRes =}\NormalTok{ procSimRes}\OperatorTok{$}\NormalTok{ExomeDepthBest, }\DataTypeTok{yRes =}\NormalTok{ procSimRes}\OperatorTok{$}\NormalTok{mcCNV,}
+               \DataTypeTok{stat =} \StringTok{"fdr"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"ExomeDepth (correct)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"mcCNV"}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"F"}\NormalTok{)}
+\KeywordTok{kable}\NormalTok{(simResTbl,}
+      \DataTypeTok{col.names =} \KeywordTok{c}\NormalTok{(}\StringTok{"dep"}\NormalTok{, }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"mcCNV"}\NormalTok{, }\StringTok{"ED-def"}\NormalTok{, }\StringTok{"ED-sim"}\NormalTok{), }\DecValTok{3}\NormalTok{)),}
+      \DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }
+      \DataTypeTok{caption =} \StringTok{'Simulation results by algorithm. ED-def: ExomeDepth with default parameters; ED-sim: ExomeDepth with simulation-matched parameters. Values represent the mean over 200 simulations.'}\NormalTok{,}
+      \DataTypeTok{label =} \StringTok{"simResTbl"}\NormalTok{,}
+      \DataTypeTok{format.args =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{big.mark =} \StringTok{","}\NormalTok{, }\DataTypeTok{scientific =} \OtherTok{FALSE}\NormalTok{),}
+      \DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{caption.short =} \StringTok{'Algorithm performance comparing mcCNV and ExomeDepth on simulated exomes.'}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{kable_classic}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{add_header_above}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{" "}\NormalTok{ =}\StringTok{ }\DecValTok{1}\NormalTok{, }\StringTok{"MCC"}\NormalTok{ =}\StringTok{ }\DecValTok{3}\NormalTok{, }\StringTok{"TPR"}\NormalTok{ =}\StringTok{ }\DecValTok{3}\NormalTok{, }\StringTok{"FDR"}\NormalTok{ =}\StringTok{ }\DecValTok{3}\NormalTok{))}
+\KeywordTok{data}\NormalTok{(wgsPoolCalls)}
+\NormalTok{mergeAll <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y) }\KeywordTok{merge}\NormalTok{(x, y, }\DataTypeTok{all =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{wgs <-}\StringTok{ }\KeywordTok{Reduce}\NormalTok{(mergeAll, wgsPoolCalls)}
+\KeywordTok{data}\NormalTok{(intAgl)}
+\NormalTok{xpandInt <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(int, sbjVec) \{}
+\NormalTok{  lst <-}\StringTok{ }\KeywordTok{vector}\NormalTok{(}\DataTypeTok{mode =} \StringTok{"list"}\NormalTok{, }\DataTypeTok{length =} \KeywordTok{length}\NormalTok{(sbjVec))}
+  \KeywordTok{names}\NormalTok{(lst) <-}\StringTok{ }\NormalTok{sbjVec}
+  \ControlFlowTok{for}\NormalTok{ (s }\ControlFlowTok{in}\NormalTok{ sbjVec) \{}
+\NormalTok{    lst[[s]] <-}\StringTok{ }\KeywordTok{copy}\NormalTok{(int)}
+\NormalTok{    lst[[s]][ , subject }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{s]}
+\NormalTok{  \}}
+  \KeywordTok{rbindlist}\NormalTok{(lst)}
+\NormalTok{\}}
+\NormalTok{wgsAgl <-}\StringTok{ }\KeywordTok{xpandInt}\NormalTok{(intAgl, wgs[ , }\KeywordTok{unique}\NormalTok{(subject)])}
+\KeywordTok{setkeyv}\NormalTok{(wgsAgl, }\KeywordTok{key}\NormalTok{(wgs))}
+\NormalTok{wgs <-}\StringTok{ }\NormalTok{wgs[wgsAgl]}
+\KeywordTok{rm}\NormalTok{(wgsAgl)}
+\NormalTok{wgs <-}\StringTok{ }\NormalTok{wgs[}\OperatorTok{!}\NormalTok{(rlcr),}
+\NormalTok{           .(}\DataTypeTok{mcDup =} \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(passFilter) }\OperatorTok{&}\StringTok{ }\NormalTok{CN }\OperatorTok{>}\StringTok{ }\DecValTok{1}\NormalTok{,}
+             \DataTypeTok{edDup =} \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(type) }\OperatorTok{&}\StringTok{ }\NormalTok{type }\OperatorTok{==}\StringTok{ "duplication"}\NormalTok{,}
+             \DataTypeTok{wgDup =} \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(erds) }\OperatorTok{&}\StringTok{ }\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(cnvpytor) }\OperatorTok{&}\StringTok{ }\NormalTok{erds }\OperatorTok{==}\StringTok{ "dup"}\NormalTok{,}
+             \DataTypeTok{mcDel =} \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(passFilter) }\OperatorTok{&}\StringTok{ }\NormalTok{CN }\OperatorTok{<}\StringTok{ }\DecValTok{1}\NormalTok{,}
+             \DataTypeTok{edDel =} \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(type) }\OperatorTok{&}\StringTok{ }\NormalTok{type }\OperatorTok{==}\StringTok{ "deletion"}\NormalTok{,}
+             \DataTypeTok{wgDel =} \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(erds) }\OperatorTok{&}\StringTok{ }\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(cnvpytor) }\OperatorTok{&}\StringTok{ }\NormalTok{erds }\OperatorTok{==}\StringTok{ "del"}\NormalTok{),}
+\NormalTok{           by =}\StringTok{ }\NormalTok{.(subject, seqnames, start, end)]}
+\NormalTok{wgs[ , mc }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{mcDup }\OperatorTok{|}\StringTok{ }\NormalTok{mcDel]}
+\NormalTok{wgs[ , ed }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{edDup }\OperatorTok{|}\StringTok{ }\NormalTok{edDel]}
+\NormalTok{wgs[ , wg }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{wgDup }\OperatorTok{|}\StringTok{ }\NormalTok{wgDel]}
+\KeywordTok{setcolorder}\NormalTok{(wgs, }\KeywordTok{c}\NormalTok{(}\KeywordTok{key}\NormalTok{(wgs), }\StringTok{'mc'}\NormalTok{, }\StringTok{'ed'}\NormalTok{, }\StringTok{'wg'}\NormalTok{))}
+\NormalTok{wgsCallBySbj <-}\StringTok{ }\NormalTok{wgs[ , }\KeywordTok{lapply}\NormalTok{(.SD, sum), .SDcols =}\StringTok{ }\NormalTok{is.logical, by =}\StringTok{ }\NormalTok{subject]}
+\KeywordTok{kable}\NormalTok{(wgsCallBySbj,}
+      \DataTypeTok{col.names =} \KeywordTok{c}\NormalTok{(}\StringTok{"subject"}\NormalTok{, }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"MC"}\NormalTok{, }\StringTok{"ED"}\NormalTok{, }\StringTok{"WG"}\NormalTok{), }\DecValTok{3}\NormalTok{)),}
+      \DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }
+      \DataTypeTok{caption =} \StringTok{'Number of CNV calls by subject and algorithm for the `WGS' pool. `MC' indicates the mcCNV algorithm; `ED' indicates the ExomeDepth algorithm; `WG' indicates the overlap of ERDS/cnvpytor calls from matched whole-genome sequencing. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}} omitted from analysis.'}\NormalTok{,}
+      \DataTypeTok{label =} \StringTok{"wgsCallSbj"}\NormalTok{,}
+      \DataTypeTok{format.args =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{big.mark =} \StringTok{","}\NormalTok{, }\DataTypeTok{scientific =} \OtherTok{FALSE}\NormalTok{),}
+      \DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{caption.short =} \StringTok{"Number of CNV calls by subject and algorithm for the 'WGS' pool."}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{kable_classic}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{add_header_above}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{" "}\NormalTok{ =}\StringTok{ }\DecValTok{1}\NormalTok{, }\StringTok{"Total"}\NormalTok{ =}\StringTok{ }\DecValTok{3}\NormalTok{, }\StringTok{"Duplications"}\NormalTok{ =}\StringTok{ }\DecValTok{3}\NormalTok{, }\StringTok{"Deletions"}\NormalTok{ =}\StringTok{ }\DecValTok{3}\NormalTok{))}
+\NormalTok{pmLst <-}\StringTok{ }\KeywordTok{list}\NormalTok{()}
+\NormalTok{pmLst}\OperatorTok{$}\NormalTok{mc <-}\StringTok{ }\KeywordTok{with}\NormalTok{(wgs, }\KeywordTok{evalPred}\NormalTok{(mc, wg))}
+\NormalTok{pmLst}\OperatorTok{$}\NormalTok{ed <-}\StringTok{ }\KeywordTok{with}\NormalTok{(wgs, }\KeywordTok{evalPred}\NormalTok{(ed, wg))}
+\NormalTok{pmLst}\OperatorTok{$}\NormalTok{mcSub <-}\StringTok{ }\KeywordTok{with}\NormalTok{(wgs[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"790|851"}\NormalTok{, subject)], }\KeywordTok{evalPred}\NormalTok{(mc, wg))}
+\NormalTok{pmLst}\OperatorTok{$}\NormalTok{edSub <-}\StringTok{ }\KeywordTok{with}\NormalTok{(wgs[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"790|851"}\NormalTok{, subject)], }\KeywordTok{evalPred}\NormalTok{(ed, wg))}
+\NormalTok{pmLst}\OperatorTok{$}\NormalTok{mcDup <-}\StringTok{ }\KeywordTok{with}\NormalTok{(wgs, }\KeywordTok{evalPred}\NormalTok{(mcDup, wgDup))}
+\NormalTok{pmLst}\OperatorTok{$}\NormalTok{edDup <-}\StringTok{ }\KeywordTok{with}\NormalTok{(wgs, }\KeywordTok{evalPred}\NormalTok{(edDup, wgDup))}
+\NormalTok{pmLst}\OperatorTok{$}\NormalTok{mcSubDup <-}\StringTok{ }\KeywordTok{with}\NormalTok{(wgs[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"790|851"}\NormalTok{, subject)],}
+                       \KeywordTok{evalPred}\NormalTok{(mcDup, wgDup))}
+\NormalTok{pmLst}\OperatorTok{$}\NormalTok{edSubDup <-}\StringTok{ }\KeywordTok{with}\NormalTok{(wgs[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"790|851"}\NormalTok{, subject)],}
+                       \KeywordTok{evalPred}\NormalTok{(edDup, wgDup))}
+\NormalTok{pmLst}\OperatorTok{$}\NormalTok{mcDel <-}\StringTok{ }\KeywordTok{with}\NormalTok{(wgs, }\KeywordTok{evalPred}\NormalTok{(mcDel, wgDel))}
+\NormalTok{pmLst}\OperatorTok{$}\NormalTok{edDel <-}\StringTok{ }\KeywordTok{with}\NormalTok{(wgs, }\KeywordTok{evalPred}\NormalTok{(edDel, wgDel))}
+\NormalTok{pmLst}\OperatorTok{$}\NormalTok{mcSubDel <-}\StringTok{ }\KeywordTok{with}\NormalTok{(wgs[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"790|851"}\NormalTok{, subject)],}
+                       \KeywordTok{evalPred}\NormalTok{(mcDel, wgDel))}
+\NormalTok{pmLst}\OperatorTok{$}\NormalTok{edSubDel <-}\StringTok{ }\KeywordTok{with}\NormalTok{(wgs[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"790|851"}\NormalTok{, subject)],}
+                       \KeywordTok{evalPred}\NormalTok{(edDel, wgDel))}
+\NormalTok{predMetrics <-}\StringTok{ }\KeywordTok{as.data.table}\NormalTok{(}\KeywordTok{do.call}\NormalTok{(rbind, pmLst), }\DataTypeTok{keep.rownames =} \StringTok{"PredSet"}\NormalTok{)}
+\NormalTok{predMetrics[ , typ }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"ALL"}\NormalTok{, }\StringTok{"DUP"}\NormalTok{, }\StringTok{"DEL"}\NormalTok{), }\DataTypeTok{each =} \DecValTok{4}\NormalTok{)]}
+\NormalTok{predMetrics[ , set }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"Sub"}\NormalTok{, PredSet), }\StringTok{"Sub"}\NormalTok{, }\StringTok{"Total"}\NormalTok{)]}
+\NormalTok{predMetrics[ , alg }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"mc"}\NormalTok{, PredSet), }\StringTok{"MC"}\NormalTok{, }\StringTok{"ED"}\NormalTok{)]}
+\KeywordTok{setcolorder}\NormalTok{(predMetrics, }\KeywordTok{c}\NormalTok{(}\StringTok{"typ"}\NormalTok{, }\StringTok{"set"}\NormalTok{, }\StringTok{"alg"}\NormalTok{))}
+\KeywordTok{kable}\NormalTok{(predMetrics[ , .(typ, set, alg, MCC, TPR, FDR, PPV)],}
+      \DataTypeTok{col.names =} \KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\StringTok{""}\NormalTok{, }\DecValTok{3}\NormalTok{), }\StringTok{"MCC"}\NormalTok{, }\StringTok{"TPR"}\NormalTok{, }\StringTok{"FDR"}\NormalTok{, }\StringTok{"PPV"}\NormalTok{),}
+      \DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }
+      \DataTypeTok{caption =} \StringTok{'mcCNV (MC)/ExomeDepth (ED) calls for `WGS' pool (used as prediction) versus the ERDS/cnvpytor calls from matched genome sequencing (used as truth). Calls are subdivided by duplications (DUP) and deletions (DEL). `Full' gives performance across the full pool; `Sub' gives the performance excluding the poorly correlated samples NCG\_00790 and NCG\_00851 (gray rows). `MCC' is Matthew's correlation coefficient, `TPR' is true positive rate/sensitivity, `FDR' is false discovery rate, `PPV' is positive predictive value, `BalAcc' is balanced accuracy. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}} omitted from analysis.'}\NormalTok{,}
+      \DataTypeTok{label =} \StringTok{"predMet"}\NormalTok{,}
+      \DataTypeTok{format.args =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{big.mark =} \StringTok{","}\NormalTok{, }\DataTypeTok{scientific =} \OtherTok{FALSE}\NormalTok{),}
+      \DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{caption.short =} \StringTok{"mcCNV and ExomeDepth performance predicting calls from genome sequencing."}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{kable_classic}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{collapse_rows}\NormalTok{(}\DataTypeTok{columns =} \DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{, }\DataTypeTok{valign =} \StringTok{"middle"}\NormalTok{)}
+\NormalTok{ctsAll <-}\StringTok{ }\KeywordTok{euler}\NormalTok{(wgs[ , .(mc, ed, wg)])}
+\NormalTok{ctsSub <-}\StringTok{ }\KeywordTok{euler}\NormalTok{(wgs[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"790|851"}\NormalTok{, subject), .(mc, ed, wg)])}
+\NormalTok{ctsAllDup <-}\StringTok{ }\KeywordTok{euler}\NormalTok{(wgs[ , .(mcDup, edDup, wgDup)])}
+\NormalTok{ctsSubDup <-}\StringTok{ }\KeywordTok{euler}\NormalTok{(wgs[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"790|851"}\NormalTok{, subject), .(mcDup, edDup, wgDup)])}
+\NormalTok{ctsAllDel <-}\StringTok{ }\KeywordTok{euler}\NormalTok{(wgs[ , .(mcDel, edDel, wgDel)])}
+\NormalTok{ctsSubDel <-}\StringTok{ }\KeywordTok{euler}\NormalTok{(wgs[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"790|851"}\NormalTok{, subject), .(mcDel, edDel, wgDel)])}
+\KeywordTok{eulerr_options}\NormalTok{(}\DataTypeTok{fills =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{fill =} \KeywordTok{c}\NormalTok{(}\StringTok{"#E9E9E9"}\NormalTok{, }\StringTok{"#7F7FC4"}\NormalTok{, }\StringTok{"#FFC57F"}\NormalTok{)),}
+               \DataTypeTok{quantities =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{cex =} \FloatTok{0.5}\NormalTok{))}
+\NormalTok{gridFigLab <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(lab) \{}
+  \KeywordTok{grid.text}\NormalTok{(lab, }\DataTypeTok{x =} \DecValTok{0}\NormalTok{, }\DataTypeTok{y =} \DecValTok{1}\NormalTok{, }\DataTypeTok{hjust =} \DecValTok{0}\NormalTok{, }\DataTypeTok{vjust =} \DecValTok{1}\NormalTok{, }\DataTypeTok{gp =} \KeywordTok{gpar}\NormalTok{(}\DataTypeTok{font =} \DecValTok{2}\NormalTok{))}
+\NormalTok{\}}
+\KeywordTok{eulerr_options}\NormalTok{(}\DataTypeTok{fills =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{fill =} \KeywordTok{c}\NormalTok{(}\StringTok{"#E9E9E9"}\NormalTok{, }\StringTok{"#7F7FC4"}\NormalTok{, }\StringTok{"#FFC57F"}\NormalTok{)),}
+               \DataTypeTok{quantities =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{cex =} \FloatTok{0.5}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(ctsAllDup, }\DataTypeTok{quantities =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{labels =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{main =} \StringTok{""}\NormalTok{)}
+\KeywordTok{gridFigLab}\NormalTok{(}\StringTok{"A"}\NormalTok{)}
+\KeywordTok{grid.text}\NormalTok{(}\StringTok{"DUPLICATIONS"}\NormalTok{, }\DataTypeTok{x =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{y =} \FloatTok{0.9}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(ctsAllDel, }\DataTypeTok{quantities =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{labels =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{main =} \StringTok{""}\NormalTok{)}
+\KeywordTok{gridFigLab}\NormalTok{(}\StringTok{"B"}\NormalTok{)}
+\KeywordTok{grid.text}\NormalTok{(}\StringTok{"DELETIONS"}\NormalTok{, }\DataTypeTok{x =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{y =} \FloatTok{0.9}\NormalTok{)}
+
+\KeywordTok{eulerr_options}\NormalTok{(}\DataTypeTok{fills =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{fill =} \KeywordTok{c}\NormalTok{(}\StringTok{"#E9E9E9"}\NormalTok{, }\StringTok{"#7F7FC4"}\NormalTok{, }\StringTok{"#FFC57F"}\NormalTok{)),}
+               \DataTypeTok{quantities =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{cex =} \FloatTok{0.5}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(ctsSubDup, }\DataTypeTok{quantities =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{labels =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{main =} \StringTok{""}\NormalTok{)}
+\KeywordTok{gridFigLab}\NormalTok{(}\StringTok{"A"}\NormalTok{)}
+\KeywordTok{grid.text}\NormalTok{(}\StringTok{"DUPLICATIONS"}\NormalTok{, }\DataTypeTok{x =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{y =} \FloatTok{0.9}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(ctsSubDel, }\DataTypeTok{quantities =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{labels =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{main =} \StringTok{""}\NormalTok{)}
+\KeywordTok{gridFigLab}\NormalTok{(}\StringTok{"B"}\NormalTok{)}
+\KeywordTok{grid.text}\NormalTok{(}\StringTok{"DELETIONS"}\NormalTok{, }\DataTypeTok{x =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{y =} \FloatTok{0.9}\NormalTok{)}
+\CommentTok{## Estimate maternal-fetal genotypes from cell-free exome sequencing}
+\KeywordTok{data}\NormalTok{(gt)}
+\NormalTok{gt[ , udep }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{ref }\OperatorTok{+}\StringTok{ }\NormalTok{alt]}
+\NormalTok{gt[ , use }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{udep }\OperatorTok{>}\StringTok{ }\DecValTok{80} \OperatorTok{&}\StringTok{ }\NormalTok{ref }\OperatorTok{>}\StringTok{ }\DecValTok{5} \OperatorTok{&}\StringTok{ }\NormalTok{alt }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{]}
+\ControlFlowTok{for}\NormalTok{ (s }\ControlFlowTok{in} \KeywordTok{c}\NormalTok{(}\StringTok{"S1"}\NormalTok{, }\StringTok{"S2"}\NormalTok{, }\StringTok{"FES-0034-4"}\NormalTok{)) \{}
+\NormalTok{  gt[smp }\OperatorTok{==}\StringTok{ }\NormalTok{s }\OperatorTok{&}\StringTok{ }\NormalTok{use,}
+     \KeywordTok{c}\NormalTok{(}\StringTok{"ff"}\NormalTok{, }\StringTok{"gtCall"}\NormalTok{, }\StringTok{"gtLike"}\NormalTok{) }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{callSmpl}\NormalTok{(alt, udep, .N, }\KeywordTok{median}\NormalTok{(sdep}\OperatorTok{/}\NormalTok{ldep))]}
+\NormalTok{\}}
+\CommentTok{## Calculate median read depth & fetal fraction estimates by sample}
+\NormalTok{smry <-}\StringTok{ }\NormalTok{gt[(use), .(}\DataTypeTok{md =} \KeywordTok{median}\NormalTok{(udep), }\DataTypeTok{ff =}\NormalTok{ ff[}\DecValTok{1}\NormalTok{]), by =}\StringTok{ }\NormalTok{smp]}
+\KeywordTok{setkey}\NormalTok{(smry, smp)}
+\CommentTok{## Allele depth histograms}
+\CommentTok{# par(oma = c(3, 0, 0, 0), mfrow = c(3, 1))}
+\KeywordTok{layout}\NormalTok{(}\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{1}\NormalTok{), }\DataTypeTok{heights =} \KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{3}\NormalTok{), }\DecValTok{1}\NormalTok{))}
+\KeywordTok{with}\NormalTok{(gt[use }\OperatorTok{&}\StringTok{ }\NormalTok{smp }\OperatorTok{==}\StringTok{ "S1"}\NormalTok{], }\KeywordTok{cfPltFreqHist}\NormalTok{(alt, udep, gtCall, }\DataTypeTok{ff =}\NormalTok{ ff[}\DecValTok{1}\NormalTok{]))}
+\KeywordTok{title}\NormalTok{(}\DataTypeTok{ylab =} \StringTok{"Case 1"}\NormalTok{, }\DataTypeTok{line =} \DecValTok{1}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"A"}\NormalTok{)}
+
+\KeywordTok{data}\NormalTok{(rs140468248)}
+\KeywordTok{data}\NormalTok{(GenoMeta)}
+\KeywordTok{with}\NormalTok{(gt[use }\OperatorTok{&}\StringTok{ }\NormalTok{smp }\OperatorTok{==}\StringTok{ "S2"}\NormalTok{], }\KeywordTok{cfPltFreqHist}\NormalTok{(alt, udep, gtCall, }\DataTypeTok{ff =}\NormalTok{ ff[}\DecValTok{1}\NormalTok{]))}
+\NormalTok{oiCall <-}\StringTok{ }\NormalTok{gt[varid }\OperatorTok{==}\StringTok{ }\NormalTok{rs140468248, gtCall]}
+\NormalTok{oiPmar <-}\StringTok{ }\NormalTok{gt[varid }\OperatorTok{==}\StringTok{ }\NormalTok{rs140468248, alt}\OperatorTok{/}\NormalTok{(ref }\OperatorTok{+}\StringTok{ }\NormalTok{alt)]}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{v =}\NormalTok{ oiPmar, }\DataTypeTok{col =}\NormalTok{ GenoMeta}\OperatorTok{$}\NormalTok{color[GenoMeta}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ }\NormalTok{oiCall])}
+\KeywordTok{text}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ oiPmar,}
+     \DataTypeTok{y =} \KeywordTok{grconvertY}\NormalTok{(}\FloatTok{0.75}\NormalTok{, }\StringTok{"nfc"}\NormalTok{),}
+     \StringTok{"rs140468248"}\NormalTok{,}
+     \DataTypeTok{srt =} \DecValTok{90}\NormalTok{,}
+     \DataTypeTok{adj =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{1.5}\NormalTok{),}
+     \DataTypeTok{col =}\NormalTok{ GenoMeta}\OperatorTok{$}\NormalTok{color[GenoMeta}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ }\NormalTok{oiCall])}
+\KeywordTok{title}\NormalTok{(}\DataTypeTok{ylab =} \StringTok{"Case 2"}\NormalTok{, }\DataTypeTok{line =} \DecValTok{1}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"B"}\NormalTok{, }\DataTypeTok{units =} \StringTok{'nfc'}\NormalTok{)}
+
+\KeywordTok{with}\NormalTok{(gt[use }\OperatorTok{&}\StringTok{ }\NormalTok{smp }\OperatorTok{==}\StringTok{ "FES-0034-4"}\NormalTok{], }\KeywordTok{cfPltFreqHist}\NormalTok{(alt, udep, gtCall, }\DataTypeTok{ff =}\NormalTok{ ff[}\DecValTok{1}\NormalTok{]))}
+\KeywordTok{title}\NormalTok{(}\DataTypeTok{ylab =} \StringTok{"Case 3"}\NormalTok{, }\DataTypeTok{line =} \DecValTok{1}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"C"}\NormalTok{, }\DataTypeTok{units =} \StringTok{'nfc'}\NormalTok{)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\KeywordTok{plot.new}\NormalTok{()}
+\KeywordTok{legend}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{grconvertX}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{from =} \StringTok{"nfc"}\NormalTok{),}
+       \DataTypeTok{y =} \KeywordTok{grconvertY}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{from =} \StringTok{"nfc"}\NormalTok{),}
+       \DataTypeTok{legend =}\NormalTok{ GenoMeta}\OperatorTok{$}\NormalTok{name,}
+       \DataTypeTok{horiz =} \OtherTok{TRUE}\NormalTok{,}
+       \DataTypeTok{lwd =} \DecValTok{4}\NormalTok{,}
+       \DataTypeTok{col =}\NormalTok{ GenoMeta}\OperatorTok{$}\NormalTok{color,}
+       \DataTypeTok{xjust =} \FloatTok{0.5}\NormalTok{,}
+       \DataTypeTok{yjust =} \FloatTok{0.5}\NormalTok{,}
+       \DataTypeTok{xpd =} \OtherTok{NA}\NormalTok{,}
+       \DataTypeTok{bty =} \StringTok{"n"}\NormalTok{)}
+\CommentTok{## Collect read depth and filtering information into a table}
+\KeywordTok{data}\NormalTok{(readSmry)}
+\NormalTok{rs <-}\StringTok{ }\NormalTok{readSmry}\OperatorTok{$}\NormalTok{summary}
+\NormalTok{rs[ , pctDup }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{round}\NormalTok{(pctDup, }\DecValTok{2}\NormalTok{)]}
+\NormalTok{rs[ , pctFlt }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{round}\NormalTok{(pctFlt, }\DecValTok{2}\NormalTok{)]}
+\KeywordTok{setkey}\NormalTok{(rs, smp)}
+\NormalTok{rs <-}\StringTok{ }\NormalTok{smry[rs]}
+\NormalTok{rs[ , ff }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{round}\NormalTok{(ff, }\DecValTok{3}\NormalTok{)]}
+\NormalTok{rs[smp }\OperatorTok{==}\StringTok{ "S1"}\NormalTok{, case }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Case 1"}\NormalTok{]}
+\NormalTok{rs[smp }\OperatorTok{==}\StringTok{ "S2"}\NormalTok{, case }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Case 2"}\NormalTok{]}
+\NormalTok{rs[}\KeywordTok{grepl}\NormalTok{(}\StringTok{"FES"}\NormalTok{, smp), case }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Case 3"}\NormalTok{]}
+\NormalTok{caseSmry <-}\StringTok{ }\NormalTok{rs[}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(ff)][}\KeywordTok{order}\NormalTok{(case)][ , \{}
+\NormalTok{  .(}\DataTypeTok{GA =} \KeywordTok{sprintf}\NormalTok{(}\StringTok{'(ref:case%dga)'}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{),}
+    \StringTok{`}\DataTypeTok{Clinical findings}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{sprintf}\NormalTok{(}\StringTok{'(ref:case%dcc)'}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{),}
+    \StringTok{`}\DataTypeTok{Genetic diagnosis}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{sprintf}\NormalTok{(}\StringTok{'(ref:case%dgd)'}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{),}
+    \DataTypeTok{FF =}\NormalTok{ ff, }
+    \DataTypeTok{Dep =}\NormalTok{ md, }
+    \StringTok{`}\DataTypeTok{%Dup}\StringTok{`}\NormalTok{ =}\StringTok{ }\NormalTok{pctDup, }
+    \StringTok{`}\DataTypeTok{%Filt}\StringTok{`}\NormalTok{ =}\StringTok{ }\NormalTok{pctFlt)}
+\NormalTok{\}]}
+\KeywordTok{kable}\NormalTok{(caseSmry, }
+      \DataTypeTok{row.names =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{caption =} \StringTok{'Case summaries. GA: gestational age at the time of blood draw for cfES. FF: estimated fetal fraction. Depth: median depth used to estimate genotypes (does not include duplicated/filtered reads). \%Dup: percentage of total mapped read pairs discarded as PCR and/or optical duplicates. \%Filt: percentage of total mapped read pairs discarded for improper pairing and/or mapping quality.'}\NormalTok{,}
+      \DataTypeTok{label =} \StringTok{"caseSmry"}\NormalTok{,}
+      \DataTypeTok{format.args =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{big.mark =} \StringTok{","}\NormalTok{, }\DataTypeTok{scientific =} \OtherTok{FALSE}\NormalTok{),}
+      \DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{caption.short =} \StringTok{"Cell-free exome sequencing case summaries"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{kable_classic}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{column_spec}\NormalTok{(}\DecValTok{3}\OperatorTok{:}\DecValTok{4}\NormalTok{, }\DataTypeTok{width =} \StringTok{"10em"}\NormalTok{)}
+\CommentTok{## Load c3MatFetReads}
+\KeywordTok{data}\NormalTok{(c3MatFetReads)}
+\CommentTok{## Calculate density and ECDF for fragment read lengths}
+\NormalTok{matDen <-}\StringTok{ }\KeywordTok{density}\NormalTok{(c3MatFetReads[source }\OperatorTok{==}\StringTok{ "maternal"}\NormalTok{, isize])}
+\NormalTok{fetDen <-}\StringTok{ }\KeywordTok{density}\NormalTok{(c3MatFetReads[source }\OperatorTok{==}\StringTok{ "fetal"}\NormalTok{,    isize])}
+\NormalTok{matCdf <-}\StringTok{ }\KeywordTok{ecdf}\NormalTok{(c3MatFetReads[source }\OperatorTok{==}\StringTok{ "maternal"}\NormalTok{, isize])}
+\NormalTok{fetCdf <-}\StringTok{ }\KeywordTok{ecdf}\NormalTok{(c3MatFetReads[source }\OperatorTok{==}\StringTok{ "fetal"}\NormalTok{,    isize])}
+
+\CommentTok{## Generate plots}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{oma =} \KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{))}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\KeywordTok{plot.new}\NormalTok{()}
+\KeywordTok{plot.window}\NormalTok{(}\DataTypeTok{xlim =} \KeywordTok{range}\NormalTok{(}\KeywordTok{c}\NormalTok{(matDen}\OperatorTok{$}\NormalTok{x, fetDen}\OperatorTok{$}\NormalTok{x)), }\KeywordTok{range}\NormalTok{(}\KeywordTok{c}\NormalTok{(matDen}\OperatorTok{$}\NormalTok{y, fetDen}\OperatorTok{$}\NormalTok{y)))}
+\KeywordTok{lines}\NormalTok{(matDen, }\DataTypeTok{col =} \StringTok{"darkblue"}\NormalTok{, }\DataTypeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(fetDen, }\DataTypeTok{col =} \StringTok{"darkorange"}\NormalTok{, }\DataTypeTok{lwd =}\DecValTok{2}\NormalTok{)}
+\KeywordTok{axis}\NormalTok{(}\DataTypeTok{side =} \DecValTok{1}\NormalTok{)}
+\KeywordTok{title}\NormalTok{(}\DataTypeTok{xlab =} \StringTok{"Fragment length (insert size)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Density"}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"A"}\NormalTok{)}
+\KeywordTok{plot.new}\NormalTok{()}
+\NormalTok{xv <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{plot.window}\NormalTok{(}\DataTypeTok{xlim =} \KeywordTok{range}\NormalTok{(xv), }\DataTypeTok{ylim =} \DecValTok{0}\OperatorTok{:}\DecValTok{1}\NormalTok{)}
+\KeywordTok{points}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ xv, }\DataTypeTok{y =} \KeywordTok{matCdf}\NormalTok{(xv), }\DataTypeTok{col =} \StringTok{"darkblue"}\NormalTok{, }\DataTypeTok{lwd =} \DecValTok{2}\NormalTok{, }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{)}
+\KeywordTok{points}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ xv, }\DataTypeTok{y =} \KeywordTok{fetCdf}\NormalTok{(xv), }\DataTypeTok{col =} \StringTok{"darkorange"}\NormalTok{, }\DataTypeTok{lwd =} \DecValTok{2}\NormalTok{, }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"B"}\NormalTok{, }\DataTypeTok{units =} \StringTok{'nfc'}\NormalTok{)}
+\KeywordTok{axis}\NormalTok{(}\DataTypeTok{side =} \DecValTok{1}\NormalTok{)}
+\KeywordTok{axis}\NormalTok{(}\DataTypeTok{side =} \DecValTok{2}\NormalTok{)}
+\KeywordTok{title}\NormalTok{(}\DataTypeTok{xlab =} \StringTok{"Fragment length (insert size)"}\NormalTok{,}
+      \DataTypeTok{ylab =} \StringTok{"Cumulative distribution"}\NormalTok{)}
+\KeywordTok{legend}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{grconvertX}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{from =} \StringTok{"ndc"}\NormalTok{),}
+       \DataTypeTok{y =} \KeywordTok{line2user}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DataTypeTok{side =} \DecValTok{1}\NormalTok{, }\DataTypeTok{outer =} \OtherTok{TRUE}\NormalTok{),}
+       \DataTypeTok{legend =} \KeywordTok{c}\NormalTok{(}\StringTok{"Maternal"}\NormalTok{, }\StringTok{"Fetal"}\NormalTok{),}
+       \DataTypeTok{horiz =} \OtherTok{TRUE}\NormalTok{,}
+       \DataTypeTok{lwd =} \DecValTok{2}\NormalTok{,}
+       \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"darkblue"}\NormalTok{, }\StringTok{"darkorange"}\NormalTok{),}
+       \DataTypeTok{xjust =} \FloatTok{0.5}\NormalTok{,}
+       \DataTypeTok{yjust =} \FloatTok{0.5}\NormalTok{,}
+       \DataTypeTok{xpd =} \OtherTok{NA}\NormalTok{,}
+       \DataTypeTok{bty =} \StringTok{"n"}\NormalTok{)}
+\NormalTok{gt[ , pmar }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{alt}\OperatorTok{/}\NormalTok{(alt }\OperatorTok{+}\StringTok{ }\NormalTok{ref)]}
+\NormalTok{gt[ , sratio }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{sdep}\OperatorTok{/}\NormalTok{adep]}
+\NormalTok{pltSratioByPmar <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(smpNm) \{}
+  \KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+  \KeywordTok{with}\NormalTok{(gt[gtCall }\OperatorTok{==}\StringTok{ "AAab"} \OperatorTok{&}\StringTok{ }\NormalTok{smp }\OperatorTok{==}\StringTok{ }\NormalTok{smpNm], \{}
+    \KeywordTok{plot}\NormalTok{(pmar }\OperatorTok{~}\StringTok{ }\NormalTok{sratio,}
+         \DataTypeTok{xlab =} \StringTok{"Proportion of fragments < 140 bp"}\NormalTok{,}
+         \DataTypeTok{ylab =} \StringTok{"PMAR"}\NormalTok{,}
+         \DataTypeTok{pch =} \DecValTok{16}\NormalTok{,}
+         \DataTypeTok{cex =} \FloatTok{0.5}\NormalTok{,}
+         \DataTypeTok{col =} \KeywordTok{col2alpha}\NormalTok{(}\StringTok{'darkgray'}\NormalTok{),}
+         \DataTypeTok{bty =} \StringTok{"n"}\NormalTok{)}
+\NormalTok{  \})}
+  \KeywordTok{with}\NormalTok{(gt[gtCall }\OperatorTok{==}\StringTok{ "AAab"} \OperatorTok{&}\StringTok{ }\NormalTok{smp }\OperatorTok{==}\StringTok{ }\NormalTok{smpNm], \{}
+    \KeywordTok{contour}\NormalTok{(}\KeywordTok{kde2d}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ sratio, }\DataTypeTok{y =}\NormalTok{ pmar, }\DataTypeTok{n =} \DecValTok{500}\NormalTok{),}
+            \DataTypeTok{nlevels =} \DecValTok{25}\NormalTok{,}
+            \DataTypeTok{add =} \OtherTok{TRUE}\NormalTok{,}
+            \DataTypeTok{drawlabels =} \OtherTok{FALSE}\NormalTok{,}
+            \DataTypeTok{col =} \StringTok{"darkblue"}\NormalTok{)}
+\NormalTok{  \})}
+\NormalTok{\}}
+\KeywordTok{pltSratioByPmar}\NormalTok{(}\StringTok{"S1"}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"A"}\NormalTok{)}
+\KeywordTok{pltSratioByPmar}\NormalTok{(}\StringTok{"S2"}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"B"}\NormalTok{)}
+\KeywordTok{pltSratioByPmar}\NormalTok{(}\StringTok{"FES-0034-4"}\NormalTok{)}
+\KeywordTok{addfiglab}\NormalTok{(}\StringTok{"C"}\NormalTok{)}
+\CommentTok{## Calculate call concordance between cell-free and direct for Case 3}
+\NormalTok{c3 <-}\StringTok{ }\NormalTok{gt[(smp }\OperatorTok{==}\StringTok{ "FES-0034-0"} \OperatorTok{&}\StringTok{ }\NormalTok{udep }\OperatorTok{>}\StringTok{ }\DecValTok{30} \OperatorTok{&}\StringTok{ }\NormalTok{gt }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"0/0"}\NormalTok{, }\StringTok{"0/1"}\NormalTok{, }\StringTok{"1/1"}\NormalTok{)) }\OperatorTok{|}
+\StringTok{           }\NormalTok{(smp }\OperatorTok{==}\StringTok{ "FES-0034-1"} \OperatorTok{&}\StringTok{ }\NormalTok{udep }\OperatorTok{>}\StringTok{ }\DecValTok{30} \OperatorTok{&}\StringTok{ }\NormalTok{gt }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"0/0"}\NormalTok{, }\StringTok{"0/1"}\NormalTok{, }\StringTok{"1/1"}\NormalTok{)) }\OperatorTok{|}
+\StringTok{           }\NormalTok{(use }\OperatorTok{&}\StringTok{ }\NormalTok{smp }\OperatorTok{==}\StringTok{ "FES-0034-4"}\NormalTok{)]}
+\NormalTok{c3[ , mrg }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{substr}\NormalTok{(gtCall, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)]}
+\NormalTok{c3[ , mrg }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"0/0"}\NormalTok{, }\StringTok{"0/1"}\NormalTok{, }\StringTok{"1/1"}\NormalTok{)[}\KeywordTok{match}\NormalTok{(mrg, }\KeywordTok{c}\NormalTok{(}\StringTok{"aa"}\NormalTok{, }\StringTok{"ab"}\NormalTok{, }\StringTok{"bb"}\NormalTok{))]]}
+\NormalTok{c3[}\KeywordTok{is.na}\NormalTok{(gtCall), mrg }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{gt]}
+\NormalTok{c3 <-}\StringTok{ }\KeywordTok{dcast}\NormalTok{(c3, varid }\OperatorTok{~}\StringTok{ }\NormalTok{smp, }\DataTypeTok{value.var =} \StringTok{"mrg"}\NormalTok{)}
+\KeywordTok{setnames}\NormalTok{(c3, }\KeywordTok{c}\NormalTok{(}\StringTok{"varid"}\NormalTok{, }\StringTok{"fet"}\NormalTok{, }\StringTok{"mat"}\NormalTok{, }\StringTok{"cff"}\NormalTok{))}
+\NormalTok{c3 <-}\StringTok{ }\NormalTok{c3[ , .N, by =}\StringTok{ }\NormalTok{.(mat, fet, cff)]}
+\CommentTok{## call by call matrix, cell-free calls in columns, fetal in rows}
+\NormalTok{c3FetByCf <-}\StringTok{ }\KeywordTok{dcast}\NormalTok{(c3[}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(fet) }\OperatorTok{&}\StringTok{ }\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(cff)], }
+\NormalTok{                   fet }\OperatorTok{~}\StringTok{ }\NormalTok{cff,}
+                   \DataTypeTok{fun.aggregate =}\NormalTok{ sum, }
+                   \DataTypeTok{value.var =} \StringTok{"N"}\NormalTok{)}
+\KeywordTok{setkey}\NormalTok{(c3FetByCf, fet)}
+\CommentTok{## all c3 calls}
+\NormalTok{c3Calls <-}\StringTok{ }\NormalTok{c3[}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(mat) }\OperatorTok{&}\StringTok{ }\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(fet) }\OperatorTok{&}\StringTok{ }\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(cff), ][}\KeywordTok{order}\NormalTok{(mat, fet, cff)]}
+\KeywordTok{kable}\NormalTok{(c3FetByCf[ , .(}\StringTok{" "}\NormalTok{ =}\StringTok{ "Fetal"}\NormalTok{, }\StringTok{" "}\NormalTok{ =}\StringTok{ }\NormalTok{fet, }\StringTok{`}\DataTypeTok{0/0}\StringTok{`}\NormalTok{, }\StringTok{`}\DataTypeTok{0/1}\StringTok{`}\NormalTok{, }\StringTok{`}\DataTypeTok{1/1}\StringTok{`}\NormalTok{)], }
+      \DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{,}
+      \DataTypeTok{caption =} \StringTok{'Case 3 fetal versus cell-free genotype calls. `0' represents the major allele; `1' represents the minor allele. Sites with cell-free estimates and reliable direct fetal calls included (reliable defied as passing all quality checks and having a total sequencing depth greater than 30).'}\NormalTok{,}
+      \DataTypeTok{label =} \StringTok{"c3FetByCf"}\NormalTok{,}
+      \DataTypeTok{format.args =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{big.mark =} \StringTok{","}\NormalTok{, }\DataTypeTok{scientific =} \OtherTok{FALSE}\NormalTok{),}
+      \DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{caption.short =} \StringTok{'Case 3 fetal versus cell-free genotype calls.'}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{kable_classic}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{collapse_rows}\NormalTok{(}\DataTypeTok{columns =} \DecValTok{1}\NormalTok{, }\DataTypeTok{valign =} \StringTok{"middle"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{add_header_above}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{" "}\NormalTok{ =}\StringTok{ }\DecValTok{2}\NormalTok{, }\StringTok{"Cell-free"}\NormalTok{ =}\StringTok{ }\DecValTok{3}\NormalTok{))}
+\KeywordTok{kable}\NormalTok{(c3Calls[ , .(}\DataTypeTok{Maternal =}\NormalTok{ mat, }\DataTypeTok{Fetal =}\NormalTok{ fet, }\StringTok{`}\DataTypeTok{Cell-free}\StringTok{`}\NormalTok{ =}\StringTok{ }\NormalTok{cff, N)], }
+      \DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{,}
+      \DataTypeTok{caption =} \StringTok{'Maternal, fetal, and cell-free genotype calls. `0' represents the major allele; `1' represents the minor allele. Sites with cell-free estimates and reliable direct fetal calls included (reliable defied as passing all quality checks and having a total sequencing depth greater than 30).'}\NormalTok{,}
+      \DataTypeTok{label =} \StringTok{"c3Calls"}\NormalTok{,}
+      \DataTypeTok{format.args =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{big.mark =} \StringTok{","}\NormalTok{, }\DataTypeTok{scientific =} \OtherTok{FALSE}\NormalTok{),}
+      \DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{caption.short =} \StringTok{'Maternal, fetal, and cell-free genotype calls.'}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{kable_classic}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{collapse_rows}\NormalTok{(}\DataTypeTok{columns =} \DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{, }\DataTypeTok{valign =} \StringTok{"middle"}\NormalTok{, }\DataTypeTok{latex_hline =} \StringTok{"full"}\NormalTok{) }
+\KeywordTok{pltExpMAF}\NormalTok{(}\DecValTok{500}\NormalTok{)}
+\KeywordTok{pltMissclass}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
 
 \backmatter
 
