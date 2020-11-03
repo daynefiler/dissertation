@@ -1,7 +1,7 @@
 bookdown::gitbook:
   css: "style/style.css"
   config:
-    download: ["pdf", "epub"]
+    download: ["pdf"]
     toc:
       collapse: section
     sharing:
@@ -13,6 +13,3 @@ bookdown::pdf_book:
   template: "style/template.tex"
   latex_engine: xelatex
   keep_tex: yes
-bookdown::epub_book: default
-bookdown::word_document2:
-    toc: true

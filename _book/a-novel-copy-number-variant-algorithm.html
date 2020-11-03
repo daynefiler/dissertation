@@ -212,20 +212,20 @@ Technologies, e.g. microarray, exist for reliably detecting large (greater than
 Over the last decade, the availability short-read DNA sequencing compelled numerous efforts to identify and characterize smaller variants.
 Sequencing cost, data burden, and the problem of classifying intronic and non-coding variants have led to exome sequencing (ES) as the preferred clinical sequencing modality.
 ES analysis most often focuses on identifying pathogenic single-nucleotide variants and insertion/deletions.
-CNV analysis has demonstrated limited improvement in diagnostic yield,<span class="citation"><sup><a href="references.html#ref-marchuk:2018aa" role="doc-biblioref">84</a></sup></span> but existing data/analysis lacks power to detect exon-level variation.<span class="citation"><sup><a href="references.html#ref-retterer:2015aa" role="doc-biblioref">85</a>,<a href="references.html#ref-yao:2017aa" role="doc-biblioref">86</a></sup></span></p>
-<p>Current analytic methodologies adequately detect large CNVs, but require large amounts of data and lack resolution for intragenic exon-level variation.<span class="citation"><sup><a href="references.html#ref-plagnol:2012aa" role="doc-biblioref">46</a>,<a href="references.html#ref-fromer:2012aa" role="doc-biblioref">87</a>–<a href="references.html#ref-krumm:2012aa" role="doc-biblioref">89</a></sup></span>
+CNV analysis has demonstrated limited improvement in diagnostic yield,<span class="citation"><sup><a href="references.html#ref-marchuk:2018aa" role="doc-biblioref">85</a></sup></span> but existing data/analysis lacks power to detect exon-level variation.<span class="citation"><sup><a href="references.html#ref-retterer:2015aa" role="doc-biblioref">86</a>,<a href="references.html#ref-yao:2017aa" role="doc-biblioref">87</a></sup></span></p>
+<p>Current analytic methodologies adequately detect large CNVs, but require large amounts of data and lack resolution for intragenic exon-level variation.<span class="citation"><sup><a href="references.html#ref-plagnol:2012aa" role="doc-biblioref">46</a>,<a href="references.html#ref-fromer:2012aa" role="doc-biblioref">88</a>–<a href="references.html#ref-krumm:2012aa" role="doc-biblioref">90</a></sup></span>
 The prevalence and clinical importance of exon-level CNVs remains largely unknown due to inadequate power in ES studies and limited access to clinical genome sequencing data.
-Recent work on a subset of 1507 genes suggests intragenic CNVs account for 1.9% of total variants, but 9.8% of pathogenic variants.<span class="citation"><sup><a href="references.html#ref-truty:2019aa" role="doc-biblioref">90</a></sup></span>
-Additionally, the authors demonstrated 627/2844 (22%) of identified CNVs spanned a single (598) or partial (29) exon.<span class="citation"><sup><a href="references.html#ref-truty:2019aa" role="doc-biblioref">90</a></sup></span></p>
+Recent work on a subset of 1507 genes suggests intragenic CNVs account for 1.9% of total variants, but 9.8% of pathogenic variants.<span class="citation"><sup><a href="references.html#ref-truty:2019aa" role="doc-biblioref">91</a></sup></span>
+Additionally, the authors demonstrated 627/2844 (22%) of identified CNVs spanned a single (598) or partial (29) exon.<span class="citation"><sup><a href="references.html#ref-truty:2019aa" role="doc-biblioref">91</a></sup></span></p>
 <p>Targeted sequencing requires capturing the desired loci (e.g. exons) using sequence-specific oligonucleotide baits.
 The differential efficiency of baits, even when carefully designed and balanced, leads to variable read-depth across the exome.
-The GC content and length of targeted fragments both contribute to the observed variable read-depth;<span class="citation"><sup><a href="references.html#ref-benjamini:2012aa" role="doc-biblioref">91</a></sup></span> most ES analysis platforms incorporate correction for GC content and exon length.<span class="citation"><sup><a href="references.html#ref-kadalayil:2015aa" role="doc-biblioref">92</a></sup></span>
-The variable read-depth in ES precludes the single-sample window-smoothing approaches successfully applied in GS data,<span class="citation"><sup><a href="references.html#ref-chiang:2009aa" role="doc-biblioref">93</a></sup></span> therefore we must rely on comparative analysis for interrogating copy number.</p>
+The GC content and length of targeted fragments both contribute to the observed variable read-depth;<span class="citation"><sup><a href="references.html#ref-benjamini:2012aa" role="doc-biblioref">92</a></sup></span> most ES analysis platforms incorporate correction for GC content and exon length.<span class="citation"><sup><a href="references.html#ref-kadalayil:2015aa" role="doc-biblioref">93</a></sup></span>
+The variable read-depth in ES precludes the single-sample window-smoothing approaches successfully applied in GS data,<span class="citation"><sup><a href="references.html#ref-chiang:2009aa" role="doc-biblioref">94</a></sup></span> therefore we must rely on comparative analysis for interrogating copy number.</p>
 <p>Comparing multiple samples, each captured independently, compounds the variable read-depth problem.
 The capture probability for each exon correlates between samples but with high variability.<span class="citation"><sup><a href="references.html#ref-plagnol:2012aa" role="doc-biblioref">46</a></sup></span>
 In other words, we can gain information from similarly captured samples, but independent captures introduce significant noise.
 ExomeDepth attempts to circumvent the capture-to-capture variation by identifying a subset of samples from a large pool with low inter-sample variability.<span class="citation"><sup><a href="references.html#ref-plagnol:2012aa" role="doc-biblioref">46</a></sup></span>
-Alternatively, CoNIFER,<span class="citation"><sup><a href="references.html#ref-krumm:2012aa" role="doc-biblioref">89</a></sup></span> XHMM,<span class="citation"><sup><a href="references.html#ref-fromer:2012aa" role="doc-biblioref">87</a></sup></span> and CODEX<span class="citation"><sup><a href="references.html#ref-jiang:2015aa" role="doc-biblioref">88</a></sup></span> use a latent factor model with spectral value decomposition to remove systematic noise, presumably introduced by capture-to-capture variation.
+Alternatively, CoNIFER,<span class="citation"><sup><a href="references.html#ref-krumm:2012aa" role="doc-biblioref">90</a></sup></span> XHMM,<span class="citation"><sup><a href="references.html#ref-fromer:2012aa" role="doc-biblioref">88</a></sup></span> and CODEX<span class="citation"><sup><a href="references.html#ref-jiang:2015aa" role="doc-biblioref">89</a></sup></span> use a latent factor model with spectral value decomposition to remove systematic noise, presumably introduced by capture-to-capture variation.
 These methods generally require very large sample sizes, and often still lack power for exon-level resolution (e.g. CODEX defines a “short” CNV as spanning 5 contiguous exons).</p>
 <p>Here, we explore how multiplexing the capture across samples reduces inter-sample variance, increasing the power to detect CNVs.
 We also introduce our own algorithm, mcCNV (“multiplexed capture CNV”), specifically designed to utilize multiplexed capture exome data for estimating exon-level variation without prior information.</p>
@@ -234,25 +234,25 @@ We also introduce our own algorithm, mcCNV (“multiplexed capture CNV”), spec
 <h2><span class="header-section-number">2.2</span> Methods</h2>
 <div id="exome-sequencing" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Exome sequencing</h3>
-<p>We performed sequencing on human samples of purified DNA obtained from the Wilhelmsen laboratory collection, the NCGENES cohort,<span class="citation"><sup><a href="references.html#ref-foreman:2013aa" role="doc-biblioref">94</a></sup></span> and the Coriell Institute in compliance with the UNC Institutional Review Board.
-We also utilized existing read-level data from the NCGENES<span class="citation"><sup><a href="references.html#ref-foreman:2013aa" role="doc-biblioref">94</a></sup></span> project.
+<p>We performed sequencing on human samples of purified DNA obtained from the Wilhelmsen laboratory collection, the NCGENES cohort,<span class="citation"><sup><a href="references.html#ref-foreman:2013aa" role="doc-biblioref">95</a></sup></span> and the Coriell Institute in compliance with the UNC Institutional Review Board.
+We also utilized existing read-level data from the NCGENES<span class="citation"><sup><a href="references.html#ref-foreman:2013aa" role="doc-biblioref">95</a></sup></span> project.
 We compared the performance of two capture platforms: (1) Agilent SureSelect XT2 (multiplexed capture)/Agilent SureSelect XT (independent capture); (2) Integrated DNA Technologies (IDT) xGen Lockdown Probes.
 We utilized Human All Exome v4 baits (Agilent) and Exome Research Panel v1 baits (IDT).
 All captures performed according to manufacturer protocol, with the following exceptions: (1) we multiplexed 16 samples versus the recommended 8 for the XT2 protocol for some pools; (2) for Pool2, we performed the fragmentation step 5 times, to test whether a more uniform fragment length distribution would improve capture.</p>
 <p>All sequencing performed with Illumina paired-end chemistry.
-We aligned paired reads to hg19v0 (GATK resource bundle) using BWA-MEM<span class="citation"><sup><a href="references.html#ref-li:2013ab" role="doc-biblioref">95</a></sup></span> and removed duplicate reads using Picard tools.
+We aligned paired reads to hg19v0 (GATK resource bundle) using BWA-MEM<span class="citation"><sup><a href="references.html#ref-li:2013ab" role="doc-biblioref">96</a></sup></span> and removed duplicate reads using Picard tools.
 We then used our novel R package, mcCNV, to count the number of overlapping molecules (read-pairs) per exon.
 For inclusion, we required properly-paired molecules with unambiguous mapping for one read and mapping quality greater than or equal to 20 for both reads.
-Full Snakemake<span class="citation"><sup><a href="references.html#ref-koster:2012aa" role="doc-biblioref">96</a></sup></span> pipeline provided in supplemental materials.
+Full Snakemake<span class="citation"><sup><a href="references.html#ref-koster:2012aa" role="doc-biblioref">97</a></sup></span> pipeline provided in supplemental materials.
 Table <a href="a-novel-copy-number-variant-algorithm.html#tab:poolSummary">2.1</a> provides an overview of the exome sequencing included.</p>
 </div>
 <div id="genome-sequencing" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> Genome sequencing</h3>
 <p>For the 16 samples in the “WGS” pool, we performed genome sequencing to an average 50x coverage.
-We followed Trost et al. recommendations for making read-depth based CNV calls.<span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">97</a></sup></span>
+We followed Trost et al. recommendations for making read-depth based CNV calls.<span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">98</a></sup></span>
 Briefly, we mapped paired-reads identical to our targeted sequencing data.
 We then interrogated the read depth interquartile range using samtools depth,<span class="citation"><sup><a href="references.html#ref-li:2009aa" role="doc-biblioref">29</a></sup></span> recalibrated base-quality scores and called sequence variants using GATK,<span class="citation"><sup><a href="references.html#ref-van-der-auwera:2013aa" role="doc-biblioref">40</a></sup></span> and called copy number variants using the ERDS<span class="citation"><sup><a href="references.html#ref-zhu:2012aa" role="doc-biblioref">49</a></sup></span> and cnvpytor (updated implementation of CNVnator)<span class="citation"><sup><a href="references.html#ref-abyzov:2011aa" role="doc-biblioref">45</a></sup></span> algorithms.
-Full Snakemake<span class="citation"><sup><a href="references.html#ref-koster:2012aa" role="doc-biblioref">96</a></sup></span> pipeline provided in supplemental materials.</p>
+Full Snakemake<span class="citation"><sup><a href="references.html#ref-koster:2012aa" role="doc-biblioref">97</a></sup></span> pipeline provided in supplemental materials.</p>
 </div>
 <div id="simulating-targeted-sequencing" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> Simulating targeted sequencing</h3>
@@ -268,7 +268,7 @@ Let <span class="math inline">\(N\)</span> represent the total number of molecul
 </div>
 <div id="mccnv-algorithm" class="section level3">
 <h3><span class="header-section-number">2.2.4</span> mcCNV algorithm</h3>
-<p>The mcCNV algorithm was adapted from the sSEQ method for quantifying differential expression in RNA-seq experiments with small sample sizes.<span class="citation"><sup><a href="references.html#ref-yu:2013aa" role="doc-biblioref">98</a></sup></span>
+<p>The mcCNV algorithm was adapted from the sSEQ method for quantifying differential expression in RNA-seq experiments with small sample sizes.<span class="citation"><sup><a href="references.html#ref-yu:2013aa" role="doc-biblioref">99</a></sup></span>
 Yu et al. provide detailed theoretical background of the negative binomial model and using shrinkage to improve dispersion estimates.
 The mcCNV algorithm adjusts the sSEQ probability model by adding a multiplier for the copy state:
 <span class="math display">\[
@@ -317,7 +317,7 @@ and
 where <span class="math inline">\(S = \{0.001, 0.5, 1, 1.5, 2\}\)</span>.</p></li>
 <li><p>Repeat until the number of changed states falls below a threshold or a maximum number of iterations is reached.</p></li>
 <li><p>After convergence, calculate p-values for the diploid state, <span class="math inline">\(\pi_{ij} = \text{Pr}(s_{ij} = 1)\)</span>.</p></li>
-<li><p>Adjust p-values using the Benjamini–Hochberg procedure<span class="citation"><sup><a href="references.html#ref-benjamini:1995aa" role="doc-biblioref">99</a></sup></span> and filter to a final call-set such that adjusted p-values fall below some threshold, <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>Adjust p-values using the Benjamini–Hochberg procedure<span class="citation"><sup><a href="references.html#ref-benjamini:1995aa" role="doc-biblioref">100</a></sup></span> and filter to a final call-set such that adjusted p-values fall below some threshold, <span class="math inline">\(\alpha\)</span>.</p></li>
 </ol>
 </div>
 </div>
@@ -609,7 +609,7 @@ Agilent
 <p>Using multiplexed capture, we sequenced 3 16-sample pools and 2 8-sample pools with Agilent baits and 2 16-sample pools with IDT baits (Table <a href="a-novel-copy-number-variant-algorithm.html#tab:poolSummary">2.1</a>).
 To compare to individually-captured Agilent data, we randomly-selected 5 16-sample pools from the NCGENES cohort.
 For numeric stability, we subset to exons with at least 5 and no greater than 2000 counts across all samples within a pool.
-We then used a Newton-Raphson algorithm<span class="citation"><sup><a href="references.html#ref-minka:2000aa" role="doc-biblioref">100</a></sup></span> to fit the dirichlet distribution to each pool; all pools converged to stable estimates.
+We then used a Newton-Raphson algorithm<span class="citation"><sup><a href="references.html#ref-minka:2000aa" role="doc-biblioref">101</a></sup></span> to fit the dirichlet distribution to each pool; all pools converged to stable estimates.
 We found, with one exception, multiplexed capture pools had greater <span class="math inline">\(\alpha_0\)</span> of their independently-captured counterparts (Figure <a href="a-novel-copy-number-variant-algorithm.html#fig:alpha0">2.1</a>).</p>
 
 
@@ -707,7 +707,7 @@ For the first iteration of ExomeDepth, we used the default values for transition
 For the second iteration, we used the true simulated variant prior for the transition probability (<span class="math inline">\(1/1,000\)</span>) and an expected variant length of 1 kb.
 As expected, the sensitivity increased and false discovery rate decreased as the sequencing depth increased (Figures <a href="a-novel-copy-number-variant-algorithm.html#fig:simRes">2.9</a>).
 In both comparisons, mcCNV demonstrated a superior false-discovery rate.
-When interrogating Matthew’s correlation coefficient<span class="citation"><sup><a href="references.html#ref-matthews:1975aa" role="doc-biblioref">101</a></sup></span> and the sensitivity, we found mcCNV had marginal performance over ExomeDepth with default parameters and marginal performance under ExomeDepth with simulation-matched parameters. Table <a href="a-novel-copy-number-variant-algorithm.html#tab:simResTbl">2.2</a> provides the actual values.</p>
+When interrogating Matthew’s correlation coefficient<span class="citation"><sup><a href="references.html#ref-matthews:1975aa" role="doc-biblioref">102</a></sup></span> and the sensitivity, we found mcCNV had marginal performance over ExomeDepth with default parameters and marginal performance under ExomeDepth with simulation-matched parameters. Table <a href="a-novel-copy-number-variant-algorithm.html#tab:simResTbl">2.2</a> provides the actual values.</p>
 
 
 <div class="figure" style="text-align: center"><span id="fig:simRes"></span>
@@ -1421,7 +1421,7 @@ ED-sim
 <div id="mccnv-exomedepth-perform-comparably-on-wgs-pool" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> mcCNV &amp; ExomeDepth perform comparably on WGS pool</h3>
 <p>To establish a truth set on real data, we performed matched genome sequencing on the subjects included in the WGS pool.
-Following the best practices suggested by Trost et al. <span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">97</a></sup></span>, we performed read-depth based CNV calling using the genome data.
+Following the best practices suggested by Trost et al. <span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">98</a></sup></span>, we performed read-depth based CNV calling using the genome data.
 In line with recommendations by Trost et al., we excluded from comparative analysis any exons overlapping repetitive or low-complexity regions (34,856 out of 179,250).
 We then compared the exome calls using mcCNV and ExomeDepth to the genome calls using the overlap of ERDS and cnvpytor.
 Table <a href="a-novel-copy-number-variant-algorithm.html#tab:wgsCallSbj">2.3</a> lists the total calls by subject.
@@ -1430,7 +1430,7 @@ ExomeDepth also predicted a disproportionate number of deletions for NCG_00790 a
 
 <table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
 <caption>
-<span id="tab:wgsCallSbj">Table 2.3: </span>Number of CNV calls by subject and algorithm for the ‘WGS’ pool. ‘MC’ indicates the mcCNV algorithm; ‘ED’ indicates the ExomeDepth algorithm; ‘WG’ indicates the overlap of ERDS/cnvpytor calls from matched whole-genome sequencing. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al. manuscript,<span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">97</a></sup></span> omitted from analysis.
+<span id="tab:wgsCallSbj">Table 2.3: </span>Number of CNV calls by subject and algorithm for the ‘WGS’ pool. ‘MC’ indicates the mcCNV algorithm; ‘ED’ indicates the ExomeDepth algorithm; ‘WG’ indicates the overlap of ERDS/cnvpytor calls from matched whole-genome sequencing. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al. manuscript,<span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">98</a></sup></span> omitted from analysis.
 </caption>
 <thead>
 <tr>
@@ -2010,7 +2010,7 @@ Figures <a href="a-novel-copy-number-variant-algorithm.html#fig:wgsVennAll">2.10
 
 <table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
 <caption>
-<span id="tab:predMet">Table 2.4: </span>mcCNV (MC)/ExomeDepth (ED) calls for ‘WGS’ pool (used as prediction) versus the ERDS/cnvpytor calls from matched genome sequencing (used as truth). Calls are subdivided by duplications (DUP) and deletions (DEL). ‘Full’ gives performance across the full pool; ‘Sub’ gives the performance excluding the poorly correlated samples NCG_00790 and NCG_00851 (gray rows). ‘MCC’ is Matthew’s correlation coefficient, ‘TPR’ is true positive rate/sensitivity, ‘FDR’ is false discovery rate, ‘PPV’ is positive predictive value, ‘BalAcc’ is balanced accuracy. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al. manuscript,<span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">97</a></sup></span> omitted from analysis.
+<span id="tab:predMet">Table 2.4: </span>mcCNV (MC)/ExomeDepth (ED) calls for ‘WGS’ pool (used as prediction) versus the ERDS/cnvpytor calls from matched genome sequencing (used as truth). Calls are subdivided by duplications (DUP) and deletions (DEL). ‘Full’ gives performance across the full pool; ‘Sub’ gives the performance excluding the poorly correlated samples NCG_00790 and NCG_00851 (gray rows). ‘MCC’ is Matthew’s correlation coefficient, ‘TPR’ is true positive rate/sensitivity, ‘FDR’ is false discovery rate, ‘PPV’ is positive predictive value, ‘BalAcc’ is balanced accuracy. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al. manuscript,<span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">98</a></sup></span> omitted from analysis.
 </caption>
 <thead>
 <tr>
@@ -2288,7 +2288,7 @@ Figure 2.11: Copy number variant call concordance for the WGS pool, excluding su
 <div id="discussion" class="section level2">
 <h2><span class="header-section-number">2.4</span> Discussion</h2>
 <p>The medical genetics community still lacks robust exome-wide information about small (exon-level) variant prevalence.
-Others have established the reliability and cost-efficiency of pre-capture multiplexing,<span class="citation"><sup><a href="references.html#ref-neiman:2012aa" role="doc-biblioref">102</a>–<a href="references.html#ref-shearer:2012aa" role="doc-biblioref">106</a></sup></span> and most commercial exome capture platforms have protocols for pre-capture multiplexing.
+Others have established the reliability and cost-efficiency of pre-capture multiplexing,<span class="citation"><sup><a href="references.html#ref-neiman:2012aa" role="doc-biblioref">103</a>–<a href="references.html#ref-shearer:2012aa" role="doc-biblioref">107</a></sup></span> and most commercial exome capture platforms have protocols for pre-capture multiplexing.
 Here, we demonstrate the reduction in inter-sample variance when pre-capture multiplexing, leading to increased power to detect exon-level copy number variation.
 Despite the benefits, many clinical laboratories do not employ a multiplexed capture protocol because multiplexing requires waiting to fill a pool and may delay results.
 While we understand the increased complexity, multiplexed capture may uncover otherwise missed copy number variation and increase the diagnostic yield for patients.</p>
@@ -2304,7 +2304,7 @@ However, we show laboratories can circumvent the need for large samples by multi
 Defining the capture pool as the set of controls both limits the need for regular reanalysis as the database grows and eliminates potential over-selecting of samples with the same variants.</p>
 <p>At the depth of the WGS pool, our simplistic simulation study would suggest both mcCNV and ExomeDepth have the power to detect single-exon variants with &gt;85% sensitivity while maintaining a low false-discovery rate (Figure <a href="a-novel-copy-number-variant-algorithm.html#fig:simRes">2.9</a>, Table <a href="a-novel-copy-number-variant-algorithm.html#tab:simResTbl">2.2</a>).
 However, comparing the exome calls to the genome calls for the WGS pool revealed lackluster concordance.
-As Trost et al. point out, the genome CNV callers still struggle with variants less than 1 kb.<span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">97</a></sup></span>
+As Trost et al. point out, the genome CNV callers still struggle with variants less than 1 kb.<span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">98</a></sup></span>
 We do not dismiss the possibility of exome calls providing greater reliability than the genome calls, given multiplexed capture and adequate sequencing depth.
 However, given the distribution of calls throughout the exome, we doubt the thousands of excess deletions called for NCG_00790 and NCG_00851.
 Confirmation of the individual calls is beyond the scope of this work.</p>
@@ -2378,7 +2378,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["DLFilerDissertation.pdf", "DLFilerDissertation.epub"],
+"download": ["DLFilerDissertation.pdf"],
 "toc": {
 "collapse": "section"
 }

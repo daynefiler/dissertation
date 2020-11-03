@@ -221,7 +221,7 @@ In 1953 Jervis identified the specific enzymatic deficiency [@jervis:1953aa], an
 The model in PKU was extended to other inborn errors of metabolism and now all children in the US get screened for a panel of treatable metabolic conditions at birth.
 
 Prenatal genetics took began in 1956 when Fuchs demonstrated fetal sex identification from amniocentesis [@fuchs:1956aa].
-A decade later Steele *et al.* began culturing amniocytes dervied from amniocentesis, opening up the door for wide ranging prenatal genetic testing \cite[steele:1966aa].
+A decade later Steele *et al.* began culturing amniocytes dervied from amniocentesis, opening up the door for wide ranging prenatal genetic testing [@steele:1966aa].
 We now have the ability, either by amniocentesis or chorionic villus sampling (possible earlier in pregnancy) to perform the full gamut of available genetic testing early in pregnancy.
 In addition to direct fetal sampling, researchers have identified circulating fetal lymphocytes [@walknowska:1969aa], trophoblasts [@mueller:1990aa], and fetal nucleated red blood cells [@bianchi:1990aa] in the circulation of pregnant mothers.
 In 1997 Dennis Lo *et al.* identified cell-free DNA (cfDNA) in maternal circulation [@lo:1997aa], which to-date has proven more diagnostically exploitable.

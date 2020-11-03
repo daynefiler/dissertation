@@ -567,11 +567,11 @@ In 1953 Jervis identified the specific enzymatic deficiency,\textsuperscript{\pr
 The model in PKU was extended to other inborn errors of metabolism and now all children in the US get screened for a panel of treatable metabolic conditions at birth.
 
 Prenatal genetics took began in 1956 when Fuchs demonstrated fetal sex identification from amniocentesis.\textsuperscript{\protect\hyperlink{ref-fuchs:1956aa}{78}}
-A decade later Steele \emph{et al.} began culturing amniocytes dervied from amniocentesis, opening up the door for wide ranging prenatal genetic testing \textbackslash cite{[}steele:1966aa{]}.
+A decade later Steele \emph{et al.} began culturing amniocytes dervied from amniocentesis, opening up the door for wide ranging prenatal genetic testing.\textsuperscript{\protect\hyperlink{ref-steele:1966aa}{79}}
 We now have the ability, either by amniocentesis or chorionic villus sampling (possible earlier in pregnancy) to perform the full gamut of available genetic testing early in pregnancy.
-In addition to direct fetal sampling, researchers have identified circulating fetal lymphocytes,\textsuperscript{\protect\hyperlink{ref-walknowska:1969aa}{79}} trophoblasts,\textsuperscript{\protect\hyperlink{ref-mueller:1990aa}{80}} and fetal nucleated red blood cells\textsuperscript{\protect\hyperlink{ref-bianchi:1990aa}{81}} in the circulation of pregnant mothers.
-In 1997 Dennis Lo \emph{et al.} identified cell-free DNA (cfDNA) in maternal circulation,\textsuperscript{\protect\hyperlink{ref-lo:1997aa}{82}} which to-date has proven more diagnostically exploitable.
-We now have the ability to detect many genetic disorders from cell-free fetal DNA.\textsuperscript{\protect\hyperlink{ref-scotchman:2020aa}{83}}
+In addition to direct fetal sampling, researchers have identified circulating fetal lymphocytes,\textsuperscript{\protect\hyperlink{ref-walknowska:1969aa}{80}} trophoblasts,\textsuperscript{\protect\hyperlink{ref-mueller:1990aa}{81}} and fetal nucleated red blood cells\textsuperscript{\protect\hyperlink{ref-bianchi:1990aa}{82}} in the circulation of pregnant mothers.
+In 1997 Dennis Lo \emph{et al.} identified cell-free DNA (cfDNA) in maternal circulation,\textsuperscript{\protect\hyperlink{ref-lo:1997aa}{83}} which to-date has proven more diagnostically exploitable.
+We now have the ability to detect many genetic disorders from cell-free fetal DNA.\textsuperscript{\protect\hyperlink{ref-scotchman:2020aa}{84}}
 
 \hypertarget{prob}{%
 \section{Rationale}\label{prob}}
@@ -601,23 +601,23 @@ Technologies, e.g.~microarray, exist for reliably detecting large (greater than 
 Over the last decade, the availability short-read DNA sequencing compelled numerous efforts to identify and characterize smaller variants.
 Sequencing cost, data burden, and the problem of classifying intronic and non-coding variants have led to exome sequencing (ES) as the preferred clinical sequencing modality.
 ES analysis most often focuses on identifying pathogenic single-nucleotide variants and insertion/deletions.
-CNV analysis has demonstrated limited improvement in diagnostic yield,\textsuperscript{\protect\hyperlink{ref-marchuk:2018aa}{84}} but existing data/analysis lacks power to detect exon-level variation.\textsuperscript{\protect\hyperlink{ref-retterer:2015aa}{85},\protect\hyperlink{ref-yao:2017aa}{86}}
+CNV analysis has demonstrated limited improvement in diagnostic yield,\textsuperscript{\protect\hyperlink{ref-marchuk:2018aa}{85}} but existing data/analysis lacks power to detect exon-level variation.\textsuperscript{\protect\hyperlink{ref-retterer:2015aa}{86},\protect\hyperlink{ref-yao:2017aa}{87}}
 
-Current analytic methodologies adequately detect large CNVs, but require large amounts of data and lack resolution for intragenic exon-level variation.\textsuperscript{\protect\hyperlink{ref-plagnol:2012aa}{46},\protect\hyperlink{ref-fromer:2012aa}{87}--\protect\hyperlink{ref-krumm:2012aa}{89}}
+Current analytic methodologies adequately detect large CNVs, but require large amounts of data and lack resolution for intragenic exon-level variation.\textsuperscript{\protect\hyperlink{ref-plagnol:2012aa}{46},\protect\hyperlink{ref-fromer:2012aa}{88}--\protect\hyperlink{ref-krumm:2012aa}{90}}
 The prevalence and clinical importance of exon-level CNVs remains largely unknown due to inadequate power in ES studies and limited access to clinical genome sequencing data.
-Recent work on a subset of 1507 genes suggests intragenic CNVs account for 1.9\% of total variants, but 9.8\% of pathogenic variants.\textsuperscript{\protect\hyperlink{ref-truty:2019aa}{90}}
-Additionally, the authors demonstrated 627/2844 (22\%) of identified CNVs spanned a single (598) or partial (29) exon.\textsuperscript{\protect\hyperlink{ref-truty:2019aa}{90}}
+Recent work on a subset of 1507 genes suggests intragenic CNVs account for 1.9\% of total variants, but 9.8\% of pathogenic variants.\textsuperscript{\protect\hyperlink{ref-truty:2019aa}{91}}
+Additionally, the authors demonstrated 627/2844 (22\%) of identified CNVs spanned a single (598) or partial (29) exon.\textsuperscript{\protect\hyperlink{ref-truty:2019aa}{91}}
 
 Targeted sequencing requires capturing the desired loci (e.g.~exons) using sequence-specific oligonucleotide baits.
 The differential efficiency of baits, even when carefully designed and balanced, leads to variable read-depth across the exome.
-The GC content and length of targeted fragments both contribute to the observed variable read-depth;\textsuperscript{\protect\hyperlink{ref-benjamini:2012aa}{91}} most ES analysis platforms incorporate correction for GC content and exon length.\textsuperscript{\protect\hyperlink{ref-kadalayil:2015aa}{92}}
-The variable read-depth in ES precludes the single-sample window-smoothing approaches successfully applied in GS data,\textsuperscript{\protect\hyperlink{ref-chiang:2009aa}{93}} therefore we must rely on comparative analysis for interrogating copy number.
+The GC content and length of targeted fragments both contribute to the observed variable read-depth;\textsuperscript{\protect\hyperlink{ref-benjamini:2012aa}{92}} most ES analysis platforms incorporate correction for GC content and exon length.\textsuperscript{\protect\hyperlink{ref-kadalayil:2015aa}{93}}
+The variable read-depth in ES precludes the single-sample window-smoothing approaches successfully applied in GS data,\textsuperscript{\protect\hyperlink{ref-chiang:2009aa}{94}} therefore we must rely on comparative analysis for interrogating copy number.
 
 Comparing multiple samples, each captured independently, compounds the variable read-depth problem.
 The capture probability for each exon correlates between samples but with high variability.\textsuperscript{\protect\hyperlink{ref-plagnol:2012aa}{46}}
 In other words, we can gain information from similarly captured samples, but independent captures introduce significant noise.
 ExomeDepth attempts to circumvent the capture-to-capture variation by identifying a subset of samples from a large pool with low inter-sample variability.\textsuperscript{\protect\hyperlink{ref-plagnol:2012aa}{46}}
-Alternatively, CoNIFER,\textsuperscript{\protect\hyperlink{ref-krumm:2012aa}{89}} XHMM,\textsuperscript{\protect\hyperlink{ref-fromer:2012aa}{87}} and CODEX\textsuperscript{\protect\hyperlink{ref-jiang:2015aa}{88}} use a latent factor model with spectral value decomposition to remove systematic noise, presumably introduced by capture-to-capture variation.
+Alternatively, CoNIFER,\textsuperscript{\protect\hyperlink{ref-krumm:2012aa}{90}} XHMM,\textsuperscript{\protect\hyperlink{ref-fromer:2012aa}{88}} and CODEX\textsuperscript{\protect\hyperlink{ref-jiang:2015aa}{89}} use a latent factor model with spectral value decomposition to remove systematic noise, presumably introduced by capture-to-capture variation.
 These methods generally require very large sample sizes, and often still lack power for exon-level resolution (e.g.~CODEX defines a ``short'' CNV as spanning 5 contiguous exons).
 
 Here, we explore how multiplexing the capture across samples reduces inter-sample variance, increasing the power to detect CNVs.
@@ -629,27 +629,27 @@ We also introduce our own algorithm, mcCNV (``multiplexed capture CNV''), specif
 \hypertarget{exome-sequencing}{%
 \subsection{Exome sequencing}\label{exome-sequencing}}
 
-We performed sequencing on human samples of purified DNA obtained from the Wilhelmsen laboratory collection, the NCGENES cohort,\textsuperscript{\protect\hyperlink{ref-foreman:2013aa}{94}} and the Coriell Institute in compliance with the UNC Institutional Review Board.
-We also utilized existing read-level data from the NCGENES\textsuperscript{\protect\hyperlink{ref-foreman:2013aa}{94}} project.
+We performed sequencing on human samples of purified DNA obtained from the Wilhelmsen laboratory collection, the NCGENES cohort,\textsuperscript{\protect\hyperlink{ref-foreman:2013aa}{95}} and the Coriell Institute in compliance with the UNC Institutional Review Board.
+We also utilized existing read-level data from the NCGENES\textsuperscript{\protect\hyperlink{ref-foreman:2013aa}{95}} project.
 We compared the performance of two capture platforms: (1) Agilent SureSelect XT2 (multiplexed capture)/Agilent SureSelect XT (independent capture); (2) Integrated DNA Technologies (IDT) xGen Lockdown Probes.
 We utilized Human All Exome v4 baits (Agilent) and Exome Research Panel v1 baits (IDT).
 All captures performed according to manufacturer protocol, with the following exceptions: (1) we multiplexed 16 samples versus the recommended 8 for the XT2 protocol for some pools; (2) for Pool2, we performed the fragmentation step 5 times, to test whether a more uniform fragment length distribution would improve capture.
 
 All sequencing performed with Illumina paired-end chemistry.
-We aligned paired reads to hg19v0 (GATK resource bundle) using BWA-MEM\textsuperscript{\protect\hyperlink{ref-li:2013ab}{95}} and removed duplicate reads using Picard tools.
+We aligned paired reads to hg19v0 (GATK resource bundle) using BWA-MEM\textsuperscript{\protect\hyperlink{ref-li:2013ab}{96}} and removed duplicate reads using Picard tools.
 We then used our novel R package, mcCNV, to count the number of overlapping molecules (read-pairs) per exon.
 For inclusion, we required properly-paired molecules with unambiguous mapping for one read and mapping quality greater than or equal to 20 for both reads.
-Full Snakemake\textsuperscript{\protect\hyperlink{ref-koster:2012aa}{96}} pipeline provided in supplemental materials.
+Full Snakemake\textsuperscript{\protect\hyperlink{ref-koster:2012aa}{97}} pipeline provided in supplemental materials.
 Table \ref{tab:poolSummary} provides an overview of the exome sequencing included.
 
 \hypertarget{genome-sequencing}{%
 \subsection{Genome sequencing}\label{genome-sequencing}}
 
 For the 16 samples in the ``WGS'' pool, we performed genome sequencing to an average 50x coverage.
-We followed Trost et al.~recommendations for making read-depth based CNV calls.\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}}
+We followed Trost et al.~recommendations for making read-depth based CNV calls.\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{98}}
 Briefly, we mapped paired-reads identical to our targeted sequencing data.
 We then interrogated the read depth interquartile range using samtools depth,\textsuperscript{\protect\hyperlink{ref-li:2009aa}{29}} recalibrated base-quality scores and called sequence variants using GATK,\textsuperscript{\protect\hyperlink{ref-van-der-auwera:2013aa}{40}} and called copy number variants using the ERDS\textsuperscript{\protect\hyperlink{ref-zhu:2012aa}{49}} and cnvpytor (updated implementation of CNVnator)\textsuperscript{\protect\hyperlink{ref-abyzov:2011aa}{45}} algorithms.
-Full Snakemake\textsuperscript{\protect\hyperlink{ref-koster:2012aa}{96}} pipeline provided in supplemental materials.
+Full Snakemake\textsuperscript{\protect\hyperlink{ref-koster:2012aa}{97}} pipeline provided in supplemental materials.
 
 \hypertarget{simulating-targeted-sequencing}{%
 \subsection{Simulating targeted sequencing}\label{simulating-targeted-sequencing}}
@@ -673,7 +673,7 @@ We provide functionality within the mcCNV R package for producing reproducible s
 \hypertarget{mccnv-algorithm}{%
 \subsection{mcCNV algorithm}\label{mccnv-algorithm}}
 
-The mcCNV algorithm was adapted from the sSEQ method for quantifying differential expression in RNA-seq experiments with small sample sizes.\textsuperscript{\protect\hyperlink{ref-yu:2013aa}{98}}
+The mcCNV algorithm was adapted from the sSEQ method for quantifying differential expression in RNA-seq experiments with small sample sizes.\textsuperscript{\protect\hyperlink{ref-yu:2013aa}{99}}
 Yu et al.~provide detailed theoretical background of the negative binomial model and using shrinkage to improve dispersion estimates.
 The mcCNV algorithm adjusts the sSEQ probability model by adding a multiplier for the copy state:
 \[
@@ -733,7 +733,7 @@ Initialize by setting \(\hat{s}_{ij} = 1\) for all \(i,j\). Then,
 \item
   After convergence, calculate p-values for the diploid state, \(\pi_{ij} = \text{Pr}(s_{ij} = 1)\).
 \item
-  Adjust p-values using the Benjamini--Hochberg procedure\textsuperscript{\protect\hyperlink{ref-benjamini:1995aa}{99}} and filter to a final call-set such that adjusted p-values fall below some threshold, \(\alpha\).
+  Adjust p-values using the Benjamini--Hochberg procedure\textsuperscript{\protect\hyperlink{ref-benjamini:1995aa}{100}} and filter to a final call-set such that adjusted p-values fall below some threshold, \(\alpha\).
 \end{enumerate}
 
 \hypertarget{results}{%
@@ -782,7 +782,7 @@ WGS & Agilent & 16 & 196 & 46,406,224 & 36,496,097 & 65,200,410 & 16.4\\
 Using multiplexed capture, we sequenced 3 16-sample pools and 2 8-sample pools with Agilent baits and 2 16-sample pools with IDT baits (Table \ref{tab:poolSummary}).
 To compare to individually-captured Agilent data, we randomly-selected 5 16-sample pools from the NCGENES cohort.
 For numeric stability, we subset to exons with at least 5 and no greater than 2000 counts across all samples within a pool.
-We then used a Newton-Raphson algorithm\textsuperscript{\protect\hyperlink{ref-minka:2000aa}{100}} to fit the dirichlet distribution to each pool; all pools converged to stable estimates.
+We then used a Newton-Raphson algorithm\textsuperscript{\protect\hyperlink{ref-minka:2000aa}{101}} to fit the dirichlet distribution to each pool; all pools converged to stable estimates.
 We found, with one exception, multiplexed capture pools had greater \(\alpha_0\) of their independently-captured counterparts (Figure \ref{fig:alpha0}).
 
 
@@ -922,7 +922,7 @@ For the first iteration of ExomeDepth, we used the default values for transition
 For the second iteration, we used the true simulated variant prior for the transition probability (\(1/1,000\)) and an expected variant length of 1 kb.
 As expected, the sensitivity increased and false discovery rate decreased as the sequencing depth increased (Figures \ref{fig:simRes}).
 In both comparisons, mcCNV demonstrated a superior false-discovery rate.
-When interrogating Matthew's correlation coefficient\textsuperscript{\protect\hyperlink{ref-matthews:1975aa}{101}} and the sensitivity, we found mcCNV had marginal performance over ExomeDepth with default parameters and marginal performance under ExomeDepth with simulation-matched parameters. Table \ref{tab:simResTbl} provides the actual values.
+When interrogating Matthew's correlation coefficient\textsuperscript{\protect\hyperlink{ref-matthews:1975aa}{102}} and the sensitivity, we found mcCNV had marginal performance over ExomeDepth with default parameters and marginal performance under ExomeDepth with simulation-matched parameters. Table \ref{tab:simResTbl} provides the actual values.
 
 
 
@@ -980,7 +980,7 @@ dep & mcCNV & ED-def & ED-sim & mcCNV & ED-def & ED-sim & mcCNV & ED-def & ED-si
 \subsection{mcCNV \& ExomeDepth perform comparably on WGS pool}\label{mccnv-exomedepth-perform-comparably-on-wgs-pool}}
 
 To establish a truth set on real data, we performed matched genome sequencing on the subjects included in the WGS pool.
-Following the best practices suggested by Trost et al.~\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}}, we performed read-depth based CNV calling using the genome data.
+Following the best practices suggested by Trost et al.~\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{98}}, we performed read-depth based CNV calling using the genome data.
 In line with recommendations by Trost et al., we excluded from comparative analysis any exons overlapping repetitive or low-complexity regions (34,856 out of 179,250).
 We then compared the exome calls using mcCNV and ExomeDepth to the genome calls using the overlap of ERDS and cnvpytor.
 Table \ref{tab:wgsCallSbj} lists the total calls by subject.
@@ -991,7 +991,7 @@ ExomeDepth also predicted a disproportionate number of deletions for NCG\_00790 
 
 \begin{table}
 
-\caption[Number of CNV calls by subject and algorithm for the 'WGS' pool.]{\label{tab:wgsCallSbj}Number of CNV calls by subject and algorithm for the `WGS' pool. `MC' indicates the mcCNV algorithm; `ED' indicates the ExomeDepth algorithm; `WG' indicates the overlap of ERDS/cnvpytor calls from matched whole-genome sequencing. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}} omitted from analysis.}
+\caption[Number of CNV calls by subject and algorithm for the 'WGS' pool.]{\label{tab:wgsCallSbj}Number of CNV calls by subject and algorithm for the `WGS' pool. `MC' indicates the mcCNV algorithm; `ED' indicates the ExomeDepth algorithm; `WG' indicates the overlap of ERDS/cnvpytor calls from matched whole-genome sequencing. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{98}} omitted from analysis.}
 \centering
 \begin{tabular}[t]{lrrrrrrrrr}
 \toprule
@@ -1035,7 +1035,7 @@ Figures \ref{fig:wgsVennAll} and \ref{fig:wgsVennSub} show the call overlap betw
 
 \begin{table}
 
-\caption[mcCNV and ExomeDepth performance predicting calls from genome sequencing.]{\label{tab:predMet}mcCNV (MC)/ExomeDepth (ED) calls for `WGS' pool (used as prediction) versus the ERDS/cnvpytor calls from matched genome sequencing (used as truth). Calls are subdivided by duplications (DUP) and deletions (DEL). `Full' gives performance across the full pool; `Sub' gives the performance excluding the poorly correlated samples NCG\_00790 and NCG\_00851 (gray rows). `MCC' is Matthew's correlation coefficient, `TPR' is true positive rate/sensitivity, `FDR' is false discovery rate, `PPV' is positive predictive value, `BalAcc' is balanced accuracy. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}} omitted from analysis.}
+\caption[mcCNV and ExomeDepth performance predicting calls from genome sequencing.]{\label{tab:predMet}mcCNV (MC)/ExomeDepth (ED) calls for `WGS' pool (used as prediction) versus the ERDS/cnvpytor calls from matched genome sequencing (used as truth). Calls are subdivided by duplications (DUP) and deletions (DEL). `Full' gives performance across the full pool; `Sub' gives the performance excluding the poorly correlated samples NCG\_00790 and NCG\_00851 (gray rows). `MCC' is Matthew's correlation coefficient, `TPR' is true positive rate/sensitivity, `FDR' is false discovery rate, `PPV' is positive predictive value, `BalAcc' is balanced accuracy. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{98}} omitted from analysis.}
 \centering
 \begin{tabular}[t]{lllrrrr}
 \toprule
@@ -1096,7 +1096,7 @@ Figures \ref{fig:wgsVennAll} and \ref{fig:wgsVennSub} show the call overlap betw
 \section{Discussion}\label{discussion}}
 
 The medical genetics community still lacks robust exome-wide information about small (exon-level) variant prevalence.
-Others have established the reliability and cost-efficiency of pre-capture multiplexing,\textsuperscript{\protect\hyperlink{ref-neiman:2012aa}{102}--\protect\hyperlink{ref-shearer:2012aa}{106}} and most commercial exome capture platforms have protocols for pre-capture multiplexing.
+Others have established the reliability and cost-efficiency of pre-capture multiplexing,\textsuperscript{\protect\hyperlink{ref-neiman:2012aa}{103}--\protect\hyperlink{ref-shearer:2012aa}{107}} and most commercial exome capture platforms have protocols for pre-capture multiplexing.
 Here, we demonstrate the reduction in inter-sample variance when pre-capture multiplexing, leading to increased power to detect exon-level copy number variation.
 Despite the benefits, many clinical laboratories do not employ a multiplexed capture protocol because multiplexing requires waiting to fill a pool and may delay results.
 While we understand the increased complexity, multiplexed capture may uncover otherwise missed copy number variation and increase the diagnostic yield for patients.
@@ -1116,7 +1116,7 @@ Defining the capture pool as the set of controls both limits the need for regula
 
 At the depth of the WGS pool, our simplistic simulation study would suggest both mcCNV and ExomeDepth have the power to detect single-exon variants with \textgreater85\% sensitivity while maintaining a low false-discovery rate (Figure \ref{fig:simRes}, Table \ref{tab:simResTbl}).
 However, comparing the exome calls to the genome calls for the WGS pool revealed lackluster concordance.
-As Trost et al.~point out, the genome CNV callers still struggle with variants less than 1 kb.\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}}
+As Trost et al.~point out, the genome CNV callers still struggle with variants less than 1 kb.\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{98}}
 We do not dismiss the possibility of exome calls providing greater reliability than the genome calls, given multiplexed capture and adequate sequencing depth.
 However, given the distribution of calls throughout the exome, we doubt the thousands of excess deletions called for NCG\_00790 and NCG\_00851.
 Confirmation of the individual calls is beyond the scope of this work.
@@ -1153,20 +1153,20 @@ Confirmation testing for the tens to thousands of predicted variants from the ex
 The beneficial health outcomes from newborn screening programs (NBS) are indisputable.
 We envision future NBS will begin with prenatal genetic testing to enable care in the immediate newborn period, and open up new possibilities for \emph{in utero} and genetic therapies.
 During pregnancy, placental DNA is released into maternal circulation, enabling noninvasive interrogation of fetal genetics (noninvasive prenatal testing, NIPT).
-NIPT has a well-established clinical utility in screening for common chromosomal abnormalities such as Down syndrome with high sensitivity and specificity.\textsuperscript{\protect\hyperlink{ref-mackie:2017aa}{107}}
-More recently, efforts have demonstrated sequencing-based testing for \emph{de novo} pathogenic variants in a list of 30 genes associated with dominant Mendelian disorders\textsuperscript{\protect\hyperlink{ref-zhang:2019aa}{108}} and PCR-based testing for a small number of recessive Mendelian disorders.\textsuperscript{\protect\hyperlink{ref-tsao:2019ab}{109}}
-Using relative haplotype dosage analysis (RHDO),\textsuperscript{\protect\hyperlink{ref-lo:2010aa}{110}} multiple groups have successfully diagnosed single gene disorders\textsuperscript{\protect\hyperlink{ref-hui:2017aa}{111}--\protect\hyperlink{ref-vermeulen:2017aa}{113}} including a new offering of noninvasive prenatal diagnosis for cystic fibrosis in the UK Public Health Service.\textsuperscript{\protect\hyperlink{ref-chandler:2020aa}{114}}
-RHDO typically relies on collecting parental, and ideally proband, genetic information to resolve parental haplotypes; Jang et al.~demonstrated success in diagnosing Duchenne muscular dystrophy by estimating haplotypes solely from maternal long-read sequencing.\textsuperscript{\protect\hyperlink{ref-jang:2018aa}{112}}
-Scotchman et al.~provide an excellent review summarizing the history of noninvasive testing.\textsuperscript{\protect\hyperlink{ref-scotchman:2020aa}{83}}
+NIPT has a well-established clinical utility in screening for common chromosomal abnormalities such as Down syndrome with high sensitivity and specificity.\textsuperscript{\protect\hyperlink{ref-mackie:2017aa}{108}}
+More recently, efforts have demonstrated sequencing-based testing for \emph{de novo} pathogenic variants in a list of 30 genes associated with dominant Mendelian disorders\textsuperscript{\protect\hyperlink{ref-zhang:2019aa}{109}} and PCR-based testing for a small number of recessive Mendelian disorders.\textsuperscript{\protect\hyperlink{ref-tsao:2019ab}{110}}
+Using relative haplotype dosage analysis (RHDO),\textsuperscript{\protect\hyperlink{ref-lo:2010aa}{111}} multiple groups have successfully diagnosed single gene disorders\textsuperscript{\protect\hyperlink{ref-hui:2017aa}{112}--\protect\hyperlink{ref-vermeulen:2017aa}{114}} including a new offering of noninvasive prenatal diagnosis for cystic fibrosis in the UK Public Health Service.\textsuperscript{\protect\hyperlink{ref-chandler:2020aa}{115}}
+RHDO typically relies on collecting parental, and ideally proband, genetic information to resolve parental haplotypes; Jang et al.~demonstrated success in diagnosing Duchenne muscular dystrophy by estimating haplotypes solely from maternal long-read sequencing.\textsuperscript{\protect\hyperlink{ref-jang:2018aa}{113}}
+Scotchman et al.~provide an excellent review summarizing the history of noninvasive testing.\textsuperscript{\protect\hyperlink{ref-scotchman:2020aa}{84}}
 To date, no one has reported reliable fetal genotyping purely from maternal cell-free DNA using a sequencing-based approach.
 
 To begin NBS with prenatal genetic testing, we believe we first need a reliable noninvasive test only requiring a maternal sample.
-Others could reasonably argue the availability of carrier screening, and the immeasurably small risk of invasive testing,\textsuperscript{\protect\hyperlink{ref-salomon:2019aa}{115}} removes the need for noninvasive testing.
+Others could reasonably argue the availability of carrier screening, and the immeasurably small risk of invasive testing,\textsuperscript{\protect\hyperlink{ref-salomon:2019aa}{116}} removes the need for noninvasive testing.
 Such an argument, however, dismisses (1) the ethical and practical issues surrounding the necessity of involving the biological father, (2) the fact that many genetic disorders arise due to \emph{de novo} mutations, and (3) the understandable fear and apprehension around invasive testing (especially for rare conditions).
 Additionally, we believe the prenatal diagnosis community should focus work on sequencing-based (as opposed to PCR-based) approaches.
 Sequencing generalizes across disorders more easily than PCR techniques, allows multiplexing to a degree not feasible using PCR, and will only continue to decrease in cost.
 
-Snyder et al.~provide a review of previous attempts to perform noninvasive fetal genome sequencing, illustrating the cost-infeasibility and suggesting more targeted approaches such as exome sequencing (ES).\textsuperscript{\protect\hyperlink{ref-lo:2010aa}{110},\protect\hyperlink{ref-fan:2012aa}{116}--\protect\hyperlink{ref-snyder:2013aa}{118}}
+Snyder et al.~provide a review of previous attempts to perform noninvasive fetal genome sequencing, illustrating the cost-infeasibility and suggesting more targeted approaches such as exome sequencing (ES).\textsuperscript{\protect\hyperlink{ref-lo:2010aa}{111},\protect\hyperlink{ref-fan:2012aa}{117}--\protect\hyperlink{ref-snyder:2013aa}{119}}
 As an exploratory exercise, we performed ES on cell-free DNA (cfES) from three pregnant women with singleton fetuses.
 
 \hypertarget{methods-1}{%
@@ -1183,11 +1183,11 @@ All participants were consented and enrolled at UNC Hospitals by certified genet
 \subsection{Exome sequencing and analysis}\label{exome-sequencing-and-analysis}}
 
 We collected cell-free DNA from maternal plasma, prepared sequencing libraries for the Illumina platform, and performed exome capture using the IDT xGen Exome Research Panel v1.0 (Cases 1 \& 2) or Agilent SureSelect Human All Exon v7 (Case 3).
-We processed the data using a novel analytic pipeline developed in Snakemake\textsuperscript{\protect\hyperlink{ref-koster:2012aa}{96}} using Anaconda environments for reproducibility (provided in supplemental materials).
-Briefly, sequencing reads were aligned to hg38 (excluding alternate contigs) using BWA-MEM,\textsuperscript{\protect\hyperlink{ref-li:2013ab}{95}} then base quality scores were re-calibrated using GATK4.\textsuperscript{\protect\hyperlink{ref-mckenna:2010aa}{37},\protect\hyperlink{ref-van-der-auwera:2013aa}{40},\protect\hyperlink{ref-poplin:2018aa}{41}}
+We processed the data using a novel analytic pipeline developed in Snakemake\textsuperscript{\protect\hyperlink{ref-koster:2012aa}{97}} using Anaconda environments for reproducibility (provided in supplemental materials).
+Briefly, sequencing reads were aligned to hg38 (excluding alternate contigs) using BWA-MEM,\textsuperscript{\protect\hyperlink{ref-li:2013ab}{96}} then base quality scores were re-calibrated using GATK4.\textsuperscript{\protect\hyperlink{ref-mckenna:2010aa}{37},\protect\hyperlink{ref-van-der-auwera:2013aa}{40},\protect\hyperlink{ref-poplin:2018aa}{41}}
 We only retained non-duplicate, properly-paired reads with unambiguous mapping and mapping quality \textgreater30 for each read.
 We called variants using bcftools,\textsuperscript{\protect\hyperlink{ref-li:2011aa}{39}} requiring basepair quality scores \textgreater20.
-We suggest the review by Seaby et al.~for more information on the specifics of collecting and processing ES data for clinical use.\textsuperscript{\protect\hyperlink{ref-seaby:2016aa}{119}}
+We suggest the review by Seaby et al.~for more information on the specifics of collecting and processing ES data for clinical use.\textsuperscript{\protect\hyperlink{ref-seaby:2016aa}{120}}
 Analyses were restricted to the regions overlapping between the IDT and Agilent capture platforms.
 For cell-free analyses, we required 5 alternate allele-supporting read-pairs, and at least 80 total read-pairs.
 Using the identified single-nucleotide variants, we applied a novel empirical Bayesian procedure to estimate the fetal fraction (FF; the proportion of placental/fetal to maternal sequencing reads).
@@ -1281,7 +1281,7 @@ We pick reasonable starting values for the fetal fraction, \(F = f\), and the av
 
 The data that support the findings of this study are available on request from the corresponding author.
 The raw sequencing data are not publicly available due to privacy or ethical restrictions.
-Allele depths, with the alleles masked and genomic location rounded to 10 kilobases are available in the self-contained R\textsuperscript{\protect\hyperlink{ref-r-core-team:2019aa}{120}} package reproducing the analysis herein (\url{https://github.com/daynefiler/filer2020B}).
+Allele depths, with the alleles masked and genomic location rounded to 10 kilobases are available in the self-contained R\textsuperscript{\protect\hyperlink{ref-r-core-team:2019aa}{121}} package reproducing the analysis herein (\url{https://github.com/daynefiler/filer2020B}).
 
 \hypertarget{results-1}{%
 \section{Results}\label{results-1}}
@@ -1347,7 +1347,7 @@ We did not identify any known pathogenic variants in the sequencing of Case 3, a
 \end{table}
 
 In Case 3, in addition to cfES, we performed exome sequencing (ES) on fetal, maternal, and paternal samples.
-Based on previous work demonstrating the differential length of maternal and fetal fragments,\textsuperscript{\protect\hyperlink{ref-chan:2004aa}{121}--\protect\hyperlink{ref-rabinowitz:2019aa}{124}} we interrogated the distribution of presumed maternal and fetal reads (Figure \ref{fig:matVsFetLen}).
+Based on previous work demonstrating the differential length of maternal and fetal fragments,\textsuperscript{\protect\hyperlink{ref-chan:2004aa}{122}--\protect\hyperlink{ref-rabinowitz:2019aa}{125}} we interrogated the distribution of presumed maternal and fetal reads (Figure \ref{fig:matVsFetLen}).
 We identified maternal and fetal reads by identifying sites with unique heterozygosity in the direct maternal and fetal ES results; at the informative sites, we extracted reads supporting the allele unique to the mother or fetus.
 In total, we identified 654,619 maternal reads and 279,508 fetal reads.
 We found, as others have, a higher proportion of fetal reads falling below 150 basepairs; however, we also observed a slightly higher proportion of longer reads, as well.
@@ -1365,7 +1365,7 @@ We found, as others have, a higher proportion of fetal reads falling below 150 b
 \caption[Distribution of maternal versus fetal fragment length in Case 3.]{Distribution of maternal versus fetal fragment length in Case 3. (A) shows the density; (B) shows the emperic cumulative distribution. The horiztonal axis shows the fragment length (insert size taken from aligned read-pairs). Blue lines show maternal reads, orange lines show fetal reads. We only included cfES reads supporting alleles unique to the mother or fetus, as identified from the direct maternal and fetal ES.}\label{fig:matVsFetLen}
 \end{figure}
 
-Rabinowitz et al.~proposed the Hoobari method which incorporates fragment lengths into fetal genotype estimates,\textsuperscript{\protect\hyperlink{ref-rabinowitz:2019aa}{124}} finding the difference in accuracy varied from -0.25\% to 1.89\% when using versus not using fragment length in their exome analyses.
+Rabinowitz et al.~proposed the Hoobari method which incorporates fragment lengths into fetal genotype estimates,\textsuperscript{\protect\hyperlink{ref-rabinowitz:2019aa}{125}} finding the difference in accuracy varied from -0.25\% to 1.89\% when using versus not using fragment length in their exome analyses.
 To explore the utility of correcting for fragment length in our analysis, we interrogated the PMAR as a function of the short read proportion (fraction of reads with insert sizes less than 140 basepairs; Figure \ref{fig:sratioByPmar}).
 We selected 140 as the cutoff based on the Hoobari algorithm.
 Overall, we found no meaningful relationship between the short read proportion and the observed PMAR and chose not to incorporate fragment length into our genotype estimates.
@@ -1491,7 +1491,7 @@ No amount of cleverness in the analysis can overcome the fundamental variance bo
 
 }
 
-\caption[95\% confidence intervals on the binomial proportions for possible maternal-fetal genotype pairs.]{95\% confidence intervals on the binomial proportions for possible maternal-fetal genotype pairs across increasing fetal fractions. Confidence intervals represent a sequencing depth of 500x. Average fetal fractions by gestational age (in weeks) given in light gray.\textsuperscript{\protect\hyperlink{ref-kinnings:2015aa}{125}}}\label{fig:binCI}
+\caption[95\% confidence intervals on the binomial proportions for possible maternal-fetal genotype pairs.]{95\% confidence intervals on the binomial proportions for possible maternal-fetal genotype pairs across increasing fetal fractions. Confidence intervals represent a sequencing depth of 500x. Average fetal fractions by gestational age (in weeks) given in light gray.\textsuperscript{\protect\hyperlink{ref-kinnings:2015aa}{126}}}\label{fig:binCI}
 \end{figure}
 
 
@@ -1515,7 +1515,7 @@ Additionally, we observed very poor accuracy in the Case 3 genotype estimates.
 
 Typical sequencing workflows start with randomly fragmenting DNA molecules to build sequencing libraries.
 Standard bioinformatic practices suggest we remove read-pairs with identical endpoints, because the duplicate read-pairs more likely represent PCR amplification of a single molecule than two molecules with the same fragmentation.
-Cell-free DNA molecules are shorter than nuclear DNA, not requiring manual fragmentation, and have a non-random distribution of endpoints.\textsuperscript{\protect\hyperlink{ref-chan:2016aa}{122}}
+Cell-free DNA molecules are shorter than nuclear DNA, not requiring manual fragmentation, and have a non-random distribution of endpoints.\textsuperscript{\protect\hyperlink{ref-chan:2016aa}{123}}
 Therefore, compared to standard sequencing libraries, the likelihood of observing true duplicates in cell-free libraries increases and we cannot necessarily assume duplicates represent PCR amplification.
 However, for this work we have no way of differentiating reads representing true duplicate molecules versus PCR duplicates and thus excluded duplicate reads from our analysis.
 
@@ -1526,7 +1526,7 @@ We reiterate, however, incorporating fragment length may give better estimates o
 To solve the above issues, we advocate a more targeted approach with much greater sequencing depth and unique molecular identifiers.
 Unique molecular identifiers allow identification of sequencing errors and differentiate true versus artifactual duplicate reads.
 Given the depth requirements for estimating fetal genotypes by the PMAR, and the challenge of variants of uncertain clinical significance, we advocate against broad sequencing modalities on noninvasive samples.
-Recognizing that all capture methods introduce bias in the relative sequencing efficiency of different targeted regions,\textsuperscript{\protect\hyperlink{ref-seaby:2016aa}{119}} the sequencing depths needed for noninvasive fetal genotyping necessitate a targeted approach.
+Recognizing that all capture methods introduce bias in the relative sequencing efficiency of different targeted regions,\textsuperscript{\protect\hyperlink{ref-seaby:2016aa}{120}} the sequencing depths needed for noninvasive fetal genotyping necessitate a targeted approach.
 Despite the challenges raised by this work, we believe assessing hundreds to thousands of basepairs, rather than the tens of millions targeted in ES, will prove economical and clinically reliable.
 Doing so, we hope, will foster population-level screening for Mendelian disorders during the prenatal period and, ultimately, unlock new avenues in the treatment of these disorders.
 
@@ -1773,146 +1773,149 @@ Doing so, we hope, will foster population-level screening for Mendelian disorder
 \leavevmode\hypertarget{ref-fuchs:1956aa}{}%
 78. FUCHS F, RIIS P. Antenatal sex determination. \emph{Nature}. 177(4503):330.
 
+\leavevmode\hypertarget{ref-steele:1966aa}{}%
+79. Steele MW, Breg WRJ. Chromosome analysis of human amniotic-fluid cells. \emph{Lancet}. 1(7434):383-385.
+
 \leavevmode\hypertarget{ref-walknowska:1969aa}{}%
-79. Walknowska J, Conte FA, Grumbach MM. Practical and theoretical implications of fetal-maternal lymphocyte transfer. \emph{Lancet}. 1(7606):1119-1122.
+80. Walknowska J, Conte FA, Grumbach MM. Practical and theoretical implications of fetal-maternal lymphocyte transfer. \emph{Lancet}. 1(7606):1119-1122.
 
 \leavevmode\hypertarget{ref-mueller:1990aa}{}%
-80. Mueller UW, Hawes CS, Wright AE, et al. Isolation of fetal trophoblast cells from peripheral blood of pregnant women. \emph{Lancet}. 336(8709):197-200.
+81. Mueller UW, Hawes CS, Wright AE, et al. Isolation of fetal trophoblast cells from peripheral blood of pregnant women. \emph{Lancet}. 336(8709):197-200.
 
 \leavevmode\hypertarget{ref-bianchi:1990aa}{}%
-81. Bianchi DW, Flint AF, Pizzimenti MF, Knoll JH, Latt SA. Isolation of fetal dna from nucleated erythrocytes in maternal blood. \emph{Proc Natl Acad Sci U S A}. 87(9):3279-3283.
+82. Bianchi DW, Flint AF, Pizzimenti MF, Knoll JH, Latt SA. Isolation of fetal dna from nucleated erythrocytes in maternal blood. \emph{Proc Natl Acad Sci U S A}. 87(9):3279-3283.
 
 \leavevmode\hypertarget{ref-lo:1997aa}{}%
-82. Lo YM, Corbetta N, Chamberlain PF, et al. Presence of fetal dna in maternal plasma and serum. \emph{Lancet}. 350(9076):485-487.
+83. Lo YM, Corbetta N, Chamberlain PF, et al. Presence of fetal dna in maternal plasma and serum. \emph{Lancet}. 350(9076):485-487.
 
 \leavevmode\hypertarget{ref-scotchman:2020aa}{}%
-83. Scotchman E, Chandler NJ, Mellis R, Chitty LS. Noninvasive prenatal diagnosis of single-gene diseases: The next frontier. \emph{Clin Chem}. 66(1):53-60.
+84. Scotchman E, Chandler NJ, Mellis R, Chitty LS. Noninvasive prenatal diagnosis of single-gene diseases: The next frontier. \emph{Clin Chem}. 66(1):53-60.
 
 \leavevmode\hypertarget{ref-marchuk:2018aa}{}%
-84. Marchuk DS, Crooks K, Strande N, et al. Increasing the diagnostic yield of exome sequencing by copy number variant analysis. \emph{PLoS One}. 2018;13(12):e0209185.
+85. Marchuk DS, Crooks K, Strande N, et al. Increasing the diagnostic yield of exome sequencing by copy number variant analysis. \emph{PLoS One}. 2018;13(12):e0209185.
 
 \leavevmode\hypertarget{ref-retterer:2015aa}{}%
-85. Retterer K, Scuffins J, Schmidt D, et al. Assessing copy number from exome sequencing and exome array cgh based on cnv spectrum in a large clinical cohort. \emph{Genet Med}. 17(8):623-629.
+86. Retterer K, Scuffins J, Schmidt D, et al. Assessing copy number from exome sequencing and exome array cgh based on cnv spectrum in a large clinical cohort. \emph{Genet Med}. 17(8):623-629.
 
 \leavevmode\hypertarget{ref-yao:2017aa}{}%
-86. Yao R, Zhang C, Yu T, et al. Evaluation of three read-depth based cnv detection tools using whole-exome sequencing data. \emph{Mol Cytogenet}. 2017;10:30.
+87. Yao R, Zhang C, Yu T, et al. Evaluation of three read-depth based cnv detection tools using whole-exome sequencing data. \emph{Mol Cytogenet}. 2017;10:30.
 
 \leavevmode\hypertarget{ref-fromer:2012aa}{}%
-87. Fromer M, Moran JL, Chambert K, et al. Discovery and statistical genotyping of copy-number variation from whole-exome sequencing depth. \emph{Am J Hum Genet}. 91(4):597-607.
+88. Fromer M, Moran JL, Chambert K, et al. Discovery and statistical genotyping of copy-number variation from whole-exome sequencing depth. \emph{Am J Hum Genet}. 91(4):597-607.
 
 \leavevmode\hypertarget{ref-jiang:2015aa}{}%
-88. Jiang Y, Oldridge DA, Diskin SJ, Zhang NR. CODEX: A normalization and copy number variation detection method for whole exome sequencing. \emph{Nucleic Acids Res}. 43(6):e39.
+89. Jiang Y, Oldridge DA, Diskin SJ, Zhang NR. CODEX: A normalization and copy number variation detection method for whole exome sequencing. \emph{Nucleic Acids Res}. 43(6):e39.
 
 \leavevmode\hypertarget{ref-krumm:2012aa}{}%
-89. Krumm N, Sudmant PH, Ko A, et al. Copy number variation detection and genotyping from exome sequence data. \emph{Genome Res}. 22(8):1525-1532.
+90. Krumm N, Sudmant PH, Ko A, et al. Copy number variation detection and genotyping from exome sequence data. \emph{Genome Res}. 22(8):1525-1532.
 
 \leavevmode\hypertarget{ref-truty:2019aa}{}%
-90. Truty R, Paul J, Kennemer M, et al. Prevalence and properties of intragenic copy-number variation in mendelian disease genes. \emph{Genet Med}. 21(1):114-123.
+91. Truty R, Paul J, Kennemer M, et al. Prevalence and properties of intragenic copy-number variation in mendelian disease genes. \emph{Genet Med}. 21(1):114-123.
 
 \leavevmode\hypertarget{ref-benjamini:2012aa}{}%
-91. Benjamini Y, Speed TP. Summarizing and correcting the gc content bias in high-throughput sequencing. \emph{Nucleic Acids Res}. 40(10):e72.
+92. Benjamini Y, Speed TP. Summarizing and correcting the gc content bias in high-throughput sequencing. \emph{Nucleic Acids Res}. 40(10):e72.
 
 \leavevmode\hypertarget{ref-kadalayil:2015aa}{}%
-92. Kadalayil L, Rafiq S, Rose-Zerilli MJJ, et al. Exome sequence read depth methods for identifying copy number changes. \emph{Brief Bioinform}. 16(3):380-392.
+93. Kadalayil L, Rafiq S, Rose-Zerilli MJJ, et al. Exome sequence read depth methods for identifying copy number changes. \emph{Brief Bioinform}. 16(3):380-392.
 
 \leavevmode\hypertarget{ref-chiang:2009aa}{}%
-93. Chiang DY, Getz G, Jaffe DB, et al. High-resolution mapping of copy-number alterations with massively parallel sequencing. \emph{Nat Methods}. 6(1):99-103.
+94. Chiang DY, Getz G, Jaffe DB, et al. High-resolution mapping of copy-number alterations with massively parallel sequencing. \emph{Nat Methods}. 6(1):99-103.
 
 \leavevmode\hypertarget{ref-foreman:2013aa}{}%
-94. Foreman AKM, Lee K, Evans JP. The NCGENES project: Exploring the new world of genome sequencing. \emph{N C Med J}. 74(6):500-504.
+95. Foreman AKM, Lee K, Evans JP. The NCGENES project: Exploring the new world of genome sequencing. \emph{N C Med J}. 74(6):500-504.
 
 \leavevmode\hypertarget{ref-li:2013ab}{}%
-95. Li H. Aligning sequence reads, clone sequences and assembly contigs with bwa-mem. Published online 2013.
+96. Li H. Aligning sequence reads, clone sequences and assembly contigs with bwa-mem. Published online 2013.
 
 \leavevmode\hypertarget{ref-koster:2012aa}{}%
-96. Koster J, Rahmann S. Snakemake--a scalable bioinformatics workflow engine. \emph{Bioinformatics}. 28(19):2520-2522.
+97. Koster J, Rahmann S. Snakemake--a scalable bioinformatics workflow engine. \emph{Bioinformatics}. 28(19):2520-2522.
 
 \leavevmode\hypertarget{ref-trost:2018aa}{}%
-97. Trost B, Walker S, Wang Z, et al. A comprehensive workflow for read depth-based identification of copy-number variation from whole-genome sequence data. \emph{Am J Hum Genet}. 102(1):142-155.
+98. Trost B, Walker S, Wang Z, et al. A comprehensive workflow for read depth-based identification of copy-number variation from whole-genome sequence data. \emph{Am J Hum Genet}. 102(1):142-155.
 
 \leavevmode\hypertarget{ref-yu:2013aa}{}%
-98. Yu D, Huber W, Vitek O. Shrinkage estimation of dispersion in negative binomial models for rna-seq experiments with small sample size. \emph{Bioinformatics}. 29(10):1275-1282.
+99. Yu D, Huber W, Vitek O. Shrinkage estimation of dispersion in negative binomial models for rna-seq experiments with small sample size. \emph{Bioinformatics}. 29(10):1275-1282.
 
 \leavevmode\hypertarget{ref-benjamini:1995aa}{}%
-99. Benjamini Y, Hochberg Y. Controlling the false discovery rate: A practical and powerful approach to multiple testing. \emph{Journal of the Royal Statistical Society: Series B (Methodological)}. 1995;57(1):289-300.
+100. Benjamini Y, Hochberg Y. Controlling the false discovery rate: A practical and powerful approach to multiple testing. \emph{Journal of the Royal Statistical Society: Series B (Methodological)}. 1995;57(1):289-300.
 
 \leavevmode\hypertarget{ref-minka:2000aa}{}%
-100. Minka TP. \emph{Estimating a Dirichlet Distribution}.; 2000.
+101. Minka TP. \emph{Estimating a Dirichlet Distribution}.; 2000.
 
 \leavevmode\hypertarget{ref-matthews:1975aa}{}%
-101. Matthews BW. Comparison of the predicted and observed secondary structure of t4 phage lysozyme. \emph{Biochim Biophys Acta}. 405(2):442-451.
+102. Matthews BW. Comparison of the predicted and observed secondary structure of t4 phage lysozyme. \emph{Biochim Biophys Acta}. 405(2):442-451.
 
 \leavevmode\hypertarget{ref-neiman:2012aa}{}%
-102. Neiman M, Sundling S, Grönberg H, et al. Library preparation and multiplex capture for massive parallel sequencing applications made efficient and easy. \emph{PLOS ONE}. 2012;7(11):1-6.
+103. Neiman M, Sundling S, Grönberg H, et al. Library preparation and multiplex capture for massive parallel sequencing applications made efficient and easy. \emph{PLOS ONE}. 2012;7(11):1-6.
 
 \leavevmode\hypertarget{ref-ramos:2012aa}{}%
-103. Ramos E, Levinson BT, Chasnoff S, et al. Population-based rare variant detection via pooled exome or custom hybridization capture with or without individual indexing. \emph{BMC Genomics}. 13:683.
+104. Ramos E, Levinson BT, Chasnoff S, et al. Population-based rare variant detection via pooled exome or custom hybridization capture with or without individual indexing. \emph{BMC Genomics}. 13:683.
 
 \leavevmode\hypertarget{ref-rohland:2012aa}{}%
-104. Rohland N, Reich D. Cost-effective, high-throughput dna sequencing libraries for multiplexed target capture. \emph{Genome Res}. 22(5):939-946.
+105. Rohland N, Reich D. Cost-effective, high-throughput dna sequencing libraries for multiplexed target capture. \emph{Genome Res}. 22(5):939-946.
 
 \leavevmode\hypertarget{ref-wesolowska:2011aa}{}%
-105. Wesolowska A, Dalgaard MD, Borst L, et al. Cost-effective multiplexing before capture allows screening of 25 000 clinically relevant snps in childhood acute lymphoblastic leukemia. \emph{Leukemia}. 25(6):1001-1006.
+106. Wesolowska A, Dalgaard MD, Borst L, et al. Cost-effective multiplexing before capture allows screening of 25 000 clinically relevant snps in childhood acute lymphoblastic leukemia. \emph{Leukemia}. 25(6):1001-1006.
 
 \leavevmode\hypertarget{ref-shearer:2012aa}{}%
-106. Shearer AE, Hildebrand MS, Ravi H, et al. Pre-capture multiplexing improves efficiency and cost-effectiveness of targeted genomic enrichment. \emph{BMC Genomics}. 13:618.
+107. Shearer AE, Hildebrand MS, Ravi H, et al. Pre-capture multiplexing improves efficiency and cost-effectiveness of targeted genomic enrichment. \emph{BMC Genomics}. 13:618.
 
 \leavevmode\hypertarget{ref-mackie:2017aa}{}%
-107. Mackie FL, Hemming K, Allen S, Morris RK, Kilby MD. The accuracy of cell-free fetal dna-based non-invasive prenatal testing in singleton pregnancies: A systematic review and bivariate meta-analysis. \emph{BJOG}. 124(1):32-46.
+108. Mackie FL, Hemming K, Allen S, Morris RK, Kilby MD. The accuracy of cell-free fetal dna-based non-invasive prenatal testing in singleton pregnancies: A systematic review and bivariate meta-analysis. \emph{BJOG}. 124(1):32-46.
 
 \leavevmode\hypertarget{ref-zhang:2019aa}{}%
-108. Zhang J, Li J, Saucier JB, et al. Non-invasive prenatal sequencing for multiple mendelian monogenic disorders using circulating cell-free fetal dna. \emph{Nat Med}.
+109. Zhang J, Li J, Saucier JB, et al. Non-invasive prenatal sequencing for multiple mendelian monogenic disorders using circulating cell-free fetal dna. \emph{Nat Med}.
 
 \leavevmode\hypertarget{ref-tsao:2019ab}{}%
-109. Tsao DS, Silas S, Landry BP, et al. A novel high-throughput molecular counting method with single base-pair resolution enables accurate single-gene nipt. \emph{Sci Rep}. 9(1):14382.
+110. Tsao DS, Silas S, Landry BP, et al. A novel high-throughput molecular counting method with single base-pair resolution enables accurate single-gene nipt. \emph{Sci Rep}. 9(1):14382.
 
 \leavevmode\hypertarget{ref-lo:2010aa}{}%
-110. Lo YMD, Chan KCA, Sun H, et al. Maternal plasma dna sequencing reveals the genome-wide genetic and mutational profile of the fetus. \emph{Sci Transl Med}. 2(61):61ra91.
+111. Lo YMD, Chan KCA, Sun H, et al. Maternal plasma dna sequencing reveals the genome-wide genetic and mutational profile of the fetus. \emph{Sci Transl Med}. 2(61):61ra91.
 
 \leavevmode\hypertarget{ref-hui:2017aa}{}%
-111. Hui WWI, Jiang P, Tong YK, et al. Universal haplotype-based noninvasive prenatal testing for single gene diseases. \emph{Clin Chem}. 63(2):513-524.
+112. Hui WWI, Jiang P, Tong YK, et al. Universal haplotype-based noninvasive prenatal testing for single gene diseases. \emph{Clin Chem}. 63(2):513-524.
 
 \leavevmode\hypertarget{ref-jang:2018aa}{}%
-112. Jang SS, Lim BC, Yoo S-K, et al. Targeted linked-read sequencing for direct haplotype phasing of maternal dmd alleles: A practical and reliable method for noninvasive prenatal diagnosis. \emph{Sci Rep}. 8(1):8678.
+113. Jang SS, Lim BC, Yoo S-K, et al. Targeted linked-read sequencing for direct haplotype phasing of maternal dmd alleles: A practical and reliable method for noninvasive prenatal diagnosis. \emph{Sci Rep}. 8(1):8678.
 
 \leavevmode\hypertarget{ref-vermeulen:2017aa}{}%
-113. Vermeulen C, Geeven G, Wit E de, et al. Sensitive monogenic noninvasive prenatal diagnosis by targeted haplotyping. \emph{Am J Hum Genet}. 101(3):326-339.
+114. Vermeulen C, Geeven G, Wit E de, et al. Sensitive monogenic noninvasive prenatal diagnosis by targeted haplotyping. \emph{Am J Hum Genet}. 101(3):326-339.
 
 \leavevmode\hypertarget{ref-chandler:2020aa}{}%
-114. Chandler NJ, Ahlfors H, Drury S, et al. Noninvasive prenatal diagnosis for cystic fibrosis: Implementation, uptake, outcome, and implications. \emph{Clin Chem}. 66(1):207-216.
+115. Chandler NJ, Ahlfors H, Drury S, et al. Noninvasive prenatal diagnosis for cystic fibrosis: Implementation, uptake, outcome, and implications. \emph{Clin Chem}. 66(1):207-216.
 
 \leavevmode\hypertarget{ref-salomon:2019aa}{}%
-115. Salomon LJ, Sotiriadis A, Wulff CB, Odibo A, Akolekar R. Risk of miscarriage following amniocentesis or chorionic villus sampling: Systematic review of literature and updated meta-analysis. \emph{Ultrasound Obstet Gynecol}. 54(4):442-451.
+116. Salomon LJ, Sotiriadis A, Wulff CB, Odibo A, Akolekar R. Risk of miscarriage following amniocentesis or chorionic villus sampling: Systematic review of literature and updated meta-analysis. \emph{Ultrasound Obstet Gynecol}. 54(4):442-451.
 
 \leavevmode\hypertarget{ref-fan:2012aa}{}%
-116. Fan HC, Gu W, Wang J, Blumenfeld YJ, El-Sayed YY, Quake SR. Non-invasive prenatal measurement of the fetal genome. \emph{Nature}. 487(7407):320-324.
+117. Fan HC, Gu W, Wang J, Blumenfeld YJ, El-Sayed YY, Quake SR. Non-invasive prenatal measurement of the fetal genome. \emph{Nature}. 487(7407):320-324.
 
 \leavevmode\hypertarget{ref-kitzman:2012aa}{}%
-117. Kitzman JO, Snyder MW, Ventura M, et al. Noninvasive whole-genome sequencing of a human fetus. \emph{Sci Transl Med}. 4(137):137ra76.
+118. Kitzman JO, Snyder MW, Ventura M, et al. Noninvasive whole-genome sequencing of a human fetus. \emph{Sci Transl Med}. 4(137):137ra76.
 
 \leavevmode\hypertarget{ref-snyder:2013aa}{}%
-118. Snyder MW, Simmons LE, Kitzman JO, et al. Noninvasive fetal genome sequencing: A primer. \emph{Prenat Diagn}. 33(6):547-554.
+119. Snyder MW, Simmons LE, Kitzman JO, et al. Noninvasive fetal genome sequencing: A primer. \emph{Prenat Diagn}. 33(6):547-554.
 
 \leavevmode\hypertarget{ref-seaby:2016aa}{}%
-119. Seaby EG, Pengelly RJ, Ennis S. Exome sequencing explained: A practical guide to its clinical application. \emph{Brief Funct Genomics}. 15(5):374-384.
+120. Seaby EG, Pengelly RJ, Ennis S. Exome sequencing explained: A practical guide to its clinical application. \emph{Brief Funct Genomics}. 15(5):374-384.
 
 \leavevmode\hypertarget{ref-r-core-team:2019aa}{}%
-120. R Core Team. \emph{R: A Language and Environment for Statistical Computing}. R Foundation for Statistical Computing; 2019.
+121. R Core Team. \emph{R: A Language and Environment for Statistical Computing}. R Foundation for Statistical Computing; 2019.
 
 \leavevmode\hypertarget{ref-chan:2004aa}{}%
-121. Chan KCA, Zhang J, Hui ABY, et al. Size distributions of maternal and fetal dna in maternal plasma. \emph{Clin Chem}. 50(1):88-92.
+122. Chan KCA, Zhang J, Hui ABY, et al. Size distributions of maternal and fetal dna in maternal plasma. \emph{Clin Chem}. 50(1):88-92.
 
 \leavevmode\hypertarget{ref-chan:2016aa}{}%
-122. Chan KCA, Jiang P, Sun K, et al. Second generation noninvasive fetal genome analysis reveals de novo mutations, single-base parental inheritance, and preferred dna ends. \emph{Proc Natl Acad Sci U S A}. 113(50):E8159-E8168.
+123. Chan KCA, Jiang P, Sun K, et al. Second generation noninvasive fetal genome analysis reveals de novo mutations, single-base parental inheritance, and preferred dna ends. \emph{Proc Natl Acad Sci U S A}. 113(50):E8159-E8168.
 
 \leavevmode\hypertarget{ref-jiang:2016ab}{}%
-123. Jiang P, Lo YMD. The long and short of circulating cell-free dna and the ins and outs of molecular diagnostics. \emph{Trends Genet}. 32(6):360-371.
+124. Jiang P, Lo YMD. The long and short of circulating cell-free dna and the ins and outs of molecular diagnostics. \emph{Trends Genet}. 32(6):360-371.
 
 \leavevmode\hypertarget{ref-rabinowitz:2019aa}{}%
-124. Rabinowitz T, Polsky A, Golan D, et al. Bayesian-based noninvasive prenatal diagnosis of single-gene disorders. \emph{Genome Res}. 29(3):428-438.
+125. Rabinowitz T, Polsky A, Golan D, et al. Bayesian-based noninvasive prenatal diagnosis of single-gene disorders. \emph{Genome Res}. 29(3):428-438.
 
 \leavevmode\hypertarget{ref-kinnings:2015aa}{}%
-125. Kinnings SL, Geis JA, Almasri E, et al. Factors affecting levels of circulating cell-free fetal dna in maternal plasma and their implications for noninvasive prenatal testing. \emph{Prenat Diagn}. 35(8):816-822.
+126. Kinnings SL, Geis JA, Almasri E, et al. Factors affecting levels of circulating cell-free fetal dna in maternal plasma and their implications for noninvasive prenatal testing. \emph{Prenat Diagn}. 35(8):816-822.
 
 \hypertarget{appendix-appendix}{%
 \appendix}
@@ -2124,7 +2127,7 @@ This appendix contains all of the R code to reproduce the work presented.
 \KeywordTok{kable}\NormalTok{(wgsCallBySbj,}
       \DataTypeTok{col.names =} \KeywordTok{c}\NormalTok{(}\StringTok{"subject"}\NormalTok{, }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"MC"}\NormalTok{, }\StringTok{"ED"}\NormalTok{, }\StringTok{"WG"}\NormalTok{), }\DecValTok{3}\NormalTok{)),}
       \DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }
-      \DataTypeTok{caption =} \StringTok{'Number of CNV calls by subject and algorithm for the `WGS' pool. `MC' indicates the mcCNV algorithm; `ED' indicates the ExomeDepth algorithm; `WG' indicates the overlap of ERDS/cnvpytor calls from matched whole-genome sequencing. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}} omitted from analysis.'}\NormalTok{,}
+      \DataTypeTok{caption =} \StringTok{'Number of CNV calls by subject and algorithm for the `WGS' pool. `MC' indicates the mcCNV algorithm; `ED' indicates the ExomeDepth algorithm; `WG' indicates the overlap of ERDS/cnvpytor calls from matched whole-genome sequencing. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{98}} omitted from analysis.'}\NormalTok{,}
       \DataTypeTok{label =} \StringTok{"wgsCallSbj"}\NormalTok{,}
       \DataTypeTok{format.args =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{big.mark =} \StringTok{","}\NormalTok{, }\DataTypeTok{scientific =} \OtherTok{FALSE}\NormalTok{),}
       \DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{,}
@@ -2156,7 +2159,7 @@ This appendix contains all of the R code to reproduce the work presented.
 \KeywordTok{kable}\NormalTok{(predMetrics[ , .(typ, set, alg, MCC, TPR, FDR, PPV)],}
       \DataTypeTok{col.names =} \KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\StringTok{""}\NormalTok{, }\DecValTok{3}\NormalTok{), }\StringTok{"MCC"}\NormalTok{, }\StringTok{"TPR"}\NormalTok{, }\StringTok{"FDR"}\NormalTok{, }\StringTok{"PPV"}\NormalTok{),}
       \DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }
-      \DataTypeTok{caption =} \StringTok{'mcCNV (MC)/ExomeDepth (ED) calls for `WGS' pool (used as prediction) versus the ERDS/cnvpytor calls from matched genome sequencing (used as truth). Calls are subdivided by duplications (DUP) and deletions (DEL). `Full' gives performance across the full pool; `Sub' gives the performance excluding the poorly correlated samples NCG\_00790 and NCG\_00851 (gray rows). `MCC' is Matthew's correlation coefficient, `TPR' is true positive rate/sensitivity, `FDR' is false discovery rate, `PPV' is positive predictive value, `BalAcc' is balanced accuracy. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{97}} omitted from analysis.'}\NormalTok{,}
+      \DataTypeTok{caption =} \StringTok{'mcCNV (MC)/ExomeDepth (ED) calls for `WGS' pool (used as prediction) versus the ERDS/cnvpytor calls from matched genome sequencing (used as truth). Calls are subdivided by duplications (DUP) and deletions (DEL). `Full' gives performance across the full pool; `Sub' gives the performance excluding the poorly correlated samples NCG\_00790 and NCG\_00851 (gray rows). `MCC' is Matthew's correlation coefficient, `TPR' is true positive rate/sensitivity, `FDR' is false discovery rate, `PPV' is positive predictive value, `BalAcc' is balanced accuracy. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al.~manuscript,\textsuperscript{\protect\hyperlink{ref-trost:2018aa}{98}} omitted from analysis.'}\NormalTok{,}
       \DataTypeTok{label =} \StringTok{"predMet"}\NormalTok{,}
       \DataTypeTok{format.args =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{big.mark =} \StringTok{","}\NormalTok{, }\DataTypeTok{scientific =} \OtherTok{FALSE}\NormalTok{),}
       \DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{,}
