@@ -9,6 +9,7 @@ github-repo: "daynefiler/dissertation"
 bibliography: [myBib.bib]
 csl: "style/american-medical-association-no-url.csl"
 link-citations: yes
+always_allow_html: true
 description: "Dissertation by Dayne Filer for the degree of Doctorate of Philosophy in the UNC School of Medicine Curriculum in Bioinformatics and Computational Biology."
 doctype: "dissertation" # dissertation or thesis
 degree: "Doctor of Philosophy" # name of degree
