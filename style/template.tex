@@ -45,6 +45,8 @@
 \usepackage{titlesec}  % Fancy section headings
 \usepackage{pbox}      % Formatting of committe member box
 \usepackage{etoolbox}  % Helper package to edit macros
+\usepackage{multicol}  % Allow for mulicolumn text
+\usepackage{enumitem}  % List formatting
 \usepackage[backend=biber]{biblatex}  % Citation formating
 \usepackage[utf8]{inputenc}           % UTF-8 input encoding
 \usepackage[T1]{fontenc}              % Use 8-bit fonts
@@ -232,10 +234,10 @@ $if(dedication)$
   \end{center}
 $endif$
 
-$if(acknowledgements)$
+$if(acknowledgments)$
   \cleardoublepage
-  \mytwoin{Acknowledgements}
-  $acknowledgements$
+  \mytwoin{Acknowledgments}
+  $acknowledgments$
 $endif$
 
 $if(preface)$
@@ -267,11 +269,13 @@ $endif$
 \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}
 \myonein{List of Abbreviations}
 \vspace{22pt}
-\begin{description}
+\begin{multicols}{2}
+\begin{description}[font=\normalfont]
 $for(abbreviations)$
-  \item[$abbreviations.abv$] $abbreviations.def$
+  \item[$abbreviations.abv$:] $abbreviations.def$
 $endfor$
 \end{description}
+\end{multicols}
 
 \mainmatter
 

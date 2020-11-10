@@ -1,0 +1,18 @@
+This work would not have been possible without the support of my PhD mentor, Kirk Wilhelmsen.
+Kirk provided mentorship, advice, and care in and out of the laboratory.
+Most importantly, Kirk encouraged me to pursue research and avenues to best serve my career -- even when my path did not further his own research program.
+
+My scientific training began with Sara Heggland at the College of Idaho.
+I spent four years working under Sara's mentorship; she, more than anyone, taught me the scientific method and galvanized my path to research.
+I am forever grateful she took me under her wing.
+After graduating from college, David Reif, Richard Judson, Matthew Martin, and others at the National Center for Computational Toxicology allowed me to find my passion for data science.
+Working at NCCT gave me the practical skills to thrive in a data science PhD.
+
+Thank you to Stan Ahalt and all of the people at the Renaissance Computing Institute for welcoming and supporting me, particularly Chris Bizon and Phil Owen.
+Thank you to my committee, Bradford Powell, Stan Ahalt, Neeta Vora, and Yun Li. 
+In addition, I want to thank all of my collaborators for this work, especially: Jonathan Berg, Alicia Brandt, Piotr Mieczkowski, Karen Dorman, Amber Ivins, and Fengshen Kuo. 
+
+Thank you to the UNC MD-PhD program for accepting and supporting me both through medical school and my PhD training. 
+
+Finally, thank you to my family and friends whose support outside of training have enabled and enriched my life and success.
+

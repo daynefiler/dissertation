@@ -1,1 +1,4 @@
-This will be the preface describing the work, who was involved, and the pending publication of the two chapters. 
+I have submitted portions of Chapters \@ref(mcCNV) and \@ref(cfES) for peer-reviewed publication; both manuscripts are under review currently.
+Both manuscripts represent a collaborative effort, particularly in the data collection, but I independently performed all analyses, produced the text, code, figures, and tables herein.
+The manuscript derived from Chapter \@ref(mcCNV) includes the following authorship: Dayne L Filer, Fengshen Kuo, Alicia T Brandt, Christian R Tilley, Piotr A Mieczkowski, Kimberly Robasky, Chris Bizon, Jeffery L Tilson, Bradford C Powell, Darius M Bost, Clark D Jeffries, Jonathan S Berg, and Kirk C Wilhelmsen. 
+The manuscript dervied from Chapter \@ref(cfES) includes the following authorship: Dayne L Filer, Piotr A Mieczkowski, Alicia Brandt, Kelly L Gilmore, Bradford C Powell, Jonathan S Berg, Kirk C Wilhelmsen, and Neeta L Vora.
