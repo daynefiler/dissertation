@@ -45,6 +45,8 @@
 \usepackage{titlesec}  % Fancy section headings
 \usepackage{pbox}      % Formatting of committe member box
 \usepackage{etoolbox}  % Helper package to edit macros
+\usepackage{multicol}  % Allow for mulicolumn text
+\usepackage{enumitem}  % List formatting
 \usepackage[backend=biber]{biblatex}  % Citation formating
 \usepackage[utf8]{inputenc}           % UTF-8 input encoding
 \usepackage[T1]{fontenc}              % Use 8-bit fonts
@@ -255,9 +257,9 @@
   \doublespacing
   The discovery of DNA fundamentally changed the world, revolutionizing our understanding of life and the practice of medicine.
   After a century of studying DNA, medicine entered a new frontier with the completion of the nearly 20-year billion-dollar effort to sequence the first human genome.
-  We now have the ability to sequence a human genome in the matter of days and a couple hundred dollars.
-  Technological advances and robust efforts of the medical genetics community to interpret human variation have led to exponential growth of clinical sequencing.
-  The medical genetics community currently faces three primary challenges: (1) variant interpretation; (2) overcoming difficult detection problems (e.g.~structural variants and low-frequency variants); (3) moving beyond a linear poorly-representative reference genome.
+  We can now sequence a human genome in a matter of days for hundreds (not billions) of dollars.
+  Technological advances and medical geneticists' robust efforts to interpret human variation have led to exponential clinical sequencing growth.
+  The medical genetics community currently faces three primary challenges: (1) variant interpretation; (2) overcoming difficult detection problems (e.g., structural variants and low-frequency variants); (3) moving beyond a linear poorly-representative reference genome.
   The work herein addresses how to overcome two specific detection problems.
   
   First, I present a novel approach for detecting exon-level copy number variation using exome sequencing.
@@ -266,7 +268,7 @@
   I then demonstrate the utility of a novel statistical algorithm specifically for multiplexed-capture exome sequencing.
   
   Second, I outline the shortcomings of noninvasive exome sequencing in prenatal genetics.
-  Utilizing cell-free fetal DNA in maternal circulation, we have the ability to diagnose a wide range of genetic conditions noninvasively.
+  Utilizing cell-free fetal DNA in maternal circulation, we can diagnose a wide range of genetic conditions noninvasively.
   Efforts have suggested the possibility of noninvasive fetal genome and exome sequencing.
   However, to-date, no one has demonstrated accurate fetal genotyping purely from cell-free DNA.
   I use probability theory to demonstrate why efforts have failed, and suggest a path forward for noninvasive fetal genotyping.
@@ -293,12 +295,31 @@
   \end{center}
 
   \cleardoublepage
-  \mytwoin{Acknowledgements}
-  This work would not have been possible without the support of my mentor, Kirk Wilhelmsen.
+  \mytwoin{Acknowledgments}
+  This work would not have been possible without the support of my PhD mentor, Kirk Wilhelmsen.
+  Kirk provided mentorship, advice, and care in and out of the laboratory.
+  Most importantly, Kirk encouraged me to pursue research and avenues to best serve my career -- even when my path did not further his own research program.
+  
+  My scientific training began with Sara Heggland at the College of Idaho.
+  I spent four years working under Sara's mentorship; she, more than anyone, taught me the scientific method and galvanized my path to research.
+  I am forever grateful she took me under her wing.
+  After graduating from college, David Reif, Richard Judson, Matthew Martin, and others at the National Center for Computational Toxicology allowed me to find my passion for data science.
+  Working at NCCT gave me the practical skills to thrive in a data science PhD.
+  
+  Thank you to Stan Ahalt and all of the people at the Renaissance Computing Institute for welcoming and supporting me, particularly Chris Bizon and Phil Owen.
+  Thank you to my committee, Bradford Powell, Stan Ahalt, Neeta Vora, and Yun Li.
+  In addition, I want to thank all of my collaborators for this work, especially: Jonathan Berg, Alicia Brandt, Piotr Mieczkowski, Karen Dorman, Amber Ivins, and Fengshen Kuo.
+  
+  Thank you to the UNC MD-PhD program for accepting and supporting me both through medical school and my PhD training.
+  
+  Finally, thank you to my family and friends whose support outside of training have enabled and enriched my life and success.
 
   \cleardoublepage
   \mytwoin{Preface}
-  This will be the preface describing the work, who was involved, and the pending publication of the two chapters.
+  I have submitted portions of Chapters \ref{mcCNV} and \ref{cfES} for peer-reviewed publication; both manuscripts are under review currently.
+  Both manuscripts represent a collaborative effort, particularly in the data collection, but I independently performed all analyses, produced the text, code, figures, and tables herein.
+  The manuscript derived from Chapter \ref{mcCNV} includes the following authorship: Dayne L Filer, Fengshen Kuo, Alicia T Brandt, Christian R Tilley, Piotr A Mieczkowski, Kimberly Robasky, Chris Bizon, Jeffery L Tilson, Bradford C Powell, Darius M Bost, Clark D Jeffries, Jonathan S Berg, and Kirk C Wilhelmsen.
+  The manuscript dervied from Chapter \ref{cfES} includes the following authorship: Dayne L Filer, Piotr A Mieczkowski, Alicia Brandt, Kelly L Gilmore, Bradford C Powell, Jonathan S Berg, Kirk C Wilhelmsen, and Neeta L Vora.
 
 \clearpage
 
@@ -323,36 +344,38 @@
 \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}
 \myonein{List of Abbreviations}
 \vspace{22pt}
-\begin{description}
-  \item[CNV] copy number variant
-  \item[ES] exome sequencing
-  \item[cfDNA] cell-free DNA
-  \item[DNA] deoxyribonucleic acid
-  \item[MC] multiplexed capture
-  \item[IC] independent capture
-  \item[PMAR] proportion of minor allele reads
-  \item[cfES] cell-free DNA exome sequencing
-  \item[cfGS] cell-free DNA genome sequencing
-  \item[NIPT] noninvasive prenatal testing
-  \item[RNA] ribonucleic acid
-  \item[mRNA] messanger RNA
-  \item[PCR] polymerase chain reaction
-  \item[SBS] sequencing by synthesis
-  \item[dNTP] deoxynucleotide triphosphate
-  \item[ddNTP] dideoxynucleotide triphosphate
-  \item[ATP] adenosine triphosphate
-  \item[BCL] binary base call (file format)
-  \item[BLAST] basic local alignment search tool
-  \item[BWT] Burrows-Wheeler Transform
-  \item[UMI] unique molecular identifer
-  \item[SNV] single nucleotide variant
-  \item[LOH] loss of heterozygosity
-  \item[SV] structural variation
-  \item[NAHR] non-allelic homologous recombination
-  \item[NHEJ] non-homologous end-joining
-  \item[FoSTeS] fork stalling and template switching
-  \item[PKU] phenylketonuria
+\begin{multicols}{2}
+\begin{description}[font=\normalfont]
+  \item[ATP:] adenosine triphosphate
+  \item[BCL:] binary base call (file format)
+  \item[BLAST:] basic local alignment search tool
+  \item[BWT:] Burrows-Wheeler Transform
+  \item[cfDNA:] cell-free DNA
+  \item[cfES:] cell-free DNA exome sequencing
+  \item[cfGS:] cell-free DNA genome sequencing
+  \item[CNV:] copy number variant
+  \item[dNTP:] deoxynucleotide triphosphate
+  \item[DNA:] deoxyribonucleic acid
+  \item[ddNTP:] dideoxynucleotide triphosphate
+  \item[ES:] exome sequencing
+  \item[FoSTeS:] fork stalling and template switching
+  \item[IC:] independent capture
+  \item[LOH:] loss of heterozygosity
+  \item[MC:] multiplexed capture
+  \item[mRNA:] messanger RNA
+  \item[NAHR:] non-allelic homologous recombination
+  \item[NHEJ:] non-homologous end-joining
+  \item[NIPT:] noninvasive prenatal testing
+  \item[PCR:] polymerase chain reaction
+  \item[PKU:] phenylketonuria
+  \item[PMAR:] proportion of minor allele reads
+  \item[RNA:] ribonucleic acid
+  \item[SBS:] sequencing by synthesis
+  \item[SNV:] single nucleotide variant
+  \item[SV:] structural variation
+  \item[UMI:] unique molecular identifer
 \end{description}
+\end{multicols}
 
 \mainmatter
 
@@ -362,13 +385,13 @@
 \hypertarget{outline}{%
 \section{Outline}\label{outline}}
 
-This chapter outlines both the historical context for human and medical genetics, with a basic overview of the topics necessary to understand the original work presented in this dissertation.
+This chapter outlines the historical context for human and medical genetics, with a basic overview of the topics necessary to understand the original work presented in this dissertation.
 
-\protect\hyperlink{humGenPrime}{Human Genetics Primer} summarizes the discovery of DNA as the hereditary material in eukaryotic life (\ref{dnaDiscover}) and describes the types of variation observed in DNA (\ref{genVar}).
+\protect\hyperlink{humGenPrime}{Human Genetics Primer} summarizes DNA discovery as the hereditary material in eukaryotic life (\ref{dnaDiscover}) and describes the types of variation observed in DNA (\ref{genVar}).
 
 \protect\hyperlink{sequencing}{DNA Sequencing} describes the development of DNA sequencing, with an overview of first generation sequencing (\ref{firstGen}), the discoveries that led to second generation sequencing (\ref{secGen}), and a more detailed discussion of the Solexa/Illumina sequencing platform (\ref{illumina}). The section concludes with a longer discussion of the considerations and challenges with analyzing second-generation sequencing data (\ref{seqData}).
 
-\protect\hyperlink{medGen}{Development of Medical Genetics} highlights some of the most important landmarks in the origination of medical genetics as both a research topic and clinical profession.
+\protect\hyperlink{medGen}{Development of Medical Genetics} highlights some of the most important landmarks in the origination of medical genetics as both a research topic and a clinical profession.
 
 Finally, \protect\hyperlink{prob}{Rationale} briefly describes the motivation for my dissertation work.
 
@@ -382,19 +405,19 @@ The discovery of deoxyribonucleic acid (DNA) took roughly 100 years of work, and
 The study of genetics begins with the study of peas and the discovery of inheritance by Gregor Mendel in the middle of the 19th century.\textsuperscript{\protect\hyperlink{ref-mendel:1866aa}{1}}
 Shortly after Mendel's work, Friedrich Miescher isolated ``nuclein'' from lymphocytes noting the uniquely high proportion of phosphorus in the form of phosphoric acid.\textsuperscript{\protect\hyperlink{ref-miescher:1871aa}{2}--\protect\hyperlink{ref-miescher:1874ab}{4}}
 Albrecht Kossel and Albert Neumann furthered Miescher's work by identifying the four bases and renaming ``nuclein'' deoxyribonucleic acid.\textsuperscript{\protect\hyperlink{ref-kossel:1893aa}{5}}
-Walther Flemming first described mitosis (the division of cells) showing the doubling and separation of chromosomes.\textsuperscript{\protect\hyperlink{ref-flemming:1878aa}{6}}
-Theodor Boveri and Walter Sutton independently discovered meiosis, establishing chromosomes as the vehicle for inheritance (i.e.~the ``chromosome theory of inheritance'').\textsuperscript{\protect\hyperlink{ref-boveri:1902aa}{7}--\protect\hyperlink{ref-sutton:1903aa}{9}}
+Walther Flemming first described mitosis (the division of cells), showing the doubling and separation of chromosomes.\textsuperscript{\protect\hyperlink{ref-flemming:1878aa}{6}}
+Theodor Boveri and Walter Sutton independently discovered meiosis, establishing chromosomes as the vehicle for inheritance (i.e., the ``chromosome theory of inheritance'').\textsuperscript{\protect\hyperlink{ref-boveri:1902aa}{7}--\protect\hyperlink{ref-sutton:1903aa}{9}}
 
 Despite early suggestions of chromatin containing DNA by Kossel and Neumann, many believed proteins and not DNA coded the fundamental information for inheritance.
-Oswald Avery, Collin MacLeod, and Maclyn McCarty published the first experiments to establish DNA carries the hedidary code using \emph{Diplococcus pneumoniae}.\textsuperscript{\protect\hyperlink{ref-avery:1944aa}{10}}
-Erwin Chargaff rightly believed the work by Avery \emph{et al.} and went on to discover equal proportions of adenine/thymine guanine/cytosine (``Chargaff's rule'') which disproved the tetranucleotide hypothesis and laid the groundwork for the double helical model.\textsuperscript{\protect\hyperlink{ref-chargaff:1949aa}{11}}
-In the early 1950's Roslind Franklin started using X-ray crystallography to study the structure of DNA, producing the first images showing the double helical form.\textsuperscript{\protect\hyperlink{ref-franklin:1953aa}{12}}
+Oswald Avery, Collin MacLeod, and Maclyn McCarty published the first experiments to establish DNA carries the genetic code using \emph{Diplococcus pneumoniae}.\textsuperscript{\protect\hyperlink{ref-avery:1944aa}{10}}
+Erwin Chargaff rightly believed Avery \emph{et al.} and discovered equal proportions of adenine/thymine guanine/cytosine (``Chargaff's rule''), disproving the tetranucleotide hypothesis and laying the groundwork for the double helical model.\textsuperscript{\protect\hyperlink{ref-chargaff:1949aa}{11}}
+In the early 1950's Rosalind Franklin started using X-ray crystallography to study the structure of DNA, producing the first images showing the double helical form.\textsuperscript{\protect\hyperlink{ref-franklin:1953aa}{12}}
 Watson and Crick were given Rosalind's images without her knowledge or permission, allowing them to perform the final work to establish the structure of DNA.\textsuperscript{\protect\hyperlink{ref-watson:1953aa}{13}}
 Crick went on to establish the Central Dogma of Molecular Biology.\textsuperscript{\protect\hyperlink{ref-crick:1958aa}{14},\protect\hyperlink{ref-crick:1970aa}{15}}
 
-The Central Dogma of Molecular Biology describes the process by which DNA codes for the proteins that build and sustain eukaryotic life.
-To produce proteins, ribonucleic acid (RNA) polymerase first transcribes the DNA message into single-stranded RNA molecules (messanger RNA, mRNA).
-The mRNA, after post-transcriptional modifications including possible splicing (reorganization), is then translated into a polymer of amino acids by ribosomal RNA complexes.
+The Central Dogma of Molecular Biology describes how DNA codes for the proteins which build and sustain eukaryotic life.
+To produce proteins, ribonucleic acid (RNA) polymerase first transcribes the DNA message into single-stranded RNA molecules (messenger RNA, mRNA).
+After post-transcriptional modifications including possible splicing (reorganization), mRNA is translated into a polymer of amino acids by ribosomal RNA complexes.
 Amino acid polymers, also known as polypeptides or peptide chains, form the primary structure of proteins.
 Therefore, modifications to DNA have profound impacts on cellular and organismal function.
 
@@ -412,18 +435,18 @@ DNA codes for amino acids (the building blocks for protein) using three consecut
 The codon code includes redundancy in the third position (e.g.~the sequences GAA and GAG both code for the amino acid glutamic acid).
 Consequently, synonymous and non-synonymous mutations exist.
 Synonymous mutations occur in the third position of the codon and do not change the resulting amino acid.
-Non-synonymous mutations change the resulting protein structure, either by an amino acid substitution (missense mutations), causing a premature stop codon (nonsense mutation), eliminating a start codon (nonstart mutation), or eliminating the stop codon (nonstop mutation).
-SNVs can occur through polymerase errors during DNA replication and mutagenic substances (e.g.~specifc wavelengths of light, chemical exposure).
+Non-synonymous mutations change the resulting protein structure, either by an amino acid substitution (missense mutations), causing a premature stop codon (nonsense mutation), eliminating a start codon (non-start mutation), or eliminating the stop codon (nonstop mutation).
+SNVs can occur through polymerase errors during DNA replication and mutagenic substances (e.g.~specific wavelengths of light, chemical exposure).
 
 The remaining three types of mutations fall into the large category of structural variation (SV), with muddy lines between what constitutes an insertion/deletion (indel) versus copy number variant (CNV).
-Indels represent small insertions of deletions of genetic material; any indel with length not divisible by three can cause a frameshift mutation, where the genetic reading frame gets shifted and all subsequent amino acids translate incorrectly.
+Indels represent small insertions or deletions of genetic material; any indel with length not divisible by three can cause a shift in the reading frame (frameshift mutation) and modify all downstream amino acids.
 Copy number variants represent larger insertions or deletions and can range from a single exon up to whole chromosomes (aneuploidy).
 Aneuploidy occurs due to mitotic segregation errors during cellular replication.
 Smaller copy number variation likely occurs through non-allelic homologous recombination (NAHR), non-homologous end-joining (NHEJ), fork stalling and template switching (FoSTeS), and retrotransposition.\textsuperscript{\protect\hyperlink{ref-gu:2008aa}{18}}
 
 We call segmental rearrangements a translocation when the segment moves from one locus to another, and an inversion when the segment gets flipped and reinserted.
 Rearrangements can cause detrimental effects when they disrupt gene sequence.
-The same processes creating CNVs discussed above can create rearrangments, and rearrangments often go hand-in-hand with copy number variation.
+The same processes creating CNVs discussed above can create rearrangements, and rearrangements often go hand-in-hand with copy number variation.
 
 \hypertarget{sequencing}{%
 \section{DNA Sequencing}\label{sequencing}}
@@ -434,26 +457,26 @@ The same processes creating CNVs discussed above can create rearrangments, and r
 Using lessons learned from previous RNA sequencing efforts, the first DNA sequencing techniques arose in the 1970s with Sanger's original plus-minus approach,\textsuperscript{\protect\hyperlink{ref-sanger:1975aa}{19}} the Maxam-Gilbert chemical cleavage approach,\textsuperscript{\protect\hyperlink{ref-maxam:1977aa}{20}} and Sanger's chain termination approach.\textsuperscript{\protect\hyperlink{ref-sanger:1977aa}{21}}
 
 Maxam-Gilbert sequencing works by cleaving DNA sequences at specific base pairs using specific chemical reactions.
-Before cleaving, radioactive phosphorus is incorporated into the 5 prime terminus of the DNA fragment to be sequenced.
-The fragment is then cleaved randomly in four separate reactions: at either G, G and A, C, or C and T.
+Before cleaving, radioactive phosphorus is incorporated into the DNA fragment's 5' terminus.
+The fragment is then cleaved randomly at specific bases in four separate reactions: G, G and A, C, or C and T.
 The cleaved radio-labeled fragments from each of the four reactions are then size-separated and visualized on a polyacrylamide gel.
 
 Sanger sequencing (chain termination) was the first sequencing by synthesis (SBS) approach.
 Similar to Maxam-Gilbert sequencing, the target DNA fragment is replicated by the polymerase chain reaction (PCR) in four separate conditions.
 Each condition contains an equimolar mix of the four deoxynucleotide triphosphate (dNTP, DNA bases) molecules and a small amount of a single radio- or fluorescently-labeled dideoxynucleotide (ddNTP).
-The PCR reaction cannot proceed after the incorporation of a ddNTP, so each of the four reactions will contain synthesized fragments that stop at the same base.
+The PCR reaction cannot proceed after incorporating a ddNTP, so each of the four reactions will contain synthesized fragments that stop at the same base.
 Again, the four reactions are size-separated and visualized on a polyacrylamide gel.
 
 \hypertarget{secGen}{%
 \subsection{Second-generation sequencing}\label{secGen}}
 
 In the following decade Nyrèn and Lundin discovered an enzymatic method for detecting the incorporation of a new base during sequencing.\textsuperscript{\protect\hyperlink{ref-nyren:1985aa}{22}}
-Pyrophosphate is released when dNTPs are incorporated into a DNA polymer; Nyrèn added two enzymes to the synethesis reaction: (1) ATP sulfurylase, which converts pyrophosphate into ATP; (2) luciferase, which converts ATP molecules into light.
+Pyrophosphate is released when dNTPs are incorporated into a DNA polymer; Nyrèn added two enzymes to the synthesis reaction: (1) ATP sulfurylase, which converts pyrophosphate into ATP; (2) luciferase, which converts ATP molecules into light.
 After fixing the DNA template to a solid phase, sequencing is performed by watching for light reactions after adding a single base at a time.
 Pyrosequencing struggles with sequencing over homopolymers (contiguous runs of the same base), with poor performance after 4-5 identical bases.\textsuperscript{\protect\hyperlink{ref-ronaghi:1998aa}{23}}
 
 The next significant breakthrough came in the early 2000s when Li \emph{et al.} developed the first photocleavable fluorescent nucleotide.\textsuperscript{\protect\hyperlink{ref-li:2003aa}{24}}
-The novel nucleotides use a fluorescent tag to block the 3 prime hydroxyl group, which can be cleaved using a specific wavelength of light.
+The novel nucleotides use a fluorescent tag to block the 3' hydroxyl group, which can be cleaved using a specific wavelength of light.
 This allows for SBS with a ``reversible termination'' of synthesis after each base incorporation.
 The reversible terminators, in conjunction with the development of glass-bound colony expansion,\textsuperscript{\protect\hyperlink{ref-fedurco:2006aa}{25}} laid the groundwork for the Solexa system (acquired by Illumina) which currently dominates the sequencing field.\textsuperscript{\protect\hyperlink{ref-turcatti:2008aa}{26}}
 
@@ -461,22 +484,22 @@ The reversible terminators, in conjunction with the development of glass-bound c
 \subsection{Illumina sequencing}\label{illumina}}
 
 Illumina sequencing works by creating clusters of identical DNA fragments bound to a glass plate (``flow cell''), then performing SBS using fluorescent reversible terminators.
-To perform Illumina sequencing, specific sequencing adapters are ligated onto short DNA fragments to: (1) bind DNA fragments to the flow cell; (2) initiate amplification; (3) optionally identify the fragment source.
+During Illumina sequencing, specific sequencing adapters are ligated onto short DNA fragments to: (1) bind DNA fragments to the flow cell; (2) initiate amplification; (3) optionally identify the fragment source.
 The flow cell contains a ``lawn'' of two short oligos bound to the glass surface; the fragments have homology to either the forward or reverse adapter.
 The sequencing library containing the ligated forward and reverse adapters are added to the flow cell, where they hybridize to the lawn.
 Once bound, polymerase is added and the bound oligo is extended using the hybridized DNA fragment as a template.
 The original template is then washed away, leaving complementary sequences bound to the flow cell.
-The free adapter then folds over to hybridize to its complement oligo, forming a bridge, and polymerase fills in the oligo to form a double-stranded fragment (bridge amplification).
+The free adapter then bends over to hybridize to its complement oligo, forming a bridge, and polymerase fills in the oligo to form a double-stranded fragment (bridge amplification).
 The double-stranded fragment is denatured, leaving two single stranded fragments bound to the flow cell.
-Bridge amplification is repeated until each cluster contains hundreds of the same the fragment.
+Bridge amplification is repeated until each cluster contains hundreds of the same fragment.
 The reverse fragments are then cleaved from the flow cell, and the clusters are sequenced by detecting the incorporation of fluorescent reversible terminators.
-Each cluster is tracked as basepairs are incorporated, giving the final DNA sequence.
+Each cluster is tracked as bases are incorporated, giving the final DNA sequence.
 
 \hypertarget{seqData}{%
 \subsection{Processing short-read sequencing data}\label{seqData}}
 
-With the advancements in sequencing chemistry, we now have the ability to sequence great amounts of DNA cheaply.
-However, the massively parallel sequencing modalities only sequence small fragments of DNA (typically 50 to 500 basepairs in length) often using a ``shotgun'' approach -- ``shotgun'' referring to sequencing a randomly fragmented sample rather than a known locus.
+With the advancements in sequencing chemistry, we can now sequence great amounts of DNA cheaply.
+However, the massively parallel sequencing modalities only sequence small fragments of DNA (typically 50 to 500 basepairs in length), often using a ``shotgun'' approach -- ``shotgun'' referring to sequencing a randomly fragmented sample rather than a known locus.
 Therefore, the nature of short-read shotgun sequencing requires robust computational approaches to process and contextualize sequence data for millions of DNA fragments.
 
 Here, I will give an overview of processing sequencing data for a species with an established reference genome.
@@ -496,43 +519,43 @@ Processing short-read sequencing data follows the following general steps:
   variant filtering and interpretation.
 \end{enumerate}
 
-The pre-processing step depends entirely on the sequencing chemistry and machinery uesd.
-Illumina sequencers produce binary base call (BCL) files containing all of the raw base call and quality information from the sequencing run.
-BCL files contain the adapter sequence (including sample barcode sequence and molecular index sequence when used in the library generation), which must be removed prior to mapping.
-Due to the capacity of modern sequencing machines, most often each lane of the flow cell will contain multiple samples.
+The pre-processing step depends entirely on the sequencing chemistry and machinery used.
+Illumina sequencers produce binary base call (BCL) files containing all raw base calls and quality information from the sequencing run.
+BCL files contain the adapter sequence (including sample barcode sequence and optional molecular index sequence), which we must remove before mapping.
+Due to modern sequencer capacity, frequently each lane of the flow cell will contain multiple samples.
 By convention, reads from each sample are separated into individual FASTQ files.
-Separating reads by sample must occur prior to discarding the adapater sequence information.
-Illumina currently provides the \texttt{bcl2fastq} command line tool for performing all of the requisite tasks to produce sample-specific FASTQ files with molecular index information when applicable.
+Separating reads by sample must occur before discarding the adapter sequence information.
+Illumina currently provides the \texttt{bcl2fastq} command line tool for performing all of the required tasks to produce sample-specific FASTQ files with molecular index information when applicable.
 
 The process of mapping individual reads (query sequences) to a reference sequence requires (1) finding the correct starting point in the reference sequence, and (2) accounting for substitutions, insertions, and deletions in the query sequence.
-Smith and Waterman published the first algorithm meeting both requirements, using dynamic programming on a substitution matrix\textsuperscript{\protect\hyperlink{ref-smith:1981aa}{30}} based on the inital work of Needleman and Wunsch.\textsuperscript{\protect\hyperlink{ref-needleman:1970aa}{31}}
+Smith and Waterman published the first algorithm meeting both requirements, using dynamic programming on a substitution matrix\textsuperscript{\protect\hyperlink{ref-smith:1981aa}{30}} based on Needleman and Wunsch;s initial work.\textsuperscript{\protect\hyperlink{ref-needleman:1970aa}{31}}
 The Smith-Waterman algorithm requires user-defined scores for matches, mismatches, and gaps (insertions/deletions); the algorithm will find the best possible match with the given scoring system, but requires \(O(mn)\) compute time where \(m\) and \(n\) represent the length of the reference and query sequences.
 
-To reduce the complexity of the problem, Altschul \emph{et al.} developed the basic local alignment search tool (BLAST).\textsuperscript{\protect\hyperlink{ref-altschul:1990aa}{32}}
+To reduce the problem's complexity, Altschul \emph{et al.} developed the basic local alignment search tool (BLAST).\textsuperscript{\protect\hyperlink{ref-altschul:1990aa}{32}}
 BLAST works by breaking the query sequences into a hash table of all possible \(k\)-mer sub-sequences and searching the reference sequence for non-gap matches above some threshold.
 For pairs of matches, BLAST extends the sequence to refine the candidate pool, and then finalizes the best candidates using the Smith-Waterman algorithm.
 Many other tools take similar hash table approaches, including hashing the reference sequence rather than the query sequence.\textsuperscript{\protect\hyperlink{ref-li:2010aa}{33}}
 
-Modern alignment algorithms have futher improved efficiency by exploiting the Burrows-Wheeler Transform (BWT).\textsuperscript{\protect\hyperlink{ref-li:2010aa}{33},\protect\hyperlink{ref-burrows:1994aa}{34}}
-The BWT creates a quickly search-able compressed representation of the reference sequence (roughly 1 gigabyte for the complete human genome), which search algorithms can hold in memory for even greater search efficiency.\textsuperscript{\protect\hyperlink{ref-lam:2008aa}{35}}
-The various BWT-based algorithms differ primarilly on how they handle mismatches\textsuperscript{\protect\hyperlink{ref-li:2010aa}{33}}
+Modern alignment algorithms have further improved efficiency by exploiting the Burrows-Wheeler Transform (BWT).\textsuperscript{\protect\hyperlink{ref-li:2010aa}{33},\protect\hyperlink{ref-burrows:1994aa}{34}}
+The BWT creates a quickly search-able compressed representation of the reference sequence (roughly 1 gigabyte for the complete human genome), enabling in-memory computation.\textsuperscript{\protect\hyperlink{ref-lam:2008aa}{35}}
+The various BWT-based algorithms differ primarily on how they handle mismatches.\textsuperscript{\protect\hyperlink{ref-li:2010aa}{33}}
 For DNA sequencing, the Burrows Wheeler alignment tool (BWA) developed and subsequently refined by Li and Durbin in 2009 remains the \emph{de facto} industry standard.\textsuperscript{\protect\hyperlink{ref-li:2009aa}{29},\protect\hyperlink{ref-li:2010ab}{36}}
 
 Post-alignment processing prepares the mapped reads for variant calling.
 Artificial duplicate reads can create bias in downstream variant calling, and deserve careful consideration.
-Tw types of artificial duplicates can occur with Illumina sequencing: (1) PCR duplicates, (2) technical (optical and cluster) duplicates.
+Two types of artificial duplicates can occur with Illumina sequencing: (1) PCR duplicates, (2) technical (optical and cluster) duplicates.
 In large randomly-fragmented libraries sequenced to moderate depth, duplicate reads are much more likely to represent artificial than true duplicates.
 Virtually all sequencing library preparation protocols include PCR amplification, producing artificial duplicate reads.
-Using non-paterned flow cells, the image processing software my incorrectly identify large/odly shaped clusters as two separate clusters.
-With patterned flow cells, occasionally the same template can ``jump'' into an adjascent cluster.
+Using non-patterned flow cells, the image processing software may incorrectly identify large/oddly shaped clusters as two separate clusters.
+With patterned flow cells, occasionally the same template can ``jump'' into an adjacent cluster.
 
 In deeply-sequenced libraries with low complexity, we are more likely to observe true read duplicates.
 Without including unique molecular identifiers (UMIs) in the adapter sequence, we have no way of distinguishing true versus artificial duplicate reads.
 A UMI is a short (generally 6-12 basepairs) sequence of random bases; all PCR duplicates will contain the same UMI sequence.
 The exceedingly low probability of two true read duplicates having the same UMI allows properly controlling for artificial duplicates without removing true duplicates.
 
-In addition to removing duplicate reads, the GATK best practices pipeline suggests adjusting the base quality scores prior to variant calling.\textsuperscript{\protect\hyperlink{ref-mckenna:2010aa}{37},\protect\hyperlink{ref-depristo:2011aa}{38}}
-GATK provides the BaseQualityScoreRecalibration tool, which uses machine learning models to correct for known systematic errors in sequencing.
+In addition to removing duplicate reads, the GATK best practices pipeline suggests adjusting the base quality scores before variant calling.\textsuperscript{\protect\hyperlink{ref-mckenna:2010aa}{37},\protect\hyperlink{ref-depristo:2011aa}{38}}
+GATK provides the BaseQualityScoreRecalibration tool, which uses machine learning models to correct known systematic errors in sequencing.
 
 With the final set of aligned reads, we move to identifying deviations (variants) from the reference sequence.
 Numerous tools exist to perform variant calling; I will discuss the general approaches to calling the different types of variants, highlighting commonly-used algorithms.
@@ -543,12 +566,12 @@ GATK previously provided a similar tool, implementing a simple Bayesian genotype
 HaplotypeCaller works by (1) identifying ``active'' regions containing plausible variants, (2) building possible haplotypes in the active regions using de Bruijn-like graphs, (3) assigning haplotype likelihoods to reads, and (4) calculating genotype likelihoods incorporating the estimated haplotype information.
 The idea for using haplotype estimates in genotype calling originated with the freebayes algorithm.\textsuperscript{\protect\hyperlink{ref-garrison:2012aa}{42}}
 The above tools all use very similar approaches to call small insertions and deletions (indels).
-Development continues actively in SNV/indel variant identification, and performance between algorithms predictably differs with condition.\textsuperscript{\protect\hyperlink{ref-chen:2019aa}{43},\protect\hyperlink{ref-xu:2018aa}{44}}
+Development continues actively in SNV/indel variant identification, and performance between algorithms predictably differs depending on the nature of a variant.\textsuperscript{\protect\hyperlink{ref-chen:2019aa}{43},\protect\hyperlink{ref-xu:2018aa}{44}}
 
-Calling larger structural variation from short-read sequencing poses greater difficulty.
+Calling larger structural variation from short-read sequencing poses a greater difficulty.
 SNVs and indels exist within single reads; therefore, we can view and count them directly.
 We cannot directly view variation which spans lengths greater than our read (or read pair) length.
-To identify larger variation, calling algorithms attempt to identify some combination of the following tw signals: (1) relative changes in sequencing depth (read depth); (2) paired read insert size and orientation (paired end mapping).
+To identify larger variation, calling algorithms attempt to identify some combination of the following signals: (1) relative changes in sequencing depth (read depth); (2) paired read insert size and orientation (paired end mapping); (3) rarey, loss of heterozygosity.
 
 Read-depth methods, e.g.~CNVnator,\textsuperscript{\protect\hyperlink{ref-abyzov:2011aa}{45}} work by building statistical models utilizing the relative sequencing depth across the genome.
 The depth bias introduced by the capture step in targeted sequencing necessitates comparing to a set of control samples, e.g.~ExomeDepth,\textsuperscript{\protect\hyperlink{ref-plagnol:2012aa}{46}} rather than calculating the relative depth across the genome.
@@ -557,48 +580,48 @@ The Lumpy algorithm\textsuperscript{\protect\hyperlink{ref-layer:2014aa}{48}} ut
 The ERDS algorithm\textsuperscript{\protect\hyperlink{ref-zhu:2012aa}{49}} combines read depth information with allele ratios when possible.
 
 Sequencing an individual reveals millions of variants compared to the current reference genome,\textsuperscript{\protect\hyperlink{ref-auton:2015aa}{50}} often requiring filtering to identify meaning results.
-Multiple public databases now exist cataloging known variants: dbSNP with SNVs and indels,\textsuperscript{\protect\hyperlink{ref-sherry:1999aa}{51}} dbGaP\textsuperscript{\protect\hyperlink{ref-mailman:2007aa}{52}} with variants linked to phenotypes, ClinVar\textsuperscript{\protect\hyperlink{ref-landrum:2014aa}{53}} with clinical variant interpretations, ensembl\textsuperscript{\protect\hyperlink{ref-hubbard:2002aa}{54},\protect\hyperlink{ref-yates:2020aa}{55}} which aggregates data from many sources and provides additonal analysis tools (e.g.~the Variant Effect Predictor\textsuperscript{\protect\hyperlink{ref-mclaren:2016aa}{56}}), and gnomAD\textsuperscript{\protect\hyperlink{ref-karczewski:2019aa}{57}} with variants from \textgreater100,000 human exome sequences and \textgreater15,000 human genome sequences across diverse populations.
-Most commonly we begin by searching the predicted variants for known pathogenic variants which explain the clinical picture.
-If the search for known pathogenic variants fails, we can proceed by throwing out common variants and predicting protein-altering variants which correlate clinically.
-Many tools exist for predicting variant outcome, e.g.~the Ensembl Variant Effect Predictor,\textsuperscript{\protect\hyperlink{ref-mclaren:2016aa}{56}} PolyPhen,\textsuperscript{\protect\hyperlink{ref-adzhubei:2013aa}{58}} and JannoVar.\textsuperscript{\protect\hyperlink{ref-jager:2014aa}{59}}
+Multiple public databases now exist cataloging known variants: dbSNP with SNVs and indels,\textsuperscript{\protect\hyperlink{ref-sherry:1999aa}{51}} dbGaP\textsuperscript{\protect\hyperlink{ref-mailman:2007aa}{52}} with variants linked to phenotypes, ClinVar\textsuperscript{\protect\hyperlink{ref-landrum:2014aa}{53}} with clinical variant interpretations, ensembl\textsuperscript{\protect\hyperlink{ref-hubbard:2002aa}{54},\protect\hyperlink{ref-yates:2020aa}{55}} which aggregates data from many sources and provides additional analysis tools (e.g.~the Variant Effect Predictor\textsuperscript{\protect\hyperlink{ref-mclaren:2016aa}{56}}), and gnomAD\textsuperscript{\protect\hyperlink{ref-karczewski:2019aa}{57}} with variants from \textgreater100,000 human exome sequences and \textgreater15,000 human genome sequences across diverse populations.
+Most commonly we begin by searching the predicted variants for known pathogenic variants that explain the clinical picture.
+If the search for known pathogenic variants fails, we can proceed by throwing out common variants and predicting protein-altering variants that correlate clinically.
+Many tools exist for predicting variant outcome, e.g., the Ensembl Variant Effect Predictor,\textsuperscript{\protect\hyperlink{ref-mclaren:2016aa}{56}} PolyPhen,\textsuperscript{\protect\hyperlink{ref-adzhubei:2013aa}{58}} and JannoVar.\textsuperscript{\protect\hyperlink{ref-jager:2014aa}{59}}
 
 \hypertarget{medGen}{%
 \section{Development of Medical Genetics}\label{medGen}}
 
 The field of medical genetics arguably began in the first years of the 20th century with Archibald Garrod.
-In a collaborative effort with William Bateson, the person most responsible for the resurgence of Mendel's work,\textsuperscript{\protect\hyperlink{ref-harper:2008aa}{60}} Garrod first identified a disease (alkaptonuria) following a Mendelian inheritance pattern.\textsuperscript{\protect\hyperlink{ref-garrod:1902aa}{61}}
+In a collaborative effort with William Bateson, the person most responsible for the resurgence of Mendel's work,\textsuperscript{\protect\hyperlink{ref-harper:2008aa}{60}} Garrod first-identified a disease (alkaptonuria) that follows a Mendelian inheritance pattern.\textsuperscript{\protect\hyperlink{ref-garrod:1902aa}{61}}
 Garrod, one of the initial pioneers in the biochemistry, went on to characterize the ``inborn errors of metabolism'' as enzymatic deficiencies in a book bearing the same name\textsuperscript{\protect\hyperlink{ref-garrod:1923aa}{62}} and correctly hypothesized our ``individual chemistries'' derived from ``chromosomes from which we sprang'' in 1931.\textsuperscript{\protect\hyperlink{ref-garrod:1931aa}{63}}
 
-The first half of the 20th century consisted of largely of identifying and describing genetic diseases in humans, with nearly all of the molecular and basic science taking place in fruit flies, mice, and corn.\textsuperscript{\protect\hyperlink{ref-harper:2008aa}{60},\protect\hyperlink{ref-rimoin:2004aa}{64}}
+During the first half of the 20th century, medical genetics focused on identifying and describing genetic diseases in humans, with nearly all of the molecular and basic science taking place in fruit flies, mice, and corn.\textsuperscript{\protect\hyperlink{ref-harper:2008aa}{60},\protect\hyperlink{ref-rimoin:2004aa}{64}}
 During this time, Bateson hotly debated Francis Galton (the originator of eugenics) and Karl Pearson on ``Mendelism'' versus ``biometrics.''\textsuperscript{\protect\hyperlink{ref-harper:2008aa}{60}}
 In 1918, R.A. Fisher proved Mendelian inheritance could produce the spectrum of variation described by the biometrics proponents in the landmark paper ``The Correlation between Relatives on the Supposition of Mendelian Inheritance.''\textsuperscript{\protect\hyperlink{ref-fisher:1919aa}{65}}
 Rightly overshadowed by the horrific legacy of eugenics, the \emph{Treasury of Human Inheritance} published in multiple volumes between 1923 and 1958 by Pearson and the Galton Laboratory for National Eugenics described dozens of genetic disorders.
 Of note, the physician-mathematician Julia Bell contributed more monographs to the volumes than any other individual.
 
 Progress in medical genetics accelerated quickly in the second half of the century, with the development of cytogenetics and molecular biology/genetics.
-Flemming first visualized chromomes in 1878,\textsuperscript{\protect\hyperlink{ref-flemming:1878aa}{6}} but we did not know the correct chromosome number in humans until 1956.\textsuperscript{\protect\hyperlink{ref-tjio:1956aa}{16}}
-Advances in cell culture and the use of colchicine,\textsuperscript{\protect\hyperlink{ref-levan:1938aa}{66}} allowed the first accurate pictures of human chromosomes, leading to the identification of numerous aneuploidy syndomes.
+Flemming first visualized chromosomes in 1878,\textsuperscript{\protect\hyperlink{ref-flemming:1878aa}{6}} but we did not know the correct chromosome number in humans until 1956.\textsuperscript{\protect\hyperlink{ref-tjio:1956aa}{16}}
+Advances in cell culture and the use of colchicine,\textsuperscript{\protect\hyperlink{ref-levan:1938aa}{66}} allowed the first accurate pictures of human chromosomes, leading to the identification of numerous aneuploidy syndromes.
 Then, in 1970 Caspersson \emph{et al.} developed a fluorescent technique for banding chromosomes,\textsuperscript{\protect\hyperlink{ref-caspersson:1970aa}{67}} with the invention of G-banding for chromosomes developed shortly after by Marina Seabright.\textsuperscript{\protect\hyperlink{ref-seabright:1971aa}{68}}
-The ease of G-banding brought it into clinical use and greatly expanded the utility of cytogenetics both in gene mapping and diagnostics.
-In 1990, Fan \emph{et al.} further expanded the utility of cytogenetics with the invention of fluorescent in situ hybridization (FISH).\textsuperscript{\protect\hyperlink{ref-fan:1990aa}{69}}
+The ease of G-banding brought it into clinical use and greatly expanded cytogenetics' utility both in gene mapping and diagnostics.
+In 1990, Fan \emph{et al.} further expanded the cytogenetics' utility with the invention of fluorescent in situ hybridization (FISH).\textsuperscript{\protect\hyperlink{ref-fan:1990aa}{69}}
 
-In parallel to advancements in cytogenetics, the evolution of molecular biology led to the identification of specific genes and proteins.
+In parallel to cytogenetics advancements, the evolution of molecular biology led to the identification of specific genes and proteins.
 Major advancements included the isolation of restriction enzymes,\textsuperscript{\protect\hyperlink{ref-danna:1971aa}{70}} DNA hybridization and the Southern blot,\textsuperscript{\protect\hyperlink{ref-southern:1975aa}{71}} first human gene cloned,\textsuperscript{\protect\hyperlink{ref-shine:1977aa}{72}} and the development of using restriction fragment length polymorphisms to map genes,\textsuperscript{\protect\hyperlink{ref-botstein:1980aa}{73}} and the invention of the polymerase chain reaction (PCR) for amplifying DNA without using complicated bacterial cultures.\textsuperscript{\protect\hyperlink{ref-mullis:1986aa}{74}}
 The molecular genetics field culminated with the completion of the human genome project in 2001, using combinations of first and second generation DNA sequencing (discussed in \ref{sequencing}).
 
-Medical genetics, clinically, has most impacted pediatrics with the implementation of screening for metabolic conditions and obstetrics with prenatal genetic testing.
+Medical genetics, clinically, has most impacted pediatrics and obstetrics by implementing screening for metabolic conditions and prenatal genetic testing.
 
 Metabolic screening programs started in 1963 with phenylketonuria (PKU).\textsuperscript{\protect\hyperlink{ref-guthrie:1963aa}{75}}
 Fölling discovered PKU in 1934 and later confirmed its autosomal recessive inheritance in 1945.\textsuperscript{\protect\hyperlink{ref-harper:2008aa}{60}}
 In 1953 Jervis identified the specific enzymatic deficiency,\textsuperscript{\protect\hyperlink{ref-jervis:1953aa}{76}} and later that year Bickel \emph{et al.} demonstrated the effectiveness of a phenylalanine-restricted diet in treating PKU.\textsuperscript{\protect\hyperlink{ref-bickel:1953aa}{77}}
-The model in PKU was extended to other inborn errors of metabolism and now all children in the US get screened for a panel of treatable metabolic conditions at birth.
+The PKU model was extended to other inborn errors of metabolism and now all children in the US get screened for a panel of treatable metabolic conditions at birth.
 
-Prenatal genetics took began in 1956 when Fuchs demonstrated fetal sex identification from amniocentesis.\textsuperscript{\protect\hyperlink{ref-fuchs:1956aa}{78}}
-A decade later Steele \emph{et al.} began culturing amniocytes dervied from amniocentesis, opening up the door for wide ranging prenatal genetic testing.\textsuperscript{\protect\hyperlink{ref-steele:1966aa}{79}}
-We now have the ability, either by amniocentesis or chorionic villus sampling (possible earlier in pregnancy) to perform the full gamut of available genetic testing early in pregnancy.
-In addition to direct fetal sampling, researchers have identified circulating fetal lymphocytes,\textsuperscript{\protect\hyperlink{ref-walknowska:1969aa}{80}} trophoblasts,\textsuperscript{\protect\hyperlink{ref-mueller:1990aa}{81}} and fetal nucleated red blood cells\textsuperscript{\protect\hyperlink{ref-bianchi:1990aa}{82}} in the circulation of pregnant mothers.
-In 1997 Dennis Lo \emph{et al.} identified cell-free DNA (cfDNA) in maternal circulation,\textsuperscript{\protect\hyperlink{ref-lo:1997aa}{83}} which to-date has proven more diagnostically exploitable.
-We now have the ability to detect many genetic disorders from cell-free fetal DNA.\textsuperscript{\protect\hyperlink{ref-scotchman:2020aa}{84}}
+Prenatal genetics began in 1956 when Fuchs demonstrated fetal sex identification from amniocentesis.\textsuperscript{\protect\hyperlink{ref-fuchs:1956aa}{78}}
+A decade later Steele \emph{et al.} began culturing amniocytes derived from amniocentesis, opening up the door for wide ranging prenatal genetic testing.\textsuperscript{\protect\hyperlink{ref-steele:1966aa}{79}}
+We now perform the full gamut of available genetic testing early in pregnancy, either by amniocentesis or chorionic villus sampling.
+In addition to direct fetal sampling, researchers have identified circulating fetal lymphocytes,\textsuperscript{\protect\hyperlink{ref-walknowska:1969aa}{80}} trophoblasts,\textsuperscript{\protect\hyperlink{ref-mueller:1990aa}{81}} and fetal nucleated red blood cells\textsuperscript{\protect\hyperlink{ref-bianchi:1990aa}{82}} in pregnant mothers' circulation.
+In 1997 Dennis Lo \emph{et al.} identified cell-free DNA (cfDNA) in maternal circulation,\textsuperscript{\protect\hyperlink{ref-lo:1997aa}{83}} which has, so-far, proven more diagnostically exploitable than isolating fetal cells.
+We can now detect many genetic disorders from cell-free fetal DNA.\textsuperscript{\protect\hyperlink{ref-scotchman:2020aa}{84}}
 
 \hypertarget{prob}{%
 \section{Rationale}\label{prob}}
@@ -613,7 +636,7 @@ Additionally, I present a novel statistical framework and R package for estimati
 
 Despite great advances in non-invasive prenatal testing, noninvasive fetal genotyping without additional parental sequencing remains elusive.
 Others have suggested the possibility of noninvasive exome sequencing.
-I describe the statistical limitations around noninvasive fetal genotyping and demonstrate why noninvasive exome sequencing does not make sense clinically.
+I describe the statistical limitations impeding noninvasive fetal genotyping and demonstrate why noninvasive exome sequencing does not make sense clinically.
 I also present a novel algorithm implementing an empirical Bayesian approach to estimating the fetal fraction and maternal-fetal genotypes.
 
 \hypertarget{mcCNV}{%
@@ -1640,94 +1663,94 @@ I would select roughly 100 predicted variants, shared across multiple samples, a
 9. Sutton WS. The chromosomes in heredity. \emph{Biol Bull (Woods Hole)}. 1903;4:231-251.
 
 \leavevmode\hypertarget{ref-avery:1944aa}{}%
-10. Avery OT, Macleod CM, McCarty M. STUDIES on the chemical nature of the substance inducing transformation of pneumococcal types : INDUCTION of transformation by a desoxyribonucleic acid fraction isolated from pneumococcus type iii. \emph{J Exp Med}. 79(2):137-158.
+10. Avery OT, Macleod CM, McCarty M. STUDIES on the chemical nature of the substance inducing transformation of pneumococcal types : INDUCTION of transformation by a desoxyribonucleic acid fraction isolated from pneumococcus type iii. \emph{J Exp Med}. 1944;79(2):137-158.
 
 \leavevmode\hypertarget{ref-chargaff:1949aa}{}%
-11. Chargaff E, Vischer E, Doniger R, Green C, Misani F. The composition of the desoxypentose nucleic acids of thymus and spleen. \emph{J Biol Chem}. 177(1):405-416.
+11. Chargaff E, Vischer E, Doniger R, Green C, Misani F. The composition of the desoxypentose nucleic acids of thymus and spleen. \emph{J Biol Chem}. 1949;177(1):405-416.
 
 \leavevmode\hypertarget{ref-franklin:1953aa}{}%
-12. FRANKLIN RE, GOSLING RG. Molecular configuration in sodium thymonucleate. \emph{Nature}. 171(4356):740-741.
+12. FRANKLIN RE, GOSLING RG. Molecular configuration in sodium thymonucleate. \emph{Nature}. 1953;171(4356):740-741.
 
 \leavevmode\hypertarget{ref-watson:1953aa}{}%
-13. WATSON JD, CRICK FH. Molecular structure of nucleic acids; a structure for deoxyribose nucleic acid. \emph{Nature}. 171(4356):737-738.
+13. WATSON JD, CRICK FH. Molecular structure of nucleic acids; a structure for deoxyribose nucleic acid. \emph{Nature}. 1953;171(4356):737-738.
 
 \leavevmode\hypertarget{ref-crick:1958aa}{}%
 14. CRICK FH. On protein synthesis. \emph{Symp Soc Exp Biol}. 1958;12:138-163.
 
 \leavevmode\hypertarget{ref-crick:1970aa}{}%
-15. Crick F. Central dogma of molecular biology. \emph{Nature}. 227(5258):561-563.
+15. Crick F. Central dogma of molecular biology. \emph{Nature}. 1970;227(5258):561-563.
 
 \leavevmode\hypertarget{ref-tjio:1956aa}{}%
 16. TJIO JH, LEVAN A. THE chromosome number of man. \emph{Hereditas}. 1956;42(1‐2):1-6.
 
 \leavevmode\hypertarget{ref-lander:2001aa}{}%
-17. Lander ES, Linton LM, Birren B, et al. Initial sequencing and analysis of the human genome. \emph{Nature}. 409(6822):860-921.
+17. Lander ES, Linton LM, Birren B, et al. Initial sequencing and analysis of the human genome. \emph{Nature}. 2001;409(6822):860-921.
 
 \leavevmode\hypertarget{ref-gu:2008aa}{}%
-18. Gu W, Zhang F, Lupski JR. Mechanisms for human genomic rearrangements. \emph{Pathogenetics}. 1(1):4.
+18. Gu W, Zhang F, Lupski JR. Mechanisms for human genomic rearrangements. \emph{Pathogenetics}. 2008;1(1):4.
 
 \leavevmode\hypertarget{ref-sanger:1975aa}{}%
-19. Sanger F, Coulson AR. A rapid method for determining sequences in dna by primed synthesis with dna polymerase. \emph{J Mol Biol}. 94(3):441-448.
+19. Sanger F, Coulson AR. A rapid method for determining sequences in dna by primed synthesis with dna polymerase. \emph{J Mol Biol}. 1975;94(3):441-448.
 
 \leavevmode\hypertarget{ref-maxam:1977aa}{}%
-20. Maxam AM, Gilbert W. A new method for sequencing dna. \emph{Proc Natl Acad Sci U S A}. 74(2):560-564.
+20. Maxam AM, Gilbert W. A new method for sequencing dna. \emph{Proc Natl Acad Sci U S A}. 1977;74(2):560-564.
 
 \leavevmode\hypertarget{ref-sanger:1977aa}{}%
-21. Sanger F, Nicklen S, Coulson AR. DNA sequencing with chain-terminating inhibitors. \emph{Proc Natl Acad Sci U S A}. 74(12):5463-5467.
+21. Sanger F, Nicklen S, Coulson AR. DNA sequencing with chain-terminating inhibitors. \emph{Proc Natl Acad Sci U S A}. 1977;74(12):5463-5467.
 
 \leavevmode\hypertarget{ref-nyren:1985aa}{}%
-22. Nyrén P, Lundin A. Enzymatic method for continuous monitoring of inorganic pyrophosphate synthesis. \emph{Anal Biochem}. 151(2):504-509.
+22. Nyrén P, Lundin A. Enzymatic method for continuous monitoring of inorganic pyrophosphate synthesis. \emph{Anal Biochem}. 1985;151(2):504-509.
 
 \leavevmode\hypertarget{ref-ronaghi:1998aa}{}%
-23. Ronaghi M, Uhlén M, Nyrén P. A sequencing method based on real-time pyrophosphate. \emph{Science}. 281(5375):363, 365.
+23. Ronaghi M, Uhlén M, Nyrén P. A sequencing method based on real-time pyrophosphate. \emph{Science}. 1998;281(5375):363, 365.
 
 \leavevmode\hypertarget{ref-li:2003aa}{}%
-24. Li Z, Bai X, Ruparel H, Kim S, Turro NJ, Ju J. A photocleavable fluorescent nucleotide for dna sequencing and analysis. \emph{Proc Natl Acad Sci U S A}. 100(2):414-419.
+24. Li Z, Bai X, Ruparel H, Kim S, Turro NJ, Ju J. A photocleavable fluorescent nucleotide for dna sequencing and analysis. \emph{Proc Natl Acad Sci U S A}. 2003;100(2):414-419.
 
 \leavevmode\hypertarget{ref-fedurco:2006aa}{}%
-25. Fedurco M, Romieu A, Williams S, Lawrence I, Turcatti G. BTA, a novel reagent for dna attachment on glass and efficient generation of solid-phase amplified dna colonies. \emph{Nucleic Acids Res}. 34(3):e22.
+25. Fedurco M, Romieu A, Williams S, Lawrence I, Turcatti G. BTA, a novel reagent for dna attachment on glass and efficient generation of solid-phase amplified dna colonies. \emph{Nucleic Acids Res}. 2006;34(3):e22.
 
 \leavevmode\hypertarget{ref-turcatti:2008aa}{}%
-26. Turcatti G, Romieu A, Fedurco M, Tairi A-P. A new class of cleavable fluorescent nucleotides: Synthesis and optimization as reversible terminators for dna sequencing by synthesis. \emph{Nucleic Acids Res}. 36(4):e25.
+26. Turcatti G, Romieu A, Fedurco M, Tairi A-P. A new class of cleavable fluorescent nucleotides: Synthesis and optimization as reversible terminators for dna sequencing by synthesis. \emph{Nucleic Acids Res}. 2008;36(4):e25.
 
 \leavevmode\hypertarget{ref-pearson:1988aa}{}%
-27. Pearson WR, Lipman DJ. Improved tools for biological sequence comparison. \emph{Proc Natl Acad Sci U S A}. 85(8):2444-2448.
+27. Pearson WR, Lipman DJ. Improved tools for biological sequence comparison. \emph{Proc Natl Acad Sci U S A}. 1988;85(8):2444-2448.
 
 \leavevmode\hypertarget{ref-cock:2010aa}{}%
-28. Cock PJA, Fields CJ, Goto N, Heuer ML, Rice PM. The sanger fastq file format for sequences with quality scores, and the solexa/illumina fastq variants. \emph{Nucleic Acids Res}. 38(6):1767-1771.
+28. Cock PJA, Fields CJ, Goto N, Heuer ML, Rice PM. The sanger fastq file format for sequences with quality scores, and the solexa/illumina fastq variants. \emph{Nucleic Acids Res}. 2010;38(6):1767-1771.
 
 \leavevmode\hypertarget{ref-li:2009aa}{}%
-29. Li H, Handsaker B, Wysoker A, et al. The sequence alignment/map format and samtools. \emph{Bioinformatics}. 25(16):2078-2079.
+29. Li H, Handsaker B, Wysoker A, et al. The sequence alignment/map format and samtools. \emph{Bioinformatics}. 2009;25(16):2078-2079.
 
 \leavevmode\hypertarget{ref-smith:1981aa}{}%
-30. Smith TF, Waterman MS. Identification of common molecular subsequences. \emph{J Mol Biol}. 147(1):195-197.
+30. Smith TF, Waterman MS. Identification of common molecular subsequences. \emph{J Mol Biol}. 1981;147(1):195-197.
 
 \leavevmode\hypertarget{ref-needleman:1970aa}{}%
-31. Needleman SB, Wunsch CD. A general method applicable to the search for similarities in the amino acid sequence of two proteins. \emph{J Mol Biol}. 48(3):443-453.
+31. Needleman SB, Wunsch CD. A general method applicable to the search for similarities in the amino acid sequence of two proteins. \emph{J Mol Biol}. 1970;48(3):443-453.
 
 \leavevmode\hypertarget{ref-altschul:1990aa}{}%
-32. Altschul SF, Gish W, Miller W, Myers EW, Lipman DJ. Basic local alignment search tool. \emph{J Mol Biol}. 215(3):403-410.
+32. Altschul SF, Gish W, Miller W, Myers EW, Lipman DJ. Basic local alignment search tool. \emph{J Mol Biol}. 1990;215(3):403-410.
 
 \leavevmode\hypertarget{ref-li:2010aa}{}%
-33. Li H, Homer N. A survey of sequence alignment algorithms for next-generation sequencing. \emph{Brief Bioinform}. 11(5):473-483.
+33. Li H, Homer N. A survey of sequence alignment algorithms for next-generation sequencing. \emph{Brief Bioinform}. 2010;11(5):473-483.
 
 \leavevmode\hypertarget{ref-burrows:1994aa}{}%
 34. Burrows M, Wheeler DJ. \emph{A Block-Sorting Lossless Data Compression Algorithm}.; 1994.
 
 \leavevmode\hypertarget{ref-lam:2008aa}{}%
-35. Lam TW, Sung WK, Tam SL, Wong CK, Yiu SM. Compressed indexing and local alignment of dna. \emph{Bioinformatics}. 24(6):791-797.
+35. Lam TW, Sung WK, Tam SL, Wong CK, Yiu SM. Compressed indexing and local alignment of dna. \emph{Bioinformatics}. 2008;24(6):791-797.
 
 \leavevmode\hypertarget{ref-li:2010ab}{}%
-36. Li H, Durbin R. Fast and accurate long-read alignment with burrows-wheeler transform. \emph{Bioinformatics}. 26(5):589-595.
+36. Li H, Durbin R. Fast and accurate long-read alignment with burrows-wheeler transform. \emph{Bioinformatics}. 2010;26(5):589-595.
 
 \leavevmode\hypertarget{ref-mckenna:2010aa}{}%
-37. McKenna A, Hanna M, Banks E, et al. The genome analysis toolkit: A mapreduce framework for analyzing next-generation dna sequencing data. \emph{Genome Res}. 20(9):1297-1303.
+37. McKenna A, Hanna M, Banks E, et al. The genome analysis toolkit: A mapreduce framework for analyzing next-generation dna sequencing data. \emph{Genome Res}. 2010;20(9):1297-1303.
 
 \leavevmode\hypertarget{ref-depristo:2011aa}{}%
-38. DePristo MA, Banks E, Poplin R, et al. A framework for variation discovery and genotyping using next-generation dna sequencing data. \emph{Nat Genet}. 43(5):491-498.
+38. DePristo MA, Banks E, Poplin R, et al. A framework for variation discovery and genotyping using next-generation dna sequencing data. \emph{Nat Genet}. 2011;43(5):491-498.
 
 \leavevmode\hypertarget{ref-li:2011aa}{}%
-39. Li H. A statistical framework for snp calling, mutation discovery, association mapping and population genetical parameter estimation from sequencing data. \emph{Bioinformatics}. 27(21):2987-2993.
+39. Li H. A statistical framework for snp calling, mutation discovery, association mapping and population genetical parameter estimation from sequencing data. \emph{Bioinformatics}. 2011;27(21):2987-2993.
 
 \leavevmode\hypertarget{ref-van-der-auwera:2013aa}{}%
 40. Van der Auwera GA, Carneiro MO, Hartl C, et al. From fastq data to high confidence variant calls: The genome analysis toolkit best practices pipeline. \emph{Curr Protoc Bioinformatics}. 2013;43(1110):11.10.1-11.10.33.
@@ -1739,61 +1762,61 @@ I would select roughly 100 predicted variants, shared across multiple samples, a
 42. Garrison E, Marth G. Haplotype-based variant detection from short-read sequencing. Published online 2012.
 
 \leavevmode\hypertarget{ref-chen:2019aa}{}%
-43. Chen J, Li X, Zhong H, Meng Y, Du H. Systematic comparison of germline variant calling pipelines cross multiple next-generation sequencers. \emph{Sci Rep}. 9(1):9345.
+43. Chen J, Li X, Zhong H, Meng Y, Du H. Systematic comparison of germline variant calling pipelines cross multiple next-generation sequencers. \emph{Sci Rep}. 2019;9(1):9345.
 
 \leavevmode\hypertarget{ref-xu:2018aa}{}%
 44. Xu C. A review of somatic single nucleotide variant calling algorithms for next-generation sequencing data. \emph{Comput Struct Biotechnol J}. 2018;16:15-24.
 
 \leavevmode\hypertarget{ref-abyzov:2011aa}{}%
-45. Abyzov A, Urban AE, Snyder M, Gerstein M. CNVnator: An approach to discover, genotype, and characterize typical and atypical cnvs from family and population genome sequencing. \emph{Genome Res}. 21(6):974-984.
+45. Abyzov A, Urban AE, Snyder M, Gerstein M. CNVnator: An approach to discover, genotype, and characterize typical and atypical cnvs from family and population genome sequencing. \emph{Genome Res}. 2011;21(6):974-984.
 
 \leavevmode\hypertarget{ref-plagnol:2012aa}{}%
-46. Plagnol V, Curtis J, Epstein M, et al. A robust model for read count data in exome sequencing experiments and implications for copy number variant calling. \emph{Bioinformatics}. 28(21):2747-2754.
+46. Plagnol V, Curtis J, Epstein M, et al. A robust model for read count data in exome sequencing experiments and implications for copy number variant calling. \emph{Bioinformatics}. 2012;28(21):2747-2754.
 
 \leavevmode\hypertarget{ref-korbel:2007aa}{}%
-47. Korbel JO, Urban AE, Affourtit JP, et al. Paired-end mapping reveals extensive structural variation in the human genome. \emph{Science}. 318(5849):420-426.
+47. Korbel JO, Urban AE, Affourtit JP, et al. Paired-end mapping reveals extensive structural variation in the human genome. \emph{Science}. 2007;318(5849):420-426.
 
 \leavevmode\hypertarget{ref-layer:2014aa}{}%
-48. Layer RM, Chiang C, Quinlan AR, Hall IM. LUMPY: A probabilistic framework for structural variant discovery. \emph{Genome Biol}. 15(6):R84.
+48. Layer RM, Chiang C, Quinlan AR, Hall IM. LUMPY: A probabilistic framework for structural variant discovery. \emph{Genome Biol}. 2014;15(6):R84.
 
 \leavevmode\hypertarget{ref-zhu:2012aa}{}%
-49. Zhu M, Need AC, Han Y, et al. Using erds to infer copy-number variants in high-coverage genomes. \emph{Am J Hum Genet}. 91(3):408-421.
+49. Zhu M, Need AC, Han Y, et al. Using erds to infer copy-number variants in high-coverage genomes. \emph{Am J Hum Genet}. 2012;91(3):408-421.
 
 \leavevmode\hypertarget{ref-auton:2015aa}{}%
-50. Auton A, Brooks LD, Durbin RM, et al. A global reference for human genetic variation. \emph{Nature}. 526(7571):68-74.
+50. Auton A, Brooks LD, Durbin RM, et al. A global reference for human genetic variation. \emph{Nature}. 2015;526(7571):68-74.
 
 \leavevmode\hypertarget{ref-sherry:1999aa}{}%
-51. Sherry ST, Ward M, Sirotkin K. DbSNP-database for single nucleotide polymorphisms and other classes of minor genetic variation. \emph{Genome Res}. 9(8):677-679.
+51. Sherry ST, Ward M, Sirotkin K. DbSNP-database for single nucleotide polymorphisms and other classes of minor genetic variation. \emph{Genome Res}. 1999;9(8):677-679.
 
 \leavevmode\hypertarget{ref-mailman:2007aa}{}%
-52. Mailman MD, Feolo M, Jin Y, et al. The ncbi dbGaP database of genotypes and phenotypes. \emph{Nat Genet}. 39(10):1181-1186.
+52. Mailman MD, Feolo M, Jin Y, et al. The ncbi dbGaP database of genotypes and phenotypes. \emph{Nat Genet}. 2007;39(10):1181-1186.
 
 \leavevmode\hypertarget{ref-landrum:2014aa}{}%
-53. Landrum MJ, Lee JM, Riley GR, et al. ClinVar: Public archive of relationships among sequence variation and human phenotype. \emph{Nucleic Acids Res}. 42(Database issue):D980-5.
+53. Landrum MJ, Lee JM, Riley GR, et al. ClinVar: Public archive of relationships among sequence variation and human phenotype. \emph{Nucleic Acids Res}. 2014;42(Database issue):D980-5.
 
 \leavevmode\hypertarget{ref-hubbard:2002aa}{}%
-54. Hubbard T, Barker D, Birney E, et al. The ensembl genome database project. \emph{Nucleic Acids Res}. 30(1):38-41.
+54. Hubbard T, Barker D, Birney E, et al. The ensembl genome database project. \emph{Nucleic Acids Res}. 2002;30(1):38-41.
 
 \leavevmode\hypertarget{ref-yates:2020aa}{}%
-55. Yates AD, Achuthan P, Akanni W, et al. Ensembl 2020. \emph{Nucleic Acids Res}. 48(D1):D682-D688.
+55. Yates AD, Achuthan P, Akanni W, et al. Ensembl 2020. \emph{Nucleic Acids Res}. 2020;48(D1):D682-D688.
 
 \leavevmode\hypertarget{ref-mclaren:2016aa}{}%
-56. McLaren W, Gil L, Hunt SE, et al. The ensembl variant effect predictor. \emph{Genome Biol}. 17(1):122.
+56. McLaren W, Gil L, Hunt SE, et al. The ensembl variant effect predictor. \emph{Genome Biol}. 2016;17(1):122.
 
 \leavevmode\hypertarget{ref-karczewski:2019aa}{}%
 57. Karczewski KJ, Francioli LC, Tiao G, et al. Variation across 141,456 human exomes and genomes reveals the spectrum of loss-of-function intolerance across human protein-coding genes. \emph{bioRxiv}. Published online 2019.
 
 \leavevmode\hypertarget{ref-adzhubei:2013aa}{}%
-58. Adzhubei I, Jordan DM, Sunyaev SR. Predicting functional effect of human missense mutations using polyphen-2. \emph{Curr Protoc Hum Genet}. Chapter 7:Unit7.20.
+58. Adzhubei I, Jordan DM, Sunyaev SR. Predicting functional effect of human missense mutations using polyphen-2. \emph{Curr Protoc Hum Genet}. 2013;Chapter 7:Unit7.20.
 
 \leavevmode\hypertarget{ref-jager:2014aa}{}%
-59. Jager M, Wang K, Bauer S, Smedley D, Krawitz P, Robinson PN. Jannovar: A java library for exome annotation. \emph{Hum Mutat}. 35(5):548-555.
+59. Jager M, Wang K, Bauer S, Smedley D, Krawitz P, Robinson PN. Jannovar: A java library for exome annotation. \emph{Hum Mutat}. 2014;35(5):548-555.
 
 \leavevmode\hypertarget{ref-harper:2008aa}{}%
-60. Harper PS. \emph{A Short History of Medical Genetics}. Oxford University Press USA - OSO
+60. Harper PS. \emph{A Short History of Medical Genetics}. Oxford University Press USA - OSO; 2008.
 
 \leavevmode\hypertarget{ref-garrod:1902aa}{}%
-61. Garrod AE. THE incidence of alkaptonuria : A study in chemical individuality. \emph{The Lancet}. 160(4137):1616-1620.
+61. Garrod AE. THE incidence of alkaptonuria : A study in chemical individuality. \emph{The Lancet}. 1902;160(4137):1616-1620.
 
 \leavevmode\hypertarget{ref-garrod:1923aa}{}%
 62. Garrod AE. \emph{Inborn Errors of Metabolism}. Oxford University Press; 1923.
@@ -1802,7 +1825,7 @@ I would select roughly 100 predicted variants, shared across multiple samples, a
 63. Garrod AE. \emph{Inborn Factors of Disease: An Essay}. Clarendon Press; 1931.
 
 \leavevmode\hypertarget{ref-rimoin:2004aa}{}%
-64. Rimoin DL, Hirschhorn K. A history of medical genetics in pediatrics. \emph{Pediatr Res}. 56(1):150-159.
+64. Rimoin DL, Hirschhorn K. A history of medical genetics in pediatrics. \emph{Pediatr Res}. 2004;56(1):150-159.
 
 \leavevmode\hypertarget{ref-fisher:1919aa}{}%
 65. Fisher RA. XV.---The correlation between relatives on the supposition of mendelian inheritance. \emph{Transactions of the Royal Society of Edinburgh}. 1919;52(2):399-433.
@@ -1814,100 +1837,100 @@ I would select roughly 100 predicted variants, shared across multiple samples, a
 67. Caspersson T, Zech L, Johansson C, Modest EJ. Identification of human chromosomes by dna-binding fluorescent agents. \emph{Chromosoma}. 1970;30(2):215-227.
 
 \leavevmode\hypertarget{ref-seabright:1971aa}{}%
-68. Seabright M. A rapid banding technique for human chromosomes. \emph{Lancet}. 2(7731):971-972.
+68. Seabright M. A rapid banding technique for human chromosomes. \emph{Lancet}. 1971;2(7731):971-972.
 
 \leavevmode\hypertarget{ref-fan:1990aa}{}%
-69. Fan YS, Davis LM, Shows TB. Mapping small dna sequences by fluorescence in situ hybridization directly on banded metaphase chromosomes. \emph{Proc Natl Acad Sci U S A}. 87(16):6223-6227.
+69. Fan YS, Davis LM, Shows TB. Mapping small dna sequences by fluorescence in situ hybridization directly on banded metaphase chromosomes. \emph{Proc Natl Acad Sci U S A}. 1990;87(16):6223-6227.
 
 \leavevmode\hypertarget{ref-danna:1971aa}{}%
-70. Danna K, Nathans D. Specific cleavage of simian virus 40 dna by restriction endonuclease of hemophilus influenzae. \emph{Proc Natl Acad Sci U S A}. 68(12):2913-2917.
+70. Danna K, Nathans D. Specific cleavage of simian virus 40 dna by restriction endonuclease of hemophilus influenzae. \emph{Proc Natl Acad Sci U S A}. 1971;68(12):2913-2917.
 
 \leavevmode\hypertarget{ref-southern:1975aa}{}%
-71. Southern EM. Detection of specific sequences among dna fragments separated by gel electrophoresis. \emph{J Mol Biol}. 98(3):503-517.
+71. Southern EM. Detection of specific sequences among dna fragments separated by gel electrophoresis. \emph{J Mol Biol}. 1975;98(3):503-517.
 
 \leavevmode\hypertarget{ref-shine:1977aa}{}%
-72. Shine J, Seeburg PH, Martial JA, Baxter JD, Goodman HM. Construction and analysis of recombinant dna for human chorionic somatomammotropin. \emph{Nature}. 270(5637):494-499.
+72. Shine J, Seeburg PH, Martial JA, Baxter JD, Goodman HM. Construction and analysis of recombinant dna for human chorionic somatomammotropin. \emph{Nature}. 1977;270(5637):494-499.
 
 \leavevmode\hypertarget{ref-botstein:1980aa}{}%
-73. Botstein D, White RL, Skolnick M, Davis RW. Construction of a genetic linkage map in man using restriction fragment length polymorphisms. \emph{Am J Hum Genet}. 32(3):314-331.
+73. Botstein D, White RL, Skolnick M, Davis RW. Construction of a genetic linkage map in man using restriction fragment length polymorphisms. \emph{Am J Hum Genet}. 1980;32(3):314-331.
 
 \leavevmode\hypertarget{ref-mullis:1986aa}{}%
 74. Mullis K, Faloona F, Scharf S, Saiki R, Horn G, Erlich H. Specific enzymatic amplification of dna in vitro: The polymerase chain reaction. \emph{Cold Spring Harb Symp Quant Biol}. 1986;51 Pt 1:263-273.
 
 \leavevmode\hypertarget{ref-guthrie:1963aa}{}%
-75. GUTHRIE R, SUSI A. A simple phenylalanine method for detecting phenylketonuria in large populations of newborn infants. \emph{Pediatrics}. 32:338-343.
+75. GUTHRIE R, SUSI A. A simple phenylalanine method for detecting phenylketonuria in large populations of newborn infants. \emph{Pediatrics}. 1963;32:338-343.
 
 \leavevmode\hypertarget{ref-jervis:1953aa}{}%
-76. JERVIS GA. Phenylpyruvic oligophrenia deficiency of phenylalanine-oxidizing system. \emph{Proc Soc Exp Biol Med}. 82(3):514-515.
+76. JERVIS GA. Phenylpyruvic oligophrenia deficiency of phenylalanine-oxidizing system. \emph{Proc Soc Exp Biol Med}. 1953;82(3):514-515.
 
 \leavevmode\hypertarget{ref-bickel:1953aa}{}%
-77. BICKEL H, GERRARD J, HICKMANS EM. Influence of phenylalanine intake on phenylketonuria. \emph{Lancet}. 265(6790):812-813.
+77. BICKEL H, GERRARD J, HICKMANS EM. Influence of phenylalanine intake on phenylketonuria. \emph{Lancet}. 1953;265(6790):812-813.
 
 \leavevmode\hypertarget{ref-fuchs:1956aa}{}%
-78. FUCHS F, RIIS P. Antenatal sex determination. \emph{Nature}. 177(4503):330.
+78. FUCHS F, RIIS P. Antenatal sex determination. \emph{Nature}. 1956;177(4503):330.
 
 \leavevmode\hypertarget{ref-steele:1966aa}{}%
-79. Steele MW, Breg WRJ. Chromosome analysis of human amniotic-fluid cells. \emph{Lancet}. 1(7434):383-385.
+79. Steele MW, Breg WRJ. Chromosome analysis of human amniotic-fluid cells. \emph{Lancet}. 1966;1(7434):383-385.
 
 \leavevmode\hypertarget{ref-walknowska:1969aa}{}%
-80. Walknowska J, Conte FA, Grumbach MM. Practical and theoretical implications of fetal-maternal lymphocyte transfer. \emph{Lancet}. 1(7606):1119-1122.
+80. Walknowska J, Conte FA, Grumbach MM. Practical and theoretical implications of fetal-maternal lymphocyte transfer. \emph{Lancet}. 1969;1(7606):1119-1122.
 
 \leavevmode\hypertarget{ref-mueller:1990aa}{}%
-81. Mueller UW, Hawes CS, Wright AE, et al. Isolation of fetal trophoblast cells from peripheral blood of pregnant women. \emph{Lancet}. 336(8709):197-200.
+81. Mueller UW, Hawes CS, Wright AE, et al. Isolation of fetal trophoblast cells from peripheral blood of pregnant women. \emph{Lancet}. 1990;336(8709):197-200.
 
 \leavevmode\hypertarget{ref-bianchi:1990aa}{}%
-82. Bianchi DW, Flint AF, Pizzimenti MF, Knoll JH, Latt SA. Isolation of fetal dna from nucleated erythrocytes in maternal blood. \emph{Proc Natl Acad Sci U S A}. 87(9):3279-3283.
+82. Bianchi DW, Flint AF, Pizzimenti MF, Knoll JH, Latt SA. Isolation of fetal dna from nucleated erythrocytes in maternal blood. \emph{Proc Natl Acad Sci U S A}. 1990;87(9):3279-3283.
 
 \leavevmode\hypertarget{ref-lo:1997aa}{}%
-83. Lo YM, Corbetta N, Chamberlain PF, et al. Presence of fetal dna in maternal plasma and serum. \emph{Lancet}. 350(9076):485-487.
+83. Lo YM, Corbetta N, Chamberlain PF, et al. Presence of fetal dna in maternal plasma and serum. \emph{Lancet}. 1997;350(9076):485-487.
 
 \leavevmode\hypertarget{ref-scotchman:2020aa}{}%
-84. Scotchman E, Chandler NJ, Mellis R, Chitty LS. Noninvasive prenatal diagnosis of single-gene diseases: The next frontier. \emph{Clin Chem}. 66(1):53-60.
+84. Scotchman E, Chandler NJ, Mellis R, Chitty LS. Noninvasive prenatal diagnosis of single-gene diseases: The next frontier. \emph{Clin Chem}. 2020;66(1):53-60.
 
 \leavevmode\hypertarget{ref-marchuk:2018aa}{}%
 85. Marchuk DS, Crooks K, Strande N, et al. Increasing the diagnostic yield of exome sequencing by copy number variant analysis. \emph{PLoS One}. 2018;13(12):e0209185.
 
 \leavevmode\hypertarget{ref-retterer:2015aa}{}%
-86. Retterer K, Scuffins J, Schmidt D, et al. Assessing copy number from exome sequencing and exome array cgh based on cnv spectrum in a large clinical cohort. \emph{Genet Med}. 17(8):623-629.
+86. Retterer K, Scuffins J, Schmidt D, et al. Assessing copy number from exome sequencing and exome array cgh based on cnv spectrum in a large clinical cohort. \emph{Genet Med}. 2015;17(8):623-629.
 
 \leavevmode\hypertarget{ref-yao:2017aa}{}%
 87. Yao R, Zhang C, Yu T, et al. Evaluation of three read-depth based cnv detection tools using whole-exome sequencing data. \emph{Mol Cytogenet}. 2017;10:30.
 
 \leavevmode\hypertarget{ref-fromer:2012aa}{}%
-88. Fromer M, Moran JL, Chambert K, et al. Discovery and statistical genotyping of copy-number variation from whole-exome sequencing depth. \emph{Am J Hum Genet}. 91(4):597-607.
+88. Fromer M, Moran JL, Chambert K, et al. Discovery and statistical genotyping of copy-number variation from whole-exome sequencing depth. \emph{Am J Hum Genet}. 2012;91(4):597-607.
 
 \leavevmode\hypertarget{ref-jiang:2015aa}{}%
-89. Jiang Y, Oldridge DA, Diskin SJ, Zhang NR. CODEX: A normalization and copy number variation detection method for whole exome sequencing. \emph{Nucleic Acids Res}. 43(6):e39.
+89. Jiang Y, Oldridge DA, Diskin SJ, Zhang NR. CODEX: A normalization and copy number variation detection method for whole exome sequencing. \emph{Nucleic Acids Res}. 2015;43(6):e39.
 
 \leavevmode\hypertarget{ref-krumm:2012aa}{}%
-90. Krumm N, Sudmant PH, Ko A, et al. Copy number variation detection and genotyping from exome sequence data. \emph{Genome Res}. 22(8):1525-1532.
+90. Krumm N, Sudmant PH, Ko A, et al. Copy number variation detection and genotyping from exome sequence data. \emph{Genome Res}. 2012;22(8):1525-1532.
 
 \leavevmode\hypertarget{ref-truty:2019aa}{}%
-91. Truty R, Paul J, Kennemer M, et al. Prevalence and properties of intragenic copy-number variation in mendelian disease genes. \emph{Genet Med}. 21(1):114-123.
+91. Truty R, Paul J, Kennemer M, et al. Prevalence and properties of intragenic copy-number variation in mendelian disease genes. \emph{Genet Med}. 2019;21(1):114-123.
 
 \leavevmode\hypertarget{ref-benjamini:2012aa}{}%
-92. Benjamini Y, Speed TP. Summarizing and correcting the gc content bias in high-throughput sequencing. \emph{Nucleic Acids Res}. 40(10):e72.
+92. Benjamini Y, Speed TP. Summarizing and correcting the gc content bias in high-throughput sequencing. \emph{Nucleic Acids Res}. 2012;40(10):e72.
 
 \leavevmode\hypertarget{ref-kadalayil:2015aa}{}%
-93. Kadalayil L, Rafiq S, Rose-Zerilli MJJ, et al. Exome sequence read depth methods for identifying copy number changes. \emph{Brief Bioinform}. 16(3):380-392.
+93. Kadalayil L, Rafiq S, Rose-Zerilli MJJ, et al. Exome sequence read depth methods for identifying copy number changes. \emph{Brief Bioinform}. 2015;16(3):380-392.
 
 \leavevmode\hypertarget{ref-chiang:2009aa}{}%
-94. Chiang DY, Getz G, Jaffe DB, et al. High-resolution mapping of copy-number alterations with massively parallel sequencing. \emph{Nat Methods}. 6(1):99-103.
+94. Chiang DY, Getz G, Jaffe DB, et al. High-resolution mapping of copy-number alterations with massively parallel sequencing. \emph{Nat Methods}. 2009;6(1):99-103.
 
 \leavevmode\hypertarget{ref-foreman:2013aa}{}%
-95. Foreman AKM, Lee K, Evans JP. The NCGENES project: Exploring the new world of genome sequencing. \emph{N C Med J}. 74(6):500-504.
+95. Foreman AKM, Lee K, Evans JP. The NCGENES project: Exploring the new world of genome sequencing. \emph{N C Med J}. 2013;74(6):500-504.
 
 \leavevmode\hypertarget{ref-li:2013ab}{}%
 96. Li H. Aligning sequence reads, clone sequences and assembly contigs with bwa-mem. Published online 2013.
 
 \leavevmode\hypertarget{ref-koster:2012aa}{}%
-97. Koster J, Rahmann S. Snakemake--a scalable bioinformatics workflow engine. \emph{Bioinformatics}. 28(19):2520-2522.
+97. Koster J, Rahmann S. Snakemake--a scalable bioinformatics workflow engine. \emph{Bioinformatics}. 2012;28(19):2520-2522.
 
 \leavevmode\hypertarget{ref-trost:2018aa}{}%
-98. Trost B, Walker S, Wang Z, et al. A comprehensive workflow for read depth-based identification of copy-number variation from whole-genome sequence data. \emph{Am J Hum Genet}. 102(1):142-155.
+98. Trost B, Walker S, Wang Z, et al. A comprehensive workflow for read depth-based identification of copy-number variation from whole-genome sequence data. \emph{Am J Hum Genet}. 2018;102(1):142-155.
 
 \leavevmode\hypertarget{ref-yu:2013aa}{}%
-99. Yu D, Huber W, Vitek O. Shrinkage estimation of dispersion in negative binomial models for rna-seq experiments with small sample size. \emph{Bioinformatics}. 29(10):1275-1282.
+99. Yu D, Huber W, Vitek O. Shrinkage estimation of dispersion in negative binomial models for rna-seq experiments with small sample size. \emph{Bioinformatics}. 2013;29(10):1275-1282.
 
 \leavevmode\hypertarget{ref-benjamini:1995aa}{}%
 100. Benjamini Y, Hochberg Y. Controlling the false discovery rate: A practical and powerful approach to multiple testing. \emph{Journal of the Royal Statistical Society: Series B (Methodological)}. 1995;57(1):289-300.
@@ -1916,79 +1939,79 @@ I would select roughly 100 predicted variants, shared across multiple samples, a
 101. Minka TP. \emph{Estimating a Dirichlet Distribution}.; 2000.
 
 \leavevmode\hypertarget{ref-matthews:1975aa}{}%
-102. Matthews BW. Comparison of the predicted and observed secondary structure of t4 phage lysozyme. \emph{Biochim Biophys Acta}. 405(2):442-451.
+102. Matthews BW. Comparison of the predicted and observed secondary structure of t4 phage lysozyme. \emph{Biochim Biophys Acta}. 1975;405(2):442-451.
 
 \leavevmode\hypertarget{ref-neiman:2012aa}{}%
 103. Neiman M, Sundling S, Grönberg H, et al. Library preparation and multiplex capture for massive parallel sequencing applications made efficient and easy. \emph{PLOS ONE}. 2012;7(11):1-6.
 
 \leavevmode\hypertarget{ref-ramos:2012aa}{}%
-104. Ramos E, Levinson BT, Chasnoff S, et al. Population-based rare variant detection via pooled exome or custom hybridization capture with or without individual indexing. \emph{BMC Genomics}. 13:683.
+104. Ramos E, Levinson BT, Chasnoff S, et al. Population-based rare variant detection via pooled exome or custom hybridization capture with or without individual indexing. \emph{BMC Genomics}. 2012;13:683.
 
 \leavevmode\hypertarget{ref-rohland:2012aa}{}%
-105. Rohland N, Reich D. Cost-effective, high-throughput dna sequencing libraries for multiplexed target capture. \emph{Genome Res}. 22(5):939-946.
+105. Rohland N, Reich D. Cost-effective, high-throughput dna sequencing libraries for multiplexed target capture. \emph{Genome Res}. 2012;22(5):939-946.
 
 \leavevmode\hypertarget{ref-wesolowska:2011aa}{}%
-106. Wesolowska A, Dalgaard MD, Borst L, et al. Cost-effective multiplexing before capture allows screening of 25 000 clinically relevant snps in childhood acute lymphoblastic leukemia. \emph{Leukemia}. 25(6):1001-1006.
+106. Wesolowska A, Dalgaard MD, Borst L, et al. Cost-effective multiplexing before capture allows screening of 25 000 clinically relevant snps in childhood acute lymphoblastic leukemia. \emph{Leukemia}. 2011;25(6):1001-1006.
 
 \leavevmode\hypertarget{ref-shearer:2012aa}{}%
-107. Shearer AE, Hildebrand MS, Ravi H, et al. Pre-capture multiplexing improves efficiency and cost-effectiveness of targeted genomic enrichment. \emph{BMC Genomics}. 13:618.
+107. Shearer AE, Hildebrand MS, Ravi H, et al. Pre-capture multiplexing improves efficiency and cost-effectiveness of targeted genomic enrichment. \emph{BMC Genomics}. 2012;13:618.
 
 \leavevmode\hypertarget{ref-mackie:2017aa}{}%
-108. Mackie FL, Hemming K, Allen S, Morris RK, Kilby MD. The accuracy of cell-free fetal dna-based non-invasive prenatal testing in singleton pregnancies: A systematic review and bivariate meta-analysis. \emph{BJOG}. 124(1):32-46.
+108. Mackie FL, Hemming K, Allen S, Morris RK, Kilby MD. The accuracy of cell-free fetal dna-based non-invasive prenatal testing in singleton pregnancies: A systematic review and bivariate meta-analysis. \emph{BJOG}. 2017;124(1):32-46.
 
 \leavevmode\hypertarget{ref-zhang:2019aa}{}%
-109. Zhang J, Li J, Saucier JB, et al. Non-invasive prenatal sequencing for multiple mendelian monogenic disorders using circulating cell-free fetal dna. \emph{Nat Med}.
+109. Zhang J, Li J, Saucier JB, et al. Non-invasive prenatal sequencing for multiple mendelian monogenic disorders using circulating cell-free fetal dna. \emph{Nat Med}. Published online January 2019.
 
 \leavevmode\hypertarget{ref-tsao:2019ab}{}%
-110. Tsao DS, Silas S, Landry BP, et al. A novel high-throughput molecular counting method with single base-pair resolution enables accurate single-gene nipt. \emph{Sci Rep}. 9(1):14382.
+110. Tsao DS, Silas S, Landry BP, et al. A novel high-throughput molecular counting method with single base-pair resolution enables accurate single-gene nipt. \emph{Sci Rep}. 2019;9(1):14382.
 
 \leavevmode\hypertarget{ref-lo:2010aa}{}%
-111. Lo YMD, Chan KCA, Sun H, et al. Maternal plasma dna sequencing reveals the genome-wide genetic and mutational profile of the fetus. \emph{Sci Transl Med}. 2(61):61ra91.
+111. Lo YMD, Chan KCA, Sun H, et al. Maternal plasma dna sequencing reveals the genome-wide genetic and mutational profile of the fetus. \emph{Sci Transl Med}. 2010;2(61):61ra91.
 
 \leavevmode\hypertarget{ref-hui:2017aa}{}%
-112. Hui WWI, Jiang P, Tong YK, et al. Universal haplotype-based noninvasive prenatal testing for single gene diseases. \emph{Clin Chem}. 63(2):513-524.
+112. Hui WWI, Jiang P, Tong YK, et al. Universal haplotype-based noninvasive prenatal testing for single gene diseases. \emph{Clin Chem}. 2017;63(2):513-524.
 
 \leavevmode\hypertarget{ref-jang:2018aa}{}%
-113. Jang SS, Lim BC, Yoo S-K, et al. Targeted linked-read sequencing for direct haplotype phasing of maternal dmd alleles: A practical and reliable method for noninvasive prenatal diagnosis. \emph{Sci Rep}. 8(1):8678.
+113. Jang SS, Lim BC, Yoo S-K, et al. Targeted linked-read sequencing for direct haplotype phasing of maternal dmd alleles: A practical and reliable method for noninvasive prenatal diagnosis. \emph{Sci Rep}. 2018;8(1):8678.
 
 \leavevmode\hypertarget{ref-vermeulen:2017aa}{}%
-114. Vermeulen C, Geeven G, Wit E de, et al. Sensitive monogenic noninvasive prenatal diagnosis by targeted haplotyping. \emph{Am J Hum Genet}. 101(3):326-339.
+114. Vermeulen C, Geeven G, Wit E de, et al. Sensitive monogenic noninvasive prenatal diagnosis by targeted haplotyping. \emph{Am J Hum Genet}. 2017;101(3):326-339.
 
 \leavevmode\hypertarget{ref-chandler:2020aa}{}%
-115. Chandler NJ, Ahlfors H, Drury S, et al. Noninvasive prenatal diagnosis for cystic fibrosis: Implementation, uptake, outcome, and implications. \emph{Clin Chem}. 66(1):207-216.
+115. Chandler NJ, Ahlfors H, Drury S, et al. Noninvasive prenatal diagnosis for cystic fibrosis: Implementation, uptake, outcome, and implications. \emph{Clin Chem}. 2020;66(1):207-216.
 
 \leavevmode\hypertarget{ref-salomon:2019aa}{}%
-116. Salomon LJ, Sotiriadis A, Wulff CB, Odibo A, Akolekar R. Risk of miscarriage following amniocentesis or chorionic villus sampling: Systematic review of literature and updated meta-analysis. \emph{Ultrasound Obstet Gynecol}. 54(4):442-451.
+116. Salomon LJ, Sotiriadis A, Wulff CB, Odibo A, Akolekar R. Risk of miscarriage following amniocentesis or chorionic villus sampling: Systematic review of literature and updated meta-analysis. \emph{Ultrasound Obstet Gynecol}. 2019;54(4):442-451.
 
 \leavevmode\hypertarget{ref-fan:2012aa}{}%
-117. Fan HC, Gu W, Wang J, Blumenfeld YJ, El-Sayed YY, Quake SR. Non-invasive prenatal measurement of the fetal genome. \emph{Nature}. 487(7407):320-324.
+117. Fan HC, Gu W, Wang J, Blumenfeld YJ, El-Sayed YY, Quake SR. Non-invasive prenatal measurement of the fetal genome. \emph{Nature}. 2012;487(7407):320-324.
 
 \leavevmode\hypertarget{ref-kitzman:2012aa}{}%
-118. Kitzman JO, Snyder MW, Ventura M, et al. Noninvasive whole-genome sequencing of a human fetus. \emph{Sci Transl Med}. 4(137):137ra76.
+118. Kitzman JO, Snyder MW, Ventura M, et al. Noninvasive whole-genome sequencing of a human fetus. \emph{Sci Transl Med}. 2012;4(137):137ra76.
 
 \leavevmode\hypertarget{ref-snyder:2013aa}{}%
-119. Snyder MW, Simmons LE, Kitzman JO, et al. Noninvasive fetal genome sequencing: A primer. \emph{Prenat Diagn}. 33(6):547-554.
+119. Snyder MW, Simmons LE, Kitzman JO, et al. Noninvasive fetal genome sequencing: A primer. \emph{Prenat Diagn}. 2013;33(6):547-554.
 
 \leavevmode\hypertarget{ref-seaby:2016aa}{}%
-120. Seaby EG, Pengelly RJ, Ennis S. Exome sequencing explained: A practical guide to its clinical application. \emph{Brief Funct Genomics}. 15(5):374-384.
+120. Seaby EG, Pengelly RJ, Ennis S. Exome sequencing explained: A practical guide to its clinical application. \emph{Brief Funct Genomics}. 2016;15(5):374-384.
 
 \leavevmode\hypertarget{ref-r-core-team:2019aa}{}%
 121. R Core Team. \emph{R: A Language and Environment for Statistical Computing}. R Foundation for Statistical Computing; 2019.
 
 \leavevmode\hypertarget{ref-chan:2004aa}{}%
-122. Chan KCA, Zhang J, Hui ABY, et al. Size distributions of maternal and fetal dna in maternal plasma. \emph{Clin Chem}. 50(1):88-92.
+122. Chan KCA, Zhang J, Hui ABY, et al. Size distributions of maternal and fetal dna in maternal plasma. \emph{Clin Chem}. 2004;50(1):88-92.
 
 \leavevmode\hypertarget{ref-chan:2016aa}{}%
-123. Chan KCA, Jiang P, Sun K, et al. Second generation noninvasive fetal genome analysis reveals de novo mutations, single-base parental inheritance, and preferred dna ends. \emph{Proc Natl Acad Sci U S A}. 113(50):E8159-E8168.
+123. Chan KCA, Jiang P, Sun K, et al. Second generation noninvasive fetal genome analysis reveals de novo mutations, single-base parental inheritance, and preferred dna ends. \emph{Proc Natl Acad Sci U S A}. 2016;113(50):E8159-E8168.
 
 \leavevmode\hypertarget{ref-jiang:2016ab}{}%
-124. Jiang P, Lo YMD. The long and short of circulating cell-free dna and the ins and outs of molecular diagnostics. \emph{Trends Genet}. 32(6):360-371.
+124. Jiang P, Lo YMD. The long and short of circulating cell-free dna and the ins and outs of molecular diagnostics. \emph{Trends Genet}. 2016;32(6):360-371.
 
 \leavevmode\hypertarget{ref-rabinowitz:2019aa}{}%
-125. Rabinowitz T, Polsky A, Golan D, et al. Bayesian-based noninvasive prenatal diagnosis of single-gene disorders. \emph{Genome Res}. 29(3):428-438.
+125. Rabinowitz T, Polsky A, Golan D, et al. Bayesian-based noninvasive prenatal diagnosis of single-gene disorders. \emph{Genome Res}. 2019;29(3):428-438.
 
 \leavevmode\hypertarget{ref-kinnings:2015aa}{}%
-126. Kinnings SL, Geis JA, Almasri E, et al. Factors affecting levels of circulating cell-free fetal dna in maternal plasma and their implications for noninvasive prenatal testing. \emph{Prenat Diagn}. 35(8):816-822.
+126. Kinnings SL, Geis JA, Almasri E, et al. Factors affecting levels of circulating cell-free fetal dna in maternal plasma and their implications for noninvasive prenatal testing. \emph{Prenat Diagn}. 2015;35(8):816-822.
 
 \hypertarget{appendix-appendix}{%
 \appendix}
