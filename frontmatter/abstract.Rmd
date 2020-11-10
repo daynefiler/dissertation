@@ -1,8 +1,8 @@
 The discovery of DNA fundamentally changed the world, revolutionizing our understanding of life and the practice of medicine.
 After a century of studying DNA, medicine entered a new frontier with the completion of the nearly 20-year billion-dollar effort to sequence the first human genome.
-We now have the ability to sequence a human genome in the matter of days and a couple hundred dollars.
-Technological advances and robust efforts of the medical genetics community to interpret human variation have led to exponential growth of clinical sequencing.
-The medical genetics community currently faces three primary challenges: (1) variant interpretation; (2) overcoming difficult detection problems (e.g. structural variants and low-frequency variants); (3) moving beyond a linear poorly-representative reference genome. 
+We can now sequence a human genome in a matter of days for hundreds (not billions) of dollars.
+Technological advances and medical geneticists' robust efforts to interpret human variation have led to exponential clinical sequencing growth.
+The medical genetics community currently faces three primary challenges: (1) variant interpretation; (2) overcoming difficult detection problems (e.g., structural variants and low-frequency variants); (3) moving beyond a linear poorly-representative reference genome. 
 The work herein addresses how to overcome two specific detection problems.
 
 First, I present a novel approach for detecting exon-level copy number variation using exome sequencing.
@@ -11,7 +11,7 @@ I demonstrate how modifying the exome capture step to capture multiple samples s
 I then demonstrate the utility of a novel statistical algorithm specifically for multiplexed-capture exome sequencing.
 
 Second, I outline the shortcomings of noninvasive exome sequencing in prenatal genetics.
-Utilizing cell-free fetal DNA in maternal circulation, we have the ability to diagnose a wide range of genetic conditions noninvasively.
+Utilizing cell-free fetal DNA in maternal circulation, we can diagnose a wide range of genetic conditions noninvasively.
 Efforts have suggested the possibility of noninvasive fetal genome and exome sequencing.
 However, to-date, no one has demonstrated accurate fetal genotyping purely from cell-free DNA.
 I use probability theory to demonstrate why efforts have failed, and suggest a path forward for noninvasive fetal genotyping.
