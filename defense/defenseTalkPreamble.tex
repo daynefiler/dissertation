@@ -1,0 +1,77 @@
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{wasysym}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{multicol}
+
+%% For kableExtra
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable} 
+\usepackage{threeparttablex} 
+\usepackage[normalem]{ulem} 
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\usetheme[numbering=none]{metropolis}
+
+\institute{
+Department of Genetics, Curriculum in Bioinformatics \& Computational Biology \\
+Renaissance Computing Institute
+}
+
+\setbeamertemplate{title page}[empty]
+% \setbeamertemplate{navigation symbols}{%
+% \hyperlink{apptoc}{\beamerbutton{*}}
+% }
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\textwidth, sep=3ex]{footline}%
+    \usebeamerfont{page number in head/foot}%
+    \usebeamertemplate*{frame footer}
+    \hfill%
+    \hyperlink{maintoc}{\textcolor{uncnavy}{{$\in$}}}
+    \hyperlink{apptoc}{\textcolor{uncnavy}{{$\ni$}}}
+  \end{beamercolorbox}%
+}
+% \titlegraphic{\vspace{4cm}\flushright\includegraphics[width=0.3\textwidth]{RENCI-logo.png}}
+
+\definecolor{uncblue}{HTML}{4B9CD3}
+\definecolor{uncnavy}{HTML}{13294B}
+\definecolor{uncblck}{HTML}{151515}
+\definecolor{uncgray}{HTML}{F8F8F8}
+\definecolor{gray85}{HTML}{D9D9D9}
+
+% \setbeamercolor{palette primary}{fg=uncblue}
+% \setbeamercolor{palette secondary}{fg=uncnavy}
+% \setbeamercolor{palette tertiary}{fg=uncblue}
+% \setbeamercolor{palette quaternary}{fg=uncblue}
+% \setbeamercolor{separation line}{fg=uncblue}
+\setbeamercolor{progress bar}{fg=uncblue,bg=uncnavy}
+\setbeamercolor{frametitle}{fg=uncnavy,bg=uncblue}
+\setbeamercolor{title}{fg=uncnavy,bg=uncgray}
+\setbeamercolor{local structure}{fg=uncblue}
+\setbeamercolor{normal text}{fg=uncblck,bg=uncgray}
+\setbeamercolor{section in toc}{fg=uncblue,bg=uncgray}
+\setbeamercolor{item projected}{fg=uncblue,bg=uncgray}
+% \setbeamercolor{title separator}{fg=uncblue,bg=uncgray}
+
+\setbeamertemplate{itemize item}{\color{uncblue}$\bullet$}
+\setbeamertemplate{itemize subitem}{\color{uncblue}\textbf{-}}
+
+\let\Tiny=\tiny
+
+\AtBeginPart{}
+\AtBeginSubsection{}
+\AtBeginSubsubsection{}
+\setlength{\emergencystretch}{0em}
+\setlength{\parskip}{0pt}
