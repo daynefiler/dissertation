@@ -6,3 +6,5 @@ _bookdown_files
 *.Rproj
 *.log
 _book/*.docx
+defense/*.log
+defense/defense_cache
