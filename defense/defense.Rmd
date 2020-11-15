@@ -164,24 +164,18 @@ axis(side = 2)
 mtext(side = 3, line = 1.5, "Duplications", col = uncnavy, font = 2)
 ```
 
-### The current state-of-the-art: ExomeDepth
-
-\centering
-![](images/exomeDepth.png)
-\raggedright
-
-* ExomeDepth builds a comparative model based on the beta-binomial distribution
-
-* Begins by finding highly-correlated samples to build a control vector
-
-* Defaults to an expected CNV size of 50kb -- it does not perform well for small (exon level) variation
-
 ## Better capturing the exome
 
-### Exome capture
+### Why exome sequencing?
+
+* Only 1-2% of our DNA codes for protein (exome)
+
+* Sequencing only the exome is cost-efficient and easier to interpret
+
+\bigskip
 
 \centering
-![](images/captureBubble.pdf)
+![](images/captureBubble.pdf){height=50%}
 
 ### Exon-to-exon capture variation
 
@@ -195,6 +189,18 @@ hist(exonCts, breaks = 50, col = uncblue,
 title(xlab = "Counts per exon")
 axis(side = 1)
 ```
+
+### The current state-of-the-art: ExomeDepth
+
+\centering
+![](images/exomeDepth.png)
+\raggedright
+
+* ExomeDepth builds a comparative model based on the beta-binomial distribution
+
+* Begins by finding highly-correlated samples to build a control vector
+
+* Defaults to an expected CNV size of 50kb -- not expected to perform well for small (exon level) variation
 
 ### Can we better capture exomes?
 
@@ -210,7 +216,8 @@ kable(poolTbl[ , .(pool, capture, N, medExon, medTotal, rsdTotal)],
       row.names = FALSE, 
       format.args = list(big.mark = ",", scientific = FALSE),
       booktabs = TRUE,
-      escape = FALSE)
+      escape = FALSE,
+      linesep = "")
 ```
 
 ### Can we better capture exomes?
@@ -241,12 +248,6 @@ with(mnvr[pool %in% idtPools], {
               colVec = c(uncblue, uncnavy, uncblue),
               lgnd = FALSE)
 })
-```
-
-### Can we better capture exomes?
-
-```{r medIntMolCount}
-pltSubjectStatByPool("medIntMolCount", ylab = "Median count per exon")
 ```
 
 ### Can we better capture exomes?
@@ -730,6 +731,12 @@ title(main = "Case 3", line = 1)
 \label{apptoc}
 
 \tableofcontents
+
+## Median count per exon
+
+```{r medIntMolCount}
+pltSubjectStatByPool("medIntMolCount", ylab = "Median count per exon")
+```
 
 ## Produce simulated exomes
 

@@ -304,6 +304,35 @@ clinically significant result.
 
 \end{frame}
 
+\hypertarget{better-capturing-the-exome}{%
+\subsection{Better capturing the
+exome}\label{better-capturing-the-exome}}
+
+\begin{frame}{Why exome sequencing?}
+\protect\hypertarget{why-exome-sequencing}{}
+
+\begin{itemize}
+\item
+  Only 1-2\% of our DNA codes for protein (exome)
+\item
+  Sequencing only the exome is cost-efficient and easier to interpret
+\end{itemize}
+
+\bigskip
+
+\centering
+
+\includegraphics[width=\textwidth,height=0.5\textheight]{images/captureBubble.pdf}
+
+\end{frame}
+
+\begin{frame}{Exon-to-exon capture variation}
+\protect\hypertarget{exon-to-exon-capture-variation}{}
+
+\begin{center}\includegraphics{defense_files/figure-beamer/exonCapVar-1} \end{center}
+
+\end{frame}
+
 \begin{frame}{The current state-of-the-art: ExomeDepth}
 \protect\hypertarget{the-current-state-of-the-art-exomedepth}{}
 
@@ -318,29 +347,9 @@ clinically significant result.
 \item
   Begins by finding highly-correlated samples to build a control vector
 \item
-  Defaults to an expected CNV size of 50kb -- it does not perform well
-  for small (exon level) variation
+  Defaults to an expected CNV size of 50kb -- not expected to perform
+  well for small (exon level) variation
 \end{itemize}
-
-\end{frame}
-
-\hypertarget{better-capturing-the-exome}{%
-\subsection{Better capturing the
-exome}\label{better-capturing-the-exome}}
-
-\begin{frame}{Exome capture}
-\protect\hypertarget{exome-capture}{}
-
-\centering
-
-\includegraphics{images/captureBubble.pdf}
-
-\end{frame}
-
-\begin{frame}{Exon-to-exon capture variation}
-\protect\hypertarget{exon-to-exon-capture-variation}{}
-
-\begin{center}\includegraphics{defense_files/figure-beamer/exonCapVar-1} \end{center}
 
 \end{frame}
 
@@ -367,7 +376,6 @@ IDT-MC & IDT & 16 & 93 & 29,772,684 & 64.2\\
 IDT-RR & IDT & 16 & 272 & 79,079,629 & 22.9\\
 NCGENES$^\dagger$ & Agilent & 112 & 93 & 24,451,245 & 27.6\\
 Pool1 & Agilent & 16 & 56 & 13,265,614 & 18.5\\
-\addlinespace
 Pool2 & Agilent & 16 & 86 & 21,076,056 & 27.6\\
 SMA1 & Agilent & 8 & 56 & 12,256,002 & 6.2\\
 SMA2 & Agilent & 8 & 25 & 5,622,040 & 10.4\\
@@ -401,33 +409,26 @@ WGS & Agilent & 16 & 196 & 46,406,224 & 16.4\\
 \begin{frame}{Can we better capture exomes?}
 \protect\hypertarget{can-we-better-capture-exomes-5}{}
 
-\begin{center}\includegraphics{defense_files/figure-beamer/medIntMolCount-1} \end{center}
+\begin{center}\includegraphics{defense_files/figure-beamer/nSelected-1} \end{center}
 
 \end{frame}
 
 \begin{frame}{Can we better capture exomes?}
 \protect\hypertarget{can-we-better-capture-exomes-6}{}
 
-\begin{center}\includegraphics{defense_files/figure-beamer/nSelected-1} \end{center}
+\begin{center}\includegraphics{defense_files/figure-beamer/propSelected-1} \end{center}
 
 \end{frame}
 
 \begin{frame}{Can we better capture exomes?}
 \protect\hypertarget{can-we-better-capture-exomes-7}{}
 
-\begin{center}\includegraphics{defense_files/figure-beamer/propSelected-1} \end{center}
-
-\end{frame}
-
-\begin{frame}{Can we better capture exomes?}
-\protect\hypertarget{can-we-better-capture-exomes-8}{}
-
 \begin{center}\includegraphics{defense_files/figure-beamer/overallPhi-1} \end{center}
 
 \end{frame}
 
 \begin{frame}{Can we better capture exomes?}
-\protect\hypertarget{can-we-better-capture-exomes-9}{}
+\protect\hypertarget{can-we-better-capture-exomes-8}{}
 
 \bigskip
 
@@ -960,6 +961,15 @@ sequencing}
 \label{apptoc}
 
 \tableofcontents
+
+\end{frame}
+
+\hypertarget{median-count-per-exon}{%
+\subsection{Median count per exon}\label{median-count-per-exon}}
+
+\begin{frame}{Median count per exon}
+
+\begin{center}\includegraphics{defense_files/figure-beamer/medIntMolCount-1} \end{center}
 
 \end{frame}
 
