@@ -712,6 +712,7 @@ title(main = "Case 3", line = 1)
     \item Carol Herrion
     \item Amber Brosius
   \end{itemize}
+  \item \textcolor{uncnavy}{\textbf{Family \& Friends}}
 \end{itemize}
 \end{minipage}
 
@@ -736,6 +737,89 @@ title(main = "Case 3", line = 1)
 
 ```{r medIntMolCount}
 pltSubjectStatByPool("medIntMolCount", ylab = "Median count per exon")
+```
+
+## Negative binomial distribution
+
+### Negavtive binomial distribution
+
+Poisson process: count the number of discrete events in a specific time frame. 
+
+\bigskip
+\centering
+\large
+$K \sim \text{Poisson}(\lambda) = e^{-\lambda}\frac{\lambda^k}{k!}; k \in \{0, 1, 2, \dots\}$
+
+\bigskip
+
+\textcolor{uncblue}{$\text{mean}(K) = \text{variance}(K) = \lambda$}
+
+```{r poisPlt, fig.height=2}
+poisPlot <- function(mn, x) {
+  dp <- dpois(x, mn)
+  par(mar = c(4, 1, 1, 1))
+  plot.new()
+  plot.window(ylim = c(0, max(dp)), xlim = range(x))
+  axis(side = 1)
+  points(dp, type = "h", col = "gray50", lwd = 2)
+  text(x = grconvertX(0.65, "nfc", "user"), 
+       y = grconvertY(0.85, "nfc", "user"),
+       expression(x %~% Poisson(lambda == 10)), 
+       adj = c(0, 0.5), col = "gray50")
+}
+# poisPlot(10, 0:28)
+```
+
+### Negavtive binomial distribution
+
+Negative binomial process: count the number of expected failures before a set number of successes. 
+  
+\begin{align*}
+  \text{Pr}\left\{X = x \rvert p, r\right\} & = {r + x - 1 \choose x}(1 - p)^xp^r \\ 
+  \text{E}[X] & = \frac{r(1 - p)}{p} \\
+  \text{Var}(X) & = \frac{r(1-p)}{p^2}
+\end{align*}
+  
+Where $p$ is the probability of success for each trial & $r$ is the set number of successful trials. 
+  
+### Negavtive binomial distribution
+
+However, we can redefine the probability and size as follows:
+$$
+p = \frac{1}{\mu\phi + 1}, \quad r = \frac{1}{\phi}
+$$
+then,
+$$
+\text{Pr}\left\{X = x \rvert \mu, \phi\right\} = {\frac{1}{\phi} + x - 1 \choose x}\left(\frac{\mu\phi}{\mu\phi + 1}\right)^x\left(\frac{1}{\mu\phi + 1}\right)^{\frac{1}{\phi}}
+$$
+\textcolor{uncblue}{
+\begin{align*}
+\text{E}[X] & = \mu \\
+\text{Var}(X) & = \mu + \mu^2\phi
+\end{align*}
+}
+
+### Negative binomial distribution
+
+```{r nbPlt, fig.height=3.5}
+phi <- 0.15
+mn <- 10
+par(mar = c(4, 1, 1, 1))
+plot.new()
+xvals <- 0:28
+dp <- dpois(xvals, 10)
+dn <- dnbinom(xvals, 1/phi, 1/(mn*phi + 1))
+plot.window(ylim = c(0, max(dp, dn)), 
+            xlim = range(xvals))
+axis(side = 1)
+points(xvals, dp, type = "h", col = "gray50", lwd = 2)
+points(xvals, dn, type = "l", col = uncblue, lwd = 2)
+text(x = grconvertX(0.5, "nfc"), y = grconvertY(0.9, "nfc"),
+     expression(Poisson(lambda == 10)), col = "gray50", 
+     adj = c(0, 0.5))
+text(x = grconvertX(0.5, "nfc"), y = grconvertY(0.8, "nfc"),
+     expression(NegBinom(mu == 10, phi == 0.15)), col = uncblue, 
+     adj = c(0, 0.5))
 ```
 
 ## Produce simulated exomes

@@ -937,6 +937,7 @@ sequencing}
     \item Carol Herrion
     \item Amber Brosius
   \end{itemize}
+  \item \textcolor{uncnavy}{\textbf{Family \& Friends}}
 \end{itemize}
 \end{minipage}
 
@@ -970,6 +971,68 @@ sequencing}
 \begin{frame}{Median count per exon}
 
 \begin{center}\includegraphics{defense_files/figure-beamer/medIntMolCount-1} \end{center}
+
+\end{frame}
+
+\hypertarget{negative-binomial-distribution}{%
+\subsection{Negative binomial
+distribution}\label{negative-binomial-distribution}}
+
+\begin{frame}{Negavtive binomial distribution}
+\protect\hypertarget{negavtive-binomial-distribution}{}
+
+Poisson process: count the number of discrete events in a specific time
+frame.
+
+\bigskip
+\centering
+\large
+
+\(K \sim \text{Poisson}(\lambda) = e^{-\lambda}\frac{\lambda^k}{k!}; k \in \{0, 1, 2, \dots\}\)
+
+\bigskip
+
+\textcolor{uncblue}{$\text{mean}(K) = \text{variance}(K) = \lambda$}
+
+\end{frame}
+
+\begin{frame}{Negavtive binomial distribution}
+\protect\hypertarget{negavtive-binomial-distribution-1}{}
+
+Negative binomial process: count the number of expected failures before
+a set number of successes.
+
+\begin{align*}
+  \text{Pr}\left\{X = x \rvert p, r\right\} & = {r + x - 1 \choose x}(1 - p)^xp^r \\ 
+  \text{E}[X] & = \frac{r(1 - p)}{p} \\
+  \text{Var}(X) & = \frac{r(1-p)}{p^2}
+\end{align*}
+
+Where \(p\) is the probability of success for each trial \& \(r\) is the
+set number of successful trials.
+
+\end{frame}
+
+\begin{frame}{Negavtive binomial distribution}
+\protect\hypertarget{negavtive-binomial-distribution-2}{}
+
+However, we can redefine the probability and size as follows: \[
+p = \frac{1}{\mu\phi + 1}, \quad r = \frac{1}{\phi}
+\] then, \[
+\text{Pr}\left\{X = x \rvert \mu, \phi\right\} = {\frac{1}{\phi} + x - 1 \choose x}\left(\frac{\mu\phi}{\mu\phi + 1}\right)^x\left(\frac{1}{\mu\phi + 1}\right)^{\frac{1}{\phi}}
+\] \textcolor{uncblue}{
+\begin{align*}
+\text{E}[X] & = \mu \\
+\text{Var}(X) & = \mu + \mu^2\phi
+\end{align*}
+}
+
+\end{frame}
+
+\begin{frame}{Negative binomial distribution}
+\protect\hypertarget{negative-binomial-distribution-1}{}
+
+\begin{center}\includegraphics{defense_files/figure-beamer/nbPlt-1} \end{center}
 
 \end{frame}
 
