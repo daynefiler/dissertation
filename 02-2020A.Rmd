@@ -161,7 +161,8 @@ poolTbl <- subjectMeta[ ,
                        by = .(pool, capture, multiplexCapture)]
 poolTbl[ , rsdTotal := round(rsdTotal, 1)]
 poolTbl[(!multiplexCapture), pool := paste0(pool, "$^\\dagger$")]
-kable(poolTbl[ , .(pool, capture, N, medExon, medTotal, minTotal, maxTotal, rsdTotal)], 
+kable(poolTbl[ , .(pool, capture, N, medExon, medTotal, 
+                   minTotal, maxTotal, rsdTotal)], 
       row.names = FALSE, 
       caption = '(ref:poolSummaryCap)',
       label = "poolSummary",
@@ -392,10 +393,10 @@ kable(simResTbl,
       col.names = c("dep", rep(c("mcCNV", "ED-def", "ED-sim"), 3)),
       row.names = FALSE, 
       caption = '(ref:simResTbl)',
+      caption.short = '(ref:simResScap)',
       label = "simResTbl",
       format.args = list(big.mark = ",", scientific = FALSE),
-      booktabs = TRUE,
-      caption.short = '(ref:simResScap)') %>%
+      booktabs = TRUE) %>%
   kable_classic() %>%
   add_header_above(c(" " = 1, "MCC" = 3, "TPR" = 3, "FDR" = 3))
 ```
@@ -447,15 +448,17 @@ ExomeDepth also predicted a disproportionate number of deletions for NCG_00790 a
 
 (ref:wgsCallSbjCap) Number of CNV calls by subject and algorithm for the 'WGS' pool. 'MC' indicates the mcCNV algorithm; 'ED' indicates the ExomeDepth algorithm; 'WG' indicates the overlap of ERDS/cnvpytor calls from matched whole-genome sequencing. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al. manuscript [@trost:2018aa], omitted from analysis.
 
+(ref:wgsCallSbjScap) Number of CNV calls by subject and algorithm for the 'WGS' pool.
+
 ```{r wgsCallSbj}
 kable(wgsCallBySbj,
       col.names = c("subject", rep(c("MC", "ED", "WG"), 3)),
       row.names = FALSE, 
       caption = '(ref:wgsCallSbjCap)',
+      caption.short = '(ref:wgsCallSbjScap)',
       label = "wgsCallSbj",
       format.args = list(big.mark = ",", scientific = FALSE),
-      booktabs = TRUE,
-      caption.short = "Number of CNV calls by subject and algorithm for the 'WGS' pool.") %>%
+      booktabs = TRUE) %>%
   kable_classic() %>%
   add_header_above(c(" " = 1, "Total" = 3, "Duplications" = 3, "Deletions" = 3))
 ```
@@ -492,6 +495,8 @@ predMetrics <- as.data.table(do.call(rbind, pmLst), keep.rownames = "PredSet")
 
 (ref:predMetCap) mcCNV (MC)/ExomeDepth (ED) calls for 'WGS' pool (used as prediction) versus the ERDS/cnvpytor calls from matched genome sequencing (used as truth). Calls are subdivided by duplications (DUP) and deletions (DEL). 'Full' gives performance across the full pool; 'Sub' gives the performance excluding the poorly correlated samples NCG_00790 and NCG_00851 (gray rows). 'MCC' is Matthew's correlation coefficient, 'TPR' is true positive rate/sensitivity, 'FDR' is false discovery rate, 'PPV' is positive predictive value, 'BalAcc' is balanced accuracy. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al. manuscript [@trost:2018aa], omitted from analysis.
 
+(ref:predMetScap) mcCNV and ExomeDepth performance predicting calls from genome sequencing.
+
 ```{r predMet}
 predMetrics[ , typ := rep(c("ALL", "DUP", "DEL"), each = 4)]
 predMetrics[ , set := ifelse(grepl("Sub", PredSet), "Sub", "Total")]
@@ -501,10 +506,10 @@ kable(predMetrics[ , .(typ, set, alg, MCC, TPR, FDR, PPV)],
       col.names = c(rep("", 3), "MCC", "TPR", "FDR", "PPV"),
       row.names = FALSE, 
       caption = '(ref:predMetCap)',
+      caption.short = '(ref:predMetScap)',
       label = "predMet",
       format.args = list(big.mark = ",", scientific = FALSE),
-      booktabs = TRUE,
-      caption.short = "mcCNV and ExomeDepth performance predicting calls from genome sequencing.") %>%
+      booktabs = TRUE) %>%
   kable_classic() %>%
   collapse_rows(columns = 1:3, valign = "middle")
 ```

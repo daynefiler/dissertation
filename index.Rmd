@@ -6,34 +6,32 @@ site: bookdown::bookdown_site
 documentclass: book
 url: 'https\://daynefiler.com/dissertation/_book/'
 github-repo: "daynefiler/dissertation"
-bibliography: [myBib.bib]
-csl: "style/american-medical-association-no-url.csl"
+bibliography: ['./myBib.bib']
+csl: './style/american-medical-association-no-url.csl'
 link-citations: yes
-always_allow_html: true
+always_allow_html: yes
 description: "Dissertation by Dayne Filer for the degree of Doctorate of Philosophy in the UNC School of Medicine Curriculum in Bioinformatics and Computational Biology."
-doctype: "dissertation" # dissertation or thesis
-degree: "Doctor of Philosophy" # name of degree
+doctype: "dissertation"
+degree: "Doctor of Philosophy"
 department: "Curriculum in Bioinformatics and Computational Biology"
-school: "School of Medicine" 
-advisor: Kirk C Wilhelmsen
+school: "School of Medicine"
+advisor: "Kirk C Wilhelmsen"
 committee:
-  - Bradford C Powell
-  - Kirk C Wilhelmsen
-  - Stan C Ahalt
-  - Yun Li
-  - Neeta L Vora
-
+  - "Bradford C Powell"
+  - "Kirk C Wilhelmsen"
+  - "Stan C Ahalt"
+  - "Yun Li"
+  - "Neeta L Vora"
 copyright: |
- `r if(knitr:::is_latex_output()) paste(readLines("frontmatter/copyright.Rmd"), collapse = "\n  ")`
-abstract: |
- `r if(knitr:::is_latex_output()) paste(readLines("frontmatter/abstract.Rmd"), collapse = "\n  ")`
+  `r paste(readLines("frontmatter/copyright.Rmd"), collapse = "\n  ")`
+abs: |
+  `r paste(readLines("frontmatter/abstract.Rmd"), collapse = "\n  ")`
 dedication: |
- `r if(knitr:::is_latex_output()) paste(readLines("frontmatter/dedication.Rmd"), collapse = "\n  ")`
-acknowledgments: | 
- `r if(knitr:::is_latex_output()) paste(readLines("frontmatter/acknowledgments.Rmd"), collapse = "\n  ")`
+  `r paste(readLines("frontmatter/dedication.Rmd"), collapse = "\n  ")`
+acknowledgments: |
+  `r paste(readLines("frontmatter/acknowledgments.Rmd"), collapse = "\n  ")`
 preface: |
- `r if(knitr:::is_latex_output()) paste(readLines("frontmatter/preface.Rmd"), collapse = "\n  ")`
-
+  `r paste(readLines("frontmatter/preface.Rmd"), collapse = "\n  ")`
 abbreviations:
   - {abv: "ATP", def: "adenosine triphosphate"}
   - {abv: "BCL", def: "binary base call (file format)"}

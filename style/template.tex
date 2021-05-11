@@ -8,13 +8,13 @@
 %  from Luke Zappia (https://github.com/lazappi/phd-thesis)
 %-------------------------------------------------------------------------------
 
-\documentclass[11pt,letterpaper]{book}
+\documentclass[11pt,letterpaper,oneside]{book}
 
 %-----Packages------------------------------------------------------------------
 %  External packages used in the document
 %-------------------------------------------------------------------------------
 
-\usepackage[margin=1in]{geometry}  % Page layout
+\usepackage[margin=1in,footskip=0.5in]{geometry}  % Page layout
 \usepackage{amsmath}   % American Mathematics Society standards
 \usepackage{amsxtra}   % Additional math symbols
 \usepackage{amssymb}   % Additional math symbols
@@ -47,11 +47,40 @@
 \usepackage{etoolbox}  % Helper package to edit macros
 \usepackage{multicol}  % Allow for mulicolumn text
 \usepackage{enumitem}  % List formatting
+\usepackage{listings}  % Wrap R code
+\usepackage{indentfirst}              % Indent first paragraphs
 \usepackage[backend=biber]{biblatex}  % Citation formating
 \usepackage[utf8]{inputenc}           % UTF-8 input encoding
 \usepackage[T1]{fontenc}              % Use 8-bit fonts
 \usepackage[hidelinks]{hyperref}      % Hyperlinks
 \usepackage[section]{placeins}        % Restrict floats to sections
+
+%-----Environments for pandoc---------------------------------------------------
+%  Add in environments so panddoc can create proper citations
+%-------------------------------------------------------------------------------
+
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{0em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{2em}
+\newenvironment{CSLReferences}[3] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc} % for \widthof, \maxof
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\maxof{\widthof{#1}}{\csllabelwidth}}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth-\csllabelwidth}{#1}\newline}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+$endif$
 
 %-----verbatimfont--------------------------------------------------------------
 %  Control the font for verbatim environments (used for code)
@@ -81,7 +110,7 @@ $endif$
   % \newgeometry{top=2in,left=1in,right=1in,bottom=1in}
 	\begin{center}
 	  \vspace*{0.8125in}
-	  \Large{{\MakeUppercase{$title$}}} \\ \vspace{1in} 
+	  {\MakeUppercase{$title$}} \\ \vspace{1in} 
 	  \normalsize 
   	$author$ \\ \vspace{1in} 
   	A $doctype$ submitted to the faculty of the University of North Carolina at Chapel Hill in partial fulfillment of the requirements for the degree of $degree$ in the $deprtment$ in the $school$.
@@ -101,27 +130,17 @@ $endif$
   % \restoregeometry
 }
 
-% Blank pages
-\newcommand*{\blankpage}{%
-\vspace*{\fill}
-{\centering Page intentionally left blank. \par}
-\vspace{\fill}}
-\makeatletter
-\renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
-\blankpage
-\thispagestyle{empty}
-\newpage
-\if@twocolumn\hbox{}\newpage\fi\fi\fi}
-\makeatother
+% Center chapter titles
+\titleformat{\chapter}[hang]%
+{\centering\normalsize\bfseries\MakeUppercase}%
+{\MakeUppercase{\chaptertitlename} \thechapter:}%
+{1em}%
+{}
+\titlespacing{\chapter}{0pt}{0.6875in}{0pt}
 
-% Center chapter titles, omit page numbers.
-\titleformat{\chapter}[block]%
-{\centering\bfseries\Large}%
-{\MakeUppercase{\chaptertitlename} \thechapter}%
-{0pt}%
-{\huge\singlespacing}%
-[\thispagestyle{empty}]
-\titlespacing*{\chapter}{0pt}{0.6875in}{40pt}
+% Format section & subsection 
+\titleformat{\section}[hang]{\normalsize\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}[runin]{\normalsize\bfseries}{\thesubsection}{1em}{}[:]
 
 % We want numbered subsubsections
 \setcounter{secnumdepth}{3}
@@ -139,17 +158,32 @@ $endif$
 \newcommand{\mytwoin}[1]{
 \vspace*{0.6875in}
 \begin{center}
-\bfseries\Large\MakeUppercase{#1}
+\bfseries\MakeUppercase{#1}
 \end{center}
 }
 
 \newcommand{\myonein}[1]{
 \begin{center}
-\bfseries\Large\MakeUppercase{#1}
+\bfseries\MakeUppercase{#1}
 \end{center}
 }
 
 % TOC formatting
+\makeatletter
+\let\oldcontentsline\contentsline
+\def\contentsline#1#2{%
+  \expandafter\ifx\csname l@#1\endcsname\l@chapter
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+  {%
+    \oldcontentsline{#1}{\MakeUppercase{#2}}%
+  }{%
+    \oldcontentsline{#1}{#2}%
+  }%
+}
+\makeatother %% above makes chapter titles all caps
 \renewcommand{\cftchapfont}{\normalsize}
 \renewcommand{\cftchappresnum}{CHAPTER }
 \renewcommand{\cftchapaftersnum}{:}
@@ -158,26 +192,26 @@ $endif$
 \renewcommand{\cftchappagefont}{\normalfont}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 \setlength{\cftbeforetoctitleskip}{61pt}
-\setlength{\cftaftertoctitleskip}{28pt}
-\renewcommand{\contentsname}{\bfseries\Large \hfill TABLE OF CONTENTS\hfill}   
+\setlength{\cftaftertoctitleskip}{14pt}
+\renewcommand{\contentsname}{\bfseries\normalsize \hfill TABLE OF CONTENTS\hfill}
 \renewcommand{\cftaftertoctitle}{\hfill}
 
 % LOF formatting
 \renewcommand{\listfigurename}{LIST OF FIGURES}
-\phantomsection
+% \phantomsection
 \setlength{\cftbeforeloftitleskip}{-11pt}
-\setlength{\cftafterloftitleskip}{22pt}
-\renewcommand{\cftloftitlefont}{\hfill\Large\bfseries}
+\setlength{\cftafterloftitleskip}{14pt}
+\renewcommand{\cftloftitlefont}{\hfill\bfseries}
 \renewcommand{\cftafterloftitle}{\hfill}
 \setlength{\cftbeforefigskip}{10pt}
 \cftsetrmarg{1.0in}
 
 % LOT formatting
 \renewcommand{\listtablename}{LIST OF TABLES}
-\phantomsection
+% \phantomsection
 \setlength{\cftbeforelottitleskip}{-11pt}
-\setlength{\cftafterlottitleskip}{22pt}
-\renewcommand{\cftlottitlefont}{\hfill\Large\bfseries}
+\setlength{\cftafterlottitleskip}{14pt}
+\renewcommand{\cftlottitlefont}{\hfill\bfseries}
 \renewcommand{\cftafterlottitle}{\hfill}
 \setlength{\cftbeforetabskip}{10pt}
 
@@ -186,6 +220,11 @@ $endif$
 $for(bibliography)$ 
   \addbibresource{$bibliography$}
 $endfor$
+
+% Wrap long R code
+\lstset{
+  breaklines=true
+}
 
 %-------------------------------------------------------------------------------
 %  Begin Document
@@ -203,8 +242,8 @@ $endif$
 \doublespacing
 
 $if(copyright)$
-  \cleardoublepage
-  \thispagestyle{empty}
+  \clearpage
+  % \thispagestyle{empty}
   \vspace*{\fill}
   \begin{center}
     \singlespacing
@@ -212,10 +251,11 @@ $if(copyright)$
     $author$ \\
     ALL RIGHTS RESERVED
   \end{center}
+  \vspace{1in}
 $endif$
 
-$if(abstract)$
-  \cleardoublepage
+$if(abs)$
+  \clearpage
   \mytwoin{abstract}
   \begin{center}
     \singlespacing
@@ -223,11 +263,11 @@ $if(abstract)$
   \end{center}
   
   \doublespacing
-  $abstract$
+  $abs$
 $endif$
 
 $if(dedication)$
-  \cleardoublepage
+  \clearpage
   \vspace*{0.75in}
   \begin{center}
     $dedication$
@@ -235,14 +275,16 @@ $if(dedication)$
 $endif$
 
 $if(acknowledgments)$
-  \cleardoublepage
+  \clearpage
   \mytwoin{Acknowledgments}
+  
   $acknowledgments$
 $endif$
 
 $if(preface)$
-  \cleardoublepage
+  \clearpage
   \mytwoin{Preface}
+  
   $preface$
 $endif$
 
@@ -250,25 +292,27 @@ $endif$
 
 %TOC
 \tableofcontents
-\cleardoublepage
+
+\phantom{\cite{?}}
 
 %LOF
+\newpage
 \phantomsection
-\listoffigures
 \addcontentsline{toc}{chapter}{LIST OF FIGURES}
-\cleardoublepage
+\listoffigures
 
 %LOT
+\newpage
 \phantomsection
 \addcontentsline{toc}{chapter}{LIST OF TABLES}
 \listoftables
-\cleardoublepage
 
 %LOA
+\newpage
 \phantomsection
 \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}
 \myonein{List of Abbreviations}
-\vspace{22pt}
+\vspace{14pt}
 \begin{multicols}{2}
 \begin{description}[font=\normalfont]
 $for(abbreviations)$
@@ -280,7 +324,5 @@ $endfor$
 \mainmatter
 
 $body$
-
-\backmatter
 
 \end{document}

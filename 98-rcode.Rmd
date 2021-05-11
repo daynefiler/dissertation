@@ -1,0 +1,19 @@
+# (APPENDIX) Appendix {-}
+
+\backmatter
+\singlespacing
+
+`r if (knitr::is_html_output()) '# R Code {-}'`
+
+<!-- This line tells Pandoc to put the references here -->
+\setlength{\parindent}{0ex}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{R CODE}
+\myonein{R CODE}
+
+This appendix contains all of the R code to reproduce the work presented. 
+Note, I have omitted the lines of code defining captions for figures/tables for formatting purposes.
+
+```{r ref.label=knitr::all_labels(), echo=-c(53, 162:163, 202:203, 234:235, 340, 432, 442), eval=FALSE}
+```

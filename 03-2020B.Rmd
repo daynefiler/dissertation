@@ -1,4 +1,4 @@
-# Shortcomings of exome sequencing in noninvasive prenatal genetics {#cfES}
+# Noninvasive prenatal exome sequencing pitfalls {#cfES}
 
 ## Introduction
 
@@ -428,7 +428,7 @@ pltExpMAF(500)
 
 (ref:binWeitzmanCap) Expected misclassification rate (Weitzman overlapping coefficient; i.e. the area of overlapping distributions in Figure \@ref(fig:binCI)) considering ABab versus ABbb as a function of sequencing depth and fetal fraction. The dashed horizontal line shows 5% error. The theoretical error rates for ABab vs ABaa are symmetric and equal; however, the frequency of errors will depend on the population frequency of the reference versus alternate allele.
 
-(ref:biWeitzmanScap) Expected misclassification rate comparing maternal and fetal genotyping.
+(ref:binWeitzmanScap) Expected misclassification rate comparing maternal and fetal genotyping.
 
 ```{r binWeitzman, fig.cap='(ref:binWeitzmanCap)', fig.scap='(ref:binWeitzmanScap)', out.width=defOutWid}
 pltMissclass()

@@ -130,7 +130,7 @@ BCL files contain the adapter sequence (including sample barcode sequence and op
 Due to modern sequencer capacity, frequently each lane of the flow cell will contain multiple samples. 
 By convention, reads from each sample are separated into individual FASTQ files.
 Separating reads by sample must occur before discarding the adapter sequence information.
-Illumina currently provides the `bcl2fastq` command line tool for performing all of the required tasks to produce sample-specific FASTQ files with molecular index information when applicable.
+Illumina currently provides the 'bcl2fastq' command line tool for performing all of the required tasks to produce sample-specific FASTQ files with molecular index information when applicable.
 
 The process of mapping individual reads (query sequences) to a reference sequence requires (1) finding the correct starting point in the reference sequence, and (2) accounting for substitutions, insertions, and deletions in the query sequence.
 Smith and Waterman published the first algorithm meeting both requirements, using dynamic programming on a substitution matrix [@smith:1981aa] based on Needleman and Wunsch;s initial work [@needleman:1970aa].

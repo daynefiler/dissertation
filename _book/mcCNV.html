@@ -24,7 +24,7 @@
 <meta name="author" content="Dayne Lewis Filer" />
 
 
-<meta name="date" content="2020-01-01" />
+<meta name="date" content="2021-01-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="intro.html"/>
 <link rel="next" href="cfES.html"/>
+<script src="libs/header-attrs-2.8.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +51,23 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -133,20 +133,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front matter</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front matter</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#copyright"><i class="fa fa-check"></i>Copyright</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#abstract"><i class="fa fa-check"></i>Abstract</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#dedication"><i class="fa fa-check"></i>Dedication</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i>Acknowledgments</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#preface"><i class="fa fa-check"></i>Preface</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#outline"><i class="fa fa-check"></i><b>1.1</b> Outline</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#humGenPrime"><i class="fa fa-check"></i><b>1.2</b> Human Genetics Primer</a><ul>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#humGenPrime"><i class="fa fa-check"></i><b>1.2</b> Human Genetics Primer</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#dnaDiscover"><i class="fa fa-check"></i><b>1.2.1</b> Discovery of DNA and the central dogma</a></li>
 <li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#genVar"><i class="fa fa-check"></i><b>1.2.2</b> Genetic variation in humans</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#sequencing"><i class="fa fa-check"></i><b>1.3</b> DNA Sequencing</a><ul>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#sequencing"><i class="fa fa-check"></i><b>1.3</b> DNA Sequencing</a>
+<ul>
 <li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#firstGen"><i class="fa fa-check"></i><b>1.3.1</b> First-generation sequencing</a></li>
 <li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#secGen"><i class="fa fa-check"></i><b>1.3.2</b> Second-generation sequencing</a></li>
 <li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#illumina"><i class="fa fa-check"></i><b>1.3.3</b> Illumina sequencing</a></li>
@@ -155,15 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#medGen"><i class="fa fa-check"></i><b>1.4</b> Development of Medical Genetics</a></li>
 <li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#prob"><i class="fa fa-check"></i><b>1.5</b> Rationale</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="mcCNV.html"><a href="mcCNV.html"><i class="fa fa-check"></i><b>2</b> A novel copy number variant algorithm</a><ul>
+<li class="chapter" data-level="2" data-path="mcCNV.html"><a href="mcCNV.html"><i class="fa fa-check"></i><b>2</b> A novel copy number variant algorithm</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="mcCNV.html"><a href="mcCNV.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
-<li class="chapter" data-level="2.2" data-path="mcCNV.html"><a href="mcCNV.html#methods"><i class="fa fa-check"></i><b>2.2</b> Methods</a><ul>
+<li class="chapter" data-level="2.2" data-path="mcCNV.html"><a href="mcCNV.html#methods"><i class="fa fa-check"></i><b>2.2</b> Methods</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="mcCNV.html"><a href="mcCNV.html#exome-sequencing"><i class="fa fa-check"></i><b>2.2.1</b> Exome sequencing</a></li>
 <li class="chapter" data-level="2.2.2" data-path="mcCNV.html"><a href="mcCNV.html#genome-sequencing"><i class="fa fa-check"></i><b>2.2.2</b> Genome sequencing</a></li>
 <li class="chapter" data-level="2.2.3" data-path="mcCNV.html"><a href="mcCNV.html#simulating-targeted-sequencing"><i class="fa fa-check"></i><b>2.2.3</b> Simulating targeted sequencing</a></li>
 <li class="chapter" data-level="2.2.4" data-path="mcCNV.html"><a href="mcCNV.html#mccnv-algorithm"><i class="fa fa-check"></i><b>2.2.4</b> mcCNV algorithm</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="mcCNV.html"><a href="mcCNV.html#results"><i class="fa fa-check"></i><b>2.3</b> Results</a><ul>
+<li class="chapter" data-level="2.3" data-path="mcCNV.html"><a href="mcCNV.html#results"><i class="fa fa-check"></i><b>2.3</b> Results</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="mcCNV.html"><a href="mcCNV.html#multiplexed-capture-reduces-inter-sample-variance"><i class="fa fa-check"></i><b>2.3.1</b> Multiplexed capture reduces inter-sample variance</a></li>
 <li class="chapter" data-level="2.3.2" data-path="mcCNV.html"><a href="mcCNV.html#multiplexed-capture-provides-controls-for-exomedepth"><i class="fa fa-check"></i><b>2.3.2</b> Multiplexed capture provides controls for ExomeDepth</a></li>
 <li class="chapter" data-level="2.3.3" data-path="mcCNV.html"><a href="mcCNV.html#mccnv-exomedepth-perform-comparably-in-simulation-study"><i class="fa fa-check"></i><b>2.3.3</b> mcCNV &amp; ExomeDepth perform comparably in simulation study</a></li>
@@ -171,9 +178,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="mcCNV.html"><a href="mcCNV.html#discussion"><i class="fa fa-check"></i><b>2.4</b> Discussion</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="cfES.html"><a href="cfES.html"><i class="fa fa-check"></i><b>3</b> Shortcomings of exome sequencing in noninvasive prenatal genetics</a><ul>
+<li class="chapter" data-level="3" data-path="cfES.html"><a href="cfES.html"><i class="fa fa-check"></i><b>3</b> Noninvasive prenatal exome sequencing pitfalls</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="cfES.html"><a href="cfES.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="cfES.html"><a href="cfES.html#methods-1"><i class="fa fa-check"></i><b>3.2</b> Methods</a><ul>
+<li class="chapter" data-level="3.2" data-path="cfES.html"><a href="cfES.html#methods-1"><i class="fa fa-check"></i><b>3.2</b> Methods</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="cfES.html"><a href="cfES.html#participant-selection"><i class="fa fa-check"></i><b>3.2.1</b> Participant selection</a></li>
 <li class="chapter" data-level="3.2.2" data-path="cfES.html"><a href="cfES.html#exome-sequencing-and-analysis"><i class="fa fa-check"></i><b>3.2.2</b> Exome sequencing and analysis</a></li>
 <li class="chapter" data-level="3.2.3" data-path="cfES.html"><a href="cfES.html#genotyping-algorithm"><i class="fa fa-check"></i><b>3.2.3</b> Genotyping algorithm</a></li>
@@ -182,13 +191,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="cfES.html"><a href="cfES.html#results-1"><i class="fa fa-check"></i><b>3.3</b> Results</a></li>
 <li class="chapter" data-level="3.4" data-path="cfES.html"><a href="cfES.html#discussion-1"><i class="fa fa-check"></i><b>3.4</b> Discussion</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>4</b> Future Directions</a><ul>
+<li class="chapter" data-level="4" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>4</b> Future Directions</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="future-directions.html"><a href="future-directions.html#fetal-genotyping-project"><i class="fa fa-check"></i><b>4.1</b> Fetal genotyping project</a></li>
 <li class="chapter" data-level="4.2" data-path="future-directions.html"><a href="future-directions.html#cnv-validation-proposal"><i class="fa fa-check"></i><b>4.2</b> CNV validation proposal</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>A</b> R Code</a></li>
+<li class="chapter" data-level="" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i>R Code</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -206,9 +216,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="mcCNV" class="section level1">
+<div id="mcCNV" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> A novel copy number variant algorithm</h1>
-<div id="introduction" class="section level2">
+<div id="introduction" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Introduction</h2>
 <p>In human genetics, individuals normally have two copies of each locus in the genome (one inherited from each parent).
 Deviations from the normal diploid state, known broadly as copy number variation, can cause phenotypic changes and Mendelian disorders.
@@ -234,9 +244,9 @@ These methods generally require very large sample sizes, and often still lack po
 <p>Here, we explore how multiplexing the capture across samples reduces inter-sample variance, increasing the power to detect CNVs.
 We also introduce our own algorithm, mcCNV (“multiplexed capture CNV”), specifically designed to utilize multiplexed capture exome data for estimating exon-level variation without prior information.</p>
 </div>
-<div id="methods" class="section level2">
+<div id="methods" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Methods</h2>
-<div id="exome-sequencing" class="section level3">
+<div id="exome-sequencing" class="section level3" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> Exome sequencing</h3>
 <p>We performed sequencing on human samples of purified DNA obtained from the Wilhelmsen laboratory collection, the NCGENES cohort,<span class="citation"><sup><a href="references.html#ref-foreman:2013aa" role="doc-biblioref">95</a></sup></span> and the Coriell Institute in compliance with the UNC Institutional Review Board.
 We also utilized existing read-level data from the NCGENES<span class="citation"><sup><a href="references.html#ref-foreman:2013aa" role="doc-biblioref">95</a></sup></span> project.
@@ -250,7 +260,7 @@ For inclusion, we required properly-paired molecules with unambiguous mapping fo
 Full Snakemake<span class="citation"><sup><a href="references.html#ref-koster:2012aa" role="doc-biblioref">97</a></sup></span> pipeline provided in supplemental materials.
 Table <a href="mcCNV.html#tab:poolSummary">2.1</a> provides an overview of the exome sequencing included.</p>
 </div>
-<div id="genome-sequencing" class="section level3">
+<div id="genome-sequencing" class="section level3" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> Genome sequencing</h3>
 <p>For the 16 samples in the “WGS” pool, we performed genome sequencing to an average 50x coverage.
 We followed Trost et al. recommendations for making read-depth based CNV calls.<span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">98</a></sup></span>
@@ -258,7 +268,7 @@ Briefly, we mapped paired-reads identical to our targeted sequencing data.
 We then interrogated the read depth interquartile range using samtools depth,<span class="citation"><sup><a href="references.html#ref-li:2009aa" role="doc-biblioref">29</a></sup></span> recalibrated base-quality scores and called sequence variants using GATK,<span class="citation"><sup><a href="references.html#ref-van-der-auwera:2013aa" role="doc-biblioref">40</a></sup></span> and called copy number variants using the ERDS<span class="citation"><sup><a href="references.html#ref-zhu:2012aa" role="doc-biblioref">49</a></sup></span> and cnvpytor (updated implementation of CNVnator)<span class="citation"><sup><a href="references.html#ref-abyzov:2011aa" role="doc-biblioref">45</a></sup></span> algorithms.
 Full Snakemake<span class="citation"><sup><a href="references.html#ref-koster:2012aa" role="doc-biblioref">97</a></sup></span> pipeline provided in supplemental materials.</p>
 </div>
-<div id="simulating-targeted-sequencing" class="section level3">
+<div id="simulating-targeted-sequencing" class="section level3" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> Simulating targeted sequencing</h3>
 <p>To simulate targeted capture, we represent the capture process as a large multinomial distribution defining the probability of capture at each target.
 We use an alternate definition of copy state, such that 1 represents the normal diploid state.
@@ -270,7 +280,7 @@ Let <span class="math inline">\(N\)</span> represent the total number of molecul
 </ol>
 <p>We provide functionality within the mcCNV R package for producing reproducible simulations.</p>
 </div>
-<div id="mccnv-algorithm" class="section level3">
+<div id="mccnv-algorithm" class="section level3" number="2.2.4">
 <h3><span class="header-section-number">2.2.4</span> mcCNV algorithm</h3>
 <p>The mcCNV algorithm was adapted from the sSEQ method for quantifying differential expression in RNA-seq experiments with small sample sizes.<span class="citation"><sup><a href="references.html#ref-yu:2013aa" role="doc-biblioref">99</a></sup></span>
 Yu et al. provide detailed theoretical background of the negative binomial model and using shrinkage to improve dispersion estimates.
@@ -325,9 +335,9 @@ where <span class="math inline">\(S = \{0.001, 0.5, 1, 1.5, 2\}\)</span>.</p></l
 </ol>
 </div>
 </div>
-<div id="results" class="section level2">
+<div id="results" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Results</h2>
-<div id="multiplexed-capture-reduces-inter-sample-variance" class="section level3">
+<div id="multiplexed-capture-reduces-inter-sample-variance" class="section level3" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Multiplexed capture reduces inter-sample variance</h3>
 <p>ES requires using molecular baits to “capture” the exonic DNA fragments during the library preparation (prior to sequencing).
 Most laboratories capture each sample individually.
@@ -341,7 +351,7 @@ The dirichlet distribution is parameterized by <span class="math inline">\(\bold
 If <span class="math inline">\(\boldsymbol\pi\)</span> is a probability simplex drawn from a dirichlet with <span class="math inline">\(\boldsymbol\alpha\)</span>, then the variance of <span class="math inline">\(\boldsymbol\pi\)</span> is inversely proportional to <span class="math inline">\(\alpha_0\)</span>.
 Therefore, we can approximate the inter-sample variance by fitting the dirichlet distribution to each pool and interrogating the mean <span class="math inline">\(\alpha\)</span>.</p>
 
-<table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:poolSummary">Table 2.1: </span>Summary of whole-exome sequencing. “pool” indicates the name of the pool of samples; “capture” indicates the capture platform for the pool; “N” gives the number of samples in the pool; “medExon” gives the pool median of the subject median mapped molecule count per exon; “medTotal” gives the median by pool of total mapped molecule counts per subject; “minTotal” and “maxTotal” give the minimum and maximum total mapped molecules; “rsdTotal” gives the relative standard deviation (SD/mean*100) of total mapped molecules. <span class="math inline">\(^\dagger\)</span> indicates captures were performed independently on each sample within the pool, otherwise captures were multiplexed across all samples within the pool.
 </caption>
@@ -655,7 +665,7 @@ Figure 2.4: Comparison of mean-variance relationship between WGS pool (blue) and
 </p>
 </div>
 </div>
-<div id="multiplexed-capture-provides-controls-for-exomedepth" class="section level3">
+<div id="multiplexed-capture-provides-controls-for-exomedepth" class="section level3" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Multiplexed capture provides controls for ExomeDepth</h3>
 <p>ExomeDepth requires a set of control subjects, summed into a reference vector of counts at each exon.
 ExomeDepth provides functionality to select appropriate controls from a set of subjects, often requiring large numbers of subjects to identify appropriate controls.
@@ -699,7 +709,7 @@ Similarly, with the independently-captured IDT-IC pool we find low control numbe
 While possible to select the same number of controls but exhibit differing dispersion, we observed little difference in the dispersion between independent and multiplexed capture (Figure <a href="mcCNV.html#fig:edSelPhi">2.8</a>).
 Overall, multiplexed capture provided appropriate controls for most samples tested, however an adequately-large set of available controls delivered comparable performance.</p>
 </div>
-<div id="mccnv-exomedepth-perform-comparably-in-simulation-study" class="section level3">
+<div id="mccnv-exomedepth-perform-comparably-in-simulation-study" class="section level3" number="2.3.3">
 <h3><span class="header-section-number">2.3.3</span> mcCNV &amp; ExomeDepth perform comparably in simulation study</h3>
 <p>To compare our mcCNV algorithm and ExomeDepth, we created synthetic pools of data across different sequencing depths.
 Based on our observations with the real data, we selected the total number of molecules for each sample from a uniform distribution defined as a 30% window on either side of the specified depth; for example, for a specified depth of 10 million molecules, we drew the molecules per sample from 7 to 13 million molecules.
@@ -721,7 +731,7 @@ Figure 2.9: Algorithm performance comparing mcCNV and ExomeDepth on simulated ex
 </p>
 </div>
 
-<table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:simResTbl">Table 2.2: </span>Simulation results by algorithm. ED-def: ExomeDepth with default parameters; ED-sim: ExomeDepth with simulation-matched parameters. Values represent the mean over 200 simulations.
 </caption>
@@ -1422,17 +1432,18 @@ ED-sim
 </tbody>
 </table>
 </div>
-<div id="mccnv-exomedepth-perform-comparably-on-wgs-pool" class="section level3">
+<div id="mccnv-exomedepth-perform-comparably-on-wgs-pool" class="section level3" number="2.3.4">
 <h3><span class="header-section-number">2.3.4</span> mcCNV &amp; ExomeDepth perform comparably on WGS pool</h3>
 <p>To establish a truth set on real data, we performed matched genome sequencing on the subjects included in the WGS pool.
-Following the best practices suggested by Trost et al. <span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">98</a></sup></span>, we performed read-depth based CNV calling using the genome data.
+Following the best practices suggested by Trost et al.,<span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">98</a></sup></span> we performed read-depth based CNV calling using the genome data.
 In line with recommendations by Trost et al., we excluded from comparative analysis any exons overlapping repetitive or low-complexity regions (34,856 out of 179,250).
 We then compared the exome calls using mcCNV and ExomeDepth to the genome calls using the overlap of ERDS and cnvpytor.
 Table <a href="mcCNV.html#tab:wgsCallSbj">2.3</a> lists the total calls by subject.
 Overall, mcCNV predicted the largest number of variants; however, 85.7% of predicted variants were deletions from two samples (NCG_00790 and NCG_00851).
 ExomeDepth also predicted a disproportionate number of deletions for NCG_00790 and NCG_00851, totaling 69.4% of calls.</p>
 
-<table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:wgsCallSbj">Table 2.3: </span>Number of CNV calls by subject and algorithm for the ‘WGS’ pool. ‘MC’ indicates the mcCNV algorithm; ‘ED’ indicates the ExomeDepth algorithm; ‘WG’ indicates the overlap of ERDS/cnvpytor calls from matched whole-genome sequencing. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al. manuscript,<span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">98</a></sup></span> omitted from analysis.
 </caption>
@@ -2012,7 +2023,8 @@ When we excluded NCG_00790 and NCG_00851 from the analysis, mcCNV had comparable
 Both algorithms demonstrated greater power to detect deletions.
 Figures <a href="mcCNV.html#fig:wgsVennAll">2.10</a> and <a href="mcCNV.html#fig:wgsVennSub">2.11</a> show the call overlap between the three approaches, including and excluding NCG_00790 and NCG_00851, respectively.</p>
 
-<table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:predMet">Table 2.4: </span>mcCNV (MC)/ExomeDepth (ED) calls for ‘WGS’ pool (used as prediction) versus the ERDS/cnvpytor calls from matched genome sequencing (used as truth). Calls are subdivided by duplications (DUP) and deletions (DEL). ‘Full’ gives performance across the full pool; ‘Sub’ gives the performance excluding the poorly correlated samples NCG_00790 and NCG_00851 (gray rows). ‘MCC’ is Matthew’s correlation coefficient, ‘TPR’ is true positive rate/sensitivity, ‘FDR’ is false discovery rate, ‘PPV’ is positive predictive value, ‘BalAcc’ is balanced accuracy. Exons with any overlap of the repetitive and low-complexity regions, as defined in the Trost et al. manuscript,<span class="citation"><sup><a href="references.html#ref-trost:2018aa" role="doc-biblioref">98</a></sup></span> omitted from analysis.
 </caption>
@@ -2289,7 +2301,7 @@ Figure 2.11: Copy number variant call concordance for the WGS pool, excluding su
 </div>
 </div>
 </div>
-<div id="discussion" class="section level2">
+<div id="discussion" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Discussion</h2>
 <p>The medical genetics community still lacks robust exome-wide information about small (exon-level) variant prevalence.
 Others have established the reliability and cost-efficiency of pre-capture multiplexing,<span class="citation"><sup><a href="references.html#ref-neiman:2012aa" role="doc-biblioref">103</a>–<a href="references.html#ref-shearer:2012aa" role="doc-biblioref">107</a></sup></span> and most commercial exome capture platforms have protocols for pre-capture multiplexing.

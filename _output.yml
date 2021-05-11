@@ -13,9 +13,3 @@ bookdown::pdf_book:
   template: "style/template.tex"
   latex_engine: xelatex
   keep_tex: yes
-# Note, the tables & figures are not rendered properly in Word, so the docx
-# is not provided as a download; included, here, to share for 
-# review/editing purposes 
-bookdown::word_document2:
-  fig_caption: yes
-
