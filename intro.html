@@ -24,7 +24,7 @@
 <meta name="author" content="Dayne Lewis Filer" />
 
 
-<meta name="date" content="2020-01-01" />
+<meta name="date" content="2021-01-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="mcCNV.html"/>
+<script src="libs/header-attrs-2.8.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +51,23 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -133,20 +133,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front matter</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front matter</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#copyright"><i class="fa fa-check"></i>Copyright</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#abstract"><i class="fa fa-check"></i>Abstract</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#dedication"><i class="fa fa-check"></i>Dedication</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i>Acknowledgments</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#preface"><i class="fa fa-check"></i>Preface</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#outline"><i class="fa fa-check"></i><b>1.1</b> Outline</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#humGenPrime"><i class="fa fa-check"></i><b>1.2</b> Human Genetics Primer</a><ul>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#humGenPrime"><i class="fa fa-check"></i><b>1.2</b> Human Genetics Primer</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#dnaDiscover"><i class="fa fa-check"></i><b>1.2.1</b> Discovery of DNA and the central dogma</a></li>
 <li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#genVar"><i class="fa fa-check"></i><b>1.2.2</b> Genetic variation in humans</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#sequencing"><i class="fa fa-check"></i><b>1.3</b> DNA Sequencing</a><ul>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#sequencing"><i class="fa fa-check"></i><b>1.3</b> DNA Sequencing</a>
+<ul>
 <li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#firstGen"><i class="fa fa-check"></i><b>1.3.1</b> First-generation sequencing</a></li>
 <li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#secGen"><i class="fa fa-check"></i><b>1.3.2</b> Second-generation sequencing</a></li>
 <li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#illumina"><i class="fa fa-check"></i><b>1.3.3</b> Illumina sequencing</a></li>
@@ -155,15 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#medGen"><i class="fa fa-check"></i><b>1.4</b> Development of Medical Genetics</a></li>
 <li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#prob"><i class="fa fa-check"></i><b>1.5</b> Rationale</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="mcCNV.html"><a href="mcCNV.html"><i class="fa fa-check"></i><b>2</b> A novel copy number variant algorithm</a><ul>
+<li class="chapter" data-level="2" data-path="mcCNV.html"><a href="mcCNV.html"><i class="fa fa-check"></i><b>2</b> A novel copy number variant algorithm</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="mcCNV.html"><a href="mcCNV.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
-<li class="chapter" data-level="2.2" data-path="mcCNV.html"><a href="mcCNV.html#methods"><i class="fa fa-check"></i><b>2.2</b> Methods</a><ul>
+<li class="chapter" data-level="2.2" data-path="mcCNV.html"><a href="mcCNV.html#methods"><i class="fa fa-check"></i><b>2.2</b> Methods</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="mcCNV.html"><a href="mcCNV.html#exome-sequencing"><i class="fa fa-check"></i><b>2.2.1</b> Exome sequencing</a></li>
 <li class="chapter" data-level="2.2.2" data-path="mcCNV.html"><a href="mcCNV.html#genome-sequencing"><i class="fa fa-check"></i><b>2.2.2</b> Genome sequencing</a></li>
 <li class="chapter" data-level="2.2.3" data-path="mcCNV.html"><a href="mcCNV.html#simulating-targeted-sequencing"><i class="fa fa-check"></i><b>2.2.3</b> Simulating targeted sequencing</a></li>
 <li class="chapter" data-level="2.2.4" data-path="mcCNV.html"><a href="mcCNV.html#mccnv-algorithm"><i class="fa fa-check"></i><b>2.2.4</b> mcCNV algorithm</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="mcCNV.html"><a href="mcCNV.html#results"><i class="fa fa-check"></i><b>2.3</b> Results</a><ul>
+<li class="chapter" data-level="2.3" data-path="mcCNV.html"><a href="mcCNV.html#results"><i class="fa fa-check"></i><b>2.3</b> Results</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="mcCNV.html"><a href="mcCNV.html#multiplexed-capture-reduces-inter-sample-variance"><i class="fa fa-check"></i><b>2.3.1</b> Multiplexed capture reduces inter-sample variance</a></li>
 <li class="chapter" data-level="2.3.2" data-path="mcCNV.html"><a href="mcCNV.html#multiplexed-capture-provides-controls-for-exomedepth"><i class="fa fa-check"></i><b>2.3.2</b> Multiplexed capture provides controls for ExomeDepth</a></li>
 <li class="chapter" data-level="2.3.3" data-path="mcCNV.html"><a href="mcCNV.html#mccnv-exomedepth-perform-comparably-in-simulation-study"><i class="fa fa-check"></i><b>2.3.3</b> mcCNV &amp; ExomeDepth perform comparably in simulation study</a></li>
@@ -171,9 +178,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="mcCNV.html"><a href="mcCNV.html#discussion"><i class="fa fa-check"></i><b>2.4</b> Discussion</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="cfES.html"><a href="cfES.html"><i class="fa fa-check"></i><b>3</b> Shortcomings of exome sequencing in noninvasive prenatal genetics</a><ul>
+<li class="chapter" data-level="3" data-path="cfES.html"><a href="cfES.html"><i class="fa fa-check"></i><b>3</b> Noninvasive prenatal exome sequencing pitfalls</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="cfES.html"><a href="cfES.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="cfES.html"><a href="cfES.html#methods-1"><i class="fa fa-check"></i><b>3.2</b> Methods</a><ul>
+<li class="chapter" data-level="3.2" data-path="cfES.html"><a href="cfES.html#methods-1"><i class="fa fa-check"></i><b>3.2</b> Methods</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="cfES.html"><a href="cfES.html#participant-selection"><i class="fa fa-check"></i><b>3.2.1</b> Participant selection</a></li>
 <li class="chapter" data-level="3.2.2" data-path="cfES.html"><a href="cfES.html#exome-sequencing-and-analysis"><i class="fa fa-check"></i><b>3.2.2</b> Exome sequencing and analysis</a></li>
 <li class="chapter" data-level="3.2.3" data-path="cfES.html"><a href="cfES.html#genotyping-algorithm"><i class="fa fa-check"></i><b>3.2.3</b> Genotyping algorithm</a></li>
@@ -182,13 +191,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="cfES.html"><a href="cfES.html#results-1"><i class="fa fa-check"></i><b>3.3</b> Results</a></li>
 <li class="chapter" data-level="3.4" data-path="cfES.html"><a href="cfES.html#discussion-1"><i class="fa fa-check"></i><b>3.4</b> Discussion</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>4</b> Future Directions</a><ul>
+<li class="chapter" data-level="4" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>4</b> Future Directions</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="future-directions.html"><a href="future-directions.html#fetal-genotyping-project"><i class="fa fa-check"></i><b>4.1</b> Fetal genotyping project</a></li>
 <li class="chapter" data-level="4.2" data-path="future-directions.html"><a href="future-directions.html#cnv-validation-proposal"><i class="fa fa-check"></i><b>4.2</b> CNV validation proposal</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>A</b> R Code</a></li>
+<li class="chapter" data-level="" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i>R Code</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -206,9 +216,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
+<div id="intro" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<div id="outline" class="section level2">
+<div id="outline" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Outline</h2>
 <p>This chapter outlines the historical context for human and medical genetics, with a basic overview of the topics necessary to understand the original work presented in this dissertation.</p>
 <p><a href="intro.html#humGenPrime">Human Genetics Primer</a> summarizes DNA discovery as the hereditary material in eukaryotic life (<a href="intro.html#dnaDiscover">1.2.1</a>) and describes the types of variation observed in DNA (<a href="intro.html#genVar">1.2.2</a>).</p>
@@ -216,9 +226,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="intro.html#medGen">Development of Medical Genetics</a> highlights some of the most important landmarks in the origination of medical genetics as both a research topic and a clinical profession.</p>
 <p>Finally, <a href="intro.html#prob">Rationale</a> briefly describes the motivation for my dissertation work.</p>
 </div>
-<div id="humGenPrime" class="section level2">
+<div id="humGenPrime" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Human Genetics Primer</h2>
-<div id="dnaDiscover" class="section level3">
+<div id="dnaDiscover" class="section level3" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> Discovery of DNA and the central dogma</h3>
 <p>The discovery of deoxyribonucleic acid (DNA) took roughly 100 years of work, and has fundamentally changed how we view ourselves, society, and life.
 The study of genetics begins with the study of peas and the discovery of inheritance by Gregor Mendel in the middle of the 19th century.<span class="citation"><sup><a href="references.html#ref-mendel:1866aa" role="doc-biblioref">1</a></sup></span>
@@ -238,7 +248,7 @@ After post-transcriptional modifications including possible splicing (reorganiza
 Amino acid polymers, also known as polypeptides or peptide chains, form the primary structure of proteins.
 Therefore, modifications to DNA have profound impacts on cellular and organismal function.</p>
 </div>
-<div id="genVar" class="section level3">
+<div id="genVar" class="section level3" number="1.2.2">
 <h3><span class="header-section-number">1.2.2</span> Genetic variation in humans</h3>
 <p>Humans are diploid organisms, meaning we have two copies of each chromosome.
 Under normal circumstances, we receive one set of chromosomes each from our biological mother and father.
@@ -262,9 +272,9 @@ Rearrangements can cause detrimental effects when they disrupt gene sequence.
 The same processes creating CNVs discussed above can create rearrangements, and rearrangements often go hand-in-hand with copy number variation.</p>
 </div>
 </div>
-<div id="sequencing" class="section level2">
+<div id="sequencing" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> DNA Sequencing</h2>
-<div id="firstGen" class="section level3">
+<div id="firstGen" class="section level3" number="1.3.1">
 <h3><span class="header-section-number">1.3.1</span> First-generation sequencing</h3>
 <p>Using lessons learned from previous RNA sequencing efforts, the first DNA sequencing techniques arose in the 1970s with Sanger’s original plus-minus approach,<span class="citation"><sup><a href="references.html#ref-sanger:1975aa" role="doc-biblioref">19</a></sup></span> the Maxam-Gilbert chemical cleavage approach,<span class="citation"><sup><a href="references.html#ref-maxam:1977aa" role="doc-biblioref">20</a></sup></span> and Sanger’s chain termination approach.<span class="citation"><sup><a href="references.html#ref-sanger:1977aa" role="doc-biblioref">21</a></sup></span></p>
 <p>Maxam-Gilbert sequencing works by cleaving DNA sequences at specific base pairs using specific chemical reactions.
@@ -277,7 +287,7 @@ Each condition contains an equimolar mix of the four deoxynucleotide triphosphat
 The PCR reaction cannot proceed after incorporating a ddNTP, so each of the four reactions will contain synthesized fragments that stop at the same base.
 Again, the four reactions are size-separated and visualized on a polyacrylamide gel.</p>
 </div>
-<div id="secGen" class="section level3">
+<div id="secGen" class="section level3" number="1.3.2">
 <h3><span class="header-section-number">1.3.2</span> Second-generation sequencing</h3>
 <p>In the following decade Nyrèn and Lundin discovered an enzymatic method for detecting the incorporation of a new base during sequencing.<span class="citation"><sup><a href="references.html#ref-nyren:1985aa" role="doc-biblioref">22</a></sup></span>
 Pyrophosphate is released when dNTPs are incorporated into a DNA polymer; Nyrèn added two enzymes to the synthesis reaction: (1) ATP sulfurylase, which converts pyrophosphate into ATP; (2) luciferase, which converts ATP molecules into light.
@@ -288,7 +298,7 @@ The novel nucleotides use a fluorescent tag to block the 3’ hydroxyl group, wh
 This allows for SBS with a “reversible termination” of synthesis after each base incorporation.
 The reversible terminators, in conjunction with the development of glass-bound colony expansion,<span class="citation"><sup><a href="references.html#ref-fedurco:2006aa" role="doc-biblioref">25</a></sup></span> laid the groundwork for the Solexa system (acquired by Illumina) which currently dominates the sequencing field.<span class="citation"><sup><a href="references.html#ref-turcatti:2008aa" role="doc-biblioref">26</a></sup></span></p>
 </div>
-<div id="illumina" class="section level3">
+<div id="illumina" class="section level3" number="1.3.3">
 <h3><span class="header-section-number">1.3.3</span> Illumina sequencing</h3>
 <p>Illumina sequencing works by creating clusters of identical DNA fragments bound to a glass plate (“flow cell”), then performing SBS using fluorescent reversible terminators.
 During Illumina sequencing, specific sequencing adapters are ligated onto short DNA fragments to: (1) bind DNA fragments to the flow cell; (2) initiate amplification; (3) optionally identify the fragment source.
@@ -302,7 +312,7 @@ Bridge amplification is repeated until each cluster contains hundreds of the sam
 The reverse fragments are then cleaved from the flow cell, and the clusters are sequenced by detecting the incorporation of fluorescent reversible terminators.
 Each cluster is tracked as bases are incorporated, giving the final DNA sequence.</p>
 </div>
-<div id="seqData" class="section level3">
+<div id="seqData" class="section level3" number="1.3.4">
 <h3><span class="header-section-number">1.3.4</span> Processing short-read sequencing data</h3>
 <p>With the advancements in sequencing chemistry, we can now sequence great amounts of DNA cheaply.
 However, the massively parallel sequencing modalities only sequence small fragments of DNA (typically 50 to 500 basepairs in length), often using a “shotgun” approach – “shotgun” referring to sequencing a randomly fragmented sample rather than a known locus.
@@ -322,7 +332,7 @@ BCL files contain the adapter sequence (including sample barcode sequence and op
 Due to modern sequencer capacity, frequently each lane of the flow cell will contain multiple samples.
 By convention, reads from each sample are separated into individual FASTQ files.
 Separating reads by sample must occur before discarding the adapter sequence information.
-Illumina currently provides the <code>bcl2fastq</code> command line tool for performing all of the required tasks to produce sample-specific FASTQ files with molecular index information when applicable.</p>
+Illumina currently provides the ‘bcl2fastq’ command line tool for performing all of the required tasks to produce sample-specific FASTQ files with molecular index information when applicable.</p>
 <p>The process of mapping individual reads (query sequences) to a reference sequence requires (1) finding the correct starting point in the reference sequence, and (2) accounting for substitutions, insertions, and deletions in the query sequence.
 Smith and Waterman published the first algorithm meeting both requirements, using dynamic programming on a substitution matrix<span class="citation"><sup><a href="references.html#ref-smith:1981aa" role="doc-biblioref">30</a></sup></span> based on Needleman and Wunsch;s initial work.<span class="citation"><sup><a href="references.html#ref-needleman:1970aa" role="doc-biblioref">31</a></sup></span>
 The Smith-Waterman algorithm requires user-defined scores for matches, mismatches, and gaps (insertions/deletions); the algorithm will find the best possible match with the given scoring system, but requires <span class="math inline">\(O(mn)\)</span> compute time where <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> represent the length of the reference and query sequences.</p>
@@ -366,13 +376,13 @@ Paired-end mapping methods identify sets of reads with insert sizes outside a sp
 The Lumpy algorithm<span class="citation"><sup><a href="references.html#ref-layer:2014aa" role="doc-biblioref">48</a></sup></span> utilizes both the read depth and paired end mapping approaches for greater detection sensitivity.
 The ERDS algorithm<span class="citation"><sup><a href="references.html#ref-zhu:2012aa" role="doc-biblioref">49</a></sup></span> combines read depth information with allele ratios when possible.</p>
 <p>Sequencing an individual reveals millions of variants compared to the current reference genome,<span class="citation"><sup><a href="references.html#ref-auton:2015aa" role="doc-biblioref">50</a></sup></span> often requiring filtering to identify meaning results.
-Multiple public databases now exist cataloging known variants: dbSNP with SNVs and indels,<span class="citation"><sup><a href="references.html#ref-sherry:1999aa" role="doc-biblioref">51</a></sup></span> dbGaP<span class="citation"><sup><a href="references.html#ref-mailman:2007aa" role="doc-biblioref">52</a></sup></span> with variants linked to phenotypes, ClinVar<span class="citation"><sup><a href="references.html#ref-landrum:2014aa" role="doc-biblioref">53</a></sup></span> with clinical variant interpretations, ensembl<span class="citation"><sup><a href="references.html#ref-hubbard:2002aa" role="doc-biblioref">54</a>,<a href="references.html#ref-yates:2020aa" role="doc-biblioref">55</a></sup></span> which aggregates data from many sources and provides additional analysis tools (e.g. the Variant Effect Predictor<span class="citation"><sup><a href="references.html#ref-mclaren:2016aa" role="doc-biblioref">56</a></sup></span>), and gnomAD<span class="citation"><sup><a href="references.html#ref-karczewski:2019aa" role="doc-biblioref">57</a></sup></span> with variants from &gt;100,000 human exome sequences and &gt;15,000 human genome sequences across diverse populations.
+Multiple public databases now exist cataloging known variants: dbSNP with SNVs and indels,<span class="citation"><sup><a href="references.html#ref-sherry:1999aa" role="doc-biblioref">51</a></sup></span> dbGaP<span class="citation"><sup><a href="references.html#ref-mailman:2007aa" role="doc-biblioref">52</a></sup></span> with variants linked to phenotypes, ClinVar<span class="citation"><sup><a href="references.html#ref-landrum:2014aa" role="doc-biblioref">53</a></sup></span> with clinical variant interpretations, ensembl<span class="citation"><sup><a href="references.html#ref-hubbard:2002aa" role="doc-biblioref">54</a>,<a href="references.html#ref-yates:2020aa" role="doc-biblioref">55</a></sup></span> which aggregates data from many sources and provides additional analysis tools (e.g. the Variant Effect Predictor),<span class="citation"><sup><a href="references.html#ref-mclaren:2016aa" role="doc-biblioref">56</a></sup></span> and gnomAD<span class="citation"><sup><a href="references.html#ref-karczewski:2019aa" role="doc-biblioref">57</a></sup></span> with variants from &gt;100,000 human exome sequences and &gt;15,000 human genome sequences across diverse populations.
 Most commonly we begin by searching the predicted variants for known pathogenic variants that explain the clinical picture.
 If the search for known pathogenic variants fails, we can proceed by throwing out common variants and predicting protein-altering variants that correlate clinically.
 Many tools exist for predicting variant outcome, e.g., the Ensembl Variant Effect Predictor,<span class="citation"><sup><a href="references.html#ref-mclaren:2016aa" role="doc-biblioref">56</a></sup></span> PolyPhen,<span class="citation"><sup><a href="references.html#ref-adzhubei:2013aa" role="doc-biblioref">58</a></sup></span> and JannoVar.<span class="citation"><sup><a href="references.html#ref-jager:2014aa" role="doc-biblioref">59</a></sup></span></p>
 </div>
 </div>
-<div id="medGen" class="section level2">
+<div id="medGen" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Development of Medical Genetics</h2>
 <p>The field of medical genetics arguably began in the first years of the 20th century with Archibald Garrod.
 In a collaborative effort with William Bateson, the person most responsible for the resurgence of Mendel’s work,<span class="citation"><sup><a href="references.html#ref-harper:2008aa" role="doc-biblioref">60</a></sup></span> Garrod first-identified a disease (alkaptonuria) that follows a Mendelian inheritance pattern.<span class="citation"><sup><a href="references.html#ref-garrod:1902aa" role="doc-biblioref">61</a></sup></span>
@@ -403,7 +413,7 @@ In addition to direct fetal sampling, researchers have identified circulating fe
 In 1997 Dennis Lo <em>et al.</em> identified cell-free DNA (cfDNA) in maternal circulation,<span class="citation"><sup><a href="references.html#ref-lo:1997aa" role="doc-biblioref">83</a></sup></span> which has, so-far, proven more diagnostically exploitable than isolating fetal cells.
 We can now detect many genetic disorders from cell-free fetal DNA.<span class="citation"><sup><a href="references.html#ref-scotchman:2020aa" role="doc-biblioref">84</a></sup></span></p>
 </div>
-<div id="prob" class="section level2">
+<div id="prob" class="section level2" number="1.5">
 <h2><span class="header-section-number">1.5</span> Rationale</h2>
 <p>The work presented here addresses two issues at the forefront of medical genetics: (1) we still have very limited information on the prevalence and clinical significance of small exon-level copy number variants; (2) no one has adequately performed fetal genotyping solely from maternal cell-free DNA.</p>
 <p>Due to both cost and the overbearing number of variants with unknown significance obtained with genome sequencing, most clinical sequencing efforts focus on targeted sequencing (either whole-exome or specific gene panels).

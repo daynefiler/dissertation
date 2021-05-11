@@ -24,7 +24,7 @@
 <meta name="author" content="Dayne Lewis Filer" />
 
 
-<meta name="date" content="2020-01-01" />
+<meta name="date" content="2021-01-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,8 @@
   
   
 <link rel="prev" href="cfES.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="r-code.html"/>
+<script src="libs/header-attrs-2.8.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +51,23 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -133,20 +133,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front matter</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front matter</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#copyright"><i class="fa fa-check"></i>Copyright</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#abstract"><i class="fa fa-check"></i>Abstract</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#dedication"><i class="fa fa-check"></i>Dedication</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i>Acknowledgments</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#preface"><i class="fa fa-check"></i>Preface</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#outline"><i class="fa fa-check"></i><b>1.1</b> Outline</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#humGenPrime"><i class="fa fa-check"></i><b>1.2</b> Human Genetics Primer</a><ul>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#humGenPrime"><i class="fa fa-check"></i><b>1.2</b> Human Genetics Primer</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#dnaDiscover"><i class="fa fa-check"></i><b>1.2.1</b> Discovery of DNA and the central dogma</a></li>
 <li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#genVar"><i class="fa fa-check"></i><b>1.2.2</b> Genetic variation in humans</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#sequencing"><i class="fa fa-check"></i><b>1.3</b> DNA Sequencing</a><ul>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#sequencing"><i class="fa fa-check"></i><b>1.3</b> DNA Sequencing</a>
+<ul>
 <li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#firstGen"><i class="fa fa-check"></i><b>1.3.1</b> First-generation sequencing</a></li>
 <li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#secGen"><i class="fa fa-check"></i><b>1.3.2</b> Second-generation sequencing</a></li>
 <li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#illumina"><i class="fa fa-check"></i><b>1.3.3</b> Illumina sequencing</a></li>
@@ -155,15 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#medGen"><i class="fa fa-check"></i><b>1.4</b> Development of Medical Genetics</a></li>
 <li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#prob"><i class="fa fa-check"></i><b>1.5</b> Rationale</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="mcCNV.html"><a href="mcCNV.html"><i class="fa fa-check"></i><b>2</b> A novel copy number variant algorithm</a><ul>
+<li class="chapter" data-level="2" data-path="mcCNV.html"><a href="mcCNV.html"><i class="fa fa-check"></i><b>2</b> A novel copy number variant algorithm</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="mcCNV.html"><a href="mcCNV.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
-<li class="chapter" data-level="2.2" data-path="mcCNV.html"><a href="mcCNV.html#methods"><i class="fa fa-check"></i><b>2.2</b> Methods</a><ul>
+<li class="chapter" data-level="2.2" data-path="mcCNV.html"><a href="mcCNV.html#methods"><i class="fa fa-check"></i><b>2.2</b> Methods</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="mcCNV.html"><a href="mcCNV.html#exome-sequencing"><i class="fa fa-check"></i><b>2.2.1</b> Exome sequencing</a></li>
 <li class="chapter" data-level="2.2.2" data-path="mcCNV.html"><a href="mcCNV.html#genome-sequencing"><i class="fa fa-check"></i><b>2.2.2</b> Genome sequencing</a></li>
 <li class="chapter" data-level="2.2.3" data-path="mcCNV.html"><a href="mcCNV.html#simulating-targeted-sequencing"><i class="fa fa-check"></i><b>2.2.3</b> Simulating targeted sequencing</a></li>
 <li class="chapter" data-level="2.2.4" data-path="mcCNV.html"><a href="mcCNV.html#mccnv-algorithm"><i class="fa fa-check"></i><b>2.2.4</b> mcCNV algorithm</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="mcCNV.html"><a href="mcCNV.html#results"><i class="fa fa-check"></i><b>2.3</b> Results</a><ul>
+<li class="chapter" data-level="2.3" data-path="mcCNV.html"><a href="mcCNV.html#results"><i class="fa fa-check"></i><b>2.3</b> Results</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="mcCNV.html"><a href="mcCNV.html#multiplexed-capture-reduces-inter-sample-variance"><i class="fa fa-check"></i><b>2.3.1</b> Multiplexed capture reduces inter-sample variance</a></li>
 <li class="chapter" data-level="2.3.2" data-path="mcCNV.html"><a href="mcCNV.html#multiplexed-capture-provides-controls-for-exomedepth"><i class="fa fa-check"></i><b>2.3.2</b> Multiplexed capture provides controls for ExomeDepth</a></li>
 <li class="chapter" data-level="2.3.3" data-path="mcCNV.html"><a href="mcCNV.html#mccnv-exomedepth-perform-comparably-in-simulation-study"><i class="fa fa-check"></i><b>2.3.3</b> mcCNV &amp; ExomeDepth perform comparably in simulation study</a></li>
@@ -171,9 +178,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="mcCNV.html"><a href="mcCNV.html#discussion"><i class="fa fa-check"></i><b>2.4</b> Discussion</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="cfES.html"><a href="cfES.html"><i class="fa fa-check"></i><b>3</b> Shortcomings of exome sequencing in noninvasive prenatal genetics</a><ul>
+<li class="chapter" data-level="3" data-path="cfES.html"><a href="cfES.html"><i class="fa fa-check"></i><b>3</b> Noninvasive prenatal exome sequencing pitfalls</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="cfES.html"><a href="cfES.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="cfES.html"><a href="cfES.html#methods-1"><i class="fa fa-check"></i><b>3.2</b> Methods</a><ul>
+<li class="chapter" data-level="3.2" data-path="cfES.html"><a href="cfES.html#methods-1"><i class="fa fa-check"></i><b>3.2</b> Methods</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="cfES.html"><a href="cfES.html#participant-selection"><i class="fa fa-check"></i><b>3.2.1</b> Participant selection</a></li>
 <li class="chapter" data-level="3.2.2" data-path="cfES.html"><a href="cfES.html#exome-sequencing-and-analysis"><i class="fa fa-check"></i><b>3.2.2</b> Exome sequencing and analysis</a></li>
 <li class="chapter" data-level="3.2.3" data-path="cfES.html"><a href="cfES.html#genotyping-algorithm"><i class="fa fa-check"></i><b>3.2.3</b> Genotyping algorithm</a></li>
@@ -182,13 +191,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="cfES.html"><a href="cfES.html#results-1"><i class="fa fa-check"></i><b>3.3</b> Results</a></li>
 <li class="chapter" data-level="3.4" data-path="cfES.html"><a href="cfES.html#discussion-1"><i class="fa fa-check"></i><b>3.4</b> Discussion</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>4</b> Future Directions</a><ul>
+<li class="chapter" data-level="4" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>4</b> Future Directions</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="future-directions.html"><a href="future-directions.html#fetal-genotyping-project"><i class="fa fa-check"></i><b>4.1</b> Fetal genotyping project</a></li>
 <li class="chapter" data-level="4.2" data-path="future-directions.html"><a href="future-directions.html#cnv-validation-proposal"><i class="fa fa-check"></i><b>4.2</b> CNV validation proposal</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>A</b> R Code</a></li>
+<li class="chapter" data-level="" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i>R Code</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -206,10 +216,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="future-directions" class="section level1">
+<div id="future-directions" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Future Directions</h1>
 <p>Here, I discuss ongoing work and a proposal to expand the work presented.</p>
-<div id="fetal-genotyping-project" class="section level2">
+<div id="fetal-genotyping-project" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Fetal genotyping project</h2>
 <p>I am currently working on a proof-of-concept project to perform noninvasive fetal genotyping with Neeta Vora.
 As demonstrated in Chapter <a href="cfES.html#cfES">3</a>, determining maternal and fetal genotypes requires two estimation problems: (1) we must estimate the proportion of fetal DNA in maternal circulation (fetal fraction), then (2) use the fetal fraction estimate and the observed proportion of minor allele reads (PMAR) to estimate genotypes.
@@ -229,7 +239,7 @@ Interrogating variants with minor allele population frequencies near one half wi
 <p>We will consider the pilot successful if we observe greater than 95% accuracy at sites with maternal heterozygosity.
 Ultimately, performing noninvasive fetal genotyping will improve neonatal outcomes by empowering neonatologists and creating the onus to develop novel <em>in utero</em> therapies.</p>
 </div>
-<div id="cnv-validation-proposal" class="section level2">
+<div id="cnv-validation-proposal" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> CNV validation proposal</h2>
 <p>Fundamentally, we cannot evaluate CNV detection algorithms because we lack validated genome-wide information around small exon-level copy number variation.
 Based on the numerous CNVs detected across algorithms, we most likely have greater issues with specificity than sensitivity.
@@ -244,8 +254,11 @@ To maximize independence within the mcCNV algorithm, I would capture mothers, fa
 Cost constraints prohibit doing exome-wide digital PCR.
 I would select roughly 100 predicted variants, shared across multiple samples, and perform digital PCR on samples with and without the predicted variant.</p>
 
-
 </div>
+</div>
+
+
+
 </div>
             </section>
 
@@ -253,7 +266,7 @@ I would select roughly 100 predicted variants, shared across multiple samples, a
         </div>
       </div>
 <a href="cfES.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-code.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
